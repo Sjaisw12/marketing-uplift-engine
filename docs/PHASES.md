@@ -15,7 +15,8 @@ No calendar or effort schedule applies.
 
 ## Phase 2 — acquisition
 - [ ] Download official archive at pinned revision.
-- [ ] Verify exact basename, byte count and SHA-256 before ingestion.
+- [x] Implement basename, byte-count and SHA-256 gates; fixture tests pass.
+- [ ] Verify the actual official archive before ingestion.
 - [ ] Persist provenance manifest without inventing unverified row counts.
 - [ ] Report evidence; receive approval.
 

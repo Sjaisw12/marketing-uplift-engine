@@ -7,9 +7,11 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 1 scaffold. No dataset has been downloaded, no partition has been created,
-and no model or effect has been estimated. Later commands deliberately return a
-nonzero exit status until their implementation phase is approved.
+Phase 2 acquisition is implemented. `make acquire` verifies the official compressed
+archive before writing `data/manifest.json`; a successful receipt distinguishes
+byte verification from pending row-count/schema validation. No partition, model,
+or effect has been created. Later-stage commands deliberately return a nonzero
+exit status until their implementation phase is approved.
 
 ## Setup and verification
 
@@ -32,7 +34,7 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | Command | Purpose | Implementation phase |
 | --- | --- | --- |
 | `make status` | Display protocol and honest scaffold status | 1, available |
-| `make acquire` | Download pinned gzip, verify bytes and SHA-256, write provenance | 2 |
+| `make acquire` | Download pinned gzip, verify bytes and SHA-256, write provenance | 2, available |
 | `make validate` | Data contract validation | 3 |
 | `uv run --locked uplift validate --full` | Expensive full-file contract stage | 3 |
 | `make ingest` | Audited typed Parquet | 3 |
@@ -42,8 +44,8 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6 |
 | `make reproduce` | Sequential rerun entry point, available after implementation | 2–6 |
 
-`make reproduce` currently stops at the unimplemented acquisition gate. It will
-never authorize a final holdout evaluation. Reruns must reuse frozen split files.
+`make reproduce` currently acquires/verifies the archive and then stops at the
+unimplemented contract-validation gate. It will never authorize a final holdout evaluation. Reruns must reuse frozen split files.
 Work proceeds by completed checklist and explicit phase approval, without calendar
 scheduling or effort estimates. See [phase checklists](docs/PHASES.md).
 
@@ -73,6 +75,29 @@ The full-data CI job is disabled until acquisition and contract validation exist
 After Phase 3, enable the repository variable `FULL_DATA_VALIDATION_ENABLED=true`
 and dispatch the workflow. It caches archive bytes by expected digest and reruns
 verification; cheap checks run on every PR without downloading data.
+
+## Acquisition and verification
+
+```sh
+make acquire
+```
+
+This uses `huggingface_hub.hf_hub_download` with the immutable revision and official
+endpoint, no API token, and a temporary staging directory inside `data/raw/`.
+It verifies basename, exact compressed byte count and SHA-256 before atomic
+promotion. The final archive is read-only. Cached archives are reverified on every
+invocation; mismatches stop the command without replacing the archive or receipt.
+No observations are decompressed or analyzed during acquisition.
+
+`data/manifest.json` records source URL, revision, digest, bytes, license, citation,
+UTC acquisition/verification timestamps and expected row count. Actual `row_count`
+is null and `schema_validated` is false until Phase 3. For an existing local archive
+without a receipt, acquisition time is unknown rather than inferred. A receipt is
+historical evidence; downstream ingestion must independently reverify the bytes.
+
+Restricted environments must allow `huggingface.co` and storage hosts reached by
+its redirects. A blocked download fails without publishing an archive or receipt.
+Do not substitute an unofficial mirror to bypass the source lock or network policy.
 
 ## Data source, attribution, and rights
 

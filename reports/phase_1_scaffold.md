@@ -1,6 +1,6 @@
 # Phase 1 completion evidence
 
-Status: content approved by user; remote publication and CI verification in progress.
+Status: content approved by user, pushed, and verified by remote CI.
 
 ## What changed and why
 
@@ -42,3 +42,12 @@ The GitHub Actions workflow has been configured, but has not been executed on
 GitHub. Local verification used Python 3.12; the CI matrix also covers Python 3.11.
 Full-data contract validation and per-export leakage gates remain Phase 3 work;
 Phase 1 tests check declared configuration and command safety only.
+
+## Remote verification
+
+Phase 1 commit: cad9e4fd2261316b42ba064215f9b7c8ffcecacf.
+Branch: codex/phase-1-scaffold.
+[PR #1](https://github.com/Sjaisw12/marketing-uplift-engine/pull/1).
+[PR CI](https://github.com/Sjaisw12/marketing-uplift-engine/actions/runs/38702945890)
+completed successfully. The push workflow also passed Python 3.11 and 3.12 jobs;
+full-data validation was intentionally skipped.

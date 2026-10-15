@@ -31,7 +31,7 @@ def test_status_is_explicit_about_scaffold_and_does_not_write(tmp_path, monkeypa
     monkeypatch.chdir(tmp_path)
     assert main(["--config", str(CONFIG), "status"]) == 0
     output = json.loads(capsys.readouterr().out)
-    assert "no data acquired or validated" in output["implementation"]
+    assert "data contract not yet validated" in output["implementation"]
     assert output["tracking_uri"] == (tmp_path / "mlruns").as_uri()
     assert list(tmp_path.iterdir()) == []
 
@@ -50,4 +50,4 @@ def test_missing_configuration_fails_cleanly(tmp_path, capsys):
     with pytest.raises(SystemExit) as error:
         main(["--config", str(tmp_path / "missing.toml"), "status"])
     assert error.value.code == 2
-    assert "Cannot read project configuration" in capsys.readouterr().err
+    assert "Command failed" in capsys.readouterr().err

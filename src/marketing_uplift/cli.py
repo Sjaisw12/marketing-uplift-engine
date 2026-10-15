@@ -5,8 +5,9 @@ import json
 import tomllib
 from pathlib import Path
 
+from marketing_uplift.acquisition import AcquisitionError, acquire
+
 STAGES = {
-    "acquire": (2, "Download the pinned archive and verify SHA-256"),
     "validate": (3, "Validate the raw data contract; --full includes expensive checks"),
     "ingest": (3, "Convert the verified archive to audited typed Parquet"),
     "split": (3, "Seal holdout once and freeze development memberships"),
@@ -21,6 +22,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--config", type=Path, default=Path("configs/project.toml"))
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("status", help="Show declared protocol and implementation status")
+    commands.add_parser("acquire", help="Download the pinned archive and verify compressed bytes")
     for name, (_, help_text) in STAGES.items():
         command = commands.add_parser(name, help=help_text)
         if name == "validate":
@@ -32,8 +34,12 @@ def main(argv: list[str] | None = None) -> int:
     try:
         with args.config.open("rb") as stream:
             config = tomllib.load(stream)
+        if args.command == "acquire":
+            print(json.dumps(acquire(config, Path.cwd()), indent=2))
+            return 0
         summary = {
-            "implementation": "Phase 1 scaffold; no data acquired or validated",
+            "implementation": "Phase 2 acquisition available; data contract not yet validated",
+            "available_stages": ["acquire"],
             "dataset": config["data"]["filename"],
             "revision": config["data"]["revision"],
             "outcome": config["experiment"]["outcome"],
@@ -42,7 +48,7 @@ def main(argv: list[str] | None = None) -> int:
             "tracking_uri": Path(config["tracking"]["directory"]).resolve().as_uri(),
             "reserved_stages": list(STAGES),
         }
-    except (OSError, tomllib.TOMLDecodeError, KeyError, TypeError) as error:
-        parser.exit(2, f"Cannot read project configuration: {error}\n")
+    except (OSError, tomllib.TOMLDecodeError, KeyError, TypeError, AcquisitionError) as error:
+        parser.exit(2, f"Command failed: {error}\n")
     print(json.dumps(summary, indent=2))
     return 0
