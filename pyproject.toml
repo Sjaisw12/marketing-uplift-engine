@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marketing-uplift-engine"
+version = "0.1.0"
+description = "Reproducible offline assignment-level marketing uplift analysis"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "MIT"
+dependencies = [
+  "duckdb==1.4.1",
+  "polars==1.34.0",
+  "pyarrow==21.0.0",
+  "numpy==2.2.6",
+  "pandas==2.3.3",
+  "scipy==1.16.2",
+  "lightgbm==4.6.0",
+  "scikit-learn==1.7.2",
+  "scikit-uplift==0.5.1",
+  "mlflow==3.5.0",
+  "streamlit==1.50.0",
+  "huggingface-hub==0.35.3",
+]
+
+[project.scripts]
+uplift = "marketing_uplift.cli:main"
+
+[dependency-groups]
+dev = ["pytest==8.4.2", "ruff==0.14.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = ["full_data: expensive integration checks against the verified official archive"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.uv]
+required-version = "==0.12.23"

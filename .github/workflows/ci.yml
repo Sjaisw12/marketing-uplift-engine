@@ -1,0 +1,44 @@
+name: Checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cheap-checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    env:
+      UV_PYTHON: ${{ matrix.python }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+          enable-cache: true
+      - run: uv python install ${{ matrix.python }}
+      - run: uv sync --locked --python ${{ matrix.python }}
+      - run: make check
+      - run: make status
+  # Enable only after Phases 2/3 implement acquisition and real full-data gates.
+  # No empty or skipped test suite is reported as dataset validation.
+  full-data-validation:
+    if: github.event_name == 'workflow_dispatch' && vars.FULL_DATA_VALIDATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+          enable-cache: true
+      - run: uv sync --locked
+      - uses: actions/cache@v4
+        with:
+          path: data/raw/criteo-research-uplift-v2.1.csv.gz
+          key: criteo-v2.1-2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc
+      # Only archive bytes are cached; validation must execute on restored bytes.
+      - run: make acquire
+      - run: uv run --locked uplift validate --full

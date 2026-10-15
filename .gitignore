@@ -218,3 +218,32 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data and experiment outputs
+/data/*
+!/data/raw/
+!/data/processed/
+!/data/manifest.json
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/mlruns/
+/mlartifacts/
+/artifacts/*
+!/artifacts/.gitkeep
+!/artifacts/splits.json
+# Row-level membership files are local; hashes and definitions belong in splits.json.
+/reports/*.parquet
+/reports/*.csv
+/reports/*.jsonl
+
+# Protect row-level data and serialized estimators wherever generated.
+*.csv.gz
+*.parquet
+*.arrow
+*.feather
+*.joblib
+*.pkl
+*.npy
+*.npz

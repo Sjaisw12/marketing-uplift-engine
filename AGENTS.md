@@ -35,3 +35,11 @@ MLflow, Streamlit, pytest, GitHub Actions.
   data committed (link to the official download instead).
 - Maintain INTERVIEW.md: after each phase, append an interview-ready explanation
   plus the 2 toughest follow-up questions an interviewer could ask about it.
+
+## Approved execution protocol
+- Use phase checklists only: no time estimates, hour budgets, or day-part scheduling.
+- Preserve the approval gate before each implementation phase.
+- Use joint treatment × visit stratification: a 15% sealed holdout, then five
+  fixed-seed 80/20 train/validation re-splits within development. Record actual
+  seeds and membership hashes in artifacts/splits.json when partitions exist.
+- Use local file-based MLflow tracking in mlruns/ (gitignored).
