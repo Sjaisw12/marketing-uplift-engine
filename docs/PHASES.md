@@ -79,10 +79,10 @@ sealed holdout, build Streamlit or authorize Phase 9.
 ## Phase 9 — final policy lock and separately gated holdout evaluation
 ### Stage A — authorized preparation only
 - [x] User approves Stage A scope; Stage B remains unapproved.
-- [ ] Freeze primary abstention, diagnostics, nine refit recipes and evaluation protocol.
-- [ ] Pass synthetic estimators, 765-family, stratified covariance and leakage/gate tests.
-- [ ] Fit and verify nine development-only models; preserve prior artifacts.
-- [ ] Publish exact policy/code/model/data/dependency lock and Stage A review evidence.
+- [x] Freeze primary abstention, diagnostics, nine refit recipes and evaluation protocol.
+- [x] Pass synthetic estimators, 765-family, stratified covariance and leakage/gate tests.
+- [x] Fit and verify nine development-only models; preserve prior artifacts.
+- [x] Publish exact policy/code/model/data/dependency lock and Stage A review evidence.
 - [ ] User reviews Stage A completion and lock.
 
 ### Stage B — NOT authorized and disabled

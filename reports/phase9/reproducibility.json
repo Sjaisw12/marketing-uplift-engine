@@ -1,0 +1,11 @@
+{
+  "byte_identical_verified_resume": true,
+  "report_and_preparation_manifest_sha256": {
+    "reports/phase9/stage_a.json": "c02d20a78b47dc41f877a1827c5e9286a558f973733b80f88d723c3f54eb5bf5",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/model-manifest.json": "7c572c612e666c27594298d99671112ec7a06b8d400b7b15b8424e65d5cdd596"
+  },
+  "original_nine_model_bytes_preserved": true,
+  "no_new_fits_on_resume": true,
+  "no_holdout_access": true,
+  "final_lock_sha256": "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93"
+}

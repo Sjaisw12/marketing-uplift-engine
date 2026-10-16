@@ -36,6 +36,8 @@ jobs:
       - run: uv sync --locked --python ${{ matrix.python }}
       - run: make check
       - run: make status
+      - name: Verify Stage A public lock without data or models
+        run: uv run --locked uplift final-prepare --verify-public-lock
   # Explicit manual dispatch runs the real full-file and frozen-split gates.
   full-data-validation:
     if: github.event_name == 'workflow_dispatch'

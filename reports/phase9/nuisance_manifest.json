@@ -1,0 +1,252 @@
+{
+  "folds_sha256": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+  "algorithm": "PCG64 permutation of sorted development positions; round-robin modulo3",
+  "seed": 9000002,
+  "fold_rows": [
+    3960885,
+    3960884,
+    3960884
+  ],
+  "jobs": [
+    {
+      "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+      "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+      "membership": {
+        "path": "artifacts/memberships/development.npy",
+        "rows": 11882653,
+        "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "cache": {
+        "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+        "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+        "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+        "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+        "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+      },
+      "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+      "name": "nuisance-0-0",
+      "arm": 0,
+      "excluded_fold": 0,
+      "seed": 9000100,
+      "fit_rows": 1188415,
+      "fit_visits": 45582,
+      "fit_mask_sha256": "b297fbf48f3e5718925c8c9db90b459f1f423108393884321ac431a034951a8c",
+      "fit_ids_sha256": "92e80decd868f705eb63eba46ad3964e2d1c679e47cd4ec22e9f377929a1baad",
+      "features": [
+        "f0",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11"
+      ]
+    },
+    {
+      "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+      "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+      "membership": {
+        "path": "artifacts/memberships/development.npy",
+        "rows": 11882653,
+        "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "cache": {
+        "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+        "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+        "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+        "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+        "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+      },
+      "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+      "name": "nuisance-0-1",
+      "arm": 1,
+      "excluded_fold": 0,
+      "seed": 9000101,
+      "fit_rows": 6733353,
+      "fit_visits": 327131,
+      "fit_mask_sha256": "766688bf21155df2119932bc7327a3289b99ed60258dd0f9b39cc8bff16b949b",
+      "fit_ids_sha256": "7de26814d952363e5b77a50c0877c34a118cf7eca33878ed343a7e9c3a48f9a4",
+      "features": [
+        "f0",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11"
+      ]
+    },
+    {
+      "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+      "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+      "membership": {
+        "path": "artifacts/memberships/development.npy",
+        "rows": 11882653,
+        "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "cache": {
+        "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+        "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+        "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+        "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+        "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+      },
+      "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+      "name": "nuisance-1-0",
+      "arm": 0,
+      "excluded_fold": 1,
+      "seed": 9000110,
+      "fit_rows": 1187868,
+      "fit_visits": 45239,
+      "fit_mask_sha256": "6b82a67d860259433d2cfa6451ac16a9d098669c1cc8969595d490ea6b321953",
+      "fit_ids_sha256": "00f0477db8f15f9d57cee62cf0a3e96746103ce8f5bc4a6abe1bf1a239f846a0",
+      "features": [
+        "f0",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11"
+      ]
+    },
+    {
+      "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+      "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+      "membership": {
+        "path": "artifacts/memberships/development.npy",
+        "rows": 11882653,
+        "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "cache": {
+        "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+        "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+        "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+        "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+        "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+      },
+      "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+      "name": "nuisance-1-1",
+      "arm": 1,
+      "excluded_fold": 1,
+      "seed": 9000111,
+      "fit_rows": 6733901,
+      "fit_visits": 326588,
+      "fit_mask_sha256": "25ee0e0325c0dadcbd1ce76a96ff64655f310010d19cacecdab7197b4ab85c56",
+      "fit_ids_sha256": "1084990e745db62796f5d0848d2f66d549b5d4ea893d93db5778921d163d5ab7",
+      "features": [
+        "f0",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11"
+      ]
+    },
+    {
+      "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+      "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+      "membership": {
+        "path": "artifacts/memberships/development.npy",
+        "rows": 11882653,
+        "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "cache": {
+        "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+        "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+        "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+        "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+        "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+      },
+      "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+      "name": "nuisance-2-0",
+      "arm": 0,
+      "excluded_fold": 2,
+      "seed": 9000120,
+      "fit_rows": 1188509,
+      "fit_visits": 45357,
+      "fit_mask_sha256": "f8c4753d08d99d6a66dfd85b1a328b32acdefcc656e027e6c21d0af7ba3c46f3",
+      "fit_ids_sha256": "c1b2f16ac4d8447bd7e29f709fc3dcb6a4d83affda43ce7f7d6ba2154d7fcbae",
+      "features": [
+        "f0",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11"
+      ]
+    },
+    {
+      "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+      "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+      "membership": {
+        "path": "artifacts/memberships/development.npy",
+        "rows": 11882653,
+        "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "cache": {
+        "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+        "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+        "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+        "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+        "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+      },
+      "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+      "name": "nuisance-2-1",
+      "arm": 1,
+      "excluded_fold": 2,
+      "seed": 9000121,
+      "fit_rows": 6733260,
+      "fit_visits": 326883,
+      "fit_mask_sha256": "4170d153a8f20ddb27102a53cba889dda45a537e3607dc4712e2c4d4b8083111",
+      "fit_ids_sha256": "f36fbb80acb8dea9acd0c209512b083160c8b365c09364ad83b118716c1c9842",
+      "features": [
+        "f0",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10",
+        "f11"
+      ]
+    }
+  ]
+}

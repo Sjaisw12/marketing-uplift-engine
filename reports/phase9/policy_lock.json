@@ -1,0 +1,322 @@
+{
+  "lock_sha256": "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93",
+  "payload": {
+    "schema": "stage-a-final-policy-lock/v1",
+    "protocol_sha256": "6cc04a9aa8d9c15ebff20402978921a4010af850e704e5cb8b20aed46189d1fc",
+    "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+    "provenance": {
+      "protocol_sha256": "6cc04a9aa8d9c15ebff20402978921a4010af850e704e5cb8b20aed46189d1fc",
+      "files": {
+        "configs/phase9.toml": "3a2e6183f0bbc0f627495b8169bc33645a285d2bbd27c60823d2de78bde46736",
+        "src/marketing_uplift/__init__.py": "bc81054d1df0d7f811596e26d06305fbe4da2173c0e61b2f8ef5b19f3bcebd53",
+        "src/marketing_uplift/__main__.py": "c50a698612577382e28faf166f6745468fa3d2fa0c370e7ec05e8852943e7bff",
+        "src/marketing_uplift/acquisition.py": "e63172580a193275292d1e8832140f43ea46507d5f24af37685c7476f7cb1bb4",
+        "src/marketing_uplift/advanced.py": "f458c8c7b0f5f9461154058e77cd910e47a9785763baf36422086b894449e64e",
+        "src/marketing_uplift/advanced_reports.py": "bdeb9ce25e8caf9a276e1bf4752839cca15eeef75a3a06c70d2b284aa2b565d5",
+        "src/marketing_uplift/baseline_reports.py": "a2a21ed427657e3ae349d13d0d51df0ed3ff7c13def8c2fd9c40d5af30b2fd6d",
+        "src/marketing_uplift/baselines.py": "a90bf3930f0192a7ed336ef3ca130d92c7963720df94d2830e756b05a547bbe9",
+        "src/marketing_uplift/cli.py": "6beac5b470a619ab57b9966e9c44b6ca34503bba0c1c482a1a34e6dc3b7ee99d",
+        "src/marketing_uplift/data_audit.py": "0a7ba911644ffb583972267108a7eb8b8b19f00062efb718d454d7a7af7cd8de",
+        "src/marketing_uplift/data_contract.py": "a2070e1331949f8840b248efafc2bb52cbdaf1a139a111f840d26a6178c22e6c",
+        "src/marketing_uplift/decision_engine.py": "9078c0c51c7c0554a85b86aacb75d5ef28af6081dd735208a9853c1aee41dea0",
+        "src/marketing_uplift/decision_metrics.py": "6f6460328bc0f829c81f5e4bec587379631f0e24c8354e4d3de2cce0da2bdb5f",
+        "src/marketing_uplift/decision_reports.py": "c13e3ff87ce94deecbb3bfcd574c2710b1a95df1824b1494e68917db68d4db90",
+        "src/marketing_uplift/decision_verification.py": "7581a4b8610fdeaa7bbcc0fa262ea835c53c6c7a4cd04d11b3af4f55686df926",
+        "src/marketing_uplift/decisions.py": "d8f0aa91904e522df54e4db623e4eaae6bba69816043c1d165a2fee9465427c1",
+        "src/marketing_uplift/development_ate.py": "bff7104f658ea2ad22ed6dd83c41ee3048fe05487b87547c0102d4d26a55e5b8",
+        "src/marketing_uplift/features.py": "1ec33f0f4d7f286760bcf8819fec5a9f387d68e49f3fb681d8eff41b4fb54360",
+        "src/marketing_uplift/final_access.py": "46de8d637fb3d19d00b66ef7d0b7612bfbda7a1f23c77e0d6383270f841ab4b4",
+        "src/marketing_uplift/final_fit_worker.py": "e79bc31c80d93696d3e4d849623887abe1bed6799ede68227eb69cc0380a9625",
+        "src/marketing_uplift/final_metrics.py": "986b3a2f4304531ec6885117543e55696f2523b0644f3c2c2f4742d4a9e71246",
+        "src/marketing_uplift/final_stage_a.py": "5a78140b7618106c8ecbe0b83d48dd01e63d27f444fbe2dab01a5b23aed9b19b",
+        "src/marketing_uplift/final_verification.py": "d6d35417590db80977ad5c5599cc4ac48cf17ec790ecdd5ec71de9494d399e58",
+        "src/marketing_uplift/ingestion.py": "9dcb395743f0840d00e27dd84037a1f66b735bcca6d35605d9ee52331eebab99",
+        "src/marketing_uplift/policy_metrics.py": "990b0c19cc6424e9566d5fc4142249385f56f26a566b31fca37fbc59ce5740c9",
+        "src/marketing_uplift/robust_metrics.py": "2c0f2a34b3ff9c5bdb7416dc41a90a61d7f545823d653d207a6e2f10282ea819",
+        "src/marketing_uplift/splits.py": "8fac77e00e3853ea0a3175fccd02bb6ce26409d435a762413e16c1e46b26679f",
+        "configs/baselines.toml": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+        "configs/phase7.toml": "3dcaa463ab4cb17ab58072f4fc02609103f63c1f46cfa4184d09d5d913288479",
+        "configs/phase8.toml": "7e61725c04b0e975eeb592f8f97695f31960618d25fef3b2de2e462b7ac309fd",
+        "configs/project.toml": "f2b806fc119c147d6a9f62e70024125bebb6d700f112411988c4c9311b8a31aa",
+        "docs/PHASE6_PROTOCOL.md": "b41f2ab87ae67b3e1f6dc431dad73ac88b5403fd4e18eb1346bae3159a2631d3",
+        "docs/PHASE7_PROTOCOL.md": "50611145c5fc794e8c5de7f1b7371bb00e58ec235818418fb4b89b91e9c60def",
+        "docs/PHASE8_PROTOCOL.md": "0a997919ef831604d0dd9ce64a9ffffeba3df465405dafcfbbdbf2460dbd414b",
+        "docs/PHASE9_STAGE_A_PROTOCOL.md": "4091880181b776cb84439e394de194eb3898401841cf87621621fe58b69c1334",
+        ".github/workflows/stage-a.yml": "f524631cfa79f4a2c3a27219687b2c8efcf8088bc3892f72c4d3643dcbf88427",
+        ".github/workflows/stage-b-disabled.yml": "56599ec5393565b790db6e289202aea588b23a1817573a9d2a60a43e2fa439d4",
+        "uv.lock": "d6792364b0ecafe640931f6df1edbf7154f96fa79578651e4f0bdc1d584b9916",
+        "pyproject.toml": "7e2f60de7626101af17e5725ca61203d2fb0f5ad34e2232033adbc8adb018ddf",
+        "artifacts/splits.json": "ab5350f8f17848680ef804311b3680c7dd3d8cf02bc2d5e8967d2dfda0d8937d",
+        "data/manifest.json": "09b2ddf7a5a2c185353f260ff47066839998ef558f453e7def66cab0f4064d84",
+        "reports/phase_8_metrics.json": "b96079c06cfe1c227c38341b6f1eb60a608ad3cd146e8784f5d8bbd46984834b",
+        "tests/test_final_access.py": "7d51a934ac065ecf1e3f95e4aedbfaf5b1d7d9fbf4b69644401e420700e2eeed",
+        "tests/test_final_lock_portable.py": "dc1cc43422e1dabd4615154cb2f1c6c1964c1b08cc760f6ecebdf95c4795c626",
+        "tests/test_final_models.py": "a8aa584701a930c7daa80af46401fb87b3c05ba69580ce88305bfca7c3ed0eea",
+        "tests/test_final_stage_a_full.py": "c7b1c02cdde61eccea6dd3662cf4c8c71307fc973dd9b527138e2c1501565613",
+        "tests/test_final_statistics.py": "df7ddda088ebf07a8ec5802b29701d86289693890486b6eb8c0c7d2b8cda954d"
+      },
+      "registry_sha256": "ab5350f8f17848680ef804311b3680c7dd3d8cf02bc2d5e8967d2dfda0d8937d",
+      "source": {
+        "repository": "criteo/criteo-uplift",
+        "filename": "criteo-research-uplift-v2.1.csv.gz",
+        "revision": "82811785048bb633de2d55c02bab4e57066e6423",
+        "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+        "size_bytes": 311422618
+      },
+      "development": {
+        "path": "artifacts/memberships/development.npy",
+        "rows": 11882653,
+        "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "holdout_membership_only": {
+        "path": "artifacts/memberships/holdout.npy",
+        "rows": 2096939,
+        "sha256": "829efe6744558783321c0dc3addfc60af6b9ba49f31368c89955dce6cdea39fe",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "versions": {
+        "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+        "numpy": "2.2.6",
+        "lightgbm": "4.6.0",
+        "pyarrow": "21.0.0",
+        "mlflow": "3.5.0"
+      },
+      "training_code_commit": "6456a9542e89b512684e48e9b83847f4d3de558f",
+      "training_protocol_sha256": "3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+      "preparation_record_sha256": "df94002c49546b9b7cf686da7547d0b0e8c3b55bfba63bdd10d79dd64f2b8dca",
+      "evaluation_lock_code_commit": "67756317d97e4353fdb6f18e620257902eee9dba"
+    },
+    "primary": {
+      "model": null,
+      "ranking": null,
+      "reach": 0,
+      "advertising_assignments": 0,
+      "hypothetical_spending": "0",
+      "incremental_gain_relative_to_no_targeting": 0,
+      "identity_not_statistical_evidence": true,
+      "claim_of_optimality": false,
+      "economics": [
+        {
+          "name": "zero_value",
+          "cost": "0.01",
+          "value": "0",
+          "budget_per_record": "0.005",
+          "maximum_reach": "0.5"
+        },
+        {
+          "name": "below_first_reach",
+          "cost": "0.01",
+          "value": "1",
+          "budget_per_record": "0.0005",
+          "maximum_reach": "0.5"
+        },
+        {
+          "name": "low_value",
+          "cost": "0.01",
+          "value": "0.25",
+          "budget_per_record": "0.005",
+          "maximum_reach": "0.5"
+        },
+        {
+          "name": "illustrative_reference",
+          "cost": "0.01",
+          "value": "1",
+          "budget_per_record": "0.005",
+          "maximum_reach": "0.5"
+        },
+        {
+          "name": "higher_value",
+          "cost": "0.01",
+          "value": "5",
+          "budget_per_record": "0.005",
+          "maximum_reach": "0.5"
+        },
+        {
+          "name": "limited_budget",
+          "cost": "0.01",
+          "value": "1",
+          "budget_per_record": "0.0025",
+          "maximum_reach": "0.5"
+        },
+        {
+          "name": "zero_cost",
+          "cost": "0",
+          "value": "1",
+          "budget_per_record": "0",
+          "maximum_reach": "0.5"
+        },
+        {
+          "name": "all_targeting_feasible",
+          "cost": "0.01",
+          "value": "1",
+          "budget_per_record": "0.01",
+          "maximum_reach": "1"
+        }
+      ],
+      "development_reason_codes": {
+        "104729": {
+          "zero_value": [
+            "zero_value"
+          ],
+          "below_first_reach": [
+            "no_feasible_positive_reach"
+          ],
+          "low_value": [
+            "assumption_sensitive",
+            "negative_estimated_net_benefit"
+          ],
+          "illustrative_reference": [
+            "assumption_sensitive"
+          ],
+          "higher_value": [
+            "assumption_sensitive"
+          ],
+          "limited_budget": [
+            "assumption_sensitive"
+          ],
+          "zero_cost": [
+            "assumption_sensitive"
+          ],
+          "all_targeting_feasible": [
+            "assumption_sensitive"
+          ]
+        },
+        "130363": {
+          "zero_value": [
+            "zero_value"
+          ],
+          "below_first_reach": [
+            "no_feasible_positive_reach"
+          ],
+          "low_value": [
+            "assumption_sensitive",
+            "negative_estimated_net_benefit"
+          ],
+          "illustrative_reference": [
+            "assumption_sensitive"
+          ],
+          "higher_value": [
+            "assumption_sensitive"
+          ],
+          "limited_budget": [
+            "assumption_sensitive"
+          ],
+          "zero_cost": [
+            "assumption_sensitive"
+          ],
+          "all_targeting_feasible": [
+            "assumption_sensitive"
+          ]
+        },
+        "155921": {
+          "zero_value": [
+            "zero_value"
+          ],
+          "below_first_reach": [
+            "no_feasible_positive_reach"
+          ],
+          "low_value": [
+            "assumption_sensitive",
+            "negative_estimated_net_benefit"
+          ],
+          "illustrative_reference": [
+            "assumption_sensitive"
+          ],
+          "higher_value": [
+            "assumption_sensitive"
+          ],
+          "limited_budget": [
+            "assumption_sensitive"
+          ],
+          "zero_cost": [
+            "assumption_sensitive"
+          ],
+          "all_targeting_feasible": [
+            "assumption_sensitive"
+          ]
+        },
+        "181081": {
+          "zero_value": [
+            "zero_value"
+          ],
+          "below_first_reach": [
+            "no_feasible_positive_reach"
+          ],
+          "low_value": [
+            "assumption_sensitive",
+            "negative_estimated_net_benefit"
+          ],
+          "illustrative_reference": [
+            "assumption_sensitive"
+          ],
+          "higher_value": [
+            "assumption_sensitive"
+          ],
+          "limited_budget": [
+            "assumption_sensitive"
+          ],
+          "zero_cost": [
+            "assumption_sensitive"
+          ],
+          "all_targeting_feasible": [
+            "assumption_sensitive"
+          ]
+        },
+        "206369": {
+          "zero_value": [
+            "zero_value"
+          ],
+          "below_first_reach": [
+            "no_feasible_positive_reach"
+          ],
+          "low_value": [
+            "assumption_sensitive",
+            "negative_estimated_net_benefit"
+          ],
+          "illustrative_reference": [
+            "assumption_sensitive"
+          ],
+          "higher_value": [
+            "assumption_sensitive"
+          ],
+          "limited_budget": [
+            "assumption_sensitive"
+          ],
+          "zero_cost": [
+            "assumption_sensitive"
+          ],
+          "all_targeting_feasible": [
+            "assumption_sensitive"
+          ]
+        }
+      }
+    },
+    "secondary": {
+      "rankings": [
+        "random",
+        "response",
+        "s_learner",
+        "t_learner"
+      ],
+      "reach": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5
+      ],
+      "anchors": [
+        "none",
+        "all"
+      ],
+      "never_replace_primary": true
+    },
+    "stage_a_approved": true,
+    "stage_b_authorized": false,
+    "stage_b_enabled": false,
+    "stage_b_blocker": "Stage B disabled: no verified separate approval bound to the exact lock/model manifest and no independently durable atomic create-once execution receipt service. Boolean flags, local files and environment variables cannot authorize holdout access.",
+    "protected_snapshot_sha256": "16972c8136be5c31691e160693940345898dabbe140041ac6739c2f48eab7ddc",
+    "preparation_lock_sha256": "5e000aff34d8f9695a014f22efe829d1001a2aaafa20db71e8262c44fc74f9a2"
+  }
+}
