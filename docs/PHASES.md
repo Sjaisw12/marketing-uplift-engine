@@ -14,9 +14,9 @@ No calendar or effort schedule applies.
 - [x] User approves completion.
 
 ## Phase 2 — acquisition
-- [ ] Download official archive at pinned revision.
-- [ ] Verify exact basename, byte count and SHA-256 before ingestion.
-- [ ] Persist provenance manifest without inventing unverified row counts.
+- [x] Download official archive at pinned revision.
+- [x] Verify exact basename, byte count and SHA-256 before ingestion.
+- [x] Persist provenance manifest without inventing unverified row counts.
 - [ ] Report evidence; receive approval.
 
 ## Phase 3 — contract, ingestion, partitions

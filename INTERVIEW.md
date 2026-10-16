@@ -20,3 +20,30 @@ It fixes Python package resolution and distribution hashes, but not hardware,
 native runtimes, data identity, randomization or every model operation. We also
 need checksum verification, recorded runtime and code versions, split artifacts,
 training seeds and tested procedures. Those gates are added phase by phase.
+
+## Phase 2 — verified dataset acquisition
+
+I made acquisition reproducible by using a full repository commit and the exact
+corrected v2.1 filename. The command streams compressed bytes to a temporary file,
+then measures its actual size and calculates SHA-256 from disk. Only a matching
+file becomes the published raw archive. An interrupted or corrupt download fails
+without publishing it. Repeat runs verify the local file again without another
+network download. The small provenance manifest can be reviewed in Git while the
+311 MB archive stays outside Git. The manifest explicitly separates expected rows
+from observed rows: acquisition has not parsed or counted any records.
+
+**Does a matching SHA-256 prove that the data is valid for causal inference?**
+No. It binds our local bytes to the reviewed reference digest, assuming that
+reference is trustworthy. It does not validate schema, row count, randomized
+assignment, missingness, or causal identification. Those require later, separately
+approved checks. A file-size check catches truncation cheaply but cannot detect
+same-size corruption; SHA-256 provides that second check.
+
+**How do you preserve reproducibility when cloud workspaces can disappear or a
+transfer is interrupted?**
+The pinned source identity and digest are versioned, so a fresh workspace can
+reacquire exactly the same bytes. Partial files are never promoted to the final
+archive; a rerun starts a fresh download. Existing archives are rehashed before
+reuse. A manifest records the last successful verification, not guaranteed current
+file availability or permanent storage. Durable caching would be a separate
+storage decision, and every restored archive must still pass verification.

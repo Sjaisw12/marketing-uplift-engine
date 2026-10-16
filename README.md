@@ -7,9 +7,10 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 1 scaffold. No dataset has been downloaded, no partition has been created,
-and no model or effect has been estimated. Later commands deliberately return a
-nonzero exit status until their implementation phase is approved.
+Phase 2 implements acquisition of the pinned compressed archive, with exact byte
+count and SHA-256 verification. No rows have been validated, no partition has
+been created, and no model or effect has been estimated. Later commands return
+a nonzero exit status until their implementation phase is approved.
 
 ## Setup and verification
 
@@ -32,7 +33,7 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | Command | Purpose | Implementation phase |
 | --- | --- | --- |
 | `make status` | Display protocol and honest scaffold status | 1, available |
-| `make acquire` | Download pinned gzip, verify bytes and SHA-256, write provenance | 2 |
+| `make acquire` | Download pinned gzip, verify bytes and SHA-256, write provenance | 2, available |
 | `make validate` | Data contract validation | 3 |
 | `uv run --locked uplift validate --full` | Expensive full-file contract stage | 3 |
 | `make ingest` | Audited typed Parquet | 3 |
@@ -42,7 +43,7 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6 |
 | `make reproduce` | Sequential rerun entry point, available after implementation | 2–6 |
 
-`make reproduce` currently stops at the unimplemented acquisition gate. It will
+`make reproduce` currently stops at the unimplemented validation gate. It will
 never authorize a final holdout evaluation. Reruns must reuse frozen split files.
 Work proceeds by completed checklist and explicit phase approval, without calendar
 scheduling or effort estimates. See [phase checklists](docs/PHASES.md).
@@ -73,6 +74,29 @@ The full-data CI job is disabled until acquisition and contract validation exist
 After Phase 3, enable the repository variable `FULL_DATA_VALIDATION_ENABLED=true`
 and dispatch the workflow. It caches archive bytes by expected digest and reruns
 verification; cheap checks run on every PR without downloading data.
+
+## Acquisition and cloud storage
+
+Run `make acquire` with network access enabled. It uses the inherited HTTPS proxy
+and normal TLS verification, downloads the pinned revision to a unique temporary
+file in `data/raw/`, and verifies actual on-disk byte count and SHA-256 before
+atomically publishing the archive. A failed or incomplete download is removed;
+no automatic retry, resume, or source substitution occurs. An existing archive is
+always rehashed; a corrupt existing file fails and requires explicit intervention.
+The command checks available disk space before a new download.
+
+`data/manifest.json` records the last successful compressed-byte verification,
+source revision, canonical URL, expected and observed size/digest, UTC verification
+time, and destination hosts for downloads. Signed redirect URLs are never saved.
+Expected rows are 13,979,592; observed rows remain `null` until Phase 3. The
+manifest is historical provenance, not a live guarantee that local bytes have
+not subsequently changed. Run `make acquire` to verify them again.
+
+Raw data and partial files are Git-ignored. A fresh Codex Cloud task/environment
+must not assume these local files persist: Git carries code and the small manifest,
+not the archive. Reacquire and verify bytes in a new workspace. Durable external
+storage or a cache would need a separate, approved arrangement. No external
+archive storage has been configured by this phase.
 
 ## Data source, attribution, and rights
 

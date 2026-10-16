@@ -17,7 +17,7 @@ status:
 acquire validate ingest split audit ate baselines:
 	$(UV) run --locked uplift $@
 
-# This command fails at acquisition until Phase 2 is implemented and approved.
+# This command stops at validation until Phase 3 is implemented and approved.
 # Later stages must reuse sealed memberships; never regenerate them on a rerun.
 reproduce:
 	$(UV) run --locked uplift acquire
