@@ -7,10 +7,11 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 2 implements acquisition of the pinned compressed archive, with exact byte
-count and SHA-256 verification. No rows have been validated, no partition has
-been created, and no model or effect has been estimated. Later commands return
-a nonzero exit status until their implementation phase is approved.
+Phase 3 implements full-file contract validation, audited typed Parquet, a sealed
+15% holdout, and five frozen development train/validation splits. Execution evidence
+lives in `reports/validation.json`, `reports/ingestion.json`,
+`reports/split_reconstruction.json`, and `artifacts/splits.json`. No exploratory
+analysis, treatment effects, or models have been run. Later stages remain gated.
 
 ## Setup and verification
 
@@ -32,18 +33,18 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 
 | Command | Purpose | Implementation phase |
 | --- | --- | --- |
-| `make status` | Display protocol and honest scaffold status | 1, available |
+| `make status` | Display protocol and available commands | 1, available |
 | `make acquire` | Download pinned gzip, verify bytes and SHA-256, write provenance | 2, available |
-| `make validate` | Data contract validation | 3 |
-| `uv run --locked uplift validate --full` | Expensive full-file contract stage | 3 |
-| `make ingest` | Audited typed Parquet | 3 |
-| `make split` | Seal final holdout once and freeze five development re-splits | 3 |
+| `make validate` | Data contract validation | 3, available |
+| `uv run --locked uplift validate --full` | Expensive full-file contract stage | 3, available |
+| `make ingest` | Audited typed Parquet | 3, available |
+| `make split` | Seal final holdout once and freeze five development re-splits | 3, available |
 | `make audit` | Development EDA | 4 |
 | `make ate` | Development ATE with 95% CI | 5 |
 | `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6 |
 | `make reproduce` | Sequential rerun entry point, available after implementation | 2–6 |
 
-`make reproduce` currently stops at the unimplemented validation gate. It will
+`make reproduce` currently stops at the unimplemented audit gate. It will
 never authorize a final holdout evaluation. Reruns must reuse frozen split files.
 Work proceeds by completed checklist and explicit phase approval, without calendar
 scheduling or effort estimates. See [phase checklists](docs/PHASES.md).
@@ -61,19 +62,20 @@ scheduling or effort estimates. See [phase checklists](docs/PHASES.md).
 
 The holdout is 15%, stratified jointly by treatment and visit, with seed 20261015.
 Within the remaining 85%, five 80/20 train/validation re-splits use fixed seeds
-104729, 130363, 155921, 181081, and 206369. These are **declarations only**;
-Phase 3 must record actual membership hashes and seeds in `artifacts/splits.json`.
-Never report a configuration file as evidence of frozen data partitions.
+104729, 130363, 155921, 181081, and 206369. The executed registry in
+`artifacts/splits.json` records actual membership hashes and seeds; configuration
+alone remains insufficient evidence of frozen partitions.
 
 Features are exclusively `f0`–`f11`. Exposure is post-assignment. Treatment, visit,
 and conversion are excluded from exported `X`. The S-learner receives treatment
 separately as its intervention indicator, as required by the authoritative roadmap.
 The primary outcome is visit; conversion is reserved for V2.
 
-The full-data CI job is disabled until acquisition and contract validation exist.
-After Phase 3, enable the repository variable `FULL_DATA_VALIDATION_ENABLED=true`
-and dispatch the workflow. It caches archive bytes by expected digest and reruns
-verification; cheap checks run on every PR without downloading data.
+The full-data CI job is enabled on explicit manual workflow dispatch. It caches
+only archive bytes by expected digest, then runs full validation, ingestion,
+reconstruction of the committed split registry, and real full-data pytest checks.
+Only small verification reports are uploaded. Cheap fixture checks run on every
+PR without downloading data. A local run is not evidence of a remote CI run.
 
 ## Acquisition and cloud storage
 
@@ -88,8 +90,8 @@ The command checks available disk space before a new download.
 `data/manifest.json` records the last successful compressed-byte verification,
 source revision, canonical URL, expected and observed size/digest, UTC verification
 time, and destination hosts for downloads. Signed redirect URLs are never saved.
-Expected rows are 13,979,592; observed rows remain `null` until Phase 3. The
-manifest is historical provenance, not a live guarantee that local bytes have
+Expected rows are 13,979,592; acquisition leaves observed rows `null`. Measured
+rows are recorded separately by validation. The manifest is historical provenance, not a live guarantee that local bytes have
 not subsequently changed. Run `make acquire` to verify them again.
 
 Raw data and partial files are Git-ignored. A fresh Codex Cloud task/environment
@@ -97,6 +99,61 @@ must not assume these local files persist: Git carries code and the small manife
 not the archive. Reacquire and verify bytes in a new workspace. Durable external
 storage or a cache would need a separate, approved arrangement. No external
 archive storage has been configured by this phase.
+
+## Phase 3: validation, ingestion, and frozen memberships
+
+Run `make validate`, then `make ingest`, then `make split`. `make validate` performs
+full-file validation; direct `uplift validate` requires `--full` so a sampled scan
+cannot be reported as a complete contract pass. Rerun the fast checks with
+`make check`; run full-data integration checks with
+`UV_CACHE_DIR=.cache/uv uv run --locked pytest -m full_data` after the artifacts exist.
+
+Validation independently counts strict CSV records and field widths, checks the
+exact 16-column schema, row count, finite numeric features, exact binary values,
+and configured treatment/visit reference bands. Failures produce small diagnostic
+artifacts under `reports/contract_failures/` and stop. No raw records are printed.
+Numeric conversion is explicitly finite float64 parsing for f0-f11 and exact 0/1
+integer parsing for the four indicators; no tolerant casts enter the final data.
+There is no imputation, filtering, or deduplication.
+
+Source identity is a zero-based CSV data-record ordinal, **not a user ID**. A
+single-threaded, order-preserving scan assigns it once. A canonical SHA-256 hashes
+every row ID and every typed value in source order. The Parquet mapping must match
+that source hash; identifiers alone or row counts alone are insufficient evidence.
+Typed staging retains exposure and outcomes, while `select_features` exports only
+f0-f11 and asserts the feature boundary. `development_relation` provides the default
+analysis access path and excludes the holdout using verified frozen membership.
+The staged source still contains all records; sealing is a workflow boundary,
+not operating-system access control or encryption.
+
+`data/manifest.json` remains acquisition-only historical evidence. It deliberately
+keeps observed rows `null`. **Observed full-file rows and quality results are
+recorded separately in `reports/validation.json`**, bound to the source digest and
+contract signature. Acquisition reruns cannot erase this evidence. The ingestion
+report binds Parquet bytes to that validated source-row mapping. Historical reports
+must not substitute for checks of current local files.
+
+`uplift split --holdout-only` seals the holdout before development split creation;
+`make split` then freezes the five configured re-splits. The registry contains
+counts, seeds, algorithm/library versions, rounding rules, and membership hashes.
+Local sorted uint64 memberships are stored in ignored `artifacts/memberships/`.
+Existing registries are verified and never silently replaced. `uplift split --verify`
+checks local memberships without rewriting the registry. On a fresh workspace,
+reacquire, validate, ingest, then run `uplift split --reconstruct`: it checks every
+recomputed hash before restoring missing memberships and refuses to overwrite
+corrupt ones. Reconstruction leaves the frozen registry unchanged.
+
+Mechanical whole-file quality gates and label use for predeclared stratification
+are the only pre-sealing operations. There are no holdout-specific outcome tables,
+ATE estimates, exploratory balance/duplicate analyses, or policy evaluations in
+this phase. Those analytical commands remain gated; future EDA uses development
+records only. Seeds are not new experiments that permit repeated holdout selection.
+
+Resource limits are declared in configuration: one DuckDB thread, 2 GB query
+memory, a 6 GB spill ceiling, 65,536-row batches, and an 8 GiB free-disk preflight.
+Splitting uses only row identifiers and two binary labels in memory, one split at
+a time. The full cloud environment has an 8 GiB memory limit; raw and processed
+artifacts remain local and their persistence across tasks is not guaranteed.
 
 ## Data source, attribution, and rights
 

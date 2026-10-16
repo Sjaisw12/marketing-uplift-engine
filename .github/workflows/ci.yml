@@ -23,10 +23,9 @@ jobs:
       - run: uv sync --locked --python ${{ matrix.python }}
       - run: make check
       - run: make status
-  # Enable only after Phases 2/3 implement acquisition and real full-data gates.
-  # No empty or skipped test suite is reported as dataset validation.
+  # Explicit manual dispatch runs the real full-file and frozen-split gates.
   full-data-validation:
-    if: github.event_name == 'workflow_dispatch' && vars.FULL_DATA_VALIDATION_ENABLED == 'true'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -42,3 +41,13 @@ jobs:
       # Only archive bytes are cached; validation must execute on restored bytes.
       - run: make acquire
       - run: uv run --locked uplift validate --full
+      - run: make ingest
+      - run: uv run --locked uplift split --reconstruct
+      - run: uv run --locked pytest -m full_data
+      - uses: actions/upload-artifact@v4
+        with:
+          name: full-data-verification
+          path: |
+            reports/validation.json
+            reports/ingestion.json
+            reports/split_reconstruction.json

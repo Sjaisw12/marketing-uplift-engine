@@ -1,0 +1,133 @@
+{
+  "registry_version": 1,
+  "state": "complete",
+  "sealed_at_utc": "2026-10-16T02:10:49.956257+00:00",
+  "source": {
+    "repository": "criteo/criteo-uplift",
+    "filename": "criteo-research-uplift-v2.1.csv.gz",
+    "revision": "82811785048bb633de2d55c02bab4e57066e6423",
+    "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "size_bytes": 311422618
+  },
+  "contract_signature": "a8b6723de95a4d9815089d906a65e2d9ec35f996552cfd2dec0b45aa465807c7",
+  "row_mapping": {
+    "rows": 13979592,
+    "sha256": "26b03f2f2104349ce7693f2179b60b3804886677d42945a359aab196da5e4a8c",
+    "encoding": "row_id:<u8,f0-f11:<f8,flags:u1;packed;source-order;v1"
+  },
+  "rows": 13979592,
+  "protocol": {
+    "holdout_fraction": 0.15,
+    "holdout_seed": 20261015,
+    "development_validation_fraction": 0.2,
+    "development_seeds": [
+      104729,
+      130363,
+      155921,
+      181081,
+      206369
+    ],
+    "stratify_by": [
+      "treatment",
+      "visit"
+    ]
+  },
+  "algorithm": "sklearn.train_test_split/stratify-treatment-x-visit/sorted-u64le/v1",
+  "sklearn_version": "1.7.2",
+  "numpy_version": "2.2.6",
+  "duckdb_version": "1.4.1",
+  "rounding": "ceil(n * fraction), stratified allocation via sklearn",
+  "memberships": {
+    "development": {
+      "path": "artifacts/memberships/development.npy",
+      "rows": 11882653,
+      "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+      "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+    },
+    "holdout": {
+      "path": "artifacts/memberships/holdout.npy",
+      "rows": 2096939,
+      "sha256": "829efe6744558783321c0dc3addfc60af6b9ba49f31368c89955dce6cdea39fe",
+      "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+    }
+  },
+  "development_splits": [
+    {
+      "seed": 104729,
+      "train": {
+        "path": "artifacts/memberships/train-104729.npy",
+        "rows": 9506122,
+        "sha256": "2a81590b60b4f8d51634859e4d6ae07634e040e50d2a3780512b276961c57d43",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "validation": {
+        "path": "artifacts/memberships/validation-104729.npy",
+        "rows": 2376531,
+        "sha256": "b38ee4ef17b9c35eb0a909ebc05e1291500e18d3a4ff951cdbae6dbc71651977",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      }
+    },
+    {
+      "seed": 130363,
+      "train": {
+        "path": "artifacts/memberships/train-130363.npy",
+        "rows": 9506122,
+        "sha256": "830cb90c12ee03643adf38226652e050b78649c248131aa84f1492e2759f66d4",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "validation": {
+        "path": "artifacts/memberships/validation-130363.npy",
+        "rows": 2376531,
+        "sha256": "937e8b2ee91e2515353c5ee3270c82ac831b0d28375c157190087a922f4ec6a2",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      }
+    },
+    {
+      "seed": 155921,
+      "train": {
+        "path": "artifacts/memberships/train-155921.npy",
+        "rows": 9506122,
+        "sha256": "5204059bd672605012cfe4b638cb4db1bd90b31ca1cad4b3c7c000614fa4e436",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "validation": {
+        "path": "artifacts/memberships/validation-155921.npy",
+        "rows": 2376531,
+        "sha256": "b7991e9ef68cf44cc895db59ccb699cfa6745de7926ea47e9cbf1d66f7935321",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      }
+    },
+    {
+      "seed": 181081,
+      "train": {
+        "path": "artifacts/memberships/train-181081.npy",
+        "rows": 9506122,
+        "sha256": "b0425f263706525a2bc7c3b3f2e1bceb7ec228c56bdb84ec0ebefb428757d072",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "validation": {
+        "path": "artifacts/memberships/validation-181081.npy",
+        "rows": 2376531,
+        "sha256": "cb6184ef72a733567ae27b327fa733ef85b1b27bfffeb4a81dd6d4c24046b117",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      }
+    },
+    {
+      "seed": 206369,
+      "train": {
+        "path": "artifacts/memberships/train-206369.npy",
+        "rows": 9506122,
+        "sha256": "5dca6fd57c0a7c4c18efce77569a4237a63ea144b720c6ca17e4d36de66338d2",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      },
+      "validation": {
+        "path": "artifacts/memberships/validation-206369.npy",
+        "rows": 2376531,
+        "sha256": "71a5ce7aae3c55cb4f6ca65465060ed0a727abddaddf09fca64c79916ece3ae0",
+        "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+      }
+    }
+  ],
+  "holdout_outcome_analysis": "none; labels used for stratification only",
+  "development_frozen_at_utc": "2026-10-16T02:11:29.424431+00:00"
+}

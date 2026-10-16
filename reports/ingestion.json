@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "source": {
+    "repository": "criteo/criteo-uplift",
+    "filename": "criteo-research-uplift-v2.1.csv.gz",
+    "revision": "82811785048bb633de2d55c02bab4e57066e6423",
+    "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "size_bytes": 311422618
+  },
+  "contract_signature": "a8b6723de95a4d9815089d906a65e2d9ec35f996552cfd2dec0b45aa465807c7",
+  "verified_at_utc": "2026-10-16T02:08:43.374096+00:00",
+  "parquet_path": "data/processed/criteo-v2.1.parquet",
+  "parquet_size_bytes": 201099097,
+  "parquet_sha256": "3dd993a074f7346e71d8d99f5ba980990dbf98ec52dfbe3d7848174b04440bd0",
+  "row_mapping": {
+    "rows": 13979592,
+    "sha256": "26b03f2f2104349ce7693f2179b60b3804886677d42945a359aab196da5e4a8c",
+    "encoding": "row_id:<u8,f0-f11:<f8,flags:u1;packed;source-order;v1"
+  },
+  "columns": [
+    "row_id",
+    "f0",
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "treatment",
+    "visit",
+    "conversion",
+    "exposure"
+  ],
+  "rows_dropped": 0,
+  "rows_deduplicated": 0,
+  "values_imputed": 0,
+  "raw_to_parquet_mapping_verified": true
+}

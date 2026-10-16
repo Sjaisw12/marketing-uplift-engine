@@ -31,12 +31,14 @@ def test_status_is_explicit_about_scaffold_and_does_not_write(tmp_path, monkeypa
     monkeypatch.chdir(tmp_path)
     assert main(["--config", str(CONFIG), "status"]) == 0
     output = json.loads(capsys.readouterr().out)
-    assert "no rows validated or partitions created" in output["implementation"]
+    assert "status does not verify local artifacts" in output["implementation"]
     assert output["tracking_uri"] == (tmp_path / "mlruns").as_uri()
     assert list(tmp_path.iterdir()) == []
 
 
-@pytest.mark.parametrize("stage", [stage for stage in STAGES if stage != "acquire"])
+@pytest.mark.parametrize(
+    "stage", [stage for stage in STAGES if stage in {"audit", "ate", "baselines"}]
+)
 def test_unimplemented_stages_fail_without_side_effects(stage, tmp_path, monkeypatch, capsys):
     monkeypatch.chdir(tmp_path)
     with pytest.raises(SystemExit) as error:
