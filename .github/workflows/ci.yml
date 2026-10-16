@@ -3,6 +3,11 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      run_baselines:
+        description: Execute the five fixed Phase 6 development baseline evaluations
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -48,6 +53,26 @@ jobs:
       - run: uv run --locked pytest tests/test_data_audit_full.py -m full_data
       - run: make ate
       - run: uv run --locked pytest tests/test_development_ate_full.py -m full_data
+      - name: First frozen development baseline split
+        if: inputs.run_baselines
+        run: uv run --locked uplift baselines --first-split
+        env:
+          OPENBLAS_NUM_THREADS: "2"
+          OMP_NUM_THREADS: "2"
+      - name: Verify first-split training, prediction and policy calculations
+        if: inputs.run_baselines
+        run: uv run --locked pytest tests/test_baselines_full.py -m full_data
+        env:
+          PHASE6_EVIDENCE: reports/phase_6_first_split.json
+      - name: Remaining unchanged development baseline recipes
+        if: inputs.run_baselines
+        run: make baselines
+        env:
+          OPENBLAS_NUM_THREADS: "2"
+          OMP_NUM_THREADS: "2"
+      - name: Verify completed baselines and protected inputs
+        if: inputs.run_baselines
+        run: uv run --locked pytest tests/test_baselines_full.py -m full_data
       - uses: actions/upload-artifact@v4
         with:
           name: full-data-verification
@@ -59,3 +84,12 @@ jobs:
             reports/data_audit.md
             reports/development_ate.json
             reports/development_ate.md
+      - uses: actions/upload-artifact@v4
+        if: inputs.run_baselines
+        with:
+          name: phase-6-development-verification
+          path: |
+            reports/phase_6_first_split.json
+            reports/phase_6_metrics.json
+            reports/phase_6_baselines.md
+            reports/phase_6_stability.md

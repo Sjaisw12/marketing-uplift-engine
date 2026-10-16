@@ -36,14 +36,14 @@ No calendar or effort schedule applies.
 ## Phase 5 — development ATE
 - [x] Report arm sizes, event counts, visit rates and difference with 95% CI.
 - [x] Express effects per 1,000 rows; state ITT and released-sample limitations.
-- [ ] Report evidence; receive approval.
+- [x] Report evidence; receive approval.
 
 ## Phase 6 — baselines
-- [ ] Freeze random, visit-propensity and S-learner definitions and hyperparameters.
-- [ ] Evaluate all five development re-splits at 10/20/30/40/50% reach.
-- [ ] Include none/all anchors, metric conventions, IPW assumptions and event counts.
-- [ ] Log provenance, models, predictions and metrics in local mlruns/.
-- [ ] Publish development stability comparison; keep holdout sealed.
+- [x] Freeze random, visit-propensity and S-learner definitions and hyperparameters.
+- [x] Evaluate all five development re-splits at 10/20/30/40/50% reach.
+- [x] Include none/all anchors, metric conventions, IPW assumptions and event counts.
+- [x] Log provenance, models, predictions and metrics in local mlruns/.
+- [x] Publish development stability comparison; keep holdout sealed.
 - [ ] Report evidence; receive approval.
 
 Every completion updates INTERVIEW.md with an explanation and two tough questions.

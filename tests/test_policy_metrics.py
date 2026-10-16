@@ -99,3 +99,25 @@ def test_max_t_bands_cover_larger_family_than_marginal_normal_width():
 def test_invalid_propensities(e):
     with pytest.raises(ContractError):
         weights(np.array([1]), np.array([1]), e)
+
+
+def test_zero_events_and_absent_selected_arm_are_explicit():
+    t = np.ones(20, dtype=int)
+    y = np.zeros(20, dtype=int)
+    result = evaluate(t, y, {name: np.arange(20) for name in MODELS}, [0.85], seed=9)
+    scenario = result["scenarios"]["0.85"]
+    assert scenario["anchors"]["none"] == scenario["anchors"]["all"] == 0
+    assert scenario["s_minus_response_simultaneous_bands"] == [[0.0, 0.0]] * 5
+    for model in scenario["models"].values():
+        assert model["ipw_auuc"] == model["ipw_qini_area"] == 0
+        for policy in model["policies"]:
+            assert policy["selected_arm_rate_difference"] is None
+            assert policy["low_control_visit_support"]
+            assert policy["pointwise_value_interval"] == [0, 0]
+
+
+def test_ranking_rejects_nonfinite_and_misaligned_scores():
+    with pytest.raises(ContractError):
+        ranking(np.array([0.0, float("nan")]), np.ones(2), np.arange(2))
+    with pytest.raises(ContractError):
+        ranking(np.zeros(2), np.ones(3), np.arange(2))

@@ -63,3 +63,35 @@ def test_extraction_matches_source_ids_and_excludes_holdout(source, tmp_path):
         np.testing.assert_array_equal(x, rows[ids, :12])
         np.testing.assert_array_equal(t, rows[ids, 12])
         np.testing.assert_array_equal(y, rows[ids, 13])
+
+
+def test_pipeline_mlflow_resume_and_tamper_refusal(source, tmp_path, monkeypatch):
+    import tomllib
+    from pathlib import Path
+
+    import mlflow
+
+    from marketing_uplift import data_contract as dc
+    from marketing_uplift.baselines import run_one
+    from marketing_uplift.ingestion import ingest
+    from marketing_uplift.splits import split
+
+    config = source[0]
+    dc.validate(config, full=True)
+    ingest(config)
+    registry = split(config)
+    recipe = tomllib.loads((Path(__file__).parents[1] / "configs/baselines.toml").read_text())
+    recipe.update(rounds=3, min_data_in_leaf=2, bootstrap_replicates=20)
+    monkeypatch.setattr(
+        "marketing_uplift.baselines.subprocess.check_output", lambda *a, **k: "synthetic-test\n"
+    )
+    spec = registry["development_splits"][0]
+    root = tmp_path / "private"
+    result = run_one(config, recipe, "synthetic-only", {}, registry, spec, root)
+    assert mlflow.get_run(result["mlflow_run_id"]).info.status == "FINISHED"
+    assert result["validation_rows"] == spec["validation"]["rows"]
+    assert result["evaluation"]["bootstrap_replicates"] == 20
+    assert run_one(config, recipe, "synthetic-only", {}, registry, spec, root) == result
+    (root / str(spec["seed"]) / "response.txt").write_text("corrupt")
+    with pytest.raises(ContractError, match="artifact mismatch"):
+        run_one(config, recipe, "synthetic-only", {}, registry, spec, root)

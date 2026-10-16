@@ -7,6 +7,7 @@ import tomllib
 from pathlib import Path
 
 from marketing_uplift.acquisition import AcquisitionError, acquire
+from marketing_uplift.baseline_reports import render
 from marketing_uplift.baselines import run as run_baselines
 from marketing_uplift.data_audit import audit
 from marketing_uplift.data_contract import ContractError, validate
@@ -93,6 +94,8 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if args.command == "baselines":
             result = run_baselines(config, first_only=args.first_split)
+            if not args.first_split:
+                render(result, config["tracking"]["directory"])
             print(json.dumps({"status": result["status"], "splits": len(result["splits"])}))
             return 0
         summary = {

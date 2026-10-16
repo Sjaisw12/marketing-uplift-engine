@@ -142,3 +142,47 @@ sampling assumptions. Exposure is post-assignment; filtering or adjusting for it
 changes the question and can induce selection bias. This phase compares assignment
 arms only and makes no treatment-on-the-treated, individual uplift, revenue or
 policy-optimization claim. Those questions are not answered by a narrow interval.
+
+
+## Phase 6 — fixed development baselines
+
+We compare three ways to rank advertising assignments: random order, a model of
+visits among treated training records, and one model whose prediction changes
+when we switch a separately supplied treatment indicator. High visit probability
+is not the same as advertising responsiveness: someone may visit either way.
+We freeze the recipes before seeing performance and reuse the five original
+train/validation memberships. Only f0–f11 describe users; the holdout stays sealed.
+
+Evaluation asks what a fixed targeting rule would score under a specified
+assignment-propensity assumption. We report e=.85 separately from sensitivity
+scenarios because the release does not establish individual assignment probabilities.
+The resulting IPW differences are not proven causal gains. Two thousand paired
+bootstrap resamples quantify a narrower working-model uncertainty: they hold the
+trained models and original targeting rules fixed. Joint ranking-bin compression
+makes that row-bootstrap calculation practical without changing its distribution.
+Five-reach simultaneous bands address that family within a split, while ordinary
+pointwise intervals do not. Overlapping splits summarize stability rather than
+provide five independent replications. Full-prefix areas use every rank, even
+though comparison tables show only five reach percentages.
+
+**Two challenging questions**
+
+1. **Why can a convincing IPW confidence interval still fail to establish causal
+   targeting gains here?** The interval assumes the fixed propensity scenario and
+   IID released records. Unknown experiment propensities, outcome-related privacy
+   selection and dependence can bias the point estimate; development stratification,
+   training variability and cutoff estimation are not captured by this bootstrap.
+   A narrow conditional interval cannot validate those assumptions.
+2. **How can fewer than 864 bootstrap cells represent millions of paired rows?**
+   For fixed nested policies, every row in a joint rank-bin × assignment × outcome
+   cell contributes the same value to every reported policy statistic. Summing
+   ordinary row-bootstrap multiplicities within cells has exactly the multinomial
+   cell law used by the compressed calculation. This does not justify compressed
+   refitting, reranking or bootstrap uncertainty for full-prefix ranking areas.
+
+Measured example: at 10% reach and reference e=.85, mean gain over no targeting
+was 9.3593 per 1,000 for S versus 8.1106 for response. Their mean difference
+changes from +1.2487 at e=.85 to −2.0561 at e=.80. This illustrates why model
+ranking and narrow conditional bootstrap intervals cannot establish causal
+superiority when assignment assumptions remain uncertain. Full evidence and
+per-split uncertainty are in reports/phase_6_baselines.md.

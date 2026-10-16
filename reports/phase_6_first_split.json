@@ -1,0 +1,2595 @@
+{
+  "status": "first_split_verified",
+  "protocol_sha256": "61dc75a2d798dceab52f3f1213c2dad2a1a5d3a3108b103b855a1fa2839aada6",
+  "protocol_files": {
+    "configs/baselines.toml": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+    "docs/PHASE6_PROTOCOL.md": "b41f2ab87ae67b3e1f6dc431dad73ac88b5403fd4e18eb1346bae3159a2631d3",
+    "/workspace/marketing-uplift-engine/src/marketing_uplift/baselines.py": "a90bf3930f0192a7ed336ef3ca130d92c7963720df94d2830e756b05a547bbe9",
+    "/workspace/marketing-uplift-engine/src/marketing_uplift/policy_metrics.py": "990b0c19cc6424e9566d5fc4142249385f56f26a566b31fca37fbc59ce5740c9",
+    "uv.lock": "d6792364b0ecafe640931f6df1edbf7154f96fa79578651e4f0bdc1d584b9916"
+  },
+  "recipe": {
+    "version": 1,
+    "rounds": 200,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_data_in_leaf": 1000,
+    "max_bin": 63,
+    "bin_construct_sample_cnt": 200000,
+    "num_threads": 2,
+    "bootstrap_replicates": 2000,
+    "reference_propensity": 0.85,
+    "sensitivity_propensities": [
+      0.8,
+      0.825,
+      0.875,
+      0.9
+    ],
+    "reach": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5
+    ],
+    "random_seed_offset": 1000000,
+    "bootstrap_seed_offset": 2000000
+  },
+  "protected_inputs": {
+    "data/raw/criteo-research-uplift-v2.1.csv.gz": {
+      "bytes": 311422618,
+      "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc"
+    },
+    "data/processed/criteo-v2.1.parquet": {
+      "bytes": 201099097,
+      "sha256": "3dd993a074f7346e71d8d99f5ba980990dbf98ec52dfbe3d7848174b04440bd0"
+    },
+    "artifacts/splits.json": {
+      "bytes": 4977,
+      "sha256": "ab5350f8f17848680ef804311b3680c7dd3d8cf02bc2d5e8967d2dfda0d8937d"
+    },
+    "artifacts/memberships/development.npy": {
+      "bytes": 95061352,
+      "sha256": "07a849ac0e57bdd5b2195502850232468d7ebb78a239c7bfdee5cd4ea16b6d28"
+    },
+    "artifacts/memberships/holdout.npy": {
+      "bytes": 16775640,
+      "sha256": "aff7158a6bb6bf90e5cece0dcc664f6f7a3fd207a5b8e36ea65ce52af4d02e37"
+    },
+    "artifacts/memberships/train-104729.npy": {
+      "bytes": 76049104,
+      "sha256": "5d8df73c24926ac2d0d33d1e0e64bad5c1607146dc40f2a0593dacc02e7d8cd6"
+    },
+    "artifacts/memberships/validation-104729.npy": {
+      "bytes": 19012376,
+      "sha256": "c8d348e534a11a0d5ece757aedf9d712a069baee91e4dd35d2511bd70f226c54"
+    },
+    "artifacts/memberships/train-130363.npy": {
+      "bytes": 76049104,
+      "sha256": "a2a4888b7403440431f16392922d457912376c6c1da19e6766bb6ce3b6af92dd"
+    },
+    "artifacts/memberships/validation-130363.npy": {
+      "bytes": 19012376,
+      "sha256": "ea9b4e918be0fd2927c9ec77faef99787446fcccc953ee3f62784e549243e07b"
+    },
+    "artifacts/memberships/train-155921.npy": {
+      "bytes": 76049104,
+      "sha256": "41182a9aaa470773e0d6377044b3f95dd71ceb24e54127175d597088a75541c9"
+    },
+    "artifacts/memberships/validation-155921.npy": {
+      "bytes": 19012376,
+      "sha256": "93c0edbed9f341fb94107666a820857c7e90f087ee33861f3a415bb8ebee852c"
+    },
+    "artifacts/memberships/train-181081.npy": {
+      "bytes": 76049104,
+      "sha256": "9b6391d6765afd6ecd855a920a8c4407b3d653564cf4426493ed3c1ac8f52b2d"
+    },
+    "artifacts/memberships/validation-181081.npy": {
+      "bytes": 19012376,
+      "sha256": "f00d9a1415e69993403eb827abb7859a46f594d7a48b2c3e6d2322a606784be5"
+    },
+    "artifacts/memberships/train-206369.npy": {
+      "bytes": 76049104,
+      "sha256": "978f19e72dd7807d90a768de07555c3f67a3a80ad92abb482267d201d90e199b"
+    },
+    "artifacts/memberships/validation-206369.npy": {
+      "bytes": 19012376,
+      "sha256": "1271b6f43b7fa8d45b4e76434a85ab33767aac5d7f4d7a5c153dfed201f4b5af"
+    },
+    "data/manifest.json": {
+      "bytes": 1130,
+      "sha256": "09b2ddf7a5a2c185353f260ff47066839998ef558f453e7def66cab0f4064d84"
+    },
+    "reports/validation.json": {
+      "bytes": 2961,
+      "sha256": "f4ee6e2fe4fc92866f840327bc8623b817d1038cfb3085427bef79a7e2f75ea2"
+    },
+    "reports/ingestion.json": {
+      "bytes": 1170,
+      "sha256": "07aa745a1c5b55684f85d871c61d929068f581cd387d3cb8ef21386a56b7d160"
+    },
+    "reports/split_reconstruction.json": {
+      "bytes": 873,
+      "sha256": "d2ed241fc09fc0af5f164feb4ae12684e915bb6e0b36d7cbb6f0f30accf8f3f8"
+    },
+    "reports/data_audit.json": {
+      "bytes": 30255,
+      "sha256": "e7c3a00e897aa2e04fe8e51a72c6a1e628e45690445a82c2e5a55a499dd1b426"
+    },
+    "reports/data_audit.md": {
+      "bytes": 12150,
+      "sha256": "87c246c8e3a3d041edde039b68734d8221077dccf57fceef8a7293d993cc4428"
+    },
+    "reports/phase_4_data_audit.md": {
+      "bytes": 6273,
+      "sha256": "85c757f25e0bb54e0abedffce40f61ca467ad3724ac5cc583bba5f8a68ed4e91"
+    },
+    "reports/development_ate.json": {
+      "bytes": 7741,
+      "sha256": "7ccafa6a605658ca3e91bc64ebe10942cee5b191d1388cac50b9afcf15236d51"
+    },
+    "reports/development_ate.md": {
+      "bytes": 7323,
+      "sha256": "61acf05b2c02371632c13cda5b92e609344705dbb9bea5c2218f9e3bfa476be4"
+    },
+    "reports/phase_5_development_ate.md": {
+      "bytes": 6282,
+      "sha256": "37a809424e8d306dcda0cdeab96b5a35dccdbd381bbff76350a48bb55f561f3a"
+    }
+  },
+  "protected_inputs_unchanged": true,
+  "splits": [
+    {
+      "seed": 104729,
+      "provenance": {
+        "protocol_sha256": "61dc75a2d798dceab52f3f1213c2dad2a1a5d3a3108b103b855a1fa2839aada6",
+        "registry_sha256": "ab5350f8f17848680ef804311b3680c7dd3d8cf02bc2d5e8967d2dfda0d8937d",
+        "train": {
+          "path": "artifacts/memberships/train-104729.npy",
+          "rows": 9506122,
+          "sha256": "2a81590b60b4f8d51634859e4d6ae07634e040e50d2a3780512b276961c57d43",
+          "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+        },
+        "validation": {
+          "path": "artifacts/memberships/validation-104729.npy",
+          "rows": 2376531,
+          "sha256": "b38ee4ef17b9c35eb0a909ebc05e1291500e18d3a4ff951cdbae6dbc71651977",
+          "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+        },
+        "source": {
+          "repository": "criteo/criteo-uplift",
+          "filename": "criteo-research-uplift-v2.1.csv.gz",
+          "revision": "82811785048bb633de2d55c02bab4e57066e6423",
+          "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+          "size_bytes": 311422618
+        }
+      },
+      "predictive": {
+        "response": {
+          "log_loss": 0.10549165171348249,
+          "brier": 0.030564299928992407,
+          "roc_auc": 0.9463426933891911,
+          "average_precision": 0.5225079864244571
+        },
+        "s_learner": {
+          "log_loss": 0.10311254083974848,
+          "brier": 0.02978825924988754,
+          "roc_auc": 0.9465325885195871,
+          "average_precision": 0.5174269048021388
+        }
+      },
+      "models": {
+        "response": {
+          "seconds": 77.68671232399902,
+          "training_rows": 8080205,
+          "trees": 200,
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "s_learner": {
+          "seconds": 100.98959129500145,
+          "training_rows": 9506122,
+          "trees": 200,
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11",
+            "__intervention_treatment"
+          ]
+        }
+      },
+      "mlflow_run_id": "285e732fc78b4cf49a9ec7446309ba7a",
+      "evaluation": {
+        "scenarios": {
+          "0.85": {
+            "propensity_assumption": 0.85,
+            "models": {
+              "random": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 201913,
+                    "control_n": 35741,
+                    "treatment_visits": 9798,
+                    "control_visits": 1362,
+                    "selected_arm_rate_difference": 0.010418354649134931,
+                    "low_control_visit_support": false,
+                    "value": 0.03923101591782143,
+                    "value_per_1000": 39.23101591782143,
+                    "gain_over_none": 0.0010296767950973215,
+                    "pointwise_value_interval": [
+                      0.03860578016164457,
+                      0.03981272555274399
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0007918651836911636,
+                      0.0012511356868890205
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 403933,
+                    "control_n": 71374,
+                    "treatment_visits": 19537,
+                    "control_visits": 2774,
+                    "selected_arm_rate_difference": 0.009501238749986277,
+                    "low_control_visit_support": false,
+                    "value": 0.04009122507372565,
+                    "value_per_1000": 40.09122507372565,
+                    "gain_over_none": 0.0018898859510015423,
+                    "pointwise_value_interval": [
+                      0.03948621982637553,
+                      0.04065987810986423
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0015634627307865312,
+                      0.00220855359279192
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 606003,
+                    "control_n": 106957,
+                    "treatment_visits": 29359,
+                    "control_visits": 4097,
+                    "selected_arm_rate_difference": 0.010141841613242927,
+                    "low_control_visit_support": false,
+                    "value": 0.04124218591439933,
+                    "value_per_1000": 41.24218591439933,
+                    "gain_over_none": 0.0030408467916752183,
+                    "pointwise_value_interval": [
+                      0.04067436206510295,
+                      0.041796800528527814
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0026404774314276636,
+                      0.003437924156399955
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 808156,
+                    "control_n": 142457,
+                    "treatment_visits": 39150,
+                    "control_visits": 5482,
+                    "selected_arm_rate_difference": 0.009961829834657855,
+                    "low_control_visit_support": false,
+                    "value": 0.04220387763905111,
+                    "value_per_1000": 42.203877639051115,
+                    "gain_over_none": 0.004002538516327002,
+                    "pointwise_value_interval": [
+                      0.04167748012940365,
+                      0.04271681014445499
+                    ],
+                    "pointwise_gain_interval": [
+                      0.003546419748191069,
+                      0.0044611242184511915
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1009998,
+                    "control_n": 178268,
+                    "treatment_visits": 48954,
+                    "control_visits": 6840,
+                    "selected_arm_rate_difference": 0.010100205970269241,
+                    "low_control_visit_support": false,
+                    "value": 0.04324774549254239,
+                    "value_per_1000": 43.24774549254239,
+                    "gain_over_none": 0.0050464063698182834,
+                    "pointwise_value_interval": [
+                      0.04275240329905474,
+                      0.043725361238960585
+                    ],
+                    "pointwise_gain_interval": [
+                      0.004553143331397661,
+                      0.005559652398605297
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.005112671334558644,
+                "ipw_qini_area": -5.831932697412858e-05
+              },
+              "response": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 204765,
+                    "control_n": 32889,
+                    "treatment_visits": 76403,
+                    "control_visits": 10594,
+                    "selected_arm_rate_difference": 0.05101151332390058,
+                    "low_control_visit_support": false,
+                    "value": 0.046305258527215155,
+                    "value_per_1000": 46.30525852721516,
+                    "gain_over_none": 0.008103919404491046,
+                    "pointwise_value_interval": [
+                      0.04588889534912068,
+                      0.04671780167040473
+                    ],
+                    "pointwise_gain_interval": [
+                      0.007494343316239642,
+                      0.008752479650249152
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 407289,
+                    "control_n": 68018,
+                    "treatment_visits": 90697,
+                    "control_visits": 12548,
+                    "selected_arm_rate_difference": 0.03820405067146673,
+                    "low_control_visit_support": false,
+                    "value": 0.04789993746116074,
+                    "value_per_1000": 47.89993746116074,
+                    "gain_over_none": 0.009698598338436629,
+                    "pointwise_value_interval": [
+                      0.04755748742063742,
+                      0.04825442927478057
+                    ],
+                    "pointwise_gain_interval": [
+                      0.009035562388055118,
+                      0.010415910961867387
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 608949,
+                    "control_n": 104011,
+                    "treatment_visits": 94546,
+                    "control_visits": 13109,
+                    "selected_arm_rate_difference": 0.02922620327842501,
+                    "low_control_visit_support": false,
+                    "value": 0.04823161219804305,
+                    "value_per_1000": 48.231612198043045,
+                    "gain_over_none": 0.010030273075318938,
+                    "pointwise_value_interval": [
+                      0.047901868105151554,
+                      0.04856660780760187
+                    ],
+                    "pointwise_gain_interval": [
+                      0.009347122124725516,
+                      0.010744235948919498
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810313,
+                    "control_n": 140300,
+                    "treatment_visits": 96182,
+                    "control_visits": 13337,
+                    "selected_arm_rate_difference": 0.023636758416748616,
+                    "low_control_visit_support": false,
+                    "value": 0.048401904898770685,
+                    "value_per_1000": 48.40190489877069,
+                    "gain_over_none": 0.010200565776046576,
+                    "pointwise_value_interval": [
+                      0.048093096742317966,
+                      0.04872846837944658
+                    ],
+                    "pointwise_gain_interval": [
+                      0.00949935835376988,
+                      0.01092385184498735
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011461,
+                    "control_n": 176805,
+                    "treatment_visits": 97039,
+                    "control_visits": 13475,
+                    "selected_arm_rate_difference": 0.01972553012222107,
+                    "low_control_visit_support": false,
+                    "value": 0.048439032667824664,
+                    "value_per_1000": 48.43903266782466,
+                    "gain_over_none": 0.010237693545100554,
+                    "pointwise_value_interval": [
+                      0.0481259919456998,
+                      0.048746813622666904
+                    ],
+                    "pointwise_gain_interval": [
+                      0.009532525827458125,
+                      0.010970220303228112
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.009603461134950272,
+                "ipw_qini_area": 0.0044324704734175
+              },
+              "s_learner": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 205885,
+                    "control_n": 31769,
+                    "treatment_visits": 56956,
+                    "control_visits": 6733,
+                    "selected_arm_rate_difference": 0.0647037075878652,
+                    "low_control_visit_support": false,
+                    "value": 0.04750918831840586,
+                    "value_per_1000": 47.509188318405855,
+                    "gain_over_none": 0.009307849195681749,
+                    "pointwise_value_interval": [
+                      0.046996387822847506,
+                      0.04800885795964213
+                    ],
+                    "pointwise_gain_interval": [
+                      0.00878999932353204,
+                      0.009822332816770562
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 408096,
+                    "control_n": 67211,
+                    "treatment_visits": 79788,
+                    "control_visits": 10459,
+                    "selected_arm_rate_difference": 0.039898412157045426,
+                    "low_control_visit_support": false,
+                    "value": 0.04835966174820259,
+                    "value_per_1000": 48.35966174820259,
+                    "gain_over_none": 0.010158322625478479,
+                    "pointwise_value_interval": [
+                      0.04796279889947681,
+                      0.048752712812638814
+                    ],
+                    "pointwise_gain_interval": [
+                      0.009544728487553873,
+                      0.010794989609216286
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 609559,
+                    "control_n": 103401,
+                    "treatment_visits": 88772,
+                    "control_visits": 12077,
+                    "selected_arm_rate_difference": 0.028835444574096356,
+                    "low_control_visit_support": false,
+                    "value": 0.048268244930176334,
+                    "value_per_1000": 48.26824493017634,
+                    "gain_over_none": 0.010066905807452224,
+                    "pointwise_value_interval": [
+                      0.047914899952089494,
+                      0.04864861892413445
+                    ],
+                    "pointwise_gain_interval": [
+                      0.009416584055317893,
+                      0.010766083578353893
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810738,
+                    "control_n": 139875,
+                    "treatment_visits": 91758,
+                    "control_visits": 12555,
+                    "selected_arm_rate_difference": 0.023419650280305626,
+                    "low_control_visit_support": false,
+                    "value": 0.04840553516952264,
+                    "value_per_1000": 48.405535169522636,
+                    "gain_over_none": 0.010204196046798529,
+                    "pointwise_value_interval": [
+                      0.04805910420709521,
+                      0.048759173044454186
+                    ],
+                    "pointwise_gain_interval": [
+                      0.009514989144541621,
+                      0.010900898633096633
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011825,
+                    "control_n": 176441,
+                    "treatment_visits": 93076,
+                    "control_visits": 12775,
+                    "selected_arm_rate_difference": 0.019584432701427262,
+                    "low_control_visit_support": false,
+                    "value": 0.048440847803200654,
+                    "value_per_1000": 48.440847803200654,
+                    "gain_over_none": 0.010239508680476544,
+                    "pointwise_value_interval": [
+                      0.04810841813501425,
+                      0.04878839259869971
+                    ],
+                    "pointwise_gain_interval": [
+                      0.009551333105137822,
+                      0.010940633596599756
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.009867074672513278,
+                "ipw_qini_area": 0.004696084010980505
+              }
+            },
+            "anchors": {
+              "none": 0.03820133912272411,
+              "all": 0.04854332044578966,
+              "pointwise_intervals": [
+                [
+                  0.03754765524483655,
+                  0.0388157500715679
+                ],
+                [
+                  0.04823686784001804,
+                  0.048859154001208924
+                ]
+              ]
+            },
+            "paired_contrasts": {
+              "response_minus_random": {
+                "difference": [
+                  0.007074242609393724,
+                  0.007808712387435086,
+                  0.00698942628364372,
+                  0.006198027259719574,
+                  0.005191287175282271
+                ],
+                "pointwise_interval": [
+                  [
+                    0.006486930806651699,
+                    0.007702324827864733
+                  ],
+                  [
+                    0.007220427012082299,
+                    0.008453353590904175
+                  ],
+                  [
+                    0.006403768729278421,
+                    0.007585240345499158
+                  ],
+                  [
+                    0.005661469117274338,
+                    0.006744292251118611
+                  ],
+                  [
+                    0.004676106377196798,
+                    0.005705997688293094
+                  ]
+                ]
+              },
+              "s_learner_minus_random": {
+                "difference": [
+                  0.008278172400584427,
+                  0.008268436674476937,
+                  0.007026059015777006,
+                  0.006201657530471527,
+                  0.005193102310658261
+                ],
+                "pointwise_interval": [
+                  [
+                    0.007754955503152593,
+                    0.008792259992136682
+                  ],
+                  [
+                    0.007675089546609818,
+                    0.008836008880005268
+                  ],
+                  [
+                    0.006464670646449995,
+                    0.007592587518464145
+                  ],
+                  [
+                    0.005667013530786392,
+                    0.0067325392495591815
+                  ],
+                  [
+                    0.004681716795631603,
+                    0.005708943157971376
+                  ]
+                ]
+              },
+              "s_learner_minus_response": {
+                "difference": [
+                  0.0012039297911907026,
+                  0.00045972428704185025,
+                  3.663273213328627e-05,
+                  3.630270751953102e-06,
+                  1.8151353759904287e-06
+                ],
+                "pointwise_interval": [
+                  [
+                    0.0007645886493594988,
+                    0.0016248019305713692
+                  ],
+                  [
+                    0.00016302803391606593,
+                    0.0007459505092943976
+                  ],
+                  [
+                    -0.00016801140558463657,
+                    0.00024984100857963326
+                  ],
+                  [
+                    -0.0001724461113327436,
+                    0.00018910822902266244
+                  ],
+                  [
+                    -0.00015945139216385802,
+                    0.00017227697371816877
+                  ]
+                ]
+              }
+            },
+            "s_minus_response_simultaneous_bands": [
+              [
+                0.0006444577149310917,
+                0.0017634018674503136
+              ],
+              [
+                8.841988811845856e-05,
+                0.000831028685965242
+              ],
+              [
+                -0.00022955826385845856,
+                0.0003028237281250311
+              ],
+              [
+                -0.0002248248159953388,
+                0.000232085357499245
+              ],
+              [
+                -0.00020718016050984546,
+                0.00021081043126182632
+              ]
+            ],
+            "max_t_critical": 2.5125896924603097
+          },
+          "0.8": {
+            "propensity_assumption": 0.8,
+            "models": {
+              "random": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 201913,
+                    "control_n": 35741,
+                    "treatment_visits": 9798,
+                    "control_visits": 1362,
+                    "selected_arm_rate_difference": 0.010418354649134931,
+                    "low_control_visit_support": false,
+                    "value": 0.0309390031099952,
+                    "value_per_1000": 30.9390031099952,
+                    "gain_over_none": 0.0022879987679521076,
+                    "pointwise_value_interval": [
+                      0.030463940929026382,
+                      0.031384518548253734
+                    ],
+                    "pointwise_gain_interval": [
+                      0.002094413033114224,
+                      0.0024684219351651586
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 403933,
+                    "control_n": 71374,
+                    "treatment_visits": 19537,
+                    "control_visits": 2774,
+                    "selected_arm_rate_difference": 0.009501238749986277,
+                    "low_control_visit_support": false,
+                    "value": 0.03309077390532671,
+                    "value_per_1000": 33.090773905326714,
+                    "gain_over_none": 0.004439769563283621,
+                    "pointwise_value_interval": [
+                      0.03262578417870417,
+                      0.03352419187883516
+                    ],
+                    "pointwise_gain_interval": [
+                      0.004180331542066981,
+                      0.004701193146649462
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 606003,
+                    "control_n": 106957,
+                    "treatment_visits": 29359,
+                    "control_visits": 4097,
+                    "selected_arm_rate_difference": 0.010141841613242927,
+                    "low_control_visit_support": false,
+                    "value": 0.035473448484366496,
+                    "value_per_1000": 35.47344848436649,
+                    "gain_over_none": 0.0068224441423234035,
+                    "pointwise_value_interval": [
+                      0.035030036953021024,
+                      0.03589897680695097
+                    ],
+                    "pointwise_gain_interval": [
+                      0.006505766703653349,
+                      0.007151192746907147
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 808156,
+                    "control_n": 142457,
+                    "treatment_visits": 39150,
+                    "control_visits": 5482,
+                    "selected_arm_rate_difference": 0.009961829834657855,
+                    "low_control_visit_support": false,
+                    "value": 0.03770937555622039,
+                    "value_per_1000": 37.709375556220394,
+                    "gain_over_none": 0.0090583712141773,
+                    "pointwise_value_interval": [
+                      0.03730061274184936,
+                      0.0381165078427338
+                    ],
+                    "pointwise_gain_interval": [
+                      0.008682758083105155,
+                      0.009436022505071463
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1009998,
+                    "control_n": 178268,
+                    "treatment_visits": 48954,
+                    "control_visits": 6840,
+                    "selected_arm_rate_difference": 0.010100205970269241,
+                    "low_control_visit_support": false,
+                    "value": 0.04000894581219433,
+                    "value_per_1000": 40.00894581219433,
+                    "gain_over_none": 0.011357941470151237,
+                    "pointwise_value_interval": [
+                      0.039606534166817094,
+                      0.040401416497407354
+                    ],
+                    "pointwise_gain_interval": [
+                      0.010942340958312757,
+                      0.011788755858854772
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.011409563463672823,
+                "ipw_qini_area": -5.357335213138775e-05
+              },
+              "response": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 204765,
+                    "control_n": 32889,
+                    "treatment_visits": 76403,
+                    "control_visits": 10594,
+                    "selected_arm_rate_difference": 0.05101151332390058,
+                    "low_control_visit_support": false,
+                    "value": 0.04654841447471125,
+                    "value_per_1000": 46.54841447471125,
+                    "gain_over_none": 0.01789741013266816,
+                    "pointwise_value_interval": [
+                      0.046183268280531584,
+                      0.04693135183172448
+                    ],
+                    "pointwise_gain_interval": [
+                      0.017395509989139624,
+                      0.018435484325683097
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 407289,
+                    "control_n": 68018,
+                    "treatment_visits": 90697,
+                    "control_visits": 12548,
+                    "selected_arm_rate_difference": 0.03820405067146673,
+                    "low_control_visit_support": false,
+                    "value": 0.04995569172041097,
+                    "value_per_1000": 49.95569172041097,
+                    "gain_over_none": 0.021304687378367878,
+                    "pointwise_value_interval": [
+                      0.04961952684395869,
+                      0.0503012978791356
+                    ],
+                    "pointwise_gain_interval": [
+                      0.020774371342094835,
+                      0.02187908026446951
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 608949,
+                    "control_n": 104011,
+                    "treatment_visits": 94546,
+                    "control_visits": 13109,
+                    "selected_arm_rate_difference": 0.02922620327842501,
+                    "low_control_visit_support": false,
+                    "value": 0.05079988436927606,
+                    "value_per_1000": 50.79988436927606,
+                    "gain_over_none": 0.022148880027232965,
+                    "pointwise_value_interval": [
+                      0.05045688179535634,
+                      0.05114388629897948
+                    ],
+                    "pointwise_gain_interval": [
+                      0.021597090991028512,
+                      0.022724850843519395
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810313,
+                    "control_n": 140300,
+                    "treatment_visits": 96182,
+                    "control_visits": 13337,
+                    "selected_arm_rate_difference": 0.023636758416748616,
+                    "low_control_visit_support": false,
+                    "value": 0.05118069152053981,
+                    "value_per_1000": 51.18069152053981,
+                    "gain_over_none": 0.02252968717849672,
+                    "pointwise_value_interval": [
+                      0.05085878061342351,
+                      0.05152102476256359
+                    ],
+                    "pointwise_gain_interval": [
+                      0.021961632311970677,
+                      0.02311776860895145
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011461,
+                    "control_n": 176805,
+                    "treatment_visits": 97039,
+                    "control_visits": 13475,
+                    "selected_arm_rate_difference": 0.01972553012222107,
+                    "low_control_visit_support": false,
+                    "value": 0.051341114422660594,
+                    "value_per_1000": 51.341114422660596,
+                    "gain_over_none": 0.0226901100806175,
+                    "pointwise_value_interval": [
+                      0.051013417771533384,
+                      0.051670928130119066
+                    ],
+                    "pointwise_gain_interval": [
+                      0.022110444277815007,
+                      0.023284490082393198
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.02124211144697599,
+                "ipw_qini_area": 0.009778974631171777
+              },
+              "s_learner": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 205885,
+                    "control_n": 31769,
+                    "treatment_visits": 56956,
+                    "control_visits": 6733,
+                    "selected_arm_rate_difference": 0.0647037075878652,
+                    "low_control_visit_support": false,
+                    "value": 0.044442929631467044,
+                    "value_per_1000": 44.442929631467045,
+                    "gain_over_none": 0.015791925289423952,
+                    "pointwise_value_interval": [
+                      0.04402793399286607,
+                      0.04485955579792563
+                    ],
+                    "pointwise_gain_interval": [
+                      0.015360058947263886,
+                      0.016202739413035214
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 408096,
+                    "control_n": 67211,
+                    "treatment_visits": 79788,
+                    "control_visits": 10459,
+                    "selected_arm_rate_difference": 0.039898412157045426,
+                    "low_control_visit_support": false,
+                    "value": 0.0486128731331508,
+                    "value_per_1000": 48.6128731331508,
+                    "gain_over_none": 0.019961868791107704,
+                    "pointwise_value_interval": [
+                      0.048256260911387225,
+                      0.0489737194675769
+                    ],
+                    "pointwise_gain_interval": [
+                      0.019465294161952855,
+                      0.020486267589187764
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 609559,
+                    "control_n": 103401,
+                    "treatment_visits": 88772,
+                    "control_visits": 12077,
+                    "selected_arm_rate_difference": 0.028835444574096356,
+                    "low_control_visit_support": false,
+                    "value": 0.04993412667455211,
+                    "value_per_1000": 49.93412667455211,
+                    "gain_over_none": 0.02128312233250902,
+                    "pointwise_value_interval": [
+                      0.04958540410371251,
+                      0.050287070208636035
+                    ],
+                    "pointwise_gain_interval": [
+                      0.020745547817385922,
+                      0.02185961912552371
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810738,
+                    "control_n": 139875,
+                    "treatment_visits": 91758,
+                    "control_visits": 12555,
+                    "selected_arm_rate_difference": 0.023419650280305626,
+                    "low_control_visit_support": false,
+                    "value": 0.05049902568070856,
+                    "value_per_1000": 50.49902568070856,
+                    "gain_over_none": 0.02184802133866547,
+                    "pointwise_value_interval": [
+                      0.05015762733581005,
+                      0.05085195606537428
+                    ],
+                    "pointwise_gain_interval": [
+                      0.021287316996916925,
+                      0.02242188824803884
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011825,
+                    "control_n": 176441,
+                    "treatment_visits": 93076,
+                    "control_visits": 12775,
+                    "selected_arm_rate_difference": 0.019584432701427262,
+                    "low_control_visit_support": false,
+                    "value": 0.05072940348768857,
+                    "value_per_1000": 50.72940348768857,
+                    "gain_over_none": 0.022078399145645477,
+                    "pointwise_value_interval": [
+                      0.05039380403621918,
+                      0.05107712670274447
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0215166297010222,
+                      0.022663311566312405
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.020466832588056132,
+                "ipw_qini_area": 0.009003695772251921
+              }
+            },
+            "anchors": {
+              "none": 0.028651004342043093,
+              "all": 0.05157727797365151,
+              "pointwise_intervals": [
+                [
+                  0.028160741433627425,
+                  0.02911181255367593
+                ],
+                [
+                  0.051251672080019156,
+                  0.051912851126284486
+                ]
+              ]
+            },
+            "paired_contrasts": {
+              "response_minus_random": {
+                "difference": [
+                  0.015609411364716053,
+                  0.016864917815084257,
+                  0.015326435884909562,
+                  0.01347131596431942,
+                  0.011332168610466264
+                ],
+                "pointwise_interval": [
+                  [
+                    0.015131824495451564,
+                    0.016140779354445616
+                  ],
+                  [
+                    0.01636099266115191,
+                    0.01739038171603905
+                  ],
+                  [
+                    0.01483303026554251,
+                    0.015816698793325232
+                  ],
+                  [
+                    0.01301892338033882,
+                    0.013924260823864703
+                  ],
+                  [
+                    0.010903366082748346,
+                    0.011755067049409408
+                  ]
+                ]
+              },
+              "s_learner_minus_random": {
+                "difference": [
+                  0.013503926521471844,
+                  0.015522099227824084,
+                  0.014460678190185615,
+                  0.01278965012448817,
+                  0.01072045767549424
+                ],
+                "pointwise_interval": [
+                  [
+                    0.013075216039681365,
+                    0.013932610704425908
+                  ],
+                  [
+                    0.015048181046239242,
+                    0.015994426329805925
+                  ],
+                  [
+                    0.013988837616677423,
+                    0.014923537711058678
+                  ],
+                  [
+                    0.0123536022673384,
+                    0.013226776233930882
+                  ],
+                  [
+                    0.010289603838536086,
+                    0.011138096347154743
+                  ]
+                ]
+              },
+              "s_learner_minus_response": {
+                "difference": [
+                  -0.0021054848432442083,
+                  -0.0013428185872601736,
+                  -0.0008657576947239468,
+                  -0.0006816658398312511,
+                  -0.0006117109349720248
+                ],
+                "pointwise_interval": [
+                  [
+                    -0.0024574421709626345,
+                    -0.0017664928418775101
+                  ],
+                  [
+                    -0.0015805995166905036,
+                    -0.0011092849199105734
+                  ],
+                  [
+                    -0.0010320057891102575,
+                    -0.0006905811453753404
+                  ],
+                  [
+                    -0.0008268485662505579,
+                    -0.0005370090901402064
+                  ],
+                  [
+                    -0.0007374193730273206,
+                    -0.00047704774311801344
+                  ]
+                ]
+              }
+            },
+            "s_minus_response_simultaneous_bands": [
+              [
+                -0.002552091683213893,
+                -0.0016588780032745238
+              ],
+              [
+                -0.0016393680213109124,
+                -0.0010462691532094348
+              ],
+              [
+                -0.0010786869683302434,
+                -0.0006528284211176501
+              ],
+              [
+                -0.0008634368085632778,
+                -0.0004998948710992244
+              ],
+              [
+                -0.0007786908766286506,
+                -0.000444730993315399
+              ]
+            ],
+            "max_t_critical": 2.4821114254375387
+          },
+          "0.825": {
+            "propensity_assumption": 0.825,
+            "models": {
+              "random": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 201913,
+                    "control_n": 35741,
+                    "treatment_visits": 9798,
+                    "control_visits": 1362,
+                    "selected_arm_rate_difference": 0.010418354649134931,
+                    "low_control_visit_support": false,
+                    "value": 0.03446647628440333,
+                    "value_per_1000": 34.46647628440333,
+                    "gain_over_none": 0.001722471322068389,
+                    "pointwise_value_interval": [
+                      0.03392709466352098,
+                      0.03497121174988621
+                    ],
+                    "pointwise_gain_interval": [
+                      0.001508894714579817,
+                      0.0019174096823410154
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 403933,
+                    "control_n": 71374,
+                    "treatment_visits": 19537,
+                    "control_visits": 2774,
+                    "selected_arm_rate_difference": 0.009501238749986277,
+                    "low_control_visit_support": false,
+                    "value": 0.03603863210996464,
+                    "value_per_1000": 36.038632109964645,
+                    "gain_over_none": 0.0032946271476297015,
+                    "pointwise_value_interval": [
+                      0.0355208524216208,
+                      0.03652783509557943
+                    ],
+                    "pointwise_gain_interval": [
+                      0.003009392017151646,
+                      0.0035762209708183903
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 606003,
+                    "control_n": 106957,
+                    "treatment_visits": 29359,
+                    "control_visits": 4097,
+                    "selected_arm_rate_difference": 0.010141841613242927,
+                    "low_control_visit_support": false,
+                    "value": 0.037867118481678105,
+                    "value_per_1000": 37.867118481678105,
+                    "gain_over_none": 0.005123113519343164,
+                    "pointwise_value_interval": [
+                      0.03737454378030914,
+                      0.038345752750488044
+                    ],
+                    "pointwise_gain_interval": [
+                      0.004767103324622678,
+                      0.005478406017679438
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 808156,
+                    "control_n": 142457,
+                    "treatment_visits": 39150,
+                    "control_visits": 5482,
+                    "selected_arm_rate_difference": 0.009961829834657855,
+                    "low_control_visit_support": false,
+                    "value": 0.03953071684146936,
+                    "value_per_1000": 39.530716841469356,
+                    "gain_over_none": 0.006786711879134419,
+                    "pointwise_value_interval": [
+                      0.039072352941601864,
+                      0.039985619768925784
+                    ],
+                    "pointwise_gain_interval": [
+                      0.006378583083031722,
+                      0.007197305251906683
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1009998,
+                    "control_n": 178268,
+                    "treatment_visits": 48954,
+                    "control_visits": 6840,
+                    "selected_arm_rate_difference": 0.010100205970269241,
+                    "low_control_visit_support": false,
+                    "value": 0.041265866251948904,
+                    "value_per_1000": 41.26586625194891,
+                    "gain_over_none": 0.008521861289613963,
+                    "pointwise_value_interval": [
+                      0.040830423097264965,
+                      0.04170006345656483
+                    ],
+                    "pointwise_gain_interval": [
+                      0.008074255549251662,
+                      0.008986467690772406
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.008579725538853262,
+                "ipw_qini_area": -5.543705811332858e-05
+              },
+              "response": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 204765,
+                    "control_n": 32889,
+                    "treatment_visits": 76403,
+                    "control_visits": 10594,
+                    "selected_arm_rate_difference": 0.05101151332390058,
+                    "low_control_visit_support": false,
+                    "value": 0.0462395386257099,
+                    "value_per_1000": 46.2395386257099,
+                    "gain_over_none": 0.013495533663374956,
+                    "pointwise_value_interval": [
+                      0.045851534473395496,
+                      0.04663185624258717
+                    ],
+                    "pointwise_gain_interval": [
+                      0.012950049801662502,
+                      0.014079432497286113
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 407289,
+                    "control_n": 68018,
+                    "treatment_visits": 90697,
+                    "control_visits": 12548,
+                    "selected_arm_rate_difference": 0.03820405067146673,
+                    "low_control_visit_support": false,
+                    "value": 0.048831697667753256,
+                    "value_per_1000": 48.831697667753254,
+                    "gain_over_none": 0.016087692705418315,
+                    "pointwise_value_interval": [
+                      0.04849105601210245,
+                      0.04917771658159222
+                    ],
+                    "pointwise_gain_interval": [
+                      0.015499972229339557,
+                      0.016721263779686326
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 608949,
+                    "control_n": 104011,
+                    "treatment_visits": 94546,
+                    "control_visits": 13109,
+                    "selected_arm_rate_difference": 0.02922620327842501,
+                    "low_control_visit_support": false,
+                    "value": 0.04944592919250099,
+                    "value_per_1000": 49.445929192500984,
+                    "gain_over_none": 0.016701924230166046,
+                    "pointwise_value_interval": [
+                      0.049111411636453384,
+                      0.04978389497000869
+                    ],
+                    "pointwise_gain_interval": [
+                      0.016093796767812817,
+                      0.017336313186861747
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810313,
+                    "control_n": 140300,
+                    "treatment_visits": 96182,
+                    "control_visits": 13337,
+                    "selected_arm_rate_difference": 0.023636758416748616,
+                    "low_control_visit_support": false,
+                    "value": 0.04973213339525415,
+                    "value_per_1000": 49.732133395254145,
+                    "gain_over_none": 0.016988128432919206,
+                    "pointwise_value_interval": [
+                      0.04941800096670787,
+                      0.05006370912475232
+                    ],
+                    "pointwise_gain_interval": [
+                      0.016368171731177734,
+                      0.017630126064226016
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011461,
+                    "control_n": 176805,
+                    "treatment_visits": 97039,
+                    "control_visits": 13475,
+                    "selected_arm_rate_difference": 0.01972553012222107,
+                    "low_control_visit_support": false,
+                    "value": 0.04983741981912845,
+                    "value_per_1000": 49.837419819128456,
+                    "gain_over_none": 0.017093414856793512,
+                    "pointwise_value_interval": [
+                      0.04951820886896003,
+                      0.05015839768679097
+                    ],
+                    "pointwise_gain_interval": [
+                      0.01647054365196902,
+                      0.017742551199089338
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.016011009960943092,
+                "ipw_qini_area": 0.007375847363976501
+              },
+              "s_learner": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 205885,
+                    "control_n": 31769,
+                    "treatment_visits": 56956,
+                    "control_visits": 6733,
+                    "selected_arm_rate_difference": 0.0647037075878652,
+                    "low_control_visit_support": false,
+                    "value": 0.045604468403918526,
+                    "value_per_1000": 45.604468403918524,
+                    "gain_over_none": 0.012860463441583585,
+                    "pointwise_value_interval": [
+                      0.04514682220043523,
+                      0.046052321877042876
+                    ],
+                    "pointwise_gain_interval": [
+                      0.012383902113091419,
+                      0.013317495777855026
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 408096,
+                    "control_n": 67211,
+                    "treatment_visits": 79788,
+                    "control_visits": 10459,
+                    "selected_arm_rate_difference": 0.039898412157045426,
+                    "low_control_visit_support": false,
+                    "value": 0.048290620170389466,
+                    "value_per_1000": 48.29062017038947,
+                    "gain_over_none": 0.015546615208054525,
+                    "pointwise_value_interval": [
+                      0.04792114497142541,
+                      0.04866347619292983
+                    ],
+                    "pointwise_gain_interval": [
+                      0.015003490272274907,
+                      0.01611125646284457
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 609559,
+                    "control_n": 103401,
+                    "treatment_visits": 88772,
+                    "control_visits": 12077,
+                    "selected_arm_rate_difference": 0.028835444574096356,
+                    "low_control_visit_support": false,
+                    "value": 0.0489823774771457,
+                    "value_per_1000": 48.9823774771457,
+                    "gain_over_none": 0.016238372514810757,
+                    "pointwise_value_interval": [
+                      0.048630673460730384,
+                      0.04934036224770494
+                    ],
+                    "pointwise_gain_interval": [
+                      0.015663067821865682,
+                      0.01686719841374675
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810738,
+                    "control_n": 139875,
+                    "treatment_visits": 91758,
+                    "control_visits": 12555,
+                    "selected_arm_rate_difference": 0.023419650280305626,
+                    "low_control_visit_support": false,
+                    "value": 0.049356016772389634,
+                    "value_per_1000": 49.35601677238964,
+                    "gain_over_none": 0.016612011810054693,
+                    "pointwise_value_interval": [
+                      0.04901463009688823,
+                      0.04971174644618837
+                    ],
+                    "pointwise_gain_interval": [
+                      0.016009094021962357,
+                      0.017229390998132078
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011825,
+                    "control_n": 176441,
+                    "treatment_visits": 93076,
+                    "control_visits": 12775,
+                    "selected_arm_rate_difference": 0.019584432701427262,
+                    "low_control_visit_support": false,
+                    "value": 0.04949926459892036,
+                    "value_per_1000": 49.49926459892036,
+                    "gain_over_none": 0.016755259636585418,
+                    "pointwise_value_interval": [
+                      0.04916765243813366,
+                      0.049849006790447896
+                    ],
+                    "pointwise_gain_interval": [
+                      0.016137565317862177,
+                      0.017379688278994884
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.015697818995097573,
+                "ipw_qini_area": 0.007062656398130982
+              }
+            },
+            "anchors": {
+              "none": 0.03274400496233494,
+              "all": 0.05001433015626813,
+              "pointwise_intervals": [
+                [
+                  0.03218370449557419,
+                  0.033270642918486755
+                ],
+                [
+                  0.04969859110789737,
+                  0.050339734425487975
+                ]
+              ]
+            },
+            "paired_contrasts": {
+              "response_minus_random": {
+                "difference": [
+                  0.011773062341306567,
+                  0.012793065557788613,
+                  0.011578810710822882,
+                  0.010201416553784787,
+                  0.008571553567179549
+                ],
+                "pointwise_interval": [
+                  [
+                    0.01125346108853584,
+                    0.01234570755018839
+                  ],
+                  [
+                    0.01225379323077186,
+                    0.013367525044839615
+                  ],
+                  [
+                    0.01104877918014376,
+                    0.012108587222482231
+                  ],
+                  [
+                    0.009720352318029351,
+                    0.010690324445962393
+                  ],
+                  [
+                    0.008107772334706465,
+                    0.009035005096491338
+                  ]
+                ]
+              },
+              "s_learner_minus_random": {
+                "difference": [
+                  0.011137992119515196,
+                  0.012251988060424823,
+                  0.011115258995467593,
+                  0.009825299930920274,
+                  0.008233398346971454
+                ],
+                "pointwise_interval": [
+                  [
+                    0.010673549659155146,
+                    0.011603369042426231
+                  ],
+                  [
+                    0.011722834523799453,
+                    0.012761975096150386
+                  ],
+                  [
+                    0.010598421055932446,
+                    0.01161779401112277
+                  ],
+                  [
+                    0.009349478157585456,
+                    0.010297675304359431
+                  ],
+                  [
+                    0.007765234430487283,
+                    0.0086863121260737
+                  ]
+                ]
+              },
+              "s_learner_minus_response": {
+                "difference": [
+                  -0.0006350702217913715,
+                  -0.00054107749736379,
+                  -0.00046355171535528844,
+                  -0.0003761166228645127,
+                  -0.0003381552202080945
+                ],
+                "pointwise_interval": [
+                  [
+                    -0.0010215224012140593,
+                    -0.0002616404064565365
+                  ],
+                  [
+                    -0.0007993334371151665,
+                    -0.0002883718644211574
+                  ],
+                  [
+                    -0.0006463220252562714,
+                    -0.0002736572669807342
+                  ],
+                  [
+                    -0.0005338877825708497,
+                    -0.00021304106754709012
+                  ],
+                  [
+                    -0.00047888018000759,
+                    -0.00018797451946861554
+                  ]
+                ]
+              }
+            },
+            "s_minus_response_simultaneous_bands": [
+              [
+                -0.001129293863159966,
+                -0.00014084658042277693
+              ],
+              [
+                -0.000869112097726015,
+                -0.00021304289700156492
+              ],
+              [
+                -0.0006989209490808546,
+                -0.00022818248162972225
+              ],
+              [
+                -0.0005775996948572264,
+                -0.000174633550871799
+              ],
+              [
+                -0.0005228390110023466,
+                -0.0001534714294138424
+              ]
+            ],
+            "max_t_critical": 2.502003676812398
+          },
+          "0.875": {
+            "propensity_assumption": 0.875,
+            "models": {
+              "random": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 201913,
+                    "control_n": 35741,
+                    "treatment_visits": 9798,
+                    "control_visits": 1362,
+                    "selected_arm_rate_difference": 0.010418354649134931,
+                    "low_control_visit_support": false,
+                    "value": 0.045968562701565546,
+                    "value_per_1000": 45.968562701565546,
+                    "gain_over_none": 0.00012695575429660932,
+                    "pointwise_value_interval": [
+                      0.04522262551112164,
+                      0.04665975022296905
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.000143426339844566,
+                      0.000384233513950734
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 403933,
+                    "control_n": 71374,
+                    "treatment_visits": 19537,
+                    "control_visits": 2774,
+                    "selected_arm_rate_difference": 0.009501238749986277,
+                    "low_control_visit_support": false,
+                    "value": 0.045898833215304156,
+                    "value_per_1000": 45.89883321530416,
+                    "gain_over_none": 5.722626803521952e-05,
+                    "pointwise_value_interval": [
+                      0.045177914483637824,
+                      0.04657888806355626
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.0003217414674702686,
+                      0.0004222360839632024
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 606003,
+                    "control_n": 106957,
+                    "treatment_visits": 29359,
+                    "control_visits": 4097,
+                    "selected_arm_rate_difference": 0.010141841613242927,
+                    "low_control_visit_support": false,
+                    "value": 0.046168614193184465,
+                    "value_per_1000": 46.16861419318447,
+                    "gain_over_none": 0.0003270072459155282,
+                    "pointwise_value_interval": [
+                      0.04549963190645765,
+                      0.04682023624229724
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.00013184884066013406,
+                      0.0007920548299781742
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 808156,
+                    "control_n": 142457,
+                    "treatment_visits": 39150,
+                    "control_visits": 5482,
+                    "selected_arm_rate_difference": 0.009961829834657855,
+                    "low_control_visit_support": false,
+                    "value": 0.04621477992201959,
+                    "value_per_1000": 46.21477992201959,
+                    "gain_over_none": 0.0003731729747506532,
+                    "pointwise_value_interval": [
+                      0.04559249234643749,
+                      0.046815463379185886
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.00015630225015249177,
+                      0.0009017104582868215
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1009998,
+                    "control_n": 178268,
+                    "treatment_visits": 48954,
+                    "control_visits": 6840,
+                    "selected_arm_rate_difference": 0.010100205970269241,
+                    "low_control_visit_support": false,
+                    "value": 0.04635808603861199,
+                    "value_per_1000": 46.35808603861199,
+                    "gain_over_none": 0.0005164790913430514,
+                    "pointwise_value_interval": [
+                      0.04577223813076407,
+                      0.04692942299992239
+                    ],
+                    "pointwise_gain_interval": [
+                      -5.6757397351738304e-05,
+                      0.0011209736256032733
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.0005945903144275619,
+                "ipw_qini_area": -6.279042846437093e-05
+              },
+              "response": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 204765,
+                    "control_n": 32889,
+                    "treatment_visits": 76403,
+                    "control_visits": 10594,
+                    "selected_arm_rate_difference": 0.05101151332390058,
+                    "low_control_visit_support": false,
+                    "value": 0.04692121175179885,
+                    "value_per_1000": 46.92121175179885,
+                    "gain_over_none": 0.0010796048045299128,
+                    "pointwise_value_interval": [
+                      0.04645993917785449,
+                      0.04737232546093444
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0003697466120636669,
+                      0.0018197472342189967
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 407289,
+                    "control_n": 68018,
+                    "treatment_visits": 90697,
+                    "control_visits": 12548,
+                    "selected_arm_rate_difference": 0.03820405067146673,
+                    "low_control_visit_support": false,
+                    "value": 0.04721744184515761,
+                    "value_per_1000": 47.21744184515761,
+                    "gain_over_none": 0.0013758348978886725,
+                    "pointwise_value_interval": [
+                      0.046868313520841934,
+                      0.04758448343404736
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0006216984816464514,
+                      0.0022039927704949483
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 608949,
+                    "control_n": 104011,
+                    "treatment_visits": 94546,
+                    "control_visits": 13109,
+                    "selected_arm_rate_difference": 0.02922620327842501,
+                    "low_control_visit_support": false,
+                    "value": 0.047179932190479064,
+                    "value_per_1000": 47.179932190479065,
+                    "gain_over_none": 0.001338325243210127,
+                    "pointwise_value_interval": [
+                      0.04685052047952005,
+                      0.047514645746859
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0005554194027224624,
+                      0.002165016392139878
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810313,
+                    "control_n": 140300,
+                    "treatment_visits": 96182,
+                    "control_visits": 13337,
+                    "selected_arm_rate_difference": 0.023636758416748616,
+                    "low_control_visit_support": false,
+                    "value": 0.04719916791082704,
+                    "value_per_1000": 47.199167910827036,
+                    "gain_over_none": 0.001357560963558102,
+                    "pointwise_value_interval": [
+                      0.04689331995729431,
+                      0.04752151049455818
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0005375902944249519,
+                      0.002187245671467003
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011461,
+                    "control_n": 176805,
+                    "treatment_visits": 97039,
+                    "control_visits": 13475,
+                    "selected_arm_rate_difference": 0.01972553012222107,
+                    "low_control_visit_support": false,
+                    "value": 0.04714675057287882,
+                    "value_per_1000": 47.14675057287882,
+                    "gain_over_none": 0.001305143625609885,
+                    "pointwise_value_interval": [
+                      0.04683750030130953,
+                      0.047452598526411566
+                    ],
+                    "pointwise_gain_interval": [
+                      0.00048713259548715593,
+                      0.0021577789523589603
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.0012552505261820355,
+                "ipw_qini_area": 0.0005978697832901027
+              },
+              "s_learner": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 205885,
+                    "control_n": 31769,
+                    "treatment_visits": 56956,
+                    "control_visits": 6733,
+                    "selected_arm_rate_difference": 0.0647037075878652,
+                    "low_control_visit_support": false,
+                    "value": 0.050566380757739504,
+                    "value_per_1000": 50.5663807577395,
+                    "gain_over_none": 0.004724773810470567,
+                    "pointwise_value_interval": [
+                      0.04996863074792628,
+                      0.05114115610406211
+                    ],
+                    "pointwise_gain_interval": [
+                      0.004125845612786027,
+                      0.005317354220440281
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 408096,
+                    "control_n": 67211,
+                    "treatment_visits": 79788,
+                    "control_visits": 10459,
+                    "selected_arm_rate_difference": 0.039898412157045426,
+                    "low_control_visit_support": false,
+                    "value": 0.049003478479466796,
+                    "value_per_1000": 49.00347847946679,
+                    "gain_over_none": 0.003161871532197859,
+                    "pointwise_value_interval": [
+                      0.04856778941358524,
+                      0.04944079055925271
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0024471322756933127,
+                      0.003903913489271297
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 609559,
+                    "control_n": 103401,
+                    "treatment_visits": 88772,
+                    "control_visits": 12077,
+                    "selected_arm_rate_difference": 0.028835444574096356,
+                    "low_control_visit_support": false,
+                    "value": 0.04787722705309305,
+                    "value_per_1000": 47.87722705309305,
+                    "gain_over_none": 0.0020356201058241152,
+                    "pointwise_value_interval": [
+                      0.047508850986104176,
+                      0.04827450478990475
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0012828301900062438,
+                      0.0028387354750023766
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810738,
+                    "control_n": 139875,
+                    "treatment_visits": 91758,
+                    "control_visits": 12555,
+                    "selected_arm_rate_difference": 0.023419650280305626,
+                    "low_control_visit_support": false,
+                    "value": 0.047704105569961304,
+                    "value_per_1000": 47.70410556996131,
+                    "gain_over_none": 0.001862498622692367,
+                    "pointwise_value_interval": [
+                      0.047350132248582984,
+                      0.04806959627889799
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0010617636739071645,
+                      0.0026593503604323125
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011825,
+                    "control_n": 176441,
+                    "treatment_visits": 93076,
+                    "control_visits": 12775,
+                    "selected_arm_rate_difference": 0.019584432701427262,
+                    "low_control_visit_support": false,
+                    "value": 0.04759734732203006,
+                    "value_per_1000": 47.59734732203006,
+                    "gain_over_none": 0.0017557403747611236,
+                    "pointwise_value_interval": [
+                      0.04725540834819441,
+                      0.047955624635836254
+                    ],
+                    "pointwise_gain_interval": [
+                      0.0009727624003221339,
+                      0.002573486913729047
+                    ]
+                  }
+                ],
+                "ipw_auuc": 0.002283258734387867,
+                "ipw_qini_area": 0.0016258779914959344
+              }
+            },
+            "anchors": {
+              "none": 0.04584160694726894,
+              "all": 0.04715636843305282,
+              "pointwise_intervals": [
+                [
+                  0.04505718629380387,
+                  0.04657890008588148
+                ],
+                [
+                  0.04685867161601751,
+                  0.04746317817260295
+                ]
+              ]
+            },
+            "paired_contrasts": {
+              "response_minus_random": {
+                "difference": [
+                  0.0009526490502333035,
+                  0.001318608629853453,
+                  0.0010113179972945988,
+                  0.0009843879888074489,
+                  0.0007886645342668336
+                ],
+                "pointwise_interval": [
+                  [
+                    0.00026013907305588274,
+                    0.001685554040141456
+                  ],
+                  [
+                    0.0006433026000622685,
+                    0.002057753206549508
+                  ],
+                  [
+                    0.00033699779817124005,
+                    0.0016971435616511188
+                  ],
+                  [
+                    0.00036255726158361204,
+                    0.0016292775357984238
+                  ],
+                  [
+                    0.00020237180038587717,
+                    0.0013779868941026128
+                  ]
+                ]
+              },
+              "s_learner_minus_random": {
+                "difference": [
+                  0.004597818056173958,
+                  0.0031046452641626393,
+                  0.001708612859908587,
+                  0.0014893256479417138,
+                  0.0012392612834180722
+                ],
+                "pointwise_interval": [
+                  [
+                    0.004008050870305138,
+                    0.005184122812380131
+                  ],
+                  [
+                    0.0024222580848183503,
+                    0.0037625309447137075
+                  ],
+                  [
+                    0.0010502462863488202,
+                    0.0023669674111431505
+                  ],
+                  [
+                    0.0008641406919821954,
+                    0.0021024762563585427
+                  ],
+                  [
+                    0.0006548320099458166,
+                    0.0018288721790590643
+                  ]
+                ]
+              },
+              "s_learner_minus_response": {
+                "difference": [
+                  0.0036451690059406544,
+                  0.0017860366343091863,
+                  0.0006972948626139883,
+                  0.000504937659134265,
+                  0.0004505967491512386
+                ],
+                "pointwise_interval": [
+                  [
+                    0.003132969862375043,
+                    0.0041328185614121745
+                  ],
+                  [
+                    0.0014431599191065889,
+                    0.002114077800193403
+                  ],
+                  [
+                    0.00046064741303305167,
+                    0.0009502566075150335
+                  ],
+                  [
+                    0.0003029145061796875,
+                    0.0007218324283828607
+                  ],
+                  [
+                    0.00026639068216896804,
+                    0.0006497225217284049
+                  ]
+                ]
+              }
+            },
+            "s_minus_response_simultaneous_bands": [
+              [
+                0.0029919969910460397,
+                0.004298341020835269
+              ],
+              [
+                0.0013524549600016447,
+                0.002219618308616728
+              ],
+              [
+                0.00038675394380642563,
+                0.0010078357814215508
+              ],
+              [
+                0.0002378047896679293,
+                0.0007720705286006007
+              ],
+              [
+                0.00020662922950539999,
+                0.0006945642687970772
+              ]
+            ],
+            "max_t_critical": 2.5150387241755303
+          },
+          "0.9": {
+            "propensity_assumption": 0.9,
+            "models": {
+              "random": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 201913,
+                    "control_n": 35741,
+                    "treatment_visits": 9798,
+                    "control_visits": 1362,
+                    "selected_arm_rate_difference": 0.010418354649134931,
+                    "low_control_visit_support": false,
+                    "value": 0.05615187290494704,
+                    "value_per_1000": 56.15187290494704,
+                    "gain_over_none": -0.0011501357791391456,
+                    "pointwise_value_interval": [
+                      0.05522278761214,
+                      0.05700701755813177
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.001479280327315556,
+                      -0.0008372497560519946
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 403933,
+                    "control_n": 71374,
+                    "treatment_visits": 19537,
+                    "control_visits": 2774,
+                    "selected_arm_rate_difference": 0.009501238749986277,
+                    "low_control_visit_support": false,
+                    "value": 0.05476376187719739,
+                    "value_per_1000": 54.76376187719739,
+                    "gain_over_none": -0.002538246806888793,
+                    "pointwise_value_interval": [
+                      0.05386933260659713,
+                      0.055610970125971194
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.0029970738395118414,
+                      -0.0020861055229005857
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 606003,
+                    "control_n": 106957,
+                    "treatment_visits": 29359,
+                    "control_visits": 4097,
+                    "selected_arm_rate_difference": 0.010141841613242927,
+                    "low_control_visit_support": false,
+                    "value": 0.05378895167414653,
+                    "value_per_1000": 53.78895167414653,
+                    "gain_over_none": -0.0035130570099396533,
+                    "pointwise_value_interval": [
+                      0.0529692461640751,
+                      0.05458517524539387
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.004073175472054772,
+                      -0.0029538151757049777
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 808156,
+                    "control_n": 142457,
+                    "treatment_visits": 39150,
+                    "control_visits": 5482,
+                    "selected_arm_rate_difference": 0.009961829834657855,
+                    "low_control_visit_support": false,
+                    "value": 0.05253876343291966,
+                    "value_per_1000": 52.53876343291966,
+                    "gain_over_none": -0.004763245251166524,
+                    "pointwise_value_interval": [
+                      0.051774741325813875,
+                      0.05328542830799272
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.0054005770969909085,
+                      -0.0041123548941246245
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1009998,
+                    "control_n": 178268,
+                    "treatment_visits": 48954,
+                    "control_visits": 6840,
+                    "selected_arm_rate_difference": 0.010100205970269241,
+                    "low_control_visit_support": false,
+                    "value": 0.05140826411830241,
+                    "value_per_1000": 51.40826411830241,
+                    "gain_over_none": -0.005893744565783773,
+                    "pointwise_value_interval": [
+                      0.05069184874929047,
+                      0.052113820989968626
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.006591867633023857,
+                      -0.0051582187089782025
+                    ]
+                  }
+                ],
+                "ipw_auuc": -0.00579776626527998,
+                "ipw_qini_area": -6.99965781931081e-05
+              },
+              "response": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 204765,
+                    "control_n": 32889,
+                    "treatment_visits": 76403,
+                    "control_visits": 10594,
+                    "selected_arm_rate_difference": 0.05101151332390058,
+                    "low_control_visit_support": false,
+                    "value": 0.04844549564984518,
+                    "value_per_1000": 48.445495649845185,
+                    "gain_over_none": -0.008856513034241002,
+                    "pointwise_value_interval": [
+                      0.04791013315907374,
+                      0.048968246387510024
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.00972301878475626,
+                      -0.00796070453577553
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 407289,
+                    "control_n": 68018,
+                    "treatment_visits": 90697,
+                    "control_visits": 12548,
+                    "selected_arm_rate_difference": 0.03820405067146673,
+                    "low_control_visit_support": false,
+                    "value": 0.04690637085922483,
+                    "value_per_1000": 46.906370859224836,
+                    "gain_over_none": -0.010395637824861352,
+                    "pointwise_value_interval": [
+                      0.04653222607985243,
+                      0.047308497600540934
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.011325763382753169,
+                      -0.00939276384126463
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 608949,
+                    "control_n": 104011,
+                    "treatment_visits": 94546,
+                    "control_visits": 13109,
+                    "selected_arm_rate_difference": 0.02922620327842501,
+                    "low_control_visit_support": false,
+                    "value": 0.04634532901574233,
+                    "value_per_1000": 46.34532901574233,
+                    "gain_over_none": -0.010956679668343856,
+                    "pointwise_value_interval": [
+                      0.04600912469103542,
+                      0.046693198335444955
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.01192544698320554,
+                      -0.00995449529867975
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810313,
+                    "control_n": 140300,
+                    "treatment_visits": 96182,
+                    "control_visits": 13337,
+                    "selected_arm_rate_difference": 0.023636758416748616,
+                    "low_control_visit_support": false,
+                    "value": 0.04615083451000172,
+                    "value_per_1000": 46.15083451000172,
+                    "gain_over_none": -0.011151174174084462,
+                    "pointwise_value_interval": [
+                      0.04583984200313633,
+                      0.04647065173753022
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.012148507869476816,
+                      -0.010139171572159414
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011461,
+                    "control_n": 176805,
+                    "treatment_visits": 97039,
+                    "control_visits": 13475,
+                    "selected_arm_rate_difference": 0.01972553012222107,
+                    "low_control_visit_support": false,
+                    "value": 0.04597083358521775,
+                    "value_per_1000": 45.970833585217754,
+                    "gain_over_none": -0.011331175098868433,
+                    "pointwise_value_interval": [
+                      0.045667859301365465,
+                      0.04627847152939399
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.012327071124536855,
+                      -0.010289390525751847
+                    ]
+                  }
+                ],
+                "ipw_auuc": -0.010553947134487103,
+                "ipw_qini_area": -0.0048261774474002315
+              },
+              "s_learner": {
+                "policies": [
+                  {
+                    "reach": 0.1,
+                    "selected": 237654,
+                    "treatment_n": 205885,
+                    "control_n": 31769,
+                    "treatment_visits": 56956,
+                    "control_visits": 6733,
+                    "selected_arm_rate_difference": 0.0647037075878652,
+                    "low_control_visit_support": false,
+                    "value": 0.05559971422398633,
+                    "value_per_1000": 55.59971422398633,
+                    "gain_over_none": -0.001702294460099854,
+                    "pointwise_value_interval": [
+                      0.05487501179941127,
+                      0.05630662694677428
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.002431707298485814,
+                      -0.0009719231752312909
+                    ]
+                  },
+                  {
+                    "reach": 0.2,
+                    "selected": 475307,
+                    "treatment_n": 408096,
+                    "control_n": 67211,
+                    "treatment_visits": 79788,
+                    "control_visits": 10459,
+                    "selected_arm_rate_difference": 0.039898412157045426,
+                    "low_control_visit_support": false,
+                    "value": 0.05059615604986148,
+                    "value_per_1000": 50.59615604986148,
+                    "gain_over_none": -0.006705852634224706,
+                    "pointwise_value_interval": [
+                      0.05008558459554892,
+                      0.05110205215547835
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.00757864672873567,
+                      -0.00580583632193311
+                    ]
+                  },
+                  {
+                    "reach": 0.3,
+                    "selected": 712960,
+                    "treatment_n": 609559,
+                    "control_n": 103401,
+                    "treatment_visits": 88772,
+                    "control_visits": 12077,
+                    "selected_arm_rate_difference": 0.028835444574096356,
+                    "low_control_visit_support": false,
+                    "value": 0.04798824654740693,
+                    "value_per_1000": 47.98824654740693,
+                    "gain_over_none": -0.009313762136679254,
+                    "pointwise_value_interval": [
+                      0.04758755747581478,
+                      0.04842400073421675
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.010227804495057922,
+                      -0.008344048063706672
+                    ]
+                  },
+                  {
+                    "reach": 0.4,
+                    "selected": 950613,
+                    "treatment_n": 810738,
+                    "control_n": 139875,
+                    "treatment_visits": 91758,
+                    "control_visits": 12555,
+                    "selected_arm_rate_difference": 0.023419650280305626,
+                    "low_control_visit_support": false,
+                    "value": 0.04737297065905446,
+                    "value_per_1000": 47.37297065905446,
+                    "gain_over_none": -0.009929038025031728,
+                    "pointwise_value_interval": [
+                      0.04699190636361244,
+                      0.047777855856101004
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.010882937731041143,
+                      -0.008960726556667867
+                    ]
+                  },
+                  {
+                    "reach": 0.5,
+                    "selected": 1188266,
+                    "treatment_n": 1011825,
+                    "control_n": 176441,
+                    "treatment_visits": 93076,
+                    "control_visits": 12775,
+                    "selected_arm_rate_difference": 0.019584432701427262,
+                    "low_control_visit_support": false,
+                    "value": 0.047063462575399936,
+                    "value_per_1000": 47.06346257539994,
+                    "gain_over_none": -0.010238546108686249,
+                    "pointwise_value_interval": [
+                      0.04669969707013196,
+                      0.047440798280257136
+                    ],
+                    "pointwise_gain_interval": [
+                      -0.011189079563634751,
+                      -0.009245022822480898
+                    ]
+                  }
+                ],
+                "ipw_auuc": -0.008428768584423298,
+                "ipw_qini_area": -0.002700998897336426
+              }
+            },
+            "anchors": {
+              "none": 0.057302008684086185,
+              "all": 0.04584646930991246,
+              "pointwise_intervals": [
+                [
+                  0.05632148286725485,
+                  0.05822362510735186
+                ],
+                [
+                  0.0455570418489059,
+                  0.04614475655669732
+                ]
+              ]
+            },
+            "paired_contrasts": {
+              "response_minus_random": {
+                "difference": [
+                  -0.007706377255101857,
+                  -0.00785739101797256,
+                  -0.007443622658404203,
+                  -0.006387928922917938,
+                  -0.00543743053308466
+                ],
+                "pointwise_interval": [
+                  [
+                    -0.008556460843323514,
+                    -0.006829702621173467
+                  ],
+                  [
+                    -0.008682730323222289,
+                    -0.006945698022313484
+                  ],
+                  [
+                    -0.008259622954634286,
+                    -0.006602480674563032
+                  ],
+                  [
+                    -0.007145826323232379,
+                    -0.005603311904807653
+                  ],
+                  [
+                    -0.006146680930220465,
+                    -0.004727654159220596
+                  ]
+                ]
+              },
+              "s_learner_minus_random": {
+                "difference": [
+                  -0.0005521586809607085,
+                  -0.004167605827335913,
+                  -0.005800705126739601,
+                  -0.0051657927738652035,
+                  -0.004344801542902475
+                ],
+                "pointwise_interval": [
+                  [
+                    -0.0012801455379944757,
+                    0.00015813198125989435
+                  ],
+                  [
+                    -0.004978463240000754,
+                    -0.0033634224749341736
+                  ],
+                  [
+                    -0.0065956196003521365,
+                    -0.004999303606811778
+                  ],
+                  [
+                    -0.005934595425012349,
+                    -0.004419934396442179
+                  ],
+                  [
+                    -0.005057055851575242,
+                    -0.0036238627740274518
+                  ]
+                ]
+              },
+              "s_learner_minus_response": {
+                "difference": [
+                  0.007154218574141148,
+                  0.0036897851906366463,
+                  0.001642917531664602,
+                  0.001222136149052734,
+                  0.0010926289901821845
+                ],
+                "pointwise_interval": [
+                  [
+                    0.006525314044340723,
+                    0.007756403486145702
+                  ],
+                  [
+                    0.0032731648683639245,
+                    0.00409654052716147
+                  ],
+                  [
+                    0.001351175773053714,
+                    0.0019472944201256131
+                  ],
+                  [
+                    0.000976668654157385,
+                    0.001485381657363435
+                  ],
+                  [
+                    0.0008682005644174596,
+                    0.0013348471177340273
+                  ]
+                ]
+              }
+            },
+            "s_minus_response_simultaneous_bands": [
+              [
+                0.006356580709913385,
+                0.007951856438368913
+              ],
+              [
+                0.0031600320376948274,
+                0.004219538343578465
+              ],
+              [
+                0.0012638900000183327,
+                0.002021945063310871
+              ],
+              [
+                0.0008954483444588684,
+                0.0015488239536465998
+              ],
+              [
+                0.000794673461720059,
+                0.00139058451864431
+              ]
+            ],
+            "max_t_critical": 2.513193625645437
+          }
+        },
+        "bootstrap_cells": 732,
+        "bootstrap_replicates": 2000
+      },
+      "validation_rows": 2376531,
+      "validation_treatment_n": 2020052,
+      "validation_control_n": 356479,
+      "elapsed_seconds": 190.11881112400079,
+      "peak_process_rss_kib": 3172528,
+      "completed_at": "2026-10-16T04:13:01.829787+00:00",
+      "artifact_hashes": {
+        "s_learner.txt": "3729057949e4bf7a89b8948ea40142b6abcca47e2b1b5965739da2a79ba7620b",
+        "s_learner-scores.npy": "1c831ebb9ed96e7f87d2b8f4bc096dd0740ae698baa205ee92c0bcdfcf6f425c",
+        "s-p0.npy": "a62d966090dad79b988d279a1eb4c714bfb9885e4158c2235d6d2bf63204e54a",
+        "s-p1.npy": "f6ac518c80666e3bac498b712d33d18335b0af06775f73cd784f959ad81613fc",
+        "response.txt": "22a5346baaca7cc573d702d2214ed2d4bf30d522585c85146ed8ab077c4ead60",
+        "response-scores.npy": "9e4ca58cd150b49018e9ad15b4364b49353946ea41e0b75c707ad30cba9f8a07"
+      }
+    }
+  ]
+}
