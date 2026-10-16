@@ -1,0 +1,23 @@
+{
+  "fixture": "511 synthetic rows, PCG64 seed8451; independent IPW/DR row formulas",
+  "contribution_dimensions": 220,
+  "covariance_convention": "sample covariance ddof1 / n",
+  "interpretation": "Gaussian multiplier covariance equivalence, not exact ordinary row bootstrap",
+  "results": [
+    {
+      "batch_rows": 1,
+      "maximum_absolute_mean_error": 1.9984014443252818e-15,
+      "maximum_absolute_mean_covariance_error": 1.7694179454963432e-16
+    },
+    {
+      "batch_rows": 17,
+      "maximum_absolute_mean_error": 1.9984014443252818e-15,
+      "maximum_absolute_mean_covariance_error": 1.7694179454963432e-16
+    },
+    {
+      "batch_rows": 65536,
+      "maximum_absolute_mean_error": 1.9984014443252818e-15,
+      "maximum_absolute_mean_covariance_error": 1.7694179454963432e-16
+    }
+  ]
+}
