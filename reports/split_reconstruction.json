@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-10-16T02:13:06.090828+00:00",
+  "source": {
+    "repository": "criteo/criteo-uplift",
+    "filename": "criteo-research-uplift-v2.1.csv.gz",
+    "revision": "82811785048bb633de2d55c02bab4e57066e6423",
+    "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "size_bytes": 311422618
+  },
+  "registry_sha256": "ab5350f8f17848680ef804311b3680c7dd3d8cf02bc2d5e8967d2dfda0d8937d",
+  "memberships_reconstructed_and_hash_matched": 12,
+  "membership_count": 12,
+  "row_mapping": {
+    "rows": 13979592,
+    "sha256": "26b03f2f2104349ce7693f2179b60b3804886677d42945a359aab196da5e4a8c",
+    "encoding": "row_id:<u8,f0-f11:<f8,flags:u1;packed;source-order;v1"
+  },
+  "holdout_excluded_from_all_development_splits": true,
+  "disjointness_and_coverage_verified": true,
+  "frozen_registry_unchanged": true
+}

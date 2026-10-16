@@ -1,0 +1,138 @@
+{
+  "source": {
+    "repository": "criteo/criteo-uplift",
+    "filename": "criteo-research-uplift-v2.1.csv.gz",
+    "revision": "82811785048bb633de2d55c02bab4e57066e6423",
+    "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "size_bytes": 311422618
+  },
+  "contract_signature": "a8b6723de95a4d9815089d906a65e2d9ec35f996552cfd2dec0b45aa465807c7",
+  "scope": "mechanical full-file contract only; no holdout analysis",
+  "raw_header_order": [
+    "f0",
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "treatment",
+    "conversion",
+    "visit",
+    "exposure"
+  ],
+  "independent_csv_audit": {
+    "records": 13979592,
+    "wrong_field_count": 0,
+    "parser": "stdlib csv strict"
+  },
+  "observed_rows": 13979592,
+  "quality_counts": {
+    "f0": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f1": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f2": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f3": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f4": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f5": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f6": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f7": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f8": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f9": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f10": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "f11": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0
+    },
+    "treatment": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0,
+      "invalid_binary": 0
+    },
+    "visit": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0,
+      "invalid_binary": 0
+    },
+    "conversion": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0,
+      "invalid_binary": 0
+    },
+    "exposure": {
+      "missing": 0,
+      "unparseable": 0,
+      "nonfinite": 0,
+      "invalid_binary": 0
+    }
+  },
+  "reference_rates": {
+    "treatment": 0.8500001287591226,
+    "visit": 0.046992000911042324
+  },
+  "row_mapping": {
+    "rows": 13979592,
+    "sha256": "26b03f2f2104349ce7693f2179b60b3804886677d42945a359aab196da5e4a8c",
+    "encoding": "row_id:<u8,f0-f11:<f8,flags:u1;packed;source-order;v1"
+  },
+  "status": "passed",
+  "validated_at_utc": "2026-10-16T02:08:13.642523+00:00",
+  "expected_rows": 13979592,
+  "row_id": "zero-based CSV data-record ordinal; not a customer ID or feature",
+  "coercions": "explicit finite float64 parsing and exact 0/1 integer parsing only",
+  "rows_dropped": 0,
+  "rows_deduplicated": 0,
+  "values_imputed": 0
+}

@@ -47,3 +47,35 @@ archive; a rerun starts a fresh download. Existing archives are rehashed before
 reuse. A manifest records the last successful verification, not guaranteed current
 file availability or permanent storage. Durable caching would be a separate
 storage decision, and every restored archive must still pass verification.
+
+## Phase 3 — strict contract, stable row identity, and sealed evaluation
+
+I verified all 13,979,592 records before converting the source to Parquet. An
+independent CSV parser checks record counts and field widths; numeric and binary
+checks reject bad records instead of quietly dropping or changing them. Each row
+gets its original record position as an identifier. I hash every identifier together
+with all typed values, then require the Parquet representation to match. Repeated
+anonymous rows stay separate because we have no real customer key.
+
+I sealed a joint treatment-by-visit stratified 15% holdout before any exploration.
+Five fixed-seed train/validation splits live strictly inside development. Membership
+hashes, versions, and rounding rules are versioned; row-level files stay outside
+Git. Reconstruction must reproduce every hash before missing memberships are
+restored. Validation results live separately from acquisition metadata, so rerunning
+a download check cannot erase evidence of measured rows.
+
+**Why do row counts and fixed seeds fail to prove split reproducibility?**
+A seed produces different memberships if input order, row identity, the split
+algorithm, or its library behavior changes. Even identical IDs can be attached to
+wrong values after conversion. I bind membership to a verified source-row/value
+mapping, record algorithm versions, and check complete membership hashes,
+disjointness, and coverage. Fresh reconstruction must match the frozen registry.
+
+**Does stratifying on visit mean that the final holdout has already leaked?**
+Predeclared mechanical stratification uses the labels to balance partitions, but
+makes no modeling or policy decisions from holdout performance. Whole-file contract
+gates establish data identity and validity; they are not an exploratory audit.
+No holdout outcome summaries or effects are calculated. Subsequent exploration,
+preprocessing decisions, tuning, and model selection must use development only.
+The source file remains accessible, so the seal also depends on disciplined access
+through the development boundary and an explicit final-evaluation approval gate.

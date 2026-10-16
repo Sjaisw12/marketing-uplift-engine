@@ -34,3 +34,10 @@ confidence_level = 0.95
 [tracking]
 directory = "mlruns"
 experiment_name = "marketing-uplift-development"
+
+[resources]
+duckdb_memory_limit = "2GB"
+duckdb_threads = 1
+max_temp_directory_size = "6GB"
+min_free_disk_bytes = 8589934592
+batch_rows = 65536

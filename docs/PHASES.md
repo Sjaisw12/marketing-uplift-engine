@@ -17,15 +17,15 @@ No calendar or effort schedule applies.
 - [x] Download official archive at pinned revision.
 - [x] Verify exact basename, byte count and SHA-256 before ingestion.
 - [x] Persist provenance manifest without inventing unverified row counts.
-- [ ] Report evidence; receive approval.
+- [x] Report evidence; receive approval.
 
 ## Phase 3 — contract, ingestion, partitions
-- [ ] Validate exact schema/rows, types, binary values, rates and nonfinite counts.
-- [ ] Audit coercions; no silent row drops or deduplication.
-- [ ] Produce typed Parquet; enforce leakage tests on every feature export.
-- [ ] Seal 15% holdout before exploratory analysis; record membership hashes.
-- [ ] Freeze five joint-stratified 80/20 dev re-splits and save seeds in artifacts/splits.json.
-- [ ] Verify disjointness, coverage and reproducibility; activate real full-data CI.
+- [x] Validate exact schema/rows, types, binary values, rates and nonfinite counts.
+- [x] Audit coercions; no silent row drops or deduplication.
+- [x] Produce typed Parquet; enforce leakage tests on every feature export.
+- [x] Seal 15% holdout before exploratory analysis; record membership hashes.
+- [x] Freeze five joint-stratified 80/20 dev re-splits and save seeds in artifacts/splits.json.
+- [x] Verify disjointness, coverage and reproducibility; activate real full-data CI.
 - [ ] Report evidence; receive approval.
 
 ## Phase 4 — development audit
