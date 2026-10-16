@@ -26,11 +26,11 @@ No calendar or effort schedule applies.
 - [x] Seal 15% holdout before exploratory analysis; record membership hashes.
 - [x] Freeze five joint-stratified 80/20 dev re-splits and save seeds in artifacts/splits.json.
 - [x] Verify disjointness, coverage and reproducibility; activate real full-data CI.
-- [ ] Report evidence; receive approval.
+- [x] Report evidence; receive approval.
 
 ## Phase 4 — development audit
-- [ ] Audit distributions, missingness, arm balance, repeated vectors and strata.
-- [ ] Publish reports/data_audit.md with deviations and limitations.
+- [x] Audit distributions, missingness, arm balance, repeated vectors and strata.
+- [x] Publish reports/data_audit.md with deviations and limitations.
 - [ ] Report evidence; receive approval.
 
 ## Phase 5 — development ATE
