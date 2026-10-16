@@ -5,6 +5,8 @@ import json
 import tomllib
 from pathlib import Path
 
+from marketing_uplift.acquisition import AcquisitionError, acquire
+
 STAGES = {
     "acquire": (2, "Download the pinned archive and verify SHA-256"),
     "validate": (3, "Validate the raw data contract; --full includes expensive checks"),
@@ -26,23 +28,29 @@ def main(argv: list[str] | None = None) -> int:
         if name == "validate":
             command.add_argument("--full", action="store_true")
     args = parser.parse_args(argv)
-    if args.command in STAGES:
+    if args.command in STAGES and args.command != "acquire":
         phase, _ = STAGES[args.command]
         parser.exit(2, f"{args.command}: not implemented; reserved for approved Phase {phase}.\n")
     try:
         with args.config.open("rb") as stream:
             config = tomllib.load(stream)
+        if args.command == "acquire":
+            print(json.dumps(acquire(config), indent=2))
+            return 0
         summary = {
-            "implementation": "Phase 1 scaffold; no data acquired or validated",
+            "implementation": "Phase 2 acquisition available; run acquire to verify local bytes; "
+            "no rows validated or partitions created",
             "dataset": config["data"]["filename"],
             "revision": config["data"]["revision"],
             "outcome": config["experiment"]["outcome"],
             "holdout_fraction": config["experiment"]["holdout_fraction"],
             "development_seeds": config["experiment"]["development_seeds"],
             "tracking_uri": Path(config["tracking"]["directory"]).resolve().as_uri(),
-            "reserved_stages": list(STAGES),
+            "reserved_stages": [stage for stage in STAGES if stage != "acquire"],
         }
+    except AcquisitionError as error:
+        parser.exit(1, f"Acquisition failed: {error}\n")
     except (OSError, tomllib.TOMLDecodeError, KeyError, TypeError) as error:
-        parser.exit(2, f"Cannot read project configuration: {error}\n")
+        parser.exit(2, f"Configuration or filesystem error: {error}\n")
     print(json.dumps(summary, indent=2))
     return 0

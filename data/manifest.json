@@ -1,0 +1,30 @@
+{
+  "manifest_version": 1,
+  "verification_status": "compressed_bytes_verified",
+  "verified_at_utc": "2026-10-16T01:44:38.043701+00:00",
+  "acquisition_mode": "downloaded",
+  "source": {
+    "repository": "criteo/criteo-uplift",
+    "revision": "82811785048bb633de2d55c02bab4e57066e6423",
+    "filename": "criteo-research-uplift-v2.1.csv.gz",
+    "url": "https://huggingface.co/datasets/criteo/criteo-uplift/resolve/82811785048bb633de2d55c02bab4e57066e6423/criteo-research-uplift-v2.1.csv.gz",
+    "license": "CC-BY-NC-SA-4.0",
+    "attribution": "Criteo AI Lab; Diemert et al., AdKDD & TargetAd, 2018"
+  },
+  "archive_path": "data/raw/criteo-research-uplift-v2.1.csv.gz",
+  "expected": {
+    "size_bytes": 311422618,
+    "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "row_count": 13979592
+  },
+  "observed": {
+    "size_bytes": 311422618,
+    "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "row_count": null
+  },
+  "row_count_status": "not_measured; deferred to Phase 3",
+  "destination_hosts_this_run": [
+    "huggingface.co",
+    "us.aws.cdn.hf.co"
+  ]
+}
