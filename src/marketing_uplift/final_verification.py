@@ -71,7 +71,7 @@ def check_numerics(result, arrays):
 def verify(config, report):
     receipt = verify_lock(config, report)
     settings, sha, _ = protocol()
-    root = Path("artifacts/phase9") / sha
+    root = Path(report.get("artifact_root", str(Path("artifacts/phase9") / sha)))
     registry = json.loads(Path(config["experiment"]["split_registry"]).read_text())
     ids = get_member(registry["memberships"]["development"], registry["rows"])
     t = np.load(root / "development-t.npy", mmap_mode="r")

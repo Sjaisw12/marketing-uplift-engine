@@ -17,8 +17,8 @@ from marketing_uplift.decision_reports import render as render_decisions
 from marketing_uplift.decision_verification import verify_first
 from marketing_uplift.decisions import run as run_decisions
 from marketing_uplift.development_ate import analyze_development
+from marketing_uplift.final_stage_a import lock_prepared, verify_public_lock
 from marketing_uplift.final_stage_a import run as prepare_final
-from marketing_uplift.final_stage_a import verify_public_lock
 from marketing_uplift.final_verification import verify as verify_final
 from marketing_uplift.ingestion import ingest
 from marketing_uplift.splits import split
@@ -57,6 +57,7 @@ def main(argv: list[str] | None = None) -> int:
             modes = command.add_mutually_exclusive_group()
             modes.add_argument("--verify", action="store_true")
             modes.add_argument("--verify-public-lock", action="store_true")
+            modes.add_argument("--lock-prepared", action="store_true")
         if name == "validate":
             command.add_argument("--full", action="store_true")
     args = parser.parse_args(argv)
@@ -113,7 +114,10 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(result["statistics"], indent=2))
             return 0
         if args.command == "final-prepare":
-            if args.verify_public_lock:
+            if args.lock_prepared:
+                report = lock_prepared(config)
+                result = {k: report[k] for k in ("status", "lock_sha256", "model_manifest_sha256")}
+            elif args.verify_public_lock:
                 result = verify_public_lock()
             elif args.verify:
                 report = json.loads(Path("reports/phase9/stage_a.json").read_text())

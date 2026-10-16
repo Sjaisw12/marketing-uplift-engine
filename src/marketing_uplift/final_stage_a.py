@@ -66,17 +66,23 @@ def protected(config):
 
 
 def protocol():
-    paths = [Path("configs/phase9.toml"), Path("docs/PHASE9_STAGE_A_PROTOCOL.md")]
-    paths += sorted(Path("src/marketing_uplift").glob("final_*.py"))
+    # New lock identity uses only repository-relative keys. Historical Phase 6–8
+    # path-dependent protocol IDs remain preserved evidence, not live identity keys.
+    paths = [Path("configs/phase9.toml")]
+    paths += sorted(Path("src/marketing_uplift").glob("*.py"))
+    paths += [p for p in sorted(Path("configs").glob("*.toml")) if p.name != "phase9.toml"]
+    paths += sorted(Path("docs").glob("*PROTOCOL.md"))
     paths += [
-        Path("src/marketing_uplift/cli.py"),
         Path(".github/workflows/stage-a.yml"),
         Path(".github/workflows/stage-b-disabled.yml"),
         Path("uv.lock"),
+        Path("pyproject.toml"),
+        Path("artifacts/splits.json"),
+        Path("data/manifest.json"),
+        Path("reports/phase_8_metrics.json"),
     ]
     paths += sorted(Path("tests").glob("test_final*.py"))
     hashes = {str(p): file_sha256(p) for p in paths}
-    hashes["phase8_protocol"] = phase8_protocol()[1]
     settings = tomllib.loads(paths[0].read_text())
     if (
         settings["stage_b_enabled"]
@@ -224,6 +230,11 @@ def run(config):
     started = time.monotonic()
     before = protected(config)
     settings, protocol_sha, hashes = protocol()
+    existing = Path("reports/phase9/stage_a.json")
+    if existing.exists():
+        old = json.loads(existing.read_text())
+        verify_lock(config, old)
+        return old
     root = Path("artifacts/phase9") / protocol_sha
     root.mkdir(parents=True, exist_ok=True)
     immutable_json(root / "protected.json", before)
@@ -251,11 +262,6 @@ def run(config):
         else subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     )
     immutable_json(prior_provenance, provenance)
-    existing = Path("reports/phase9/stage_a.json")
-    if existing.exists():
-        old = json.loads(existing.read_text())
-        verify_lock(config, old)
-        return old
     if shutil.disk_usage(".").free < config["resources"]["min_free_disk_bytes"]:
         raise ContractError("Insufficient free disk for final development fits")
     ids, cache = prepare_cache(config, registry, root)
@@ -323,6 +329,8 @@ def run(config):
     with mlflow.start_run(run_name=f"stage-a-{protocol_sha[:12]}") as run_info:
         result = {
             "status": "stage_a_locked_stage_b_disabled",
+            "artifact_root": str(root),
+            "lock_root": str(root),
             "protocol_sha256": protocol_sha,
             "lock_sha256": lock_sha,
             "model_manifest_sha256": model_digest,
@@ -384,7 +392,8 @@ def verify_lock(config, report):
         raise ContractError("Stage B must remain disabled/unapproved")
     if protected(config) != report["protected_before"]:
         raise ContractError("Historical protected artifacts changed")
-    root = Path("artifacts/phase9") / protocol_sha
+    root = Path(report.get("artifact_root", str(Path("artifacts/phase9") / protocol_sha)))
+    lock_root = Path(report.get("lock_root", str(root)))
     for filename, sha in report["model_manifest"]["models"][0]["job"]["cache"].items():
         if file_sha256(root / filename) != sha:
             raise ContractError("Locked development cache/folds changed")
@@ -392,7 +401,7 @@ def verify_lock(config, report):
         ("model-manifest.json", report["model_manifest"]),
         ("lock.json", {"lock_sha256": report["lock_sha256"], "payload": report["lock"]}),
     ):
-        if json.loads((root / name).read_text()) != expected:
+        if json.loads((lock_root / name).read_text()) != expected:
             raise ContractError("Private final lock evidence changed")
     for fit in report["model_manifest"]["models"]:
         name = fit["job"]["name"]
@@ -425,3 +434,105 @@ def verify_public_lock():
         "stage_b_enabled": False,
         "datasets_opened": False,
     }
+
+
+def lock_prepared(config):
+    """Portable review seal of existing nine fits; never refit or overwrite them."""
+    target = Path("reports/phase9/stage_a.json")
+    if target.exists():
+        raise ContractError("Final Stage A review lock already exists; refuse replacement")
+    path = Path("reports/phase9/preparation_record.json")
+    prepared = json.loads(path.read_text())
+    settings, sha, hashes = protocol()
+    before = protected(config)
+    if before != prepared["protected_before"]:
+        raise ContractError("Historical inputs changed before portable review lock")
+    original = prepared["protocol_sha256"]
+    training_root = Path("artifacts/phase9") / original
+    old_files = prepared["lock"]["provenance"]["files"]
+    for name in (
+        "configs/phase9.toml",
+        "src/marketing_uplift/final_fit_worker.py",
+        "src/marketing_uplift/final_access.py",
+        "src/marketing_uplift/final_metrics.py",
+    ):
+        if file_sha256(Path(name)) != old_files[name]:
+            raise ContractError("Training/evaluation recipes changed; cannot adopt existing fits")
+    if (
+        tomllib.loads(Path("configs/baselines.toml").read_text())
+        != prepared["model_manifest"]["recipe"]
+    ):
+        raise ContractError("Model hyperparameters changed")
+    fits = prepared["model_manifest"]["models"]
+    if len(fits) != 9:
+        raise ContractError("Need exactly nine verified prepared fits")
+    for fit in fits:
+        if file_sha256(training_root / f"{fit['job']['name']}.txt") != fit["model_sha256"]:
+            raise ContractError("Prepared model changed")
+        for name, value in {**fit["job"]["cache"], **fit["probe_hashes"]}.items():
+            if file_sha256(training_root / name) != value:
+                raise ContractError("Prepared development cache/probe changed")
+    manifest = {
+        **prepared["model_manifest"],
+        "protocol_sha256": sha,
+        "training_protocol_sha256": original,
+    }
+    manifest_sha = digest(manifest)
+    provenance = {
+        **prepared["lock"]["provenance"],
+        "protocol_sha256": sha,
+        "files": hashes,
+        "training_protocol_sha256": original,
+        "preparation_record_sha256": file_sha256(path),
+        "evaluation_lock_code_commit": subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], text=True
+        ).strip(),
+    }
+    lock = {
+        **prepared["lock"],
+        "protocol_sha256": sha,
+        "model_manifest_sha256": manifest_sha,
+        "provenance": provenance,
+        "preparation_lock_sha256": prepared["lock_sha256"],
+    }
+    lock_sha = digest(lock)
+    root = Path("artifacts/phase9") / sha
+    root.mkdir(parents=True, exist_ok=True)
+    immutable_json(root / "model-manifest.json", manifest)
+    immutable_json(root / "lock.json", {"lock_sha256": lock_sha, "payload": lock})
+    immutable_json(root / "provenance.json", provenance)
+    immutable_json(root / "protected.json", before)
+    mlflow.set_tracking_uri(Path(config["tracking"]["directory"]).resolve().as_uri())
+    mlflow.set_experiment("marketing-uplift-phase9-stage-a")
+    with mlflow.start_run(run_name=f"stage-a-review-lock-{sha[:12]}") as run:
+        result = {
+            **prepared,
+            "protocol_sha256": sha,
+            "lock_sha256": lock_sha,
+            "model_manifest_sha256": manifest_sha,
+            "lock": lock,
+            "model_manifest": manifest,
+            "artifact_root": str(training_root),
+            "lock_root": str(root),
+            "preparation_mlflow_run_id": prepared["mlflow_run_id"],
+            "mlflow_run_id": run.info.run_id,
+            "review_locked_at": now(),
+            "portable_review_lock": True,
+            "no_model_refit_during_review_seal": True,
+        }
+        mlflow.log_params(
+            {
+                "lock_sha256": lock_sha,
+                "model_manifest_sha256": manifest_sha,
+                "training_protocol_sha256": original,
+                "stage_b_enabled": False,
+            }
+        )
+        mlflow.log_dict(provenance, "provenance.json")
+        mlflow.log_dict(lock, "lock.json")
+        mlflow.log_dict(manifest, "model-manifest.json")
+        mlflow.log_dict(result, "stage-a-result.json")
+        for fit in fits:
+            mlflow.log_artifact(str(training_root / f"{fit['job']['name']}.txt"), "models")
+        immutable_json(target, result)
+    return result

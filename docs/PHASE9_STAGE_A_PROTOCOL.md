@@ -169,3 +169,26 @@ CI has synthetic/default checks and a separate manual StageA-only verification m
 using already verified development artifacts. Never route StageA through the old
 whole-source validation/reconstruction workflow, which reads source outcome columns.
 No acquisition, ingestion or split regeneration in this intact workspace.
+
+## Portable review seal and training lineage
+
+The final review identity hashes repository-relative file names and raw file bytes,
+including the complete package, frozen configurations/protocols, tests, tracked
+source/membership metadata, lockfile and Phase8 aggregate evidence. Historical
+Phase6–8 path-dependent protocol IDs remain preserved provenance; they are not
+recomputed as a public checkout identity. A relocation test must preserve the new
+protocol digest. Raw datasets/models are not required for the public check.
+
+JSON payload digests use SHA256 of UTF-8 JSON with sorted keys, compact separators
+(',', ':'), and no nonfinite numbers. Lock digest excludes its enclosing digest
+field; model-manifest digest covers the manifest payload. These canonical payload
+digests are distinct from raw pretty-printed file byte hashes.
+
+The initial development preparation record and its nine fits are immutable. A
+review-seal operation may adopt those exact completed fits after verifying unchanged
+training/feature/evaluation kernels, seed configuration, hyperparameters, caches,
+fit IDs and model bytes. It records original training-protocol/code provenance and
+the new portable evaluation identity separately. This fixes metadata portability,
+not model recipes, performance or policy selection; no fit is repeated. Preserve
+the original preparation record/MLflow run and create a separate review-lock run.
+A completed final review lock cannot be replaced by that operation.
