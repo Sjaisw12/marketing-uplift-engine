@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_stage_a_development_fits_lock_and_disabled_holdout(monkeypatch, record_property):
     monkeypatch.chdir(ROOT)
     config = tomllib.loads(Path("configs/project.toml").read_text())
-    report = json.loads(Path("reports/phase_9_stage_a.json").read_text())
+    report = json.loads(Path("reports/phase9/stage_a.json").read_text())
     public = verify_public_lock()
     assert public["lock_sha256"] == report["lock_sha256"]
     assert not public["stage_b_enabled"] and not public["datasets_opened"]

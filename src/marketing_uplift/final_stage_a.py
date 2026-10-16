@@ -251,7 +251,7 @@ def run(config):
         else subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     )
     immutable_json(prior_provenance, provenance)
-    existing = Path("reports/phase_9_stage_a.json")
+    existing = Path("reports/phase9/stage_a.json")
     if existing.exists():
         old = json.loads(existing.read_text())
         verify_lock(config, old)
@@ -410,7 +410,7 @@ def verify_lock(config, report):
 
 
 def verify_public_lock():
-    report = json.loads(Path("reports/phase_9_stage_a.json").read_text())
+    report = json.loads(Path("reports/phase9/stage_a.json").read_text())
     _, sha, _ = protocol()
     if (
         sha != report["protocol_sha256"]

@@ -116,7 +116,7 @@ def main(argv: list[str] | None = None) -> int:
             if args.verify_public_lock:
                 result = verify_public_lock()
             elif args.verify:
-                report = json.loads(Path("reports/phase_9_stage_a.json").read_text())
+                report = json.loads(Path("reports/phase9/stage_a.json").read_text())
                 result = verify_final(config, report)
             else:
                 report = prepare_final(config)
