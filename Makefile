@@ -2,7 +2,7 @@ UV ?= uv
 # Keep setup usable in workspaces with a read-only home directory.
 export UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 
-.PHONY: setup check status acquire validate ingest split audit ate baselines advanced decisions reproduce
+.PHONY: setup check status acquire validate ingest split audit ate baselines advanced decisions final-prepare reproduce
 setup:
 	$(UV) sync --locked
 
@@ -17,7 +17,7 @@ status:
 validate:
 	$(UV) run --locked uplift validate --full
 
-acquire ingest split audit ate baselines advanced decisions:
+acquire ingest split audit ate baselines advanced decisions final-prepare:
 	$(UV) run --locked uplift $@
 
 # Reproduce approved stages through development baselines; no final holdout evaluation.

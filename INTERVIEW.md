@@ -278,3 +278,46 @@ No final deployment policy was selected or locked and the holdout remains sealed
    outcome stratification. Overlapping outer splits are not independent trials.
    Final policy locking and a separately approved one-time holdout evaluation
    remain necessary before a confirmatory headline claim.
+
+## Phase 9 Stage A — lock the question before unsealing outcomes
+
+I separated final preparation from final evaluation. The approved preparation fits
+nine fixed diagnostic models on development records only, records exact training
+membership/fold/model hashes and freezes the complete statistical comparison suite.
+It preserves every previous model and result. Development correctness probes verify
+reloads, leakage boundaries and formulas; they do not estimate generalization.
+
+The primary recommendation is no targeting because the conservative development
+engine abstained across all declared scenarios. Its zero gain over the same
+no-targeting policy is an identity, not a statistically discovered zero effect.
+Users may still visit without advertising, and abstention is not proven optimal.
+All targeting strategies remain secondary diagnostics and cannot replace that
+recommendation after final holdout results become visible.
+
+Two thousand correlated Gaussian draws support a frozen 765-contrast diagnostic
+family, with pointwise and simultaneous intervals clearly separated. A second
+uncertainty calculation conditions on treatment×visit stratum counts. Conditioning
+can make an aggregate assignment contrast have zero variance; that is not exact
+causal certainty. Unknown experiment propensities, privacy selection, dependence
+and model estimation remain limitations under both methods.
+
+Stage B cannot run: a local flag or approval JSON is not trusted authorization, and
+this workspace has no integrated protected-reviewer/durable create-once receipt
+service. All real holdout entry points reject access before I/O. Later activation
+requires separately reviewed gate integration, re-locking and approval of the exact
+code/model digests. Stage A review or merge never grants outcome access.
+
+**Two challenging questions**
+
+1. **Why evaluate a holdout if your primary policy targets nobody?** No outcome
+   access is needed to establish its zero incremental gain relative to itself.
+   A later separately approved holdout analysis can assess predeclared diagnostic
+   strategies, but it cannot prove optimality or justify choosing a new winner.
+   Keeping the holdout sealed remains a defensible alternative.
+2. **Why is a signed-looking JSON or CI checkbox insufficient to authorize a
+   one-time evaluation?** A local payload can be edited or copied, and a local
+   receipt can disappear across cloud tasks. Authorization must be verified against
+   a trusted reviewer decision bound to exact code/model hashes, and an external
+   atomic create-once record must survive runners and interruptions. Without both,
+   a fail-closed disabled interface is more honest than pretending one-time access
+   is enforced. Even those controls cannot validate causal identification.

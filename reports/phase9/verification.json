@@ -1,0 +1,23 @@
+{
+  "final_stage_a_verification": {
+    "lock_sha256": "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93",
+    "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+    "models": 9,
+    "stage_b_enabled": false,
+    "development_probe_rows": 2048,
+    "probe_is_correctness_not_out_of_sample_performance": true,
+    "numerical_reference": {
+      "maximum_mean_error": 5.204170427930421e-17,
+      "maximum_covariance_error": 1.7211709488207383e-18,
+      "maximum_stratified_covariance_error": 2.0328790734103208e-19,
+      "coordinates": 375,
+      "family_size": 765
+    },
+    "no_holdout_access": true
+  },
+  "permitted_historical_regressions": "All 8 Phase 6\u20138 integration checks passed in the 9-test pre-review batch (144.91s); final Stage A lock reverified separately (1 passed,9.94s).",
+  "batch_tests_passed": 9,
+  "final_lock_test_passed": 1,
+  "unique_full_data_tests": 9,
+  "no_holdout_rows_read": true
+}

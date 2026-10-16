@@ -7,33 +7,31 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 8 adds a development-only, abstention-aware budget simulator using the
-verified Phase 6/7 random, response, S and T predictions. Phase 7 was independently
-verified through GitHub Actions and merged. Models, frozen memberships, prior
-results, MLflow records and the dependency lockfile remain unchanged.
+Phase 9 **Stage A only** prepares a final policy/evaluation lock. Phase 8 was
+independently verified through GitHub Actions and merged. Stage B is neither
+approved nor enabled; no final holdout rows, statistics or predictions are used.
 
-Measured result: all 40 scenario/split recommendations abstain from targeting; the
-conservative rule was preserved. This concerns the declared grid and assumptions,
-not a proof that all real campaigns lack benefit.
+The primary recommendation preserves Phase 8's unanimous abstention: zero
+assignments and hypothetical spending. Its zero gain relative to no targeting is
+a mathematical identity, not evidence that advertising is ineffective or that
+abstention is optimal. Absolute visits without targeting need not be zero.
 
-The simulator uses exact hypothetical budgets and successive reach tranches. It
-requires positive conservative marginal net value across all declared propensity
-and evaluator scenarios, and can recommend spending nothing. This is a scenario
-analysis, not verified profitability or an operational causal guarantee.
+Stage A adds nine predetermined full-development diagnostic refits while preserving
+all historical models/results. Random, response, S and T at 10–50% reach and none/all
+anchors are frozen secondary diagnostics, never substitutes chosen after holdout
+results. Prices remain hypothetical; no causal superiority or financial profit is
+established by constant-propensity scenarios or narrow working-model intervals.
 
-See [the frozen Phase 8 protocol](docs/PHASE8_PROTOCOL.md),
-[measured decisions](reports/phase_8_decisions.md),
-[propensity/nuisance sensitivity](reports/phase_8_sensitivity.md), and
-[completion evidence](reports/phase_8_completion.md).
-Earlier [Phase 7 comparisons](reports/phase_7_comparison.md) and
-[Phase 6 evidence](reports/phase_6_baselines.md) remain preserved.
+See [Stage A protocol](docs/PHASE9_STAGE_A_PROTOCOL.md),
+[Stage A completion](reports/phase9/completion.md),
+[public lock and model evidence](reports/phase9/stage_a.json), and
+[development-only verification](reports/phase9/verification.json).
+Earlier [Phase 8 decisions](reports/phase_8_decisions.md),
+[Phase 7 comparisons](reports/phase_7_comparison.md), and
+[Phase 6 results](reports/phase_6_baselines.md) remain immutable.
 
-Propensities are assumptions; DR does not eliminate privacy selection, hidden
-experiment probabilities or dependence. Gaussian intervals are nominal working-model
-intervals conditional on fixed models/policies. Five development splits overlap;
-auxiliary selection/assessment roles are not fresh confirmatory data. No final
-model, reach or deployment policy is selected/locked. The final holdout remains
-sealed; dashboard and later phases are not implemented.
+The final holdout remains sealed. Stage A approval/merge does not authorize Stage B.
+No Streamlit or Phase 10 work is implemented.
 
 ## Setup and verification
 
@@ -63,6 +61,7 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | `make split` | Seal final holdout once and freeze five development re-splits | 3, available |
 | `make audit` | Development EDA | 4, available |
 | `make ate` | Descriptive development assignment contrast and nominal 95% CI | 5, available |
+| `make final-prepare` | Stage A development-only final refits/lock; Stage B disabled | 9A, available |
 | `make decisions` | Hypothetical development budget/abstention simulator | 8, available |
 | `make advanced` | T-learner, shared cross-fit DR and paired multiplier evaluation | 7, available |
 | `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6, available |
@@ -375,3 +374,60 @@ fresh workspace, then gates the first Phase 8 split before all-five verification
 That workflow restoration does not authorize recreating artifacts in this intact
 workspace. Only aggregate reports are uploaded. Local checks are not a claim of
 independent remote full-data verification.
+
+## Phase 9 Stage A — safe preparation and review
+
+In this intact workspace, use only the Stage A command and read-only verification:
+
+```sh
+OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 make final-prepare
+OPENBLAS_NUM_THREADS=2 uv run --locked uplift final-prepare --verify
+uv run --locked uplift final-prepare --verify-public-lock
+OPENBLAS_NUM_THREADS=2 uv run --locked pytest tests/test_final_stage_a_full.py -m full_data
+```
+
+The public-lock check opens no datasets/models and runs on fresh CI checkout.
+Private verification reads only development correctness probes and verified files.
+Do not run older acquisition/full-validation/reconstruction/reproduce workflows as
+Stage A prerequisites: they scan whole-source outcome columns. No such workflow is
+needed in this intact workspace. Missing private artifacts require deliberate,
+verified restoration, never automatic reconstruction or a weaker fallback.
+
+New full-development refits use the unchanged Phase 6 hyperparameters and fixed
+Phase 9 seeds. Three arm/S models plus six development-only nuisance regressions
+are stored under ignored `artifacts/phase9/<protocol>/`, with exact fit-ID/mask and
+fold hashes. Separate local MLflow records provenance/models. Development probes
+verify arithmetic, exclusion and reloads; they are not new out-of-sample validation.
+All earlier models, reports, memberships, MLflow trees and uv.lock remain unchanged.
+
+The final diagnostic evaluator implements IPW, shared DR and final-S DR under five
+assumed propensities; 2,000 correlated Gaussian draws; 765 two-sided simultaneous
+contrasts; and distinct pointwise intervals. A mandatory secondary T×visit-stratified
+covariance sensitivity fixes stratum composition and can yield zero conditional
+variance for some contrasts. Neither interval method is exact randomization inference
+or a remedy for hidden propensities, privacy selection, dependence or model error.
+No method is selected by favorable results. The pure evaluator runs only on synthetic
+and permitted development arrays during Stage A.
+
+**Stage B is disabled in code and workflow**, regardless of flags or local approval
+files. No verified protected reviewer approval backend or independently durable
+create-once execution-receipt store is integrated. A GitHub environment name or
+ignored local JSON would not enforce these requirements. Future activation needs
+reviewed gate integration, a new code lock and separate approval tied to exact lock
+AND model-manifest digests. No real execution-start receipt is created during Stage A.
+
+If later authorized, policy/model/scoring hashes must persist before the first
+outcome read, and a durable execution receipt must already exist. A failed execution
+cannot reset that receipt to try another model/policy. Recovery is limited to the
+same reviewed lock and verified checkpoints. Logical API guards are not OS-level
+access isolation; the real holdout interfaces therefore remain unimplemented and
+deny access. The final holdout is not consumed by these preparation tests.
+
+Stage A reports live under `reports/phase9/` so historical Phase 8 report fingerprints
+remain unchanged. Private data/models are not committed; cloud-local persistence
+is not guaranteed. The Stage A PR is for review only, not permission for unsealing.
+
+Stage A lock and model-manifest identifiers are canonical JSON payload SHA-256,
+not hashes of pretty-printed wrapper bytes. Original training and portable review
+identities are both preserved; artifact/lock roots are recorded in stage_a.json.
+The portability correction reuses every original model byte without refitting.

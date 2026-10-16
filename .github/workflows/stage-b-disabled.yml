@@ -1,0 +1,18 @@
+name: Stage B DISABLED (separate approval and durable receipt integration required)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  holdout-disabled:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Stage B is disabled; no data, models or outcomes are accessed.'
+# No dispatch boolean, approval JSON or environment variable enables this job.
+# Required before a separately approved activation/re-lock:
+# 1. Verify a required-reviewer approval tied to exact lock AND model manifest.
+# 2. Durable external atomic create-once execution receipt before outcome access.
+# 3. Feature-only scoring, immutable policy hashes, then gated outcome evaluation.
+# 4. Same-lock recovery only; never clear the execution receipt after interruption.
+# An environment name alone is NOT evidence that required reviewers are configured.

@@ -71,7 +71,26 @@ is included in Phase 7. Later phases require separate scope and approval.
 - [x] Verify first real split before continuing unchanged through the remaining four.
 - [x] Publish five-split selection/assessment, sensitivity and matched-spending results.
 - [x] Verify preserved artifacts, reproducibility and MLflow; extend GitHub Actions checks.
-- [ ] Publish completion evidence and receive user approval.
+- [x] Publish completion evidence and receive user approval.
 
 Phase 8 does not select/lock a final deployment policy, retrain models, evaluate the
 sealed holdout, build Streamlit or authorize Phase 9.
+
+## Phase 9 — final policy lock and separately gated holdout evaluation
+### Stage A — authorized preparation only
+- [x] User approves Stage A scope; Stage B remains unapproved.
+- [x] Freeze primary abstention, diagnostics, nine refit recipes and evaluation protocol.
+- [x] Pass synthetic estimators, 765-family, stratified covariance and leakage/gate tests.
+- [x] Fit and verify nine development-only models; preserve prior artifacts.
+- [x] Publish exact policy/code/model/data/dependency lock and Stage A review evidence.
+- [ ] User reviews Stage A completion and lock.
+
+### Stage B — NOT authorized and disabled
+- [ ] Integrate and verify protected reviewer approval and durable create-once receipt service.
+- [ ] User separately approves exact final code lock AND model-manifest digests.
+- [ ] Record durable execution receipt before any holdout outcome access.
+- [ ] Execute the one-time locked analysis without policy re-selection.
+- [ ] Review final results before merge or Phase 10.
+
+Stage A approval/merge cannot authorize Stage B. No local boolean or approval file
+can enable holdout scoring or outcome evaluation. No Phase 10/dashboard work.

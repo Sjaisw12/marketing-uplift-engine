@@ -1,0 +1,1016 @@
+{
+  "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+  "payload": {
+    "protocol_sha256": "6cc04a9aa8d9c15ebff20402978921a4010af850e704e5cb8b20aed46189d1fc",
+    "development": {
+      "path": "artifacts/memberships/development.npy",
+      "rows": 11882653,
+      "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+      "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+    },
+    "training": {
+      "folds_sha256": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+      "algorithm": "PCG64 permutation of sorted development positions; round-robin modulo3",
+      "seed": 9000002,
+      "fold_rows": [
+        3960885,
+        3960884,
+        3960884
+      ],
+      "jobs": [
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "response",
+          "arm": 1,
+          "excluded_fold": null,
+          "seed": 9000001,
+          "fit_rows": 10100257,
+          "fit_visits": 490301,
+          "fit_mask_sha256": "6e5ca5f7dff599862e2c5283e1cc13c9f2b838b53b17050c06bf5f2256fdc826",
+          "fit_ids_sha256": "9fd193f4ce12873feb3fdda88c7809ba0dec1938fd7517239b185cc5f63dfeda",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "control",
+          "arm": 0,
+          "excluded_fold": null,
+          "seed": 9000001,
+          "fit_rows": 1782396,
+          "fit_visits": 68089,
+          "fit_mask_sha256": "1fbcffe3509d44d218eec697bedbb34f67e5e788ad6a4e38751b9b941adb92f7",
+          "fit_ids_sha256": "49f4e38b8138131f933a76ea6b695604f5e072f7ebcaf01f22994527b4248756",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "s_learner",
+          "arm": null,
+          "excluded_fold": null,
+          "seed": 9000001,
+          "fit_rows": 11882653,
+          "fit_visits": 558390,
+          "fit_mask_sha256": "2b32d93f88557b58875f9497f233064c5bdbc9f1da4fad4f782d0ec92e2026ba",
+          "fit_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11",
+            "__intervention_treatment"
+          ]
+        },
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-0-0",
+          "arm": 0,
+          "excluded_fold": 0,
+          "seed": 9000100,
+          "fit_rows": 1188415,
+          "fit_visits": 45582,
+          "fit_mask_sha256": "b297fbf48f3e5718925c8c9db90b459f1f423108393884321ac431a034951a8c",
+          "fit_ids_sha256": "92e80decd868f705eb63eba46ad3964e2d1c679e47cd4ec22e9f377929a1baad",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-0-1",
+          "arm": 1,
+          "excluded_fold": 0,
+          "seed": 9000101,
+          "fit_rows": 6733353,
+          "fit_visits": 327131,
+          "fit_mask_sha256": "766688bf21155df2119932bc7327a3289b99ed60258dd0f9b39cc8bff16b949b",
+          "fit_ids_sha256": "7de26814d952363e5b77a50c0877c34a118cf7eca33878ed343a7e9c3a48f9a4",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-1-0",
+          "arm": 0,
+          "excluded_fold": 1,
+          "seed": 9000110,
+          "fit_rows": 1187868,
+          "fit_visits": 45239,
+          "fit_mask_sha256": "6b82a67d860259433d2cfa6451ac16a9d098669c1cc8969595d490ea6b321953",
+          "fit_ids_sha256": "00f0477db8f15f9d57cee62cf0a3e96746103ce8f5bc4a6abe1bf1a239f846a0",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-1-1",
+          "arm": 1,
+          "excluded_fold": 1,
+          "seed": 9000111,
+          "fit_rows": 6733901,
+          "fit_visits": 326588,
+          "fit_mask_sha256": "25ee0e0325c0dadcbd1ce76a96ff64655f310010d19cacecdab7197b4ab85c56",
+          "fit_ids_sha256": "1084990e745db62796f5d0848d2f66d549b5d4ea893d93db5778921d163d5ab7",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-2-0",
+          "arm": 0,
+          "excluded_fold": 2,
+          "seed": 9000120,
+          "fit_rows": 1188509,
+          "fit_visits": 45357,
+          "fit_mask_sha256": "f8c4753d08d99d6a66dfd85b1a328b32acdefcc656e027e6c21d0af7ba3c46f3",
+          "fit_ids_sha256": "c1b2f16ac4d8447bd7e29f709fc3dcb6a4d83affda43ce7f7d6ba2154d7fcbae",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-2-1",
+          "arm": 1,
+          "excluded_fold": 2,
+          "seed": 9000121,
+          "fit_rows": 6733260,
+          "fit_visits": 326883,
+          "fit_mask_sha256": "4170d153a8f20ddb27102a53cba889dda45a537e3607dc4712e2c4d4b8083111",
+          "fit_ids_sha256": "f36fbb80acb8dea9acd0c209512b083160c8b365c09364ad83b118716c1c9842",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        }
+      ]
+    },
+    "recipe": {
+      "version": 1,
+      "rounds": 200,
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "min_data_in_leaf": 1000,
+      "max_bin": 63,
+      "bin_construct_sample_cnt": 200000,
+      "num_threads": 2,
+      "bootstrap_replicates": 2000,
+      "reference_propensity": 0.85,
+      "sensitivity_propensities": [
+        0.8,
+        0.825,
+        0.875,
+        0.9
+      ],
+      "reach": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5
+      ],
+      "random_seed_offset": 1000000,
+      "bootstrap_seed_offset": 2000000
+    },
+    "versions": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "numpy": "2.2.6",
+      "lightgbm": "4.6.0",
+      "pyarrow": "21.0.0",
+      "mlflow": "3.5.0"
+    },
+    "models": [
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "response",
+          "arm": 1,
+          "excluded_fold": null,
+          "seed": 9000001,
+          "fit_rows": 10100257,
+          "fit_visits": 490301,
+          "fit_mask_sha256": "6e5ca5f7dff599862e2c5283e1cc13c9f2b838b53b17050c06bf5f2256fdc826",
+          "fit_ids_sha256": "9fd193f4ce12873feb3fdda88c7809ba0dec1938fd7517239b185cc5f63dfeda",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "model_sha256": "f4118881216373b6ebdcb4ee52ac538bbe21853d9227d8a437d64649fdaf54ef",
+        "model_bytes": 721930,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "probe_hashes": {
+          "response-probe-p.npy": "a465b755bd74c6e7a593c94244c273bbf3bc0c02864dd4e2783b36ffb48245f9"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 85.65346769300231,
+        "peak_rss_kib": 3317440
+      },
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "control",
+          "arm": 0,
+          "excluded_fold": null,
+          "seed": 9000001,
+          "fit_rows": 1782396,
+          "fit_visits": 68089,
+          "fit_mask_sha256": "1fbcffe3509d44d218eec697bedbb34f67e5e788ad6a4e38751b9b941adb92f7",
+          "fit_ids_sha256": "49f4e38b8138131f933a76ea6b695604f5e072f7ebcaf01f22994527b4248756",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "model_sha256": "188dee9a3d1f7fbb90838060057b7ffd9b663ffc7515dc7030a801efa4e02fa1",
+        "model_bytes": 711522,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "probe_hashes": {
+          "control-probe-p.npy": "61edf80fc99fbf7216c6a003d7d9311f7e31a6553d6c6c73663152c77d6107f1"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 13.9677820240031,
+        "peak_rss_kib": 3317440
+      },
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "s_learner",
+          "arm": null,
+          "excluded_fold": null,
+          "seed": 9000001,
+          "fit_rows": 11882653,
+          "fit_visits": 558390,
+          "fit_mask_sha256": "2b32d93f88557b58875f9497f233064c5bdbc9f1da4fad4f782d0ec92e2026ba",
+          "fit_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11",
+            "__intervention_treatment"
+          ]
+        },
+        "model_sha256": "6e6abe2b64d4440416fa4c3164164f06a1707a68c9fa59dd6e7c6b47bff8e1f7",
+        "model_bytes": 724007,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11",
+          "__intervention_treatment"
+        ],
+        "probe_hashes": {
+          "s_learner-probe-p0.npy": "dc30f970d4fa90d89b8bed5be1b6547bf38778ad265aadfdf8f4fe40702d2d7b",
+          "s_learner-probe-p1.npy": "420d633e66c040ca42e0203dbd6f4782a7e7429b5f09cadc96aa856d70ea8eeb"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 99.20163159599178,
+        "peak_rss_kib": 3424908
+      },
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-0-0",
+          "arm": 0,
+          "excluded_fold": 0,
+          "seed": 9000100,
+          "fit_rows": 1188415,
+          "fit_visits": 45582,
+          "fit_mask_sha256": "b297fbf48f3e5718925c8c9db90b459f1f423108393884321ac431a034951a8c",
+          "fit_ids_sha256": "92e80decd868f705eb63eba46ad3964e2d1c679e47cd4ec22e9f377929a1baad",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "model_sha256": "5c855c98308899ba74edebf37cfb30a349cadd221c719ef4c87bf860d61bd765",
+        "model_bytes": 710110,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "probe_hashes": {
+          "nuisance-0-0-probe-p.npy": "0b65edfbb237ee22bcf93d1be75eab615e95f70cb2fb8d6d5c8d9612743f576f",
+          "nuisance-0-0-held-probe.npz": "37fc1e0ed5163f87494d3c147fdf5600279a1173eafe046b3b6bfb27c5fc569f"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 9.212814635990071,
+        "peak_rss_kib": 3317440
+      },
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-0-1",
+          "arm": 1,
+          "excluded_fold": 0,
+          "seed": 9000101,
+          "fit_rows": 6733353,
+          "fit_visits": 327131,
+          "fit_mask_sha256": "766688bf21155df2119932bc7327a3289b99ed60258dd0f9b39cc8bff16b949b",
+          "fit_ids_sha256": "7de26814d952363e5b77a50c0877c34a118cf7eca33878ed343a7e9c3a48f9a4",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "model_sha256": "a69101d4a6b29d4882da2c8f5a0af1619fd34a939317c6c27205af8101cc584a",
+        "model_bytes": 719479,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "probe_hashes": {
+          "nuisance-0-1-probe-p.npy": "67538943442d8e824d09d3cb25df65c666862634125383bc88c1dfb7a309d2d3",
+          "nuisance-0-1-held-probe.npz": "d4c31e045f7c31be6196f86834f1ac6e71cff820e0f58abf88d7b9fd72707309"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 53.96707851300016,
+        "peak_rss_kib": 3317440
+      },
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-1-0",
+          "arm": 0,
+          "excluded_fold": 1,
+          "seed": 9000110,
+          "fit_rows": 1187868,
+          "fit_visits": 45239,
+          "fit_mask_sha256": "6b82a67d860259433d2cfa6451ac16a9d098669c1cc8969595d490ea6b321953",
+          "fit_ids_sha256": "00f0477db8f15f9d57cee62cf0a3e96746103ce8f5bc4a6abe1bf1a239f846a0",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "model_sha256": "392d31211fad1077500c332f5a7bdc7e425f17f9bc54fbfaf11c6cff7b653dbe",
+        "model_bytes": 709989,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "probe_hashes": {
+          "nuisance-1-0-probe-p.npy": "2a53e8ec011a6dd1433663c999728a1a912239499e7e2fa6c2c644ce2dcbbfd0",
+          "nuisance-1-0-held-probe.npz": "21efab85bb6bfcf7f8d69e11e55074224fc041bbb5dec2e3115afe5a92f0e14f"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 8.776704709001933,
+        "peak_rss_kib": 3317440
+      },
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-1-1",
+          "arm": 1,
+          "excluded_fold": 1,
+          "seed": 9000111,
+          "fit_rows": 6733901,
+          "fit_visits": 326588,
+          "fit_mask_sha256": "25ee0e0325c0dadcbd1ce76a96ff64655f310010d19cacecdab7197b4ab85c56",
+          "fit_ids_sha256": "1084990e745db62796f5d0848d2f66d549b5d4ea893d93db5778921d163d5ab7",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "model_sha256": "cbe59d2a5b6abc986494420094bc18791498dc63958f5052b441d8e097223cea",
+        "model_bytes": 719445,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "probe_hashes": {
+          "nuisance-1-1-probe-p.npy": "6ff7f720b994b1f6bfceaac762b5227ff65cef3baccd1c3aa758b1ee19e1fb49",
+          "nuisance-1-1-held-probe.npz": "36976b40fd60278bca9cad2155d1456e974d53c17c3bdffac8cca31dea413017"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 54.55794547899859,
+        "peak_rss_kib": 3317440
+      },
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-2-0",
+          "arm": 0,
+          "excluded_fold": 2,
+          "seed": 9000120,
+          "fit_rows": 1188509,
+          "fit_visits": 45357,
+          "fit_mask_sha256": "f8c4753d08d99d6a66dfd85b1a328b32acdefcc656e027e6c21d0af7ba3c46f3",
+          "fit_ids_sha256": "c1b2f16ac4d8447bd7e29f709fc3dcb6a4d83affda43ce7f7d6ba2154d7fcbae",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "model_sha256": "b9b95c8b321a608523a5ca9896b82b646c9af09204701f18f8fd511d2f6afcf5",
+        "model_bytes": 710319,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "probe_hashes": {
+          "nuisance-2-0-probe-p.npy": "c761421b8cdeeeb60583889a3b0269d073dcb17f9a79ed5a66121f173fb94af9",
+          "nuisance-2-0-held-probe.npz": "7ff96c3c768f205232cf04731ba7c04e548369bbd86921276c2347f39818ae4d"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 10.065111351999803,
+        "peak_rss_kib": 3317440
+      },
+      {
+        "job": {
+          "directory": "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5",
+          "development_ids_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+          "membership": {
+            "path": "artifacts/memberships/development.npy",
+            "rows": 11882653,
+            "sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+            "encoding": "sorted uint64 little-endian row IDs; hash excludes npy header"
+          },
+          "cache": {
+            "development-x.npy": "9322f81151c2cb6e8772717e518cffb07b13646349198c2558b6a498a9cdb33a",
+            "development-t.npy": "6b95ed478f1e09987eeaf782e59ae28546d8a75b051a5d9bb107689b04530078",
+            "development-y.npy": "0cc368efeb0318e3861a7e56b27cb7ba140af2b8939467acba087aeb17716e49",
+            "nuisance-folds.npy": "655849ec0b8327e00e3c17f11d94457e58720d2e64707485f213c86d05963ff4",
+            "probe-positions.npy": "dafdffd0206b40f43a06f47b7b8629acff4d996e5ec91d035283945fdd5eaa24"
+          },
+          "recipe_sha256": "7fa3056c8e95820b924b2fdf73788ece90818e182a10dc461456c3f099a012e8",
+          "name": "nuisance-2-1",
+          "arm": 1,
+          "excluded_fold": 2,
+          "seed": 9000121,
+          "fit_rows": 6733260,
+          "fit_visits": 326883,
+          "fit_mask_sha256": "4170d153a8f20ddb27102a53cba889dda45a537e3607dc4712e2c4d4b8083111",
+          "fit_ids_sha256": "f36fbb80acb8dea9acd0c209512b083160c8b365c09364ad83b118716c1c9842",
+          "features": [
+            "f0",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11"
+          ]
+        },
+        "model_sha256": "6092033be93f9504319cabd22ca09fa5796592e97424c0deeebb0837dec5c5b2",
+        "model_bytes": 719625,
+        "trees": 200,
+        "feature_order": [
+          "f0",
+          "f1",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11"
+        ],
+        "probe_hashes": {
+          "nuisance-2-1-probe-p.npy": "1d889f710add2cf78871e9c148d810c23db086e2f426b1fcd23d3120dc7cad9a",
+          "nuisance-2-1-held-probe.npz": "425cbcea6877f98dc40ff630a639e735d6834664b9968fef0290d844dce1844f"
+        },
+        "reload_bit_identical": true,
+        "elapsed_seconds": 56.88891170300485,
+        "peak_rss_kib": 3317440
+      }
+    ],
+    "training_protocol_sha256": "3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5"
+  }
+}
