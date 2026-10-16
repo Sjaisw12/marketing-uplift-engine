@@ -79,3 +79,35 @@ No holdout outcome summaries or effects are calculated. Subsequent exploration,
 preprocessing decisions, tuning, and model selection must use development only.
 The source file remains accessible, so the seal also depends on disciplined access
 through the development boundary and an explicit final-evaluation approval gate.
+
+## Phase 4 — development-only audit and measured limitations
+
+I audited all 11,882,653 frozen development records through a verified membership
+join, leaving the holdout sealed. The audit measured each anonymized feature's
+shape, tails, repeated levels and treatment/control balance. All fields were finite
+and nonmissing. The largest absolute marginal SMD was about 0.0488, but dispersion
+was not identical: f1's treated/control variance ratio was about 1.312. Eight
+nonconstant features had zero IQR, showing why a simple outlier rule can flag
+ordinary minority values in a concentrated distribution. About 18.10% of development
+rows shared an entire feature vector with another row. Without customer IDs,
+those are repeated measurements in feature space, not proven duplicated users.
+Nothing was removed or transformed; future preprocessing choices must be learned
+inside development training folds. Hashes confirmed all existing data, memberships,
+registry and Phase 3 provenance files stayed unchanged.
+
+**Do small SMDs prove that treatment was randomized or causal estimates are valid?**
+No. SMDs describe marginal feature mean differences; they do not establish joint
+balance, known assignment probabilities, or generalizability. I also checked
+variance ratios and exact ECDF counts on a declared percentile grid. The largest
+grid gap is a lower bound on the full KS distance, not an exact KS test. Missing
+experiment IDs and privacy subsampling remain causal limitations even if measured
+marginal imbalance is small. This phase estimates no treatment effects.
+
+**Why keep repeated vectors and values outside Tukey fences?**
+Anonymous features can be discretized or share common numeric levels; identical
+vectors do not supply a real entity key. Deduplication could change the benchmark
+population, treatment mix and frozen evaluation protocol. Zero IQR can make every
+minority level a Tukey tail, so that flag alone does not establish corruption.
+I preserve observations, report the measured multiplicities and tails, and qualify
+independence assumptions. Any later transformation or sensitivity analysis needs
+the approved training/validation protocol and must not use holdout outcomes.

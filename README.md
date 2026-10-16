@@ -7,11 +7,13 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 3 implements full-file contract validation, audited typed Parquet, a sealed
-15% holdout, and five frozen development train/validation splits. Execution evidence
-lives in `reports/validation.json`, `reports/ingestion.json`,
-`reports/split_reconstruction.json`, and `artifacts/splits.json`. No exploratory
-analysis, treatment effects, or models have been run. Later stages remain gated.
+Phase 4 adds the development-only data audit in `reports/data_audit.md`, backed by
+aggregate machine-readable evidence in `reports/data_audit.json`. It covers all
+11,882,653 frozen development records; source data, Parquet, membership files, and
+the split registry were preserved. No treatment effects, uplift, models, or final
+holdout outcome analysis have been computed. Phase 5 and later remain gated.
+Phase 3 was independently verified through GitHub Actions and merged before this
+phase; Phase 4's local results and limitations are described in its completion report.
 
 ## Setup and verification
 
@@ -39,12 +41,12 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | `uv run --locked uplift validate --full` | Expensive full-file contract stage | 3, available |
 | `make ingest` | Audited typed Parquet | 3, available |
 | `make split` | Seal final holdout once and freeze five development re-splits | 3, available |
-| `make audit` | Development EDA | 4 |
+| `make audit` | Development EDA | 4, available |
 | `make ate` | Development ATE with 95% CI | 5 |
 | `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6 |
 | `make reproduce` | Sequential rerun entry point, available after implementation | 2–6 |
 
-`make reproduce` currently stops at the unimplemented audit gate. It will
+`make reproduce` currently stops at the unimplemented ATE gate. It will
 never authorize a final holdout evaluation. Reruns must reuse frozen split files.
 Work proceeds by completed checklist and explicit phase approval, without calendar
 scheduling or effort estimates. See [phase checklists](docs/PHASES.md).
@@ -74,7 +76,8 @@ The primary outcome is visit; conversion is reserved for V2.
 The full-data CI job is enabled on explicit manual workflow dispatch. It caches
 only archive bytes by expected digest, then runs full validation, ingestion,
 reconstruction of the committed split registry, and real full-data pytest checks.
-Only small verification reports are uploaded. Cheap fixture checks run on every
+The workflow then runs the development audit and its read-only full-data checks.
+Only small verification and audit reports are uploaded. Cheap fixture checks run on every
 PR without downloading data. A local run is not evidence of a remote CI run.
 
 ## Acquisition and cloud storage
@@ -154,6 +157,44 @@ memory, a 6 GB spill ceiling, 65,536-row batches, and an 8 GiB free-disk preflig
 Splitting uses only row identifiers and two binary labels in memory, one split at
 a time. The full cloud environment has an 8 GiB memory limit; raw and processed
 artifacts remain local and their persistence across tasks is not guaranteed.
+
+## Phase 4: development-only descriptive audit
+
+Run `make audit` using the existing Phase 3 assets; it does not acquire, ingest,
+reconstruct, or change frozen splits. It verifies the artifacts, materializes only
+the development membership join, and computes bounded DuckDB aggregates. All
+protected data and Phase 3 provenance files are hashed before and after execution.
+The command publishes aggregate JSON and a readable Markdown report only.
+
+The report includes all 12 feature distributions, exact percentiles, missingness,
+skewness, Tukey tails, distinct values, dominant mass, zero/negative/integer-like
+patterns, relative low-variance flags, treatment/control covariate SMDs and variance
+ratios, percentile-grid ECDF comparisons, repeated-vector multiplicities, and
+frozen development treatment × visit stratum counts. No record is removed,
+deduplicated, imputed, clipped, transformed, or used to fit a model.
+
+Measured highlights: zero missing/nonfinite values; largest |SMD| about 0.0488
+(f3), while f1 has a treated/control variance ratio about 1.312; eight nonconstant
+features have zero IQR; 2,151,328 development rows (18.10%) share a complete feature
+vector with another row. These are descriptive results, not evidence of advertiser
+population balance or repeated customer IDs. Pooled percentile-grid ECDF gaps are
+lower bounds on full KS distances; Tukey flags on concentrated/discrete features
+are not invalid-record diagnoses. Consult `reports/data_audit.md` for definitions,
+actual counts, interpretation, and modeling implications.
+
+`make check` includes synthetic statistical-reference, holdout-sentinel, artifact
+preservation, leakage-boundary, and failure tests. After `make audit`, run the
+read-only full-data audit integration checks with:
+
+```sh
+UV_CACHE_DIR=.cache/uv uv run --locked pytest tests/test_data_audit_full.py -m full_data
+```
+
+The original Phase 3 reconstruction integration test rewrites its verification
+report; it is not needed for an audit of intact assets. Phase 4 full-data checks
+verify existing memberships and metadata without reconstructing them. In a fresh
+CI workspace, the workflow first completes Phase 3 verification, then generates
+the audit and checks that its protected inputs stayed unchanged.
 
 ## Data source, attribution, and rights
 
