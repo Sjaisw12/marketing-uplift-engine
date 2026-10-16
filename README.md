@@ -7,18 +7,19 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 5 adds an unadjusted descriptive development assignment contrast and a
-predeclared nominal 95% Newcombe–Wilson interval in `reports/development_ate.md`
-and `reports/development_ate.json`. It uses all 11,882,653 frozen development
-records once. The observed difference is 1.034259 percentage points, with nominal
-interval [1.003071, 1.065282], equivalent to 10.342592 visit outcomes per 1,000
-assignments [10.030712, 10.652817]. These are not unqualified causal ITT estimates.
+Phase 6 implements fixed random-targeting, treated-response LightGBM and S-learner
+baselines on the five existing development splits. See
+[the frozen statistical protocol](docs/PHASE6_PROTOCOL.md),
+[measured comparison and uncertainty](reports/phase_6_baselines.md),
+[development stability](reports/phase_6_stability.md), and
+[aggregate machine-readable evidence](reports/phase_6_metrics.json).
 
-All existing data, membership and Phase 3/4 provenance files are preserved. No
-exposure conditioning, treatment-on-the-treated estimation, individual uplift,
-policy optimization, modeling, or final holdout outcome analysis has been performed.
-Phase 6 remains gated. Phases 3 and 4 were independently verified through GitHub
-Actions before this phase; Phase 5 local evidence is recorded separately.
+The constant treatment propensity e=0.85 is a reference assumption, not a verified
+individual assignment probability. Policy values, full-prefix IPW AUUC/Qini and
+sensitivity results are assumption-dependent. Paired bootstrap intervals condition
+on fitted models and fixed policies; five overlapping splits are not independent
+experiments. The sealed final holdout remains unused. No final policy is selected.
+Phase 5 was independently verified through GitHub Actions and approved by merge.
 
 ## Setup and verification
 
@@ -48,11 +49,16 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | `make split` | Seal final holdout once and freeze five development re-splits | 3, available |
 | `make audit` | Development EDA | 4, available |
 | `make ate` | Descriptive development assignment contrast and nominal 95% CI | 5, available |
-| `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6 |
+| `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6, available |
 | `make reproduce` | Sequential rerun entry point, available after implementation | 2–6 |
 
-`make reproduce` currently stops at the unimplemented baseline-modeling gate. It will
-never authorize a final holdout evaluation. Reruns must reuse frozen split files.
+`make baselines` executes all five fixed recipes and resumes completed splits only
+when protocol, provenance and private artifact hashes match. First execute
+`uv run --locked uplift baselines --first-split`, then run the read-only Phase 6
+full-data tests with `PHASE6_EVIDENCE=reports/phase_6_first_split.json` before continuing. `make reproduce` includes the already approved
+stages through Phase 6; it never authorizes a final holdout evaluation. Use
+`make baselines` directly in an intact workspace to preserve prior acquisition and
+report timestamps. Reruns reuse frozen memberships.
 Work proceeds by completed checklist and explicit phase approval, without calendar
 scheduling or effort estimates. See [phase checklists](docs/PHASES.md).
 
@@ -60,10 +66,10 @@ scheduling or effort estimates. See [phase checklists](docs/PHASES.md).
 
 - `src/marketing_uplift/`: package and command interface.
 - `configs/project.toml`: source identity, schema, experiment protocol and local tracking.
-- `tests/`: fast checks; future full-data tests use the `full_data` marker.
+- `tests/`: fast checks; read-only full-data tests use the `full_data` marker.
 - `data/raw/`, `data/processed/`: ignored data; `data/manifest.json` will record acquisition.
 - `reports/`: human-readable audit and results; no row-level exports.
-- `artifacts/`: future split registry and local row-level/model artifacts.
+- `artifacts/`: committed split registry and ignored local row-level/model artifacts.
 - `mlruns/`: ignored local MLflow file store; resolve to an absolute `file://` URI.
 - `app/`: future dashboard; no implementation in this phase.
 
@@ -82,7 +88,9 @@ The full-data CI job is enabled on explicit manual workflow dispatch. It caches
 only archive bytes by expected digest, then runs full validation, ingestion,
 reconstruction of the committed split registry, and real full-data pytest checks.
 The workflow then runs the development audit and contrast, each followed by
-read-only full-data checks.
+read-only full-data checks. An optional manual `run_baselines` input enables the
+first-split gate, all five baseline evaluations and read-only Phase 6 verification.
+It uploads only aggregate reports, never models, predictions, MLflow records or data.
 Only small verification and audit reports are uploaded. Cheap fixture checks run on every
 PR without downloading data. A local run is not evidence of a remote CI run.
 
@@ -156,7 +164,7 @@ Mechanical whole-file quality gates and label use for predeclared stratification
 are the only pre-sealing operations. There are no holdout-specific outcome tables,
 ATE estimates, exploratory balance/duplicate analyses, or policy evaluations in
 Phase 3. The later development audit and descriptive contrast obey this boundary;
-modeling remains gated. Seeds are not new experiments that permit repeated holdout selection.
+Phase 6 modeling uses only frozen development train/validation rows. Seeds are not new experiments that permit repeated holdout selection.
 
 Resource limits are declared in configuration: one DuckDB thread, 2 GB query
 memory, a 6 GB spill ceiling, 65,536-row batches, and an 8 GiB free-disk preflight.

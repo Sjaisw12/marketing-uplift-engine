@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from marketing_uplift.cli import STAGES, main
+from marketing_uplift.cli import main
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs" / "project.toml"
@@ -33,16 +33,6 @@ def test_status_is_explicit_about_scaffold_and_does_not_write(tmp_path, monkeypa
     output = json.loads(capsys.readouterr().out)
     assert "status does not verify local artifacts" in output["implementation"]
     assert output["tracking_uri"] == (tmp_path / "mlruns").as_uri()
-    assert list(tmp_path.iterdir()) == []
-
-
-@pytest.mark.parametrize("stage", [stage for stage in STAGES if stage in {"baselines"}])
-def test_unimplemented_stages_fail_without_side_effects(stage, tmp_path, monkeypatch, capsys):
-    monkeypatch.chdir(tmp_path)
-    with pytest.raises(SystemExit) as error:
-        main([stage])
-    assert error.value.code == 2
-    assert "not implemented" in capsys.readouterr().err
     assert list(tmp_path.iterdir()) == []
 
 
