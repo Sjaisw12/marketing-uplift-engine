@@ -46,6 +46,8 @@ jobs:
       - run: uv run --locked pytest tests/test_full_data.py -m full_data
       - run: make audit
       - run: uv run --locked pytest tests/test_data_audit_full.py -m full_data
+      - run: make ate
+      - run: uv run --locked pytest tests/test_development_ate_full.py -m full_data
       - uses: actions/upload-artifact@v4
         with:
           name: full-data-verification
@@ -55,3 +57,5 @@ jobs:
             reports/split_reconstruction.json
             reports/data_audit.json
             reports/data_audit.md
+            reports/development_ate.json
+            reports/development_ate.md

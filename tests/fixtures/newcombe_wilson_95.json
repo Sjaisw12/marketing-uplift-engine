@@ -1,0 +1,241 @@
+{
+  "reference_implementation": "statsmodels.stats.proportion.confint_proportions_2indep",
+  "version": "0.14.5",
+  "source_sha256": "796d4a4659d3c2eb6cec5198879186ec968039f22d7e73d9d9f2c39a43ca2fe6",
+  "arguments": {
+    "method": "newcomb",
+    "compare": "diff",
+    "alpha": 0.05,
+    "correction": false
+  },
+  "documentation": "https://www.statsmodels.org/v0.14.5/generated/statsmodels.stats.proportion.confint_proportions_2indep.html",
+  "independent_check": "70-digit Decimal score roots; no project estimator import",
+  "z_975_decimal": "1.9599639845400542355245944305205515279555500778695",
+  "absolute_tolerance": 1e-12,
+  "cases": [
+    {
+      "name": "positive_equal_sizes",
+      "treatment_visits": 12,
+      "treatment_n": 100,
+      "control_visits": 5,
+      "control_n": 100,
+      "expected_difference": 0.06999999999999999,
+      "statsmodels_interval": [
+        -0.009458882754380615,
+        0.15314235948872298
+      ],
+      "decimal_interval": [
+        "-0.00945888275438061619015786990591415149421103842284107420890380088597297",
+        "0.1531423594887229941552598304070918623230547775838603283966164418256752"
+      ]
+    },
+    {
+      "name": "equal_rates",
+      "treatment_visits": 50,
+      "treatment_n": 100,
+      "control_visits": 50,
+      "control_n": 100,
+      "expected_difference": 0.0,
+      "statsmodels_interval": [
+        -0.13600275402907416,
+        0.13600275402907416
+      ],
+      "decimal_interval": [
+        "-0.1360027540290741404179180821991179643070484522858782011080589144462415",
+        "0.1360027540290741404179180821991179643070484522858782011080589144462415"
+      ]
+    },
+    {
+      "name": "both_zero_unequal_sizes",
+      "treatment_visits": 0,
+      "treatment_n": 10,
+      "control_visits": 0,
+      "control_n": 100,
+      "expected_difference": 0.0,
+      "statsmodels_interval": [
+        -0.03699349820698569,
+        0.27753279986288926
+      ],
+      "decimal_interval": [
+        "-0.03699349820698568466976889178399531373739486563035808041029974766470878",
+        "0.2775327998628892527153313186131883266087649089413357276396429100124772"
+      ]
+    },
+    {
+      "name": "both_all_unequal_sizes",
+      "treatment_visits": 10,
+      "treatment_n": 10,
+      "control_visits": 100,
+      "control_n": 100,
+      "expected_difference": 0.0,
+      "statsmodels_interval": [
+        -0.27753279986288937,
+        0.03699349820698572
+      ],
+      "decimal_interval": [
+        "-0.2775327998628892527153313186131883266087649089413357276396429100124772",
+        "0.03699349820698568466976889178399531373739486563035808041029974766471100"
+      ]
+    },
+    {
+      "name": "negative_extreme",
+      "treatment_visits": 0,
+      "treatment_n": 10,
+      "control_visits": 100,
+      "control_n": 100,
+      "expected_difference": -1.0,
+      "statsmodels_interval": [
+        -1.0,
+        -0.7200125468716057
+      ],
+      "decimal_interval": [
+        "-1.000000000000000000000000000000000000000000000000000000000000000000002",
+        "-0.7200125468716057021654041853709390576149162481326161324468437322516102"
+      ]
+    },
+    {
+      "name": "positive_extreme",
+      "treatment_visits": 10,
+      "treatment_n": 10,
+      "control_visits": 0,
+      "control_n": 100,
+      "expected_difference": 1.0,
+      "statsmodels_interval": [
+        0.7200125468716057,
+        1.0
+      ],
+      "decimal_interval": [
+        "0.7200125468716057021654041853709390576149162481326161324468437322516105",
+        "1"
+      ]
+    },
+    {
+      "name": "small_unequal_sizes",
+      "treatment_visits": 1,
+      "treatment_n": 7,
+      "control_visits": 13,
+      "control_n": 37,
+      "expected_difference": -0.20849420849420852,
+      "statsmodels_interval": [
+        -0.4076684655345454,
+        0.1849708277940756
+      ],
+      "decimal_interval": [
+        "-0.4076684655345453761105738969093765408368110836191756053096946277477265",
+        "0.1849708277940756187667145009727465630926220964152594240843289652728554"
+      ]
+    },
+    {
+      "name": "rare_unequal_sizes",
+      "treatment_visits": 3,
+      "treatment_n": 47,
+      "control_visits": 23,
+      "control_n": 350,
+      "expected_difference": -0.001884498480243163,
+      "statsmodels_interval": [
+        -0.05396882715906621,
+        0.10804083730264874
+      ],
+      "decimal_interval": [
+        "-0.05396882715906621194259739110421311234845808691852763323996703469143819",
+        "0.1080408373026487213170060139568822391680338178262608207488033211665114"
+      ]
+    },
+    {
+      "name": "single_positive",
+      "treatment_visits": 1,
+      "treatment_n": 1,
+      "control_visits": 0,
+      "control_n": 1,
+      "expected_difference": 1.0,
+      "statsmodels_interval": [
+        -0.12210872068194178,
+        1.0
+      ],
+      "decimal_interval": [
+        "-0.122108720681941824117063783605778837997250673589333587357027766721009",
+        "1"
+      ]
+    },
+    {
+      "name": "single_both_all",
+      "treatment_visits": 1,
+      "treatment_n": 1,
+      "control_visits": 1,
+      "control_n": 1,
+      "expected_difference": 0.0,
+      "statsmodels_interval": [
+        -0.7934506856227626,
+        0.7934506856227626
+      ],
+      "decimal_interval": [
+        "-0.7934506856227626120324999323522857788618448051810201587702592635885037",
+        "0.7934506856227626120324999323522857788618448051810201587702592635885037"
+      ]
+    },
+    {
+      "name": "single_both_zero",
+      "treatment_visits": 0,
+      "treatment_n": 1,
+      "control_visits": 0,
+      "control_n": 1,
+      "expected_difference": 0.0,
+      "statsmodels_interval": [
+        -0.7934506856227627,
+        0.7934506856227627
+      ],
+      "decimal_interval": [
+        "-0.7934506856227626120324999323522857788618448051810201587702592635885037",
+        "0.7934506856227626120324999323522857788618448051810201587702592635885037"
+      ]
+    },
+    {
+      "name": "single_negative",
+      "treatment_visits": 0,
+      "treatment_n": 1,
+      "control_visits": 1,
+      "control_n": 1,
+      "expected_difference": -1.0,
+      "statsmodels_interval": [
+        -1.0,
+        0.12210872068194178
+      ],
+      "decimal_interval": [
+        "-1",
+        "0.122108720681941824117063783605778837997250673589333587357027766721009"
+      ]
+    },
+    {
+      "name": "strong_unequal_sizes",
+      "treatment_visits": 90,
+      "treatment_n": 100,
+      "control_visits": 20,
+      "control_n": 400,
+      "expected_difference": 0.85,
+      "statsmodels_interval": [
+        0.7712322276766355,
+        0.8980341505244428
+      ],
+      "decimal_interval": [
+        "0.7712322276766355525573542623714952095584646808404393033066784174851954",
+        "0.8980341505244428139406487139974765822109501082134631203231442628772742"
+      ]
+    },
+    {
+      "name": "development_counts",
+      "treatment_visits": 490301,
+      "treatment_n": 10100257,
+      "control_visits": 68089,
+      "control_n": 1782396,
+      "expected_difference": 0.010342591948164427,
+      "statsmodels_interval": [
+        0.010030712098551624,
+        0.010652817315469083
+      ],
+      "decimal_interval": [
+        "0.01003071209855163204977141469681542113829750233615365772863001930521683",
+        "0.01065281731546909171244293667043817193118016250553097589975601574155046"
+      ]
+    }
+  ]
+}

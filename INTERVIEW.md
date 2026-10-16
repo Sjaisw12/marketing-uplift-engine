@@ -111,3 +111,34 @@ minority level a Tukey tail, so that flag alone does not establish corruption.
 I preserve observations, report the measured multiplicities and tails, and qualify
 independence assumptions. Any later transformation or sensitivity analysis needs
 the approved training/validation protocol and must not use holdout outcomes.
+
+## Phase 5 — descriptive assignment contrast with honest nominal uncertainty
+
+I calculated the difference in visit rates across the frozen development assignment
+arms: 490,301 visits among 10,100,257 treated records (4.854342%) versus 68,089 among
+1,782,396 control records (3.820083%). The difference is 1.034259 percentage points,
+not a 1.034259% relative increase. It corresponds numerically to 10.342592 visit
+outcomes per 1,000 assignments, with nominal 95% interval [10.030712, 10.652817].
+I used the predeclared Newcombe–Wilson interval without continuity correction,
+checking it against Statsmodels and independent high-precision score calculations.
+The full development pool was counted once; all frozen memberships and prior
+provenance stayed unchanged. Exposure was not used for conditioning or adjustment.
+
+**The nominal interval excludes zero. Why not claim that ads caused this lift?**
+The point estimate is an unadjusted descriptive assignment contrast. A causal ITT
+interpretation needs exchangeable assignment and suitable selection assumptions,
+as well as consistency and no interference. Non-uniform privacy subsampling and
+pooled experiments with unknown assignment probabilities can violate these.
+The nominal interval assumes independent Bernoulli observations; it does not
+account for unknown clustering or the outcome-stratified development selection
+and is not an exact randomization interval. Precision under a working model does
+not measure selection bias or establish advertiser-wide causal impact.
+
+**Why use Newcombe–Wilson, and why not estimate the effect among exposed users?**
+Newcombe combines two Wilson score intervals, accommodates unequal arm sizes,
+and handles zero/all-event cases where a simple Wald interval can degenerate.
+The numerical formula is independently verified, but that does not verify the
+sampling assumptions. Exposure is post-assignment; filtering or adjusting for it
+changes the question and can induce selection bias. This phase compares assignment
+arms only and makes no treatment-on-the-treated, individual uplift, revenue or
+policy-optimization claim. Those questions are not answered by a narrow interval.
