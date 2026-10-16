@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "split_104729": {
+      "maximum_direct_mean_error": 1.734723475976807e-17,
+      "maximum_direct_variance_error": 4.764560328305439e-22,
+      "verified_coordinates_per_role": 360
+    },
+    "split_130363": {
+      "maximum_direct_mean_error": 3.122502256758253e-17,
+      "maximum_direct_variance_error": 6.88214269644119e-22,
+      "verified_coordinates_per_role": 360
+    },
+    "split_155921": {
+      "maximum_direct_mean_error": 1.9081958235744878e-17,
+      "maximum_direct_variance_error": 6.88214269644119e-22,
+      "verified_coordinates_per_role": 360
+    },
+    "split_181081": {
+      "maximum_direct_mean_error": 2.42861286636753e-17,
+      "maximum_direct_variance_error": 3.705769144237564e-22,
+      "verified_coordinates_per_role": 360
+    },
+    "split_206369": {
+      "maximum_direct_mean_error": 2.7755575615628914e-17,
+      "maximum_direct_variance_error": 4.764560328305439e-22,
+      "verified_coordinates_per_role": 360
+    }
+  },
+  "actual_tests": "2 Phase 8 read-only integration tests passed; prior 6 Phase 6/7 read-only checks passed",
+  "reporting_warning": "pytest record_property/xunit2 metadata compatibility warning only; no statistical or execution warning",
+  "protection_entries": 201
+}

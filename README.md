@@ -7,22 +7,33 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 7 adds a fixed T-learner and shared training-only doubly robust policy
-evaluation. Phase 6 was independently verified through GitHub Actions and merged;
-its models, predictions, protocol, reports and memberships remain unchanged.
+Phase 8 adds a development-only, abstention-aware budget simulator using the
+verified Phase 6/7 random, response, S and T predictions. Phase 7 was independently
+verified through GitHub Actions and merged. Models, frozen memberships, prior
+results, MLflow records and the dependency lockfile remain unchanged.
 
-See [the frozen Phase 7 protocol](docs/PHASE7_PROTOCOL.md),
-[IPW/DR comparisons and diagnostics](reports/phase_7_comparison.md),
-[development stability](reports/phase_7_stability.md), and
-[completion evidence](reports/phase_7_completion.md).
-The original [Phase 6 evidence](reports/phase_6_baselines.md) remains available.
+Measured result: all 40 scenario/split recommendations abstain from targeting; the
+conservative rule was preserved. This concerns the declared grid and assumptions,
+not a proof that all real campaigns lack benefit.
 
-Propensity values remain assumptions. DR does not establish causal identification
-or remove privacy selection, unknown experiment probabilities or dependence.
-Paired Gaussian-multiplier intervals are nominal working-model intervals conditional
-on fixed fitted models and policies; they are not an exact ordinary row bootstrap.
-The five development splits overlap. The final holdout remains sealed, and no
-final model, reach, economic policy or dashboard is selected or implemented here.
+The simulator uses exact hypothetical budgets and successive reach tranches. It
+requires positive conservative marginal net value across all declared propensity
+and evaluator scenarios, and can recommend spending nothing. This is a scenario
+analysis, not verified profitability or an operational causal guarantee.
+
+See [the frozen Phase 8 protocol](docs/PHASE8_PROTOCOL.md),
+[measured decisions](reports/phase_8_decisions.md),
+[propensity/nuisance sensitivity](reports/phase_8_sensitivity.md), and
+[completion evidence](reports/phase_8_completion.md).
+Earlier [Phase 7 comparisons](reports/phase_7_comparison.md) and
+[Phase 6 evidence](reports/phase_6_baselines.md) remain preserved.
+
+Propensities are assumptions; DR does not eliminate privacy selection, hidden
+experiment probabilities or dependence. Gaussian intervals are nominal working-model
+intervals conditional on fixed models/policies. Five development splits overlap;
+auxiliary selection/assessment roles are not fresh confirmatory data. No final
+model, reach or deployment policy is selected/locked. The final holdout remains
+sealed; dashboard and later phases are not implemented.
 
 ## Setup and verification
 
@@ -52,6 +63,7 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | `make split` | Seal final holdout once and freeze five development re-splits | 3, available |
 | `make audit` | Development EDA | 4, available |
 | `make ate` | Descriptive development assignment contrast and nominal 95% CI | 5, available |
+| `make decisions` | Hypothetical development budget/abstention simulator | 8, available |
 | `make advanced` | T-learner, shared cross-fit DR and paired multiplier evaluation | 7, available |
 | `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6, available |
 | `make reproduce` | Sequential rerun entry point, available after implementation | 2–6 |
@@ -318,3 +330,48 @@ execution and preservation checks. Only aggregate evidence is uploaded. Raw data
 models, row-level predictions, OOF records and MLflow remain local and Git-ignored.
 These cloud-local artifacts are not guaranteed to persist into another task; do
 not recreate files that are already present and valid.
+
+## Phase 8 execution and verification
+
+Use existing verified artifacts directly; do not rerun acquisition, ingestion or
+model training in this intact workspace:
+
+```sh
+OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 uv run --locked uplift decisions --first-split
+OPENBLAS_NUM_THREADS=2 uv run --locked uplift decisions --verify-first-split
+OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 make decisions
+OPENBLAS_NUM_THREADS=2 uv run --locked pytest tests/test_decisions_full.py -m full_data
+```
+
+The first-split receipt gates the remaining four. All five outcome-blind role-label
+hashes are frozen before Phase 8 outcomes are queried. Selection recommendations
+and assessment assignment hashes are persisted before assessment outcome access.
+Changing assessment outcomes cannot change recommendations. These auxiliary roles
+do not replace or modify any original frozen memberships.
+
+`configs/phase8.toml` fixes eight entirely hypothetical economic scenarios. Budget
+scales as budget-per-eligible-record times role size, with unchanged cost/value.
+Positive policies use top ceil(q*N), while the strict actual reach cap uses
+floor(maximum_reach*N); an infeasible boundary candidate is rejected, not silently
+trimmed. Budget below the smallest positive 10% grid reach produces a distinct
+no-feasible-reach result. Free assignments retain the evidence and reach gates.
+
+All five propensity assumptions and IPW/primary-DR/saved-S-DR specifications enter
+the conservative stress objective. Two thousand correlated Gaussian draws provide
+one-sided simultaneous lower bounds over 300 marginal coordinates within each role
+and split. These bands do not protect against causal misspecification. Pointwise
+assessment intervals and equal-spending comparisons are explicitly separate.
+
+`reports/phase_8_metrics.json` records provenance, roles, marginal evidence,
+recommendations and paired comparisons; `phase_8_economics.json` transforms every
+feasible fixed policy into hypothetical spending/net-value scenarios. Markdown
+reports explain limitations and stability. No row-level outputs enter Git.
+Local artifacts live under ignored `artifacts/phase8/<protocol>/<seed>/`; new local
+MLflow experiments retain private evidence and aggregate reports. Matching resumes
+verify hashes and do not refit models or overwrite prior results.
+
+Manual GitHub Actions `run_decisions=true` runs prerequisite phases in its own
+fresh workspace, then gates the first Phase 8 split before all-five verification.
+That workflow restoration does not authorize recreating artifacts in this intact
+workspace. Only aggregate reports are uploaded. Local checks are not a claim of
+independent remote full-data verification.
