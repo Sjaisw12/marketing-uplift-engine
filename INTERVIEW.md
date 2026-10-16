@@ -233,3 +233,48 @@ bands included zero under both methods, despite its IPW pointwise interval exclu
 zero. Higher-reach response/S ordering changed between evaluators. The work did
 not establish a T advantage or justify selecting a final policy; fair comparisons,
 assumption sensitivity and preservation of the holdout are the outcome.
+
+## Phase 8 — a budget is a ceiling, not an instruction to spend
+
+I turned existing rankings into a development-only decision simulator. Every
+scenario declares a hypothetical assignment cost, visit value, budget and maximum
+reach. The engine examines successive 10% reach tranches and expands only when each
+additional tranche has a positive conservative lower net value across all declared
+propensity and evaluator assumptions. It can stop early or recommend no targeting.
+It does not turn a high Qini score into a claim of profitable advertising.
+
+I separated each frozen development validation partition into outcome-blind
+selection and assessment roles without changing the original memberships. Decisions
+and assessment assignment hashes are saved before assessment outcomes are queried.
+This reduces direct optimizer bias, but these development outcomes were examined in
+earlier phases, so assessment remains exploratory rather than confirmatory.
+
+Two thousand paired Gaussian draws provide one-sided simultaneous bounds for 300
+marginal comparisons per role/split. Those bounds address the declared comparisons
+conditional on existing models and policies. They do not make assumed propensities
+correct or remove privacy selection, unknown dependence or model-fitting uncertainty.
+Every cost/value is hypothetical; there is no observed revenue or ROI.
+
+Actual result: all 40 predeclared economic-scenario/split combinations recommend
+zero assignments. Zero visit value and too-small budgets have distinct reasons;
+other scenarios fail robustness to assumptions even with free assignments. For
+example, first-split S first-tranche selection gains range from −1.2511 to +16.0286
+visits per 1,000 across assumptions; its worst simultaneous lower bound is −2.7875.
+I kept the rule unchanged instead of choosing a more flattering evaluator or price.
+No final deployment policy was selected or locked and the holdout remains sealed.
+
+**Two challenging questions**
+
+1. **Why can a narrow positive reference-scenario interval coexist with a no-spend
+   recommendation?** Conditional sampling precision is not robustness to causal
+   assumptions. A different assumed propensity can reverse the gain. The engine
+   requires every declared scenario to support positive marginal net value; the
+   stress minimum is not a probability-weighted causal confidence statement.
+   Simultaneous bounds cover the declared statistics, not misspecification bias.
+2. **Does splitting validation into selection and assessment remove selection bias?**
+   It prevents the new engine from using assessment labels to revise its selected
+   policy, and tests changing those labels leave recommendations unchanged. It
+   does not erase prior development inspection, unknown dependence or original
+   outcome stratification. Overlapping outer splits are not independent trials.
+   Final policy locking and a separately approved one-time holdout evaluation
+   remain necessary before a confirmatory headline claim.

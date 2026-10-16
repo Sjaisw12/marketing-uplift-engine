@@ -66,11 +66,11 @@ is included in Phase 7. Later phases require separate scope and approval.
 
 ## Phase 8 — abstention-aware, budget-constrained development simulator
 - [x] User approves separately scoped protocol and safeguards.
-- [ ] Freeze hypothetical economics, roles, decision and 300-coordinate uncertainty protocol.
-- [ ] Pass synthetic statistical, budget, abstention and leakage gates.
-- [ ] Verify first real split before continuing unchanged through the remaining four.
-- [ ] Publish five-split selection/assessment, sensitivity and matched-spending results.
-- [ ] Verify preserved artifacts, reproducibility, MLflow and GitHub Actions checks.
+- [x] Freeze hypothetical economics, roles, decision and 300-coordinate uncertainty protocol.
+- [x] Pass synthetic statistical, budget, abstention and leakage gates.
+- [x] Verify first real split before continuing unchanged through the remaining four.
+- [x] Publish five-split selection/assessment, sensitivity and matched-spending results.
+- [x] Verify preserved artifacts, reproducibility and MLflow; extend GitHub Actions checks.
 - [ ] Publish completion evidence and receive user approval.
 
 Phase 8 does not select/lock a final deployment policy, retrain models, evaluate the

@@ -1,5 +1,6 @@
 """Aggregate-only hypothetical economics and development stability publication."""
 
+import json
 from collections import Counter
 from pathlib import Path
 
@@ -7,6 +8,7 @@ import numpy as np
 
 from marketing_uplift.data_contract import atomic_json
 from marketing_uplift.decision_engine import counts, ledger
+from marketing_uplift.ingestion import file_sha256
 
 CAVEATS = """All monetary inputs are hypothetical currency units, not observed Criteo costs,
 revenue, ROI or savings. Values below are assumption-dependent released-development
@@ -145,6 +147,30 @@ def render(report, tracking_directory=None):
                     f"{estimate['incremental_visits_per_1000']:.4f} | [{ci[0]:.4f}, "
                     f"{ci[1]:.4f}] | {estimate['hypothetical_net_value']:.4f} |"
                 )
+    lines += [
+        "",
+        "## Fixed-reach assessment comparisons",
+        "",
+        "Descriptive five-split mean [range] gain per 1,000 eligible records at assumed e=.85.",
+        "Role-specific policies preserve ranking rules; "
+        "historical Phase 6/7 results are unchanged.",
+        "All four rankings have equal actual assignment counts within each reach.",
+        "Economics JSON separately applies feasible caps and hypothetical spending.",
+        "",
+        "| Reach | Evaluator | Random | Response | S | T |",
+        "|---|---|---:|---:|---:|---:|",
+    ]
+    for k in range(1, 6):
+        for method in ("ipw", "dr", "s_dr"):
+            columns = []
+            for model in ("random", "response", "s_learner", "t_learner"):
+                vals = []
+                for split in report["splits"]:
+                    keys = [tuple(key) for key in split["scenario_keys"]]
+                    index = keys.index((method, 0.85))
+                    vals.append(split["assessment"]["policies"][f"{model}:{k}"][index]["per_1000"])
+                columns.append(f"{np.mean(vals):.4f} [{min(vals):.4f}, {max(vals):.4f}]")
+            lines.append(f"| {k * 10}% | {method} | " + " | ".join(columns) + " |")
     lines += ["", "## Stability and comparisons", ""]
     for economic in report["settings"]["economics"]:
         name = economic["name"]
@@ -271,7 +297,14 @@ def render(report, tracking_directory=None):
         mlflow.set_tracking_uri(Path(tracking_directory).resolve().as_uri())
         # Publish aggregate reports in a NEW run; completed per-split runs remain immutable.
         mlflow.set_experiment("marketing-uplift-phase8-publication")
-        with mlflow.start_run(run_name=f"phase8-reports-{report['protocol_sha256'][:12]}"):
+        publication = Path("artifacts/phase8") / report["protocol_sha256"] / "publication.json"
+        names = ("phase_8_economics.json", "phase_8_decisions.md", "phase_8_sensitivity.md")
+        hashes = {name: file_sha256(Path("reports") / name) for name in names}
+        if publication.exists():
+            prior = json.loads(publication.read_text())
+            if prior["reports"] == hashes:
+                return
+        with mlflow.start_run(run_name=f"phase8-reports-{report['protocol_sha256'][:12]}") as run:
             mlflow.log_param("protocol_sha256", report["protocol_sha256"])
             for name in (
                 "phase_8_economics.json",
@@ -279,3 +312,4 @@ def render(report, tracking_directory=None):
                 "phase_8_sensitivity.md",
             ):
                 mlflow.log_artifact(str(Path("reports") / name))
+            atomic_json(publication, {"reports": hashes, "run_id": run.info.run_id})

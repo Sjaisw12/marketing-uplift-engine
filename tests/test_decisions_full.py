@@ -35,10 +35,11 @@ def test_frozen_phase6_phase7_and_membership_artifacts(actual):
         assert role["selection_ids_sha256"] != role["assessment_ids_sha256"]
 
 
-def test_decisions_against_direct_rows_covariance_and_saved_applications(actual):
+def test_decisions_against_direct_rows_covariance_and_saved_applications(actual, record_property):
     config, report = actual
     for split in report["splits"]:
         result = verify_split(config, report, split)
+        record_property(f"split_{split['seed']}", json.dumps(result))
         assert result["verified_coordinates_per_role"] == 360
         assert result["maximum_direct_mean_error"] < 2e-12
         assert result["maximum_direct_variance_error"] < 2e-12

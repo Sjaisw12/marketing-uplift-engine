@@ -1,0 +1,12 @@
+{
+  "byte_identical_resume": true,
+  "report_sha256": {
+    "reports/phase_8_metrics.json": "b96079c06cfe1c227c38341b6f1eb60a608ad3cd146e8784f5d8bbd46984834b",
+    "reports/phase_8_economics.json": "ccf574477f9c65866f9211f00bb2aacc506ddd5fa56fb5d4373744dafbdfe020",
+    "reports/phase_8_decisions.md": "28d47d96bd5761a2bd5ff1b5cc8b7d3d793c553e4cdaf64fff99d7352546ab71",
+    "reports/phase_8_sensitivity.md": "9cb6549e84d4c95606d4d4fa8455bcac3721cc967c12152913ba9bf5ac1a7292"
+  },
+  "protocol_sha256": "b85ec9422576797929a8d3ee731cb1f1c2bb6cec329a60bca98c66a5beecbf81",
+  "publication_run_id": "22e8f24ee4fd42c2a6164791a4d78b00",
+  "no_model_training": true
+}
