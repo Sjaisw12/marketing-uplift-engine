@@ -7,13 +7,18 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 4 adds the development-only data audit in `reports/data_audit.md`, backed by
-aggregate machine-readable evidence in `reports/data_audit.json`. It covers all
-11,882,653 frozen development records; source data, Parquet, membership files, and
-the split registry were preserved. No treatment effects, uplift, models, or final
-holdout outcome analysis have been computed. Phase 5 and later remain gated.
-Phase 3 was independently verified through GitHub Actions and merged before this
-phase; Phase 4's local results and limitations are described in its completion report.
+Phase 5 adds an unadjusted descriptive development assignment contrast and a
+predeclared nominal 95% Newcombe–Wilson interval in `reports/development_ate.md`
+and `reports/development_ate.json`. It uses all 11,882,653 frozen development
+records once. The observed difference is 1.034259 percentage points, with nominal
+interval [1.003071, 1.065282], equivalent to 10.342592 visit outcomes per 1,000
+assignments [10.030712, 10.652817]. These are not unqualified causal ITT estimates.
+
+All existing data, membership and Phase 3/4 provenance files are preserved. No
+exposure conditioning, treatment-on-the-treated estimation, individual uplift,
+policy optimization, modeling, or final holdout outcome analysis has been performed.
+Phase 6 remains gated. Phases 3 and 4 were independently verified through GitHub
+Actions before this phase; Phase 5 local evidence is recorded separately.
 
 ## Setup and verification
 
@@ -42,11 +47,11 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | `make ingest` | Audited typed Parquet | 3, available |
 | `make split` | Seal final holdout once and freeze five development re-splits | 3, available |
 | `make audit` | Development EDA | 4, available |
-| `make ate` | Development ATE with 95% CI | 5 |
+| `make ate` | Descriptive development assignment contrast and nominal 95% CI | 5, available |
 | `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6 |
 | `make reproduce` | Sequential rerun entry point, available after implementation | 2–6 |
 
-`make reproduce` currently stops at the unimplemented ATE gate. It will
+`make reproduce` currently stops at the unimplemented baseline-modeling gate. It will
 never authorize a final holdout evaluation. Reruns must reuse frozen split files.
 Work proceeds by completed checklist and explicit phase approval, without calendar
 scheduling or effort estimates. See [phase checklists](docs/PHASES.md).
@@ -76,7 +81,8 @@ The primary outcome is visit; conversion is reserved for V2.
 The full-data CI job is enabled on explicit manual workflow dispatch. It caches
 only archive bytes by expected digest, then runs full validation, ingestion,
 reconstruction of the committed split registry, and real full-data pytest checks.
-The workflow then runs the development audit and its read-only full-data checks.
+The workflow then runs the development audit and contrast, each followed by
+read-only full-data checks.
 Only small verification and audit reports are uploaded. Cheap fixture checks run on every
 PR without downloading data. A local run is not evidence of a remote CI run.
 
@@ -149,8 +155,8 @@ corrupt ones. Reconstruction leaves the frozen registry unchanged.
 Mechanical whole-file quality gates and label use for predeclared stratification
 are the only pre-sealing operations. There are no holdout-specific outcome tables,
 ATE estimates, exploratory balance/duplicate analyses, or policy evaluations in
-this phase. Those analytical commands remain gated; future EDA uses development
-records only. Seeds are not new experiments that permit repeated holdout selection.
+Phase 3. The later development audit and descriptive contrast obey this boundary;
+modeling remains gated. Seeds are not new experiments that permit repeated holdout selection.
 
 Resource limits are declared in configuration: one DuckDB thread, 2 GB query
 memory, a 6 GB spill ceiling, 65,536-row batches, and an 8 GiB free-disk preflight.
@@ -195,6 +201,54 @@ report; it is not needed for an audit of intact assets. Phase 4 full-data checks
 verify existing memberships and metadata without reconstructing them. In a fresh
 CI workspace, the workflow first completes Phase 3 verification, then generates
 the audit and checks that its protected inputs stayed unchanged.
+
+## Phase 5: descriptive assignment contrast and nominal uncertainty
+
+Run `make ate` with the existing verified Phase 3/4 artifacts. It projects only
+row IDs, treatment assignment and visit through the development-only boundary,
+reconciles exact counts with Phase 4, and hashes all 22 protected input files
+before/after execution. It does not acquire, ingest, reconstruct, regenerate splits,
+or overwrite prior reports. The five overlapping repetitions are not pooled.
+
+The analysis reports n and observed visits for each arm, p_T and p_C, and p_T−p_C.
+Percentage points are 100 times the absolute probability difference; per-1,000
+values are 1,000 times that difference. Neither is a relative percentage change.
+The predeclared interval combines two uncorrected Wilson score intervals using
+Newcombe's hybrid score formula (method 10). All formulas, the binary64 numerical
+method, interval endpoints and interpretation are in `reports/development_ate.md`.
+
+The interval is **nominal working-model uncertainty**, not exact randomization
+inference or a correction for outcome-stratified development selection. Independent
+Bernoulli rows/arms are unverified assumptions; missing entity and experiment IDs
+prevent justified cluster correction. Non-uniform subsampling and unknown pooled
+assignment propensities can bias the contrast. Causal ITT interpretation requires
+additional exchangeability, consistency, no-interference and selection assumptions.
+There is no exposure conditioning, treatment-on-the-treated effect, or claim about
+ROI, revenue, advertiser-wide effects, or production impact.
+
+Fourteen frozen reference cases, including unequal sizes and zero/all events,
+agree with Statsmodels 0.14.5 and independent 70-digit Decimal score-quadratic
+calculations to absolute tolerance 1e-12. CI uses the committed offline fixture;
+Statsmodels is not a runtime or test dependency. To independently regenerate it
+in an isolated temporary reference directory with network access enabled:
+
+```sh
+UV_CACHE_DIR=.cache/uv uv pip install --python .venv/bin/python \
+  --target /tmp/ate-reference-packages --no-deps statsmodels==0.14.5 patsy==1.0.2
+.venv/bin/python scripts/generate_newcombe_references.py \
+  --reference-path /tmp/ate-reference-packages --output /tmp/newcombe-reference.json
+```
+
+After `make ate`, the read-only integration check is:
+
+```sh
+UV_CACHE_DIR=.cache/uv uv run --locked pytest tests/test_development_ate_full.py -m full_data
+```
+
+The manual GitHub Actions workflow generates the contrast after Phase 3/4
+verification, tests its counts/interval/preservation, and uploads small reports only.
+Run `make check` for the offline statistical and synthetic integration tests.
+No remote Phase 5 full-data workflow result is claimed by the local completion report.
 
 ## Data source, attribution, and rights
 

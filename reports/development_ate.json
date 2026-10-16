@@ -1,0 +1,189 @@
+{
+  "analysis_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-10-16T03:32:33.249198+00:00",
+  "scope": "all frozen development records once; no repeated-split pooling",
+  "estimand_label": "unadjusted descriptive assignment contrast",
+  "outcome": "visit",
+  "assignment": "treatment",
+  "development_rows": 11882653,
+  "source": {
+    "repository": "criteo/criteo-uplift",
+    "filename": "criteo-research-uplift-v2.1.csv.gz",
+    "revision": "82811785048bb633de2d55c02bab4e57066e6423",
+    "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "size_bytes": 311422618
+  },
+  "registry_sha256": "ab5350f8f17848680ef804311b3680c7dd3d8cf02bc2d5e8967d2dfda0d8937d",
+  "development_membership_sha256": "5257c0e7d472bff1a7e2589368f079f35093715ffd6449aaac0e574c3d397080",
+  "phase4_audit_sha256": "e7c3a00e897aa2e04fe8e51a72c6a1e628e45690445a82c2e5a55a499dd1b426",
+  "observed_strata": {
+    "T0_V0": 1714307,
+    "T0_V1": 68089,
+    "T1_V0": 9609956,
+    "T1_V1": 490301
+  },
+  "statistics": {
+    "treatment": {
+      "records": 10100257,
+      "visits": 490301,
+      "visit_probability": 0.048543418251634586,
+      "visit_percent": 4.854341825163458
+    },
+    "control": {
+      "records": 1782396,
+      "visits": 68089,
+      "visit_probability": 0.03820082630347016,
+      "visit_percent": 3.8200826303470157
+    },
+    "difference_probability": 0.010342591948164427,
+    "interval_probability": [
+      0.010030712098551624,
+      0.010652817315469083
+    ],
+    "difference_percentage_points": 1.0342591948164428,
+    "interval_percentage_points": [
+      1.0030712098551624,
+      1.0652817315469083
+    ],
+    "difference_per_1000_assignments": 10.342591948164428,
+    "interval_per_1000_assignments": [
+      10.030712098551625,
+      10.652817315469083
+    ],
+    "arm_wilson_intervals": {
+      "treatment": [
+        0.048411051524254956,
+        0.04867612838635692
+      ],
+      "control": [
+        0.03792041981520484,
+        0.038483223346792696
+      ]
+    }
+  },
+  "interval_method": {
+    "name": "Newcombe-Wilson hybrid score, method 10; no continuity correction",
+    "confidence_level": 0.95,
+    "z_975": 1.959963984540054,
+    "interpretation": "nominal working-model interval; not exact randomization inference",
+    "numerics": "binary64 Wilson score bounds, scipy.special.ndtri, math.sqrt and math.hypot",
+    "formula": "d=p1-p0; lower=d-hypot(p1-L1,U0-p0); upper=d+hypot(U1-p1,p0-L0)",
+    "reference": "Statsmodels 0.14.5 confint_proportions_2indep(method='newcomb', compare='diff', alpha=0.05, correction=False)",
+    "reference_fixture_sha256": "8eacb8a7e15d2ada7e2c32e473f4779cda470099773da127aa331d37e8498128",
+    "reference_check": "14 frozen cases also checked using independent 70-digit Decimal score-quadratic roots"
+  },
+  "assumptions_and_limitations": [
+    "Independent Bernoulli observations within arms and independent arms are working assumptions, not verified design facts.",
+    "Development selection was stratified on treatment x visit; the interval is not an exact split- or randomization-based interval.",
+    "ITT interpretation requires consistency, no interference, exchangeable assignment and suitable selection assumptions in the released sample.",
+    "Non-uniform privacy subsampling and unknown pooled experiment-specific assignment probabilities can bias the contrast.",
+    "An overall treatment fraction near 0.85 does not prove a common propensity; no propensity weighting or causal correction is applied.",
+    "Missing user and experiment IDs prevent justified entity/experiment cluster correction; repeated vectors do not identify clusters.",
+    "The interval excludes neither selection bias nor unobserved heterogeneity and does not quantify advertiser-wide or production impact."
+  ],
+  "exposure_conditioned_on": false,
+  "treatment_on_treated_estimated": false,
+  "holdout_outcomes_analyzed": false,
+  "models_or_individual_uplift_computed": false,
+  "duckdb_version": "1.4.1",
+  "scipy_version": "1.16.2",
+  "resources": {
+    "duckdb_memory_limit": "2GB",
+    "duckdb_threads": 1,
+    "max_temp_directory_size": "6GB",
+    "min_free_disk_bytes": 8589934592,
+    "batch_rows": 65536
+  },
+  "protected_artifacts": {
+    "data/raw/criteo-research-uplift-v2.1.csv.gz": {
+      "bytes": 311422618,
+      "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc"
+    },
+    "data/processed/criteo-v2.1.parquet": {
+      "bytes": 201099097,
+      "sha256": "3dd993a074f7346e71d8d99f5ba980990dbf98ec52dfbe3d7848174b04440bd0"
+    },
+    "artifacts/splits.json": {
+      "bytes": 4977,
+      "sha256": "ab5350f8f17848680ef804311b3680c7dd3d8cf02bc2d5e8967d2dfda0d8937d"
+    },
+    "artifacts/memberships/development.npy": {
+      "bytes": 95061352,
+      "sha256": "07a849ac0e57bdd5b2195502850232468d7ebb78a239c7bfdee5cd4ea16b6d28"
+    },
+    "artifacts/memberships/holdout.npy": {
+      "bytes": 16775640,
+      "sha256": "aff7158a6bb6bf90e5cece0dcc664f6f7a3fd207a5b8e36ea65ce52af4d02e37"
+    },
+    "artifacts/memberships/train-104729.npy": {
+      "bytes": 76049104,
+      "sha256": "5d8df73c24926ac2d0d33d1e0e64bad5c1607146dc40f2a0593dacc02e7d8cd6"
+    },
+    "artifacts/memberships/validation-104729.npy": {
+      "bytes": 19012376,
+      "sha256": "c8d348e534a11a0d5ece757aedf9d712a069baee91e4dd35d2511bd70f226c54"
+    },
+    "artifacts/memberships/train-130363.npy": {
+      "bytes": 76049104,
+      "sha256": "a2a4888b7403440431f16392922d457912376c6c1da19e6766bb6ce3b6af92dd"
+    },
+    "artifacts/memberships/validation-130363.npy": {
+      "bytes": 19012376,
+      "sha256": "ea9b4e918be0fd2927c9ec77faef99787446fcccc953ee3f62784e549243e07b"
+    },
+    "artifacts/memberships/train-155921.npy": {
+      "bytes": 76049104,
+      "sha256": "41182a9aaa470773e0d6377044b3f95dd71ceb24e54127175d597088a75541c9"
+    },
+    "artifacts/memberships/validation-155921.npy": {
+      "bytes": 19012376,
+      "sha256": "93c0edbed9f341fb94107666a820857c7e90f087ee33861f3a415bb8ebee852c"
+    },
+    "artifacts/memberships/train-181081.npy": {
+      "bytes": 76049104,
+      "sha256": "9b6391d6765afd6ecd855a920a8c4407b3d653564cf4426493ed3c1ac8f52b2d"
+    },
+    "artifacts/memberships/validation-181081.npy": {
+      "bytes": 19012376,
+      "sha256": "f00d9a1415e69993403eb827abb7859a46f594d7a48b2c3e6d2322a606784be5"
+    },
+    "artifacts/memberships/train-206369.npy": {
+      "bytes": 76049104,
+      "sha256": "978f19e72dd7807d90a768de07555c3f67a3a80ad92abb482267d201d90e199b"
+    },
+    "artifacts/memberships/validation-206369.npy": {
+      "bytes": 19012376,
+      "sha256": "1271b6f43b7fa8d45b4e76434a85ab33767aac5d7f4d7a5c153dfed201f4b5af"
+    },
+    "data/manifest.json": {
+      "bytes": 1130,
+      "sha256": "09b2ddf7a5a2c185353f260ff47066839998ef558f453e7def66cab0f4064d84"
+    },
+    "reports/validation.json": {
+      "bytes": 2961,
+      "sha256": "f4ee6e2fe4fc92866f840327bc8623b817d1038cfb3085427bef79a7e2f75ea2"
+    },
+    "reports/ingestion.json": {
+      "bytes": 1170,
+      "sha256": "07aa745a1c5b55684f85d871c61d929068f581cd387d3cb8ef21386a56b7d160"
+    },
+    "reports/split_reconstruction.json": {
+      "bytes": 873,
+      "sha256": "d2ed241fc09fc0af5f164feb4ae12684e915bb6e0b36d7cbb6f0f30accf8f3f8"
+    },
+    "reports/data_audit.json": {
+      "bytes": 30255,
+      "sha256": "e7c3a00e897aa2e04fe8e51a72c6a1e628e45690445a82c2e5a55a499dd1b426"
+    },
+    "reports/data_audit.md": {
+      "bytes": 12150,
+      "sha256": "87c246c8e3a3d041edde039b68734d8221077dccf57fceef8a7293d993cc4428"
+    },
+    "reports/phase_4_data_audit.md": {
+      "bytes": 6273,
+      "sha256": "85c757f25e0bb54e0abedffce40f61ca467ad3724ac5cc583bba5f8a68ed4e91"
+    }
+  },
+  "protected_artifacts_unchanged": true
+}

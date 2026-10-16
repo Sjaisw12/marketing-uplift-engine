@@ -31,11 +31,11 @@ No calendar or effort schedule applies.
 ## Phase 4 — development audit
 - [x] Audit distributions, missingness, arm balance, repeated vectors and strata.
 - [x] Publish reports/data_audit.md with deviations and limitations.
-- [ ] Report evidence; receive approval.
+- [x] Report evidence; receive approval.
 
 ## Phase 5 — development ATE
-- [ ] Report arm sizes, event counts, visit rates and difference with 95% CI.
-- [ ] Express effects per 1,000 rows; state ITT and released-sample limitations.
+- [x] Report arm sizes, event counts, visit rates and difference with 95% CI.
+- [x] Express effects per 1,000 rows; state ITT and released-sample limitations.
 - [ ] Report evidence; receive approval.
 
 ## Phase 6 — baselines

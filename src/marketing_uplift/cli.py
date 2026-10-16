@@ -9,6 +9,7 @@ from pathlib import Path
 from marketing_uplift.acquisition import AcquisitionError, acquire
 from marketing_uplift.data_audit import audit
 from marketing_uplift.data_contract import ContractError, validate
+from marketing_uplift.development_ate import analyze_development
 from marketing_uplift.ingestion import ingest
 from marketing_uplift.splits import split
 
@@ -18,7 +19,7 @@ STAGES = {
     "ingest": (3, "Convert the verified archive to audited typed Parquet"),
     "split": (3, "Seal holdout once and freeze development memberships"),
     "audit": (4, "Audit development data only"),
-    "ate": (5, "Estimate development assignment effect and confidence interval"),
+    "ate": (5, "Describe development assignment contrast and nominal confidence interval"),
     "baselines": (6, "Train and log development baselines in local MLflow"),
 }
 
@@ -44,6 +45,7 @@ def main(argv: list[str] | None = None) -> int:
         "ingest",
         "split",
         "audit",
+        "ate",
     }:
         phase, _ = STAGES[args.command]
         parser.exit(2, f"{args.command}: not implemented; reserved for approved Phase {phase}.\n")
@@ -81,15 +83,19 @@ def main(argv: list[str] | None = None) -> int:
                 )
             )
             return 0
+        if args.command == "ate":
+            result = analyze_development(config)
+            print(json.dumps(result["statistics"], indent=2))
+            return 0
         summary = {
-            "implementation": "Phase 4 commands available; status does not verify local artifacts",
+            "implementation": "Phase 5 commands available; status does not verify local artifacts",
             "dataset": config["data"]["filename"],
             "revision": config["data"]["revision"],
             "outcome": config["experiment"]["outcome"],
             "holdout_fraction": config["experiment"]["holdout_fraction"],
             "development_seeds": config["experiment"]["development_seeds"],
             "tracking_uri": Path(config["tracking"]["directory"]).resolve().as_uri(),
-            "reserved_stages": [stage for stage in STAGES if stage in {"ate", "baselines"}],
+            "reserved_stages": [stage for stage in STAGES if stage in {"baselines"}],
         }
     except (AcquisitionError, ContractError) as error:
         parser.exit(1, f"Pipeline stopped: {error}\n")
