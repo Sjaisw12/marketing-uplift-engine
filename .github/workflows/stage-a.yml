@@ -1,0 +1,20 @@
+name: Stage A public lock verification (no holdout access)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stage-a-public:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+      - run: uv sync --locked
+      - run: make check
+      - name: Verify committed lock hashes without datasets or models
+        run: uv run --locked uplift final-prepare --verify-public-lock
+# Private development verification requires deliberately restored, hash-verified
+# local artifacts. This workflow does not acquire, ingest, reconstruct or refit.
+# Never call the older whole-source full-data workflow as a Stage A prerequisite.

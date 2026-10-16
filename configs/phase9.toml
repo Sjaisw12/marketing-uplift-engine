@@ -1,0 +1,17 @@
+# Stage A approved; Stage B explicitly NOT authorized or enabled.
+model_seed = 9000001
+nuisance_fold_seed = 9000002
+random_rank_seed = 9000003
+multiplier_seed = 9000004
+stratified_multiplier_seed = 9000005
+nuisance_model_seed = 9000100
+nuisance_folds = 3
+replicates = 2000
+confidence = 0.95
+scenarios = [0.80, 0.825, 0.85, 0.875, 0.90]
+reference_propensity = 0.85
+reach = [0.10, 0.20, 0.30, 0.40, 0.50]
+comparison_family_size = 765
+batch_rows = 65536
+verification_rows = 2048
+stage_b_enabled = false

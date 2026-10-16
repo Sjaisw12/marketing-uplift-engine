@@ -17,10 +17,14 @@ from marketing_uplift.decision_reports import render as render_decisions
 from marketing_uplift.decision_verification import verify_first
 from marketing_uplift.decisions import run as run_decisions
 from marketing_uplift.development_ate import analyze_development
+from marketing_uplift.final_stage_a import run as prepare_final
+from marketing_uplift.final_stage_a import verify_public_lock
+from marketing_uplift.final_verification import verify as verify_final
 from marketing_uplift.ingestion import ingest
 from marketing_uplift.splits import split
 
 STAGES = {
+    "final-prepare": (9, "Stage A only: prepare locked diagnostic models; Stage B disabled"),
     "decisions": (8, "Hypothetical abstention-aware development decision simulator"),
     "acquire": (2, "Download the pinned archive and verify SHA-256"),
     "validate": (3, "Validate the raw data contract; --full includes expensive checks"),
@@ -49,6 +53,10 @@ def main(argv: list[str] | None = None) -> int:
             command.add_argument("--first-split", action="store_true")
         if name == "decisions":
             command.add_argument("--verify-first-split", action="store_true")
+        if name == "final-prepare":
+            modes = command.add_mutually_exclusive_group()
+            modes.add_argument("--verify", action="store_true")
+            modes.add_argument("--verify-public-lock", action="store_true")
         if name == "validate":
             command.add_argument("--full", action="store_true")
     args = parser.parse_args(argv)
@@ -62,6 +70,7 @@ def main(argv: list[str] | None = None) -> int:
         "baselines",
         "advanced",
         "decisions",
+        "final-prepare",
     }:
         phase, _ = STAGES[args.command]
         parser.exit(2, f"{args.command}: not implemented; reserved for approved Phase {phase}.\n")
@@ -103,6 +112,17 @@ def main(argv: list[str] | None = None) -> int:
             result = analyze_development(config)
             print(json.dumps(result["statistics"], indent=2))
             return 0
+        if args.command == "final-prepare":
+            if args.verify_public_lock:
+                result = verify_public_lock()
+            elif args.verify:
+                report = json.loads(Path("reports/phase_9_stage_a.json").read_text())
+                result = verify_final(config, report)
+            else:
+                report = prepare_final(config)
+                result = {k: report[k] for k in ("status", "lock_sha256", "model_manifest_sha256")}
+            print(json.dumps(result, indent=2))
+            return 0
         if args.command == "decisions":
             if args.verify_first_split:
                 print(json.dumps(verify_first(config), indent=2))
@@ -125,7 +145,10 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps({"status": result["status"], "splits": len(result["splits"])}))
             return 0
         summary = {
-            "implementation": "Phase 8 commands available; status does not verify local artifacts",
+            "implementation": (
+                "Phase 9 Stage A available; Stage B disabled; "
+                "status does not verify local artifacts"
+            ),
             "dataset": config["data"]["filename"],
             "revision": config["data"]["revision"],
             "outcome": config["experiment"]["outcome"],

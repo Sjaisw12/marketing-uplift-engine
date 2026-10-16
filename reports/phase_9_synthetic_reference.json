@@ -1,0 +1,30 @@
+{
+  "rows": 511,
+  "reference": "Independent explicit row IPW/DR, NumPy sample covariance and T-by-Y conditional covariance; no real holdout data",
+  "checks": [
+    {
+      "batch": 1,
+      "maximum_mean_error": 2.4424906541753444e-15,
+      "maximum_covariance_error": 1.4224732503009818e-16,
+      "maximum_stratified_covariance_error": 1.3877787807814457e-17,
+      "coordinates": 375,
+      "family_size": 765
+    },
+    {
+      "batch": 31,
+      "maximum_mean_error": 2.4424906541753444e-15,
+      "maximum_covariance_error": 1.4224732503009818e-16,
+      "maximum_stratified_covariance_error": 1.3877787807814457e-17,
+      "coordinates": 375,
+      "family_size": 765
+    },
+    {
+      "batch": 65536,
+      "maximum_mean_error": 2.4424906541753444e-15,
+      "maximum_covariance_error": 1.4224732503009818e-16,
+      "maximum_stratified_covariance_error": 1.3877787807814457e-17,
+      "coordinates": 375,
+      "family_size": 765
+    }
+  ]
+}
