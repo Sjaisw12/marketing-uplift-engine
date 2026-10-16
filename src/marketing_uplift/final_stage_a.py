@@ -376,19 +376,41 @@ def run(config):
     return result
 
 
+def validate_report_binding(report, protocol_sha, hashes):
+    lock, manifest = report["lock"], report["model_manifest"]
+    if (
+        report["protocol_sha256"] != protocol_sha
+        or lock["protocol_sha256"] != protocol_sha
+        or manifest["protocol_sha256"] != protocol_sha
+        or report["lock_sha256"] != digest(lock)
+        or report["model_manifest_sha256"] != digest(manifest)
+        or lock["model_manifest_sha256"] != report["model_manifest_sha256"]
+        or lock["provenance"]["files"] != hashes
+        or lock["protected_snapshot_sha256"] != digest(report["protected_before"])
+    ):
+        raise ContractError("Stage A lock/protocol/model manifest binding mismatch")
+    if lock["stage_b_enabled"] or lock["stage_b_authorized"]:
+        raise ContractError("Stage B must remain disabled/unapproved")
+    primary = lock["primary"]
+    if (
+        primary["model"] is not None
+        or primary["ranking"] is not None
+        or primary["reach"] != 0
+        or primary["advertising_assignments"] != 0
+        or primary["hypothetical_spending"] != "0"
+        or primary["incremental_gain_relative_to_no_targeting"] != 0
+        or not primary["identity_not_statistical_evidence"]
+        or primary["claim_of_optimality"]
+    ):
+        raise ContractError("Primary abstention identity changed")
+    if len(manifest["models"]) != 9:
+        raise ContractError("Expected exactly nine diagnostic models")
+
+
 def verify_lock(config, report):
-    settings, protocol_sha, _ = protocol()
-    if (
-        protocol_sha != report["protocol_sha256"]
-        or report["lock_sha256"] != digest(report["lock"])
-        or report["model_manifest_sha256"] != digest(report["model_manifest"])
-    ):
-        raise ContractError("Stage A lock/protocol/model manifest mismatch")
-    if (
-        settings["stage_b_enabled"]
-        or report["lock"]["stage_b_enabled"]
-        or report["lock"]["stage_b_authorized"]
-    ):
+    settings, protocol_sha, hashes = protocol()
+    validate_report_binding(report, protocol_sha, hashes)
+    if settings["stage_b_enabled"]:
         raise ContractError("Stage B must remain disabled/unapproved")
     if protected(config) != report["protected_before"]:
         raise ContractError("Historical protected artifacts changed")
@@ -420,15 +442,8 @@ def verify_lock(config, report):
 
 def verify_public_lock():
     report = json.loads(Path("reports/phase9/stage_a.json").read_text())
-    _, sha, _ = protocol()
-    if (
-        sha != report["protocol_sha256"]
-        or digest(report["lock"]) != report["lock_sha256"]
-        or digest(report["model_manifest"]) != report["model_manifest_sha256"]
-    ):
-        raise ContractError("Public Stage A lock mismatch")
-    if report["lock"]["stage_b_enabled"] or report["lock"]["stage_b_authorized"]:
-        raise ContractError("Stage B is not approved")
+    _, sha, hashes = protocol()
+    validate_report_binding(report, sha, hashes)
     return {
         "lock_sha256": report["lock_sha256"],
         "stage_b_enabled": False,
