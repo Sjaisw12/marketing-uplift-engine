@@ -7,6 +7,7 @@ import tomllib
 from pathlib import Path
 
 from marketing_uplift.acquisition import AcquisitionError, acquire
+from marketing_uplift.advanced import run as run_advanced
 from marketing_uplift.baseline_reports import render
 from marketing_uplift.baselines import run as run_baselines
 from marketing_uplift.data_audit import audit
@@ -22,6 +23,7 @@ STAGES = {
     "split": (3, "Seal holdout once and freeze development memberships"),
     "audit": (4, "Audit development data only"),
     "ate": (5, "Describe development assignment contrast and nominal confidence interval"),
+    "advanced": (7, "Fixed T-learner and robust development evaluation"),
     "baselines": (6, "Train and log development baselines in local MLflow"),
 }
 
@@ -38,7 +40,7 @@ def main(argv: list[str] | None = None) -> int:
             modes.add_argument("--holdout-only", action="store_true")
             modes.add_argument("--verify", action="store_true")
             modes.add_argument("--reconstruct", action="store_true")
-        if name == "baselines":
+        if name in {"baselines", "advanced"}:
             command.add_argument("--first-split", action="store_true")
         if name == "validate":
             command.add_argument("--full", action="store_true")
@@ -51,6 +53,7 @@ def main(argv: list[str] | None = None) -> int:
         "audit",
         "ate",
         "baselines",
+        "advanced",
     }:
         phase, _ = STAGES[args.command]
         parser.exit(2, f"{args.command}: not implemented; reserved for approved Phase {phase}.\n")
@@ -92,6 +95,10 @@ def main(argv: list[str] | None = None) -> int:
             result = analyze_development(config)
             print(json.dumps(result["statistics"], indent=2))
             return 0
+        if args.command == "advanced":
+            result = run_advanced(config, first_only=args.first_split)
+            print(json.dumps({"status": result["status"], "splits": len(result["splits"])}))
+            return 0
         if args.command == "baselines":
             result = run_baselines(config, first_only=args.first_split)
             if not args.first_split:
@@ -99,7 +106,7 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps({"status": result["status"], "splits": len(result["splits"])}))
             return 0
         summary = {
-            "implementation": "Phase 6 commands available; status does not verify local artifacts",
+            "implementation": "Phase 7 commands available; status does not verify local artifacts",
             "dataset": config["data"]["filename"],
             "revision": config["data"]["revision"],
             "outcome": config["experiment"]["outcome"],

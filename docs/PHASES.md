@@ -44,8 +44,22 @@ No calendar or effort schedule applies.
 - [x] Include none/all anchors, metric conventions, IPW assumptions and event counts.
 - [x] Log provenance, models, predictions and metrics in local mlruns/.
 - [x] Publish development stability comparison; keep holdout sealed.
-- [ ] Report evidence; receive approval.
+- [x] Report evidence; receive approval.
 
 Every completion updates INTERVIEW.md with an explanation and two tough questions.
 T-learner, DR evaluation, final policy selection, dashboard and headline holdout
 analysis require later scope and approval.
+
+
+## Phase 7 — advanced uplift modeling and robust evaluation
+- [x] User approves separately scoped implementation plan and safeguards.
+- [ ] Freeze T-learner, three-fold training-only nuisance and multiplier protocol.
+- [ ] Verify preserved Phase 6 estimates, artifacts and frozen memberships.
+- [ ] Pass synthetic statistical, covariance, leakage and integration gates.
+- [ ] Complete and verify the first real split before the remaining four.
+- [ ] Report IPW/DR, propensity/nuisance sensitivity, support, calibration and vector overlap.
+- [ ] Verify all five evaluations, protected artifacts, reproducibility and CI.
+- [ ] Publish completion evidence and receive user approval.
+
+No final model/reach selection, abstention engine, dashboard or holdout evaluation
+is included in Phase 7. Later phases require separate scope and approval.
