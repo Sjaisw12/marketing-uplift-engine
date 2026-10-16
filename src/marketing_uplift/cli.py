@@ -13,11 +13,15 @@ from marketing_uplift.baseline_reports import render
 from marketing_uplift.baselines import run as run_baselines
 from marketing_uplift.data_audit import audit
 from marketing_uplift.data_contract import ContractError, validate
+from marketing_uplift.decision_reports import render as render_decisions
+from marketing_uplift.decision_verification import verify_first
+from marketing_uplift.decisions import run as run_decisions
 from marketing_uplift.development_ate import analyze_development
 from marketing_uplift.ingestion import ingest
 from marketing_uplift.splits import split
 
 STAGES = {
+    "decisions": (8, "Hypothetical abstention-aware development decision simulator"),
     "acquire": (2, "Download the pinned archive and verify SHA-256"),
     "validate": (3, "Validate the raw data contract; --full includes expensive checks"),
     "ingest": (3, "Convert the verified archive to audited typed Parquet"),
@@ -41,8 +45,10 @@ def main(argv: list[str] | None = None) -> int:
             modes.add_argument("--holdout-only", action="store_true")
             modes.add_argument("--verify", action="store_true")
             modes.add_argument("--reconstruct", action="store_true")
-        if name in {"baselines", "advanced"}:
+        if name in {"baselines", "advanced", "decisions"}:
             command.add_argument("--first-split", action="store_true")
+        if name == "decisions":
+            command.add_argument("--verify-first-split", action="store_true")
         if name == "validate":
             command.add_argument("--full", action="store_true")
     args = parser.parse_args(argv)
@@ -55,6 +61,7 @@ def main(argv: list[str] | None = None) -> int:
         "ate",
         "baselines",
         "advanced",
+        "decisions",
     }:
         phase, _ = STAGES[args.command]
         parser.exit(2, f"{args.command}: not implemented; reserved for approved Phase {phase}.\n")
@@ -96,6 +103,15 @@ def main(argv: list[str] | None = None) -> int:
             result = analyze_development(config)
             print(json.dumps(result["statistics"], indent=2))
             return 0
+        if args.command == "decisions":
+            if args.verify_first_split:
+                print(json.dumps(verify_first(config), indent=2))
+                return 0
+            result = run_decisions(config, first_only=args.first_split)
+            if not args.first_split:
+                render_decisions(result, config["tracking"]["directory"])
+            print(json.dumps({"status": result["status"], "splits": len(result["splits"])}))
+            return 0
         if args.command == "advanced":
             result = run_advanced(config, first_only=args.first_split)
             if not args.first_split:
@@ -109,7 +125,7 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps({"status": result["status"], "splits": len(result["splits"])}))
             return 0
         summary = {
-            "implementation": "Phase 7 commands available; status does not verify local artifacts",
+            "implementation": "Phase 8 commands available; status does not verify local artifacts",
             "dataset": config["data"]["filename"],
             "revision": config["data"]["revision"],
             "outcome": config["experiment"]["outcome"],

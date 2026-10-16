@@ -59,7 +59,19 @@ analysis require later scope and approval.
 - [x] Complete and verify the first real split before the remaining four.
 - [x] Report IPW/DR, propensity/nuisance sensitivity, support, calibration and vector overlap.
 - [x] Verify all five evaluations, protected artifacts, reproducibility and CI.
-- [ ] Publish completion evidence and receive user approval.
+- [x] Publish completion evidence and receive user approval.
 
 No final model/reach selection, abstention engine, dashboard or holdout evaluation
 is included in Phase 7. Later phases require separate scope and approval.
+
+## Phase 8 — abstention-aware, budget-constrained development simulator
+- [x] User approves separately scoped protocol and safeguards.
+- [ ] Freeze hypothetical economics, roles, decision and 300-coordinate uncertainty protocol.
+- [ ] Pass synthetic statistical, budget, abstention and leakage gates.
+- [ ] Verify first real split before continuing unchanged through the remaining four.
+- [ ] Publish five-split selection/assessment, sensitivity and matched-spending results.
+- [ ] Verify preserved artifacts, reproducibility, MLflow and GitHub Actions checks.
+- [ ] Publish completion evidence and receive user approval.
+
+Phase 8 does not select/lock a final deployment policy, retrain models, evaluate the
+sealed holdout, build Streamlit or authorize Phase 9.

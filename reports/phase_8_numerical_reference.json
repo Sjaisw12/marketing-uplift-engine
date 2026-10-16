@@ -1,0 +1,26 @@
+{
+  "rows": 511,
+  "coordinates": 360,
+  "family_size": 300,
+  "reference": "Independent explicit row contributions, NumPy sample covariance, centered Gaussian row-multiplier factor",
+  "checks": [
+    {
+      "batch": 1,
+      "maximum_mean_error": 1.6653345369377348e-16,
+      "maximum_covariance_error": 1.1275702593849246e-17,
+      "maximum_row_multiplier_covariance_error": 1.431146867680866e-17
+    },
+    {
+      "batch": 31,
+      "maximum_mean_error": 1.6653345369377348e-16,
+      "maximum_covariance_error": 1.1275702593849246e-17,
+      "maximum_row_multiplier_covariance_error": 1.474514954580286e-17
+    },
+    {
+      "batch": 65536,
+      "maximum_mean_error": 1.6653345369377348e-16,
+      "maximum_covariance_error": 1.1275702593849246e-17,
+      "maximum_row_multiplier_covariance_error": 1.431146867680866e-17
+    }
+  ]
+}
