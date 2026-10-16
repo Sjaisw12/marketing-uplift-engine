@@ -186,3 +186,50 @@ changes from +1.2487 at e=.85 to −2.0561 at e=.80. This illustrates why model
 ranking and narrow conditional bootstrap intervals cannot establish causal
 superiority when assignment assumptions remain uncertain. Full evidence and
 per-split uncertainty are in reports/phase_6_baselines.md.
+
+## Phase 7 — T-learner and honest robust evaluation
+
+The T-learner predicts visits separately for treated and control assignments, then
+subtracts those probabilities. I reuse the verified treated-response model and
+train the missing control model, keeping f0–f11 and the same frozen development
+partitions. Separate models allow different response patterns across arms, but
+the smaller control sample can make the difference noisier.
+
+The shared doubly robust evaluator adds outcome-model residual corrections to
+model-based policy values. Its outcome predictions come from training-only
+nuisance folds, with every candidate policy evaluated using the same predictions.
+Double robustness does not mean assumption-free causality: selection into the
+release, unknown experiment propensities and dependence remain unresolved.
+Propensity and alternative-nuisance sensitivity are reported without choosing
+whichever evaluator favors the new model.
+
+Two thousand correlated Gaussian-multiplier draws quantify conditional sampling
+uncertainty. Continuous outcome predictions break the earlier exact multinomial
+cell shortcut. Instead, within-cell first/second moments reconstruct the joint
+covariance exactly up to floating-point error; Gaussian draws reproduce the
+row-multiplier law, not an ordinary row-bootstrap distribution. Simultaneous
+bands cover ten predeclared T-versus-S comparisons within a split. Overlapping
+splits describe development stability, not independent confirmations.
+
+**Two challenging questions**
+
+1. **If either nuisance model can be wrong, why can't DR settle this benchmark's
+   causal ranking?** Double robustness assumes an identified causal problem. A
+   model of treatment patterns in selected released data is not a verified
+   original assignment mechanism, and good outcome calibration does not prove
+   exchangeability after outcome-related privacy selection. Both nuisances can
+   be wrong, and conditional intervals omit these biases and model-fitting risk.
+2. **Why replace the earlier compressed bootstrap, and what equivalence remains?**
+   Rows sharing policy bins, assignment and outcome can have different DR residual
+   contributions because their predicted probabilities differ. Multinomial cell
+   counts cannot represent those differences. Continuous cell moments preserve
+   covariance for the fixed linear policy statistics; Gaussian multiplier draws
+   have that same joint law as Gaussian row multipliers. This neither reproduces
+   exact multinomial bootstrap tails nor justifies intervals for refitted models.
+
+Measured Phase 7 example: at 10% reach and reference e=.85, mean T-minus-S was
+−0.3641 per1,000 with IPW and −0.1962 with shared DR. The first split's simultaneous
+bands included zero under both methods, despite its IPW pointwise interval excluding
+zero. Higher-reach response/S ordering changed between evaluators. The work did
+not establish a T advantage or justify selecting a final policy; fair comparisons,
+assumption sensitivity and preservation of the holdout are the outcome.

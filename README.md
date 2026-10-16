@@ -7,19 +7,22 @@ revenue, advertiser-wide lift, or production impact.
 
 ## Current state
 
-Phase 6 implements fixed random-targeting, treated-response LightGBM and S-learner
-baselines on the five existing development splits. See
-[the frozen statistical protocol](docs/PHASE6_PROTOCOL.md),
-[measured comparison and uncertainty](reports/phase_6_baselines.md),
-[development stability](reports/phase_6_stability.md), and
-[aggregate machine-readable evidence](reports/phase_6_metrics.json).
+Phase 7 adds a fixed T-learner and shared training-only doubly robust policy
+evaluation. Phase 6 was independently verified through GitHub Actions and merged;
+its models, predictions, protocol, reports and memberships remain unchanged.
 
-The constant treatment propensity e=0.85 is a reference assumption, not a verified
-individual assignment probability. Policy values, full-prefix IPW AUUC/Qini and
-sensitivity results are assumption-dependent. Paired bootstrap intervals condition
-on fitted models and fixed policies; five overlapping splits are not independent
-experiments. The sealed final holdout remains unused. No final policy is selected.
-Phase 5 was independently verified through GitHub Actions and approved by merge.
+See [the frozen Phase 7 protocol](docs/PHASE7_PROTOCOL.md),
+[IPW/DR comparisons and diagnostics](reports/phase_7_comparison.md),
+[development stability](reports/phase_7_stability.md), and
+[completion evidence](reports/phase_7_completion.md).
+The original [Phase 6 evidence](reports/phase_6_baselines.md) remains available.
+
+Propensity values remain assumptions. DR does not establish causal identification
+or remove privacy selection, unknown experiment probabilities or dependence.
+Paired Gaussian-multiplier intervals are nominal working-model intervals conditional
+on fixed fitted models and policies; they are not an exact ordinary row bootstrap.
+The five development splits overlap. The final holdout remains sealed, and no
+final model, reach, economic policy or dashboard is selected or implemented here.
 
 ## Setup and verification
 
@@ -49,6 +52,7 @@ Make targets default to a repository-local, gitignored `.cache/uv` cache; overri
 | `make split` | Seal final holdout once and freeze five development re-splits | 3, available |
 | `make audit` | Development EDA | 4, available |
 | `make ate` | Descriptive development assignment contrast and nominal 95% CI | 5, available |
+| `make advanced` | T-learner, shared cross-fit DR and paired multiplier evaluation | 7, available |
 | `make baselines` | Random, visit propensity, S-learner; MLflow logs | 6, available |
 | `make reproduce` | Sequential rerun entry point, available after implementation | 2–6 |
 
@@ -281,3 +285,36 @@ interpretation. A common treatment probability near 0.85 is an assumption;
 there are no dates, customer IDs, measured costs, or revenue. Economics will be
 explicitly hypothetical. The final headline holdout remains sealed until a
 separately approved final evaluation with locked policies.
+
+
+## Phase 7 execution and verification
+
+Use `make advanced` directly in this intact workspace. It verifies existing Phase 6
+source/model/prediction/protocol hashes, reuses the treated-response models, and
+writes only new Phase 7 artifacts and a separate local MLflow experiment. It never
+runs acquisition, ingestion, outer split reconstruction or Phase 6 training.
+Do not use `make reproduce` to preserve existing report/acquisition timestamps:
+that older entry point reruns prior stages through Phase 6.
+
+The real first-split gate, followed by the unchanged other four recipes, is:
+
+```sh
+OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 uv run --locked uplift advanced --first-split
+PHASE7_EVIDENCE=reports/phase_7_first_split.json OPENBLAS_NUM_THREADS=2 \
+  uv run --locked pytest tests/test_advanced_full.py -m full_data
+OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 make advanced
+OPENBLAS_NUM_THREADS=2 uv run --locked pytest tests/test_advanced_full.py \
+  tests/test_baselines_full.py -m full_data
+```
+
+Nuisance fold labels are auxiliary training-only files; they do not alter any of
+the twelve frozen memberships. Their hashes are published before first training.
+No new dependencies are needed and `uv.lock` remains unchanged. Existing matching
+Phase 7 completed runs resume only after artifact/provenance checks.
+
+An optional manual GitHub Actions `run_advanced=true` dispatch recreates prerequisites
+in its fresh workspace, verifies Phase 6, then gates Phase 7 first-split/all-five
+execution and preservation checks. Only aggregate evidence is uploaded. Raw data,
+models, row-level predictions, OOF records and MLflow remain local and Git-ignored.
+These cloud-local artifacts are not guaranteed to persist into another task; do
+not recreate files that are already present and valid.

@@ -8,6 +8,7 @@ from pathlib import Path
 
 from marketing_uplift.acquisition import AcquisitionError, acquire
 from marketing_uplift.advanced import run as run_advanced
+from marketing_uplift.advanced_reports import render as render_advanced
 from marketing_uplift.baseline_reports import render
 from marketing_uplift.baselines import run as run_baselines
 from marketing_uplift.data_audit import audit
@@ -97,6 +98,8 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if args.command == "advanced":
             result = run_advanced(config, first_only=args.first_split)
+            if not args.first_split:
+                render_advanced(result, config["tracking"]["directory"])
             print(json.dumps({"status": result["status"], "splits": len(result["splits"])}))
             return 0
         if args.command == "baselines":

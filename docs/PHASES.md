@@ -53,12 +53,12 @@ analysis require later scope and approval.
 
 ## Phase 7 — advanced uplift modeling and robust evaluation
 - [x] User approves separately scoped implementation plan and safeguards.
-- [ ] Freeze T-learner, three-fold training-only nuisance and multiplier protocol.
-- [ ] Verify preserved Phase 6 estimates, artifacts and frozen memberships.
-- [ ] Pass synthetic statistical, covariance, leakage and integration gates.
-- [ ] Complete and verify the first real split before the remaining four.
-- [ ] Report IPW/DR, propensity/nuisance sensitivity, support, calibration and vector overlap.
-- [ ] Verify all five evaluations, protected artifacts, reproducibility and CI.
+- [x] Freeze T-learner, three-fold training-only nuisance and multiplier protocol.
+- [x] Verify preserved Phase 6 estimates, artifacts and frozen memberships.
+- [x] Pass synthetic statistical, covariance, leakage and integration gates.
+- [x] Complete and verify the first real split before the remaining four.
+- [x] Report IPW/DR, propensity/nuisance sensitivity, support, calibration and vector overlap.
+- [x] Verify all five evaluations, protected artifacts, reproducibility and CI.
 - [ ] Publish completion evidence and receive user approval.
 
 No final model/reach selection, abstention engine, dashboard or holdout evaluation

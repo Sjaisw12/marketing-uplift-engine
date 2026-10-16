@@ -125,3 +125,32 @@ def test_selected_policy_formula_independent_of_coefficient_builder():
                 + (1 - selected) * (m0 + (1 - t) * (y - m0) / (1 - e))
             )
         assert mean[j] == pytest.approx(expected, abs=1e-13)
+
+
+def test_zero_outcome_zero_nuisance_and_absent_control_support():
+    n = 20
+    t = np.ones(n, dtype=int)
+    y = np.zeros(n, dtype=int)
+    scores = {
+        name: np.arange(n, dtype=float) for name in ("random", "response", "s_learner", "t_learner")
+    }
+    result = evaluate(
+        t,
+        y,
+        np.arange(n),
+        scores,
+        y.astype(float),
+        y.astype(float),
+        y.astype(float),
+        y.astype(float),
+        [0.85],
+        2000,
+        81,
+    )
+    for method in ("ipw", "dr"):
+        for model in result["estimates"][method]["0.85"]["models"].values():
+            for p in model["policies"]:
+                assert p["value"]["estimate"] == 0
+                assert p["value"]["pointwise_interval"] == [0, 0]
+    assert result["simultaneous_critical"] == 0
+    assert result["support"]["t_learner"]["cumulative"][0]["selected_arm_rate_difference"] is None
