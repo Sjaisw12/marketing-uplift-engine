@@ -7,6 +7,7 @@ import tomllib
 from pathlib import Path
 
 from marketing_uplift.acquisition import AcquisitionError, acquire
+from marketing_uplift.baselines import run as run_baselines
 from marketing_uplift.data_audit import audit
 from marketing_uplift.data_contract import ContractError, validate
 from marketing_uplift.development_ate import analyze_development
@@ -36,6 +37,8 @@ def main(argv: list[str] | None = None) -> int:
             modes.add_argument("--holdout-only", action="store_true")
             modes.add_argument("--verify", action="store_true")
             modes.add_argument("--reconstruct", action="store_true")
+        if name == "baselines":
+            command.add_argument("--first-split", action="store_true")
         if name == "validate":
             command.add_argument("--full", action="store_true")
     args = parser.parse_args(argv)
@@ -46,6 +49,7 @@ def main(argv: list[str] | None = None) -> int:
         "split",
         "audit",
         "ate",
+        "baselines",
     }:
         phase, _ = STAGES[args.command]
         parser.exit(2, f"{args.command}: not implemented; reserved for approved Phase {phase}.\n")
@@ -87,15 +91,19 @@ def main(argv: list[str] | None = None) -> int:
             result = analyze_development(config)
             print(json.dumps(result["statistics"], indent=2))
             return 0
+        if args.command == "baselines":
+            result = run_baselines(config, first_only=args.first_split)
+            print(json.dumps({"status": result["status"], "splits": len(result["splits"])}))
+            return 0
         summary = {
-            "implementation": "Phase 5 commands available; status does not verify local artifacts",
+            "implementation": "Phase 6 commands available; status does not verify local artifacts",
             "dataset": config["data"]["filename"],
             "revision": config["data"]["revision"],
             "outcome": config["experiment"]["outcome"],
             "holdout_fraction": config["experiment"]["holdout_fraction"],
             "development_seeds": config["experiment"]["development_seeds"],
             "tracking_uri": Path(config["tracking"]["directory"]).resolve().as_uri(),
-            "reserved_stages": [stage for stage in STAGES if stage in {"baselines"}],
+            "reserved_stages": [],
         }
     except (AcquisitionError, ContractError) as error:
         parser.exit(1, f"Pipeline stopped: {error}\n")

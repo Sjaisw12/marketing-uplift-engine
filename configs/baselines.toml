@@ -1,0 +1,14 @@
+version = 1
+rounds = 200
+learning_rate = 0.05
+num_leaves = 31
+min_data_in_leaf = 1000
+max_bin = 63
+bin_construct_sample_cnt = 200000
+num_threads = 2
+bootstrap_replicates = 2000
+reference_propensity = 0.85
+sensitivity_propensities = [0.80, 0.825, 0.875, 0.90]
+reach = [0.10, 0.20, 0.30, 0.40, 0.50]
+random_seed_offset = 1000000
+bootstrap_seed_offset = 2000000
