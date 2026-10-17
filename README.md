@@ -480,3 +480,12 @@ on the owner's Mac. Real execution remains disabled without a separate signed
 exact-lock grant; the unsigned draft intentionally has no dates or reviewed commit.
 See [activation procedure and limitations](docs/STAGE_B_ACTIVATION.md), including
 owner-reviewed API preflight evidence, strict recovery windows and no outcome replay.
+
+## Stage B durable continuation preparation
+
+The reviewed activation integration is preserved. A separately locked child adds a
+durable publication pause and fresh-process continuation after independent Mac
+restore. New owner signatures and fresh preflight are required; previously supplied
+production authorization cannot activate this child. See the
+[exact pause/resume procedure](docs/STAGE_B_CONTINUATION.md). No production receipt,
+holdout scoring or final evaluation has occurred.

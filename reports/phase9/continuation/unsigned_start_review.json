@@ -1,0 +1,21 @@
+{
+  "signable": false,
+  "signature": null,
+  "signature_domain_utf8": "marketing-uplift/resumable-stage-b-start/v1\u0000",
+  "payload": {
+    "schema": 1,
+    "purpose": "one-final-holdout-evaluation",
+    "execution_lock_sha256": "b7dca1de6089f2f621c4972d078c906f126205d837e8485064633a326f9e212c",
+    "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+    "dataset_sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "holdout_sha256": "829efe6744558783321c0dc3addfc60af6b9ba49f31368c89955dce6cdea39fe",
+    "parameters_sha256": "7519b2adcc334ca35bf94c36930ab9b643433a1d42c8b1845c8358fe86a0084a",
+    "owner": "Sjaisw12",
+    "execution_id": "criteo-v2.1-final-evaluation-v1",
+    "public_key_sha256": "9c885530f96b2a4cc50afa8a2baaa1f1300a97720552e590dff824bdcc593800",
+    "reviewed_commit": null,
+    "preflight_sha256": null,
+    "not_before": null,
+    "expires_at": null
+  }
+}

@@ -152,3 +152,20 @@ is recorded; no production receipt/journal or additional live write test is crea
 
 The synthetic transport result is not a production checkpoint or execution approval.
 See [activation protocol](STAGE_B_ACTIVATION.md). No Stage B execution or Phase 10.
+
+### Stage B continuity fix — separately approved preparation
+
+- [x] Owner approved PR #13 and the activation identity; preserve that historical lock.
+- [x] Stop before receipt claim when in-memory continuation cannot be assured.
+- [x] Owner approves additive continuity implementation and synthetic testing only.
+- [x] Persist exact publication pause; reconstruct in a genuinely new process.
+- [x] Verify expired original authorization historically; require fresh signed continuation.
+- [x] Require fresh preflight, independent restore proof and original receipt verification.
+- [x] Prohibit rescoring, second claims and post-outcome replay; test process death/failures.
+- [ ] Owner reviews continuity PR, child lock and pause/resume procedure.
+- [ ] Owner separately approves/signs a NEW child-lock start grant and fresh preflight.
+- [ ] Publish and independently restore actual prediction backup after separate approval.
+- [ ] Owner approves/signs continuation and backup proof before any outcome access.
+
+The earlier signed activation grant was validated only and never used to claim a
+receipt. It must not be reused against the changed child code. No Phase 10 work.
