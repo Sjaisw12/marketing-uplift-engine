@@ -1,0 +1,730 @@
+{
+  "scope": "one-time live SYNTHETIC receipt integration only",
+  "ref": "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222",
+  "target_commit": "67f70bb0de4e6cafbf398e706db741676b2b1cbe",
+  "ruleset_id": 25283799,
+  "ruleset_verified": {
+    "enforcement": "active",
+    "rules": [
+      "deletion",
+      "update"
+    ],
+    "bypass_actors": [],
+    "creation_restricted": false,
+    "exact_ref_match": true
+  },
+  "commands": [
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "init"
+      ],
+      "exit_status": 0,
+      "stdout": "Initialized empty Git repository in /tmp/stage-b-live-synthetic-20261017/a/.git/\n",
+      "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "67f70bb0de4e6cafbf398e706db741676b2b1cbe"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * branch            67f70bb0de4e6cafbf398e706db741676b2b1cbe -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "mktag"
+      ],
+      "exit_status": 0,
+      "stdout": "aa285f1946f5f3b6cb642ec576244230f75cf4a8\n",
+      "stderr": "",
+      "stdin_sha256": "b98597af93c29639292ed4fde7df5b0a6f6d7201df6a5c05528fbbed2b3ebe3c"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "init"
+      ],
+      "exit_status": 0,
+      "stdout": "Initialized empty Git repository in /tmp/stage-b-live-synthetic-20261017/b/.git/\n",
+      "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "67f70bb0de4e6cafbf398e706db741676b2b1cbe"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * branch            67f70bb0de4e6cafbf398e706db741676b2b1cbe -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "mktag"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\n",
+      "stderr": "",
+      "stdin_sha256": "6cb4b060c075247179cb4e851347a7596ae969ba9309804562d38eec06bf3276"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "init"
+      ],
+      "exit_status": 0,
+      "stdout": "Initialized empty Git repository in /tmp/stage-b-live-synthetic-20261017/changed/.git/\n",
+      "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "67f70bb0de4e6cafbf398e706db741676b2b1cbe"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * branch            67f70bb0de4e6cafbf398e706db741676b2b1cbe -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "mktag"
+      ],
+      "exit_status": 0,
+      "stdout": "5382aff4406d67aeb65cbcb53f609379f781cfcd\n",
+      "stderr": "",
+      "stdin_sha256": "8265100804256093eecc94a28650e5f970a7ce2b7fffd1d27519ecac3fdf33e5"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "push",
+        "--dry-run",
+        "--porcelain",
+        "--force-with-lease=refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222:",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "aa285f1946f5f3b6cb642ec576244230f75cf4a8:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "To https://github.com/Sjaisw12/marketing-uplift-engine.git\n*\taa285f1946f5f3b6cb642ec576244230f75cf4a8:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\t[new tag]\nDone\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "mktag"
+      ],
+      "exit_status": 0,
+      "stdout": "aa285f1946f5f3b6cb642ec576244230f75cf4a8\n",
+      "stderr": "",
+      "stdin_sha256": "b98597af93c29639292ed4fde7df5b0a6f6d7201df6a5c05528fbbed2b3ebe3c"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "mktag"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\n",
+      "stderr": "",
+      "stdin_sha256": "6cb4b060c075247179cb4e851347a7596ae969ba9309804562d38eec06bf3276"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "push",
+        "--porcelain",
+        "--force-with-lease=refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222:",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "5262253c71ffd4033c5165c7864e590838b0d7f6:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "To https://github.com/Sjaisw12/marketing-uplift-engine.git\n*\t5262253c71ffd4033c5165c7864e590838b0d7f6:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\t[new tag]\nDone\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "push",
+        "--porcelain",
+        "--force-with-lease=refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222:",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "aa285f1946f5f3b6cb642ec576244230f75cf4a8:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 1,
+      "stdout": "To https://github.com/Sjaisw12/marketing-uplift-engine.git\n!\taa285f1946f5f3b6cb642ec576244230f75cf4a8:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\t[remote rejected] (cannot lock ref 'refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222': reference already exists)\nDone\n",
+      "stderr": "error: failed to push some refs to 'https://github.com/Sjaisw12/marketing-uplift-engine.git'\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * tag               stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222 -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "cat-file",
+        "tag",
+        "5262253c71ffd4033c5165c7864e590838b0d7f6"
+      ],
+      "exit_status": 0,
+      "stdout": "object 67f70bb0de4e6cafbf398e706db741676b2b1cbe\ntype commit\ntag stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\ntagger Stage B receipt <receipt@invalid> 0 +0000\n\n{\"authorization_sha256\":\"c5ea3d7371ecb14d769187c8ad39a2ceb5d9726197c180213f49f86cc29e36d4\",\"dataset_sha256\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"execution_id\":\"synthetic-integration-v1-b\",\"execution_lock_sha256\":\"2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a\",\"holdout_sha256\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"model_manifest_sha256\":\"2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e\",\"owner\":\"synthetic-client-b\",\"parameters_sha256\":\"dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba\",\"schema\":1}\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * tag               stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222 -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "cat-file",
+        "tag",
+        "5262253c71ffd4033c5165c7864e590838b0d7f6"
+      ],
+      "exit_status": 0,
+      "stdout": "object 67f70bb0de4e6cafbf398e706db741676b2b1cbe\ntype commit\ntag stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\ntagger Stage B receipt <receipt@invalid> 0 +0000\n\n{\"authorization_sha256\":\"c5ea3d7371ecb14d769187c8ad39a2ceb5d9726197c180213f49f86cc29e36d4\",\"dataset_sha256\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"execution_id\":\"synthetic-integration-v1-b\",\"execution_lock_sha256\":\"2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a\",\"holdout_sha256\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"model_manifest_sha256\":\"2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e\",\"owner\":\"synthetic-client-b\",\"parameters_sha256\":\"dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba\",\"schema\":1}\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * tag               stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222 -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/a",
+      "argv": [
+        "git",
+        "cat-file",
+        "tag",
+        "5262253c71ffd4033c5165c7864e590838b0d7f6"
+      ],
+      "exit_status": 0,
+      "stdout": "object 67f70bb0de4e6cafbf398e706db741676b2b1cbe\ntype commit\ntag stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\ntagger Stage B receipt <receipt@invalid> 0 +0000\n\n{\"authorization_sha256\":\"c5ea3d7371ecb14d769187c8ad39a2ceb5d9726197c180213f49f86cc29e36d4\",\"dataset_sha256\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"execution_id\":\"synthetic-integration-v1-b\",\"execution_lock_sha256\":\"2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a\",\"holdout_sha256\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"model_manifest_sha256\":\"2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e\",\"owner\":\"synthetic-client-b\",\"parameters_sha256\":\"dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba\",\"schema\":1}\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * tag               stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222 -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/b",
+      "argv": [
+        "git",
+        "cat-file",
+        "tag",
+        "5262253c71ffd4033c5165c7864e590838b0d7f6"
+      ],
+      "exit_status": 0,
+      "stdout": "object 67f70bb0de4e6cafbf398e706db741676b2b1cbe\ntype commit\ntag stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\ntagger Stage B receipt <receipt@invalid> 0 +0000\n\n{\"authorization_sha256\":\"c5ea3d7371ecb14d769187c8ad39a2ceb5d9726197c180213f49f86cc29e36d4\",\"dataset_sha256\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"execution_id\":\"synthetic-integration-v1-b\",\"execution_lock_sha256\":\"2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a\",\"holdout_sha256\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"model_manifest_sha256\":\"2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e\",\"owner\":\"synthetic-client-b\",\"parameters_sha256\":\"dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba\",\"schema\":1}\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * tag               stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222 -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "cat-file",
+        "tag",
+        "5262253c71ffd4033c5165c7864e590838b0d7f6"
+      ],
+      "exit_status": 0,
+      "stdout": "object 67f70bb0de4e6cafbf398e706db741676b2b1cbe\ntype commit\ntag stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\ntagger Stage B receipt <receipt@invalid> 0 +0000\n\n{\"authorization_sha256\":\"c5ea3d7371ecb14d769187c8ad39a2ceb5d9726197c180213f49f86cc29e36d4\",\"dataset_sha256\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"execution_id\":\"synthetic-integration-v1-b\",\"execution_lock_sha256\":\"2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a\",\"holdout_sha256\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"model_manifest_sha256\":\"2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e\",\"owner\":\"synthetic-client-b\",\"parameters_sha256\":\"dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba\",\"schema\":1}\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "push",
+        "--porcelain",
+        "--force-with-lease=refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222:",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "5382aff4406d67aeb65cbcb53f609379f781cfcd:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 1,
+      "stdout": "To https://github.com/Sjaisw12/marketing-uplift-engine.git\n!\t5382aff4406d67aeb65cbcb53f609379f781cfcd:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\t[rejected] (stale info)\nDone\n",
+      "stderr": "error: failed to push some refs to 'https://github.com/Sjaisw12/marketing-uplift-engine.git'\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "push",
+        "--porcelain",
+        "--force",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "5382aff4406d67aeb65cbcb53f609379f781cfcd:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 1,
+      "stdout": "To https://github.com/Sjaisw12/marketing-uplift-engine.git\n!\t5382aff4406d67aeb65cbcb53f609379f781cfcd:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\t[remote rejected] (push declined due to repository rule violations)\nDone\n",
+      "stderr": "remote: error: GH013: Repository rule violations found for refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222.        \nremote: Review all repository rules at https://github.com/Sjaisw12/marketing-uplift-engine/rules?ref=refs%2Ftags%2Fstage-b-synthetic%2Freceipt-integration-v1%2F1111111111111111111111111111111111111111111111111111111111111111%2F2222222222222222222222222222222222222222222222222222222222222222        \nremote: \nremote: - Cannot update this protected ref.        \nremote: \nerror: failed to push some refs to 'https://github.com/Sjaisw12/marketing-uplift-engine.git'\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "push",
+        "--porcelain",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        ":refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 1,
+      "stdout": "To https://github.com/Sjaisw12/marketing-uplift-engine.git\n!\t:refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\t[remote rejected] (push declined due to repository rule violations)\nDone\n",
+      "stderr": "remote: error: GH013: Repository rule violations found for refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222.        \nremote: Review all repository rules at https://github.com/Sjaisw12/marketing-uplift-engine/rules?ref=refs%2Ftags%2Fstage-b-synthetic%2Freceipt-integration-v1%2F1111111111111111111111111111111111111111111111111111111111111111%2F2222222222222222222222222222222222222222222222222222222222222222        \nremote: \nremote: - Cannot delete this tag        \nremote: \nerror: failed to push some refs to 'https://github.com/Sjaisw12/marketing-uplift-engine.git'\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/changed",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/fresh",
+      "argv": [
+        "git",
+        "init"
+      ],
+      "exit_status": 0,
+      "stdout": "Initialized empty Git repository in /tmp/stage-b-live-synthetic-20261017/fresh/.git/\n",
+      "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/fresh",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "67f70bb0de4e6cafbf398e706db741676b2b1cbe"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * branch            67f70bb0de4e6cafbf398e706db741676b2b1cbe -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/fresh",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/fresh",
+      "argv": [
+        "git",
+        "fetch",
+        "--no-tags",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/Sjaisw12/marketing-uplift-engine\n * tag               stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222 -> FETCH_HEAD\n"
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/fresh",
+      "argv": [
+        "git",
+        "cat-file",
+        "tag",
+        "5262253c71ffd4033c5165c7864e590838b0d7f6"
+      ],
+      "exit_status": 0,
+      "stdout": "object 67f70bb0de4e6cafbf398e706db741676b2b1cbe\ntype commit\ntag stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\ntagger Stage B receipt <receipt@invalid> 0 +0000\n\n{\"authorization_sha256\":\"c5ea3d7371ecb14d769187c8ad39a2ceb5d9726197c180213f49f86cc29e36d4\",\"dataset_sha256\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"execution_id\":\"synthetic-integration-v1-b\",\"execution_lock_sha256\":\"2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a\",\"holdout_sha256\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"model_manifest_sha256\":\"2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e\",\"owner\":\"synthetic-client-b\",\"parameters_sha256\":\"dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba\",\"schema\":1}\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/fresh",
+      "argv": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "https://github.com/Sjaisw12/marketing-uplift-engine.git",
+        "refs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "exit_status": 0,
+      "stdout": "5262253c71ffd4033c5165c7864e590838b0d7f6\trefs/tags/stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\n",
+      "stderr": ""
+    },
+    {
+      "client": "/tmp/stage-b-live-synthetic-20261017/fresh",
+      "argv": [
+        "git",
+        "cat-file",
+        "tag",
+        "5262253c71ffd4033c5165c7864e590838b0d7f6"
+      ],
+      "exit_status": 0,
+      "stdout": "object 67f70bb0de4e6cafbf398e706db741676b2b1cbe\ntype commit\ntag stage-b-synthetic/receipt-integration-v1/1111111111111111111111111111111111111111111111111111111111111111/2222222222222222222222222222222222222222222222222222222222222222\ntagger Stage B receipt <receipt@invalid> 0 +0000\n\n{\"authorization_sha256\":\"c5ea3d7371ecb14d769187c8ad39a2ceb5d9726197c180213f49f86cc29e36d4\",\"dataset_sha256\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"execution_id\":\"synthetic-integration-v1-b\",\"execution_lock_sha256\":\"2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a\",\"holdout_sha256\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"model_manifest_sha256\":\"2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e\",\"owner\":\"synthetic-client-b\",\"parameters_sha256\":\"dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba\",\"schema\":1}\n",
+      "stderr": ""
+    }
+  ],
+  "results": {
+    "initial_tag_absent": true,
+    "authenticated_write_preflight": true,
+    "competing_claims": [
+      {
+        "client": "a",
+        "status": "rejected",
+        "message": "Unknown receipt state; stop, never retry as new execution"
+      },
+      {
+        "client": "b",
+        "status": "success",
+        "receipt_sha256": "9d8aecb4557d5f3c067de7ac5a3b69e8b7ba68a5df72ab35cf3c21a1bb9bee9d"
+      }
+    ],
+    "winner_payload_target_verified": true,
+    "race_rejection_reconciled": "definitive remote reference-already-exists; no write retry",
+    "store_reject_b": {
+      "rejected": true,
+      "message": "Existing cohort claim; no duplicate or changed-owner execution"
+    },
+    "store_reject_changed": {
+      "rejected": true,
+      "message": "Existing cohort claim; no duplicate or changed-owner execution"
+    },
+    "remote_create_reject_changed": true,
+    "update_protection": "PASS: GitHub ruleset rejected",
+    "delete_protection": "PASS: GitHub ruleset rejected",
+    "fresh_client_unchanged_object_payload_target": true
+  },
+  "stage_b_enabled": false,
+  "holdout_records_accessed": false,
+  "production_receipt_created": false,
+  "preservation_before": {
+    "lock_sha256": "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93",
+    "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+    "models": 9,
+    "stage_b_enabled": false
+  },
+  "receipts": {
+    "a": {
+      "schema": 1,
+      "authorization_sha256": "c1a95d056ab6b14a144306e19016a39bf12443e98d47367c2ddb6b8fe3fcde46",
+      "execution_lock_sha256": "2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a",
+      "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+      "dataset_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "holdout_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "parameters_sha256": "dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba",
+      "owner": "synthetic-client-a",
+      "execution_id": "synthetic-integration-v1-a"
+    },
+    "b": {
+      "schema": 1,
+      "authorization_sha256": "c5ea3d7371ecb14d769187c8ad39a2ceb5d9726197c180213f49f86cc29e36d4",
+      "execution_lock_sha256": "2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a",
+      "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+      "dataset_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "holdout_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "parameters_sha256": "dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba",
+      "owner": "synthetic-client-b",
+      "execution_id": "synthetic-integration-v1-b"
+    },
+    "changed": {
+      "schema": 1,
+      "authorization_sha256": "32fc161f7907643a8737ee38c02176d53d4c32e7ec3b7860afc35bc5291dd7d1",
+      "execution_lock_sha256": "2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a",
+      "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+      "dataset_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "holdout_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "parameters_sha256": "dedd4ba397a4a0e2fd832b4f83b9cbd844ec37bcbd57b92c754ede5d164ad7ba",
+      "owner": "synthetic-client-changed",
+      "execution_id": "synthetic-integration-v1-changed"
+    }
+  },
+  "oids": {
+    "a": "aa285f1946f5f3b6cb642ec576244230f75cf4a8",
+    "b": "5262253c71ffd4033c5165c7864e590838b0d7f6",
+    "changed": "5382aff4406d67aeb65cbcb53f609379f781cfcd"
+  },
+  "prepared": true,
+  "claims_attempted": true,
+  "winner": "b",
+  "winning_oid": "5262253c71ffd4033c5165c7864e590838b0d7f6",
+  "rejections_attempted": true,
+  "winning_tag_sha256": "6cb4b060c075247179cb4e851347a7596ae969ba9309804562d38eec06bf3276",
+  "preservation_after": {
+    "lock_sha256": "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93",
+    "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+    "models": 9,
+    "stage_b_enabled": false
+  },
+  "status": "PASS",
+  "ruleset_after": {
+    "id": 25283799,
+    "enforcement": "active",
+    "rules": [
+      "deletion",
+      "update"
+    ],
+    "bypass_actors": [],
+    "updated_at": "2026-10-16T20:29:46.543-04:00",
+    "unchanged": true
+  },
+  "remaining_blockers": [
+    "Production public signing key is unconfigured; no production authorization.",
+    "Independent private backup/restore verification remains outstanding.",
+    "Reviewed real coordinator and persistent journal/recovery integration remain outstanding.",
+    "Production cohort protection and final execution identity need separate review; synthetic success does not authorize Stage B.",
+    "Transport conservatively labels a generic Git command failure ambiguous; live race rejection required read-only reconciliation. Any error-classification code changes require a new reviewed execution lock."
+  ],
+  "harness_sha256": "3ee396e0a2ac25c9e4f4af7dc607904bd4fdc0f6f38cc10d3f8068b9223e3c1e"
+}
