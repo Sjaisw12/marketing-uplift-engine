@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "synthetic_only": true,
+  "evidence_type": "owner-reported independent Mac verification plus existing remote/local evidence",
+  "repository": "Sjaisw12/uplift-private-checkpoint-transfer",
+  "branch": "synthetic-bulk-transfer-test-v1",
+  "commit_sha": "c3918283ea4ab03adb709c815a04c09fa1ab467f",
+  "all_13_download_checksums": "owner reported PASS",
+  "independent_restore": "owner reported PASS",
+  "source_bytes": 268408192,
+  "source_sha256": "f39d627797d03f3846ba5775e703cf43f381cff310d9f3e284f4e93f4756a157",
+  "archive_sha256": "4822500100bb2c954230f37aca3d1ee041176b14da75e1df6a30699ceffc2c84",
+  "ciphertext_sha256": "6a1dd9367e9a8f57ec964f7edd42876b8e7e0a415fb745c198978f7430cea9de",
+  "checkpoint_manifest_sha256": "a4801d689282a15a26ba43d05d32a1cc4f9a4e7e5b5c6342e96d1a98beda16e4",
+  "catalog_sha256": "65cded52e24334e4da3e3c7ff0cca0c7c78408eb0b24ec922a551281807d5023",
+  "limitations": [
+    "No production prediction backup exists",
+    "Not a signed production backup attestation",
+    "Not approval for Stage B",
+    "No additional transfer/write test performed in this PR"
+  ]
+}

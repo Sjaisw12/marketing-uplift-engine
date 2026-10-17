@@ -1,0 +1,27 @@
+{
+  "signable": false,
+  "signature": null,
+  "signature_domain_utf8": "marketing-uplift/stage-b-activation-integration/v1\u0000",
+  "payload": {
+    "schema": 1,
+    "purpose": "one-final-holdout-evaluation",
+    "execution_lock_sha256": "bd08dd6f38c672adcd3367c3134c0d3f7ad424dada60dabb47c3f2c0a216d103",
+    "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+    "dataset_sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "holdout_sha256": "829efe6744558783321c0dc3addfc60af6b9ba49f31368c89955dce6cdea39fe",
+    "parameters_sha256": "bc3444f91e07eb41b4ef6f2235c7a7bf9da0159e875d7a542cfa227251a7acf6",
+    "owner": "Sjaisw12",
+    "execution_id": "criteo-v2.1-final-evaluation-v1",
+    "public_key_sha256": "9c885530f96b2a4cc50afa8a2baaa1f1300a97720552e590dff824bdcc593800",
+    "reviewed_commit": null,
+    "preflight_sha256": null,
+    "not_before": null,
+    "expires_at": null
+  },
+  "pending_owner_review": [
+    "reviewed_commit",
+    "preflight_sha256",
+    "not_before",
+    "expires_at"
+  ]
+}

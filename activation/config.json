@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "execution_approved": false,
+  "maximum_authorization_seconds": 86400,
+  "preflight_maximum_seconds": 3600,
+  "preflight_trust": "fresh API observations bound by owner signature; not independent runtime API authentication",
+  "backup_repository": "Sjaisw12/uplift-private-checkpoint-transfer",
+  "backup_branch": "stage-b-checkpoint-v1",
+  "ciphertext_chunk_bytes": 33554432,
+  "age_recipient": "age19sjv4rctra40kjfxqc75zutyf096akwd0vtx3whf33gye9eapf8s576cvx",
+  "age_recipient_sha256": "9940c6af0826d28f610bce12c47b0c0fc2359c6363549adf4120633cd9f814bc",
+  "age_tool": {
+    "version": "v1.3.2",
+    "source_url": "https://github.com/FiloSottile/age/releases/download/v1.3.2/age-v1.3.2-linux-amd64.tar.gz",
+    "archive_sha256": "cbe24006683f8eb669266162894b9a522a1af52f2665fbc63a4bb032ed26ac10",
+    "archive_bytes": 19405817,
+    "verification": "Official GitHub release API asset SHA-256 over HTTPS; exact downloaded bytes checked",
+    "binary_sha256": "eb7dd1b518f0a307c99cd97782623c5321da049154b04acd2d98d21aa7bc9b2c"
+  },
+  "recovery_after_outcome_access": "disabled; audit/review only, no second evaluation",
+  "production_factory": "disabled without separate signed exact-lock approval; no signing or execution CLI"
+}

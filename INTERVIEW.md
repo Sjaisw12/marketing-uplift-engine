@@ -380,3 +380,21 @@ not establish that full-size private prediction backup is operational.
    development-only checks can verify schema, ranking and estimator integration
    without consuming the sealed evaluation. A separate reviewed activation lock
    and explicit approval are still needed before any real holdout access.
+
+## Stage B activation integration (preparation only)
+
+A successful backup transport test does not authorize use of the final holdout.
+The integrated coordinator first checks an exact owner-signed permission, claims
+one permanent cohort receipt, and records ordered transitions. It scores features
+without outcomes, seals rankings/memberships, then requires a signature attesting
+the exact encrypted checkpoint was downloaded, decrypted and restored on the Mac.
+Only after the durable outcome-access transition is read back can the outcome
+reader open. No real holdout run has occurred during this preparation.
+
+1. **Can two identical concurrent Git claims both appear successful?** Git can
+   return “up to date” for the same object. A valid new receipt requires explicit
+   “new tag” confirmation, an empty create-only lease and exact remote readback.
+2. **Does an owner signature prove independent storage and live GitHub protection?**
+   No. It authenticates the owner's exact restore/API observations and their
+   freshness. It cannot independently prove physical storage, prevent later admin
+   changes, or automatically restore lost Cloud files without the Mac's private key.

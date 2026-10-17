@@ -128,9 +128,27 @@ no holdout features/outcomes are accessed; no automatic recovery or Phase 10.
 - [x] Prepare disabled adapters and preserved-model/seal verification.
 - [x] Preserve historical locks; add portable preparation lock and synthetic CI.
 - [x] Record owner-reported small synthetic Mac restore.
-- [ ] Verify a full-size private transfer and independent restore.
+- [x] Verify a full-size encrypted synthetic private transfer and independent Mac restore.
 - [ ] Review activation release, new lock and exact unsigned authorization.
 - [ ] Separately approve Stage B one-time execution (not authorized here).
 
 See [operations](PRODUCTION_ADAPTER.md). Read-only production ruleset configuration
 is recorded; no production receipt/journal or additional live write test is created.
+
+
+### Stage B activation integration — preparation only, separate review
+
+- [x] Owner confirms all 13 synthetic download checksums, decryption and Mac restore.
+- [x] Integrate signed approval, fixed receipt, journal, nine models and strict adapters.
+- [x] Require exact encrypted checkpoint/Mac-restore attestation before outcome access.
+- [x] Verify durable outcome-access transition before constructing the outcome reader.
+- [x] Add synthetic failure, concurrency, interruption and recovery verification.
+- [x] Preserve historical locks; prepare additive lock and non-signable approval draft.
+- [ ] Owner reviews activation integration PR, lock and preflight trust assumptions.
+- [ ] Choose exact reviewed commit, fresh preflight and UTC window <=24h; review payload.
+- [ ] Owner separately explicitly approves/signs ONE Stage B execution on the Mac.
+- [ ] Transfer/restore the ACTUAL prediction checkpoint and obtain its signed proof.
+- [ ] Perform one-time outcome evaluation only after all gates; review before later work.
+
+The synthetic transport result is not a production checkpoint or execution approval.
+See [activation protocol](STAGE_B_ACTIVATION.md). No Stage B execution or Phase 10.
