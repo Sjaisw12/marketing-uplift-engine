@@ -1,0 +1,26 @@
+name: Durable continuation (synthetic processes only)
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  restart:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    env:
+      OPENBLAS_NUM_THREADS: "2"
+      OMP_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+      - run: uv python install ${{ matrix.python }}
+      - run: uv sync --locked --python ${{ matrix.python }}
+      - run: uv run --locked pytest tests/continuation -q
+      - run: uv run --locked python -m stage_b_continuation verify-lock
+      - run: uv run --locked python -m stage_b_activation verify-lock
+      # No dispatch, signing, production refs, checkpoint uploads or real holdout.

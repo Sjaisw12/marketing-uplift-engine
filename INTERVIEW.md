@@ -398,3 +398,23 @@ reader open. No real holdout run has occurred during this preparation.
    No. It authenticates the owner's exact restore/API observations and their
    freshness. It cannot independently prove physical storage, prevent later admin
    changes, or automatically restore lost Cloud files without the Mac's private key.
+
+## Stage B continuity: a pause is a verified artifact, not a live Python object
+
+The original worker records the exact published prediction backup and journal tip,
+then closes. A new process verifies that evidence, the original receipt and all
+checkpoint hashes. An expired start approval is historical evidence only: a fresh
+signed continuation, fresh preflight and independently restored backup proof are
+required. Nothing is retrained, rescored, re-uploaded or selected again. Once the
+durable outcome-access event exists, a crash consumes access rather than triggering
+another evaluation. Tests kill a synthetic worker and resume in a different process.
+
+1. **Why can an expired signature still matter without extending permission?** Its
+   signature binds the original campaign identity and authorized start. Current
+   permission comes exclusively from a new time-limited continuation signature,
+   bound to the exact checkpoint and journal tip plus fresh infrastructure evidence.
+2. **Does a successful restart test prove recovery from every Cloud failure?** No.
+   It proves restart at the durable publication boundary with exact files available.
+   Missing files, ambiguous writes and interruptions after continuation/outcome access
+   stop for review. Local file locks do not replace owner termination checks across
+   machines or administrator-proof storage.
