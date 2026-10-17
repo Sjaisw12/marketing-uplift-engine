@@ -1,0 +1,26 @@
+name: Disabled production adapter verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  synthetic-only:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+      - run: uv python install ${{ matrix.python }}
+      - run: uv sync --locked --python ${{ matrix.python }}
+      - run: uv run --locked pytest tests/production -m "not full_data" -q
+        env:
+          OPENBLAS_NUM_THREADS: "2"
+          OMP_NUM_THREADS: "2"
+      - run: uv run --locked python -m production_adapter verify-lock
+      - run: uv run --locked python -m execution_safeguards verify-lock
+      # No dispatch, signing, data download, production runner or remote writes.

@@ -1,0 +1,79 @@
+{
+  "verification": "read-only configuration snapshot; no production write test",
+  "rulesets": [
+    {
+      "id": 25285405,
+      "name": "Stage B Production Receipt Protection",
+      "target": "tag",
+      "source_type": "Repository",
+      "source": "Sjaisw12/marketing-uplift-engine",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "refs/tags/stage-b-receipts/2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc/829efe6744558783321c0dc3addfc60af6b9ba49f31368c89955dce6cdea39fe"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "update"
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec5UqKgUzgGB0x0",
+      "created_at": "2026-10-16T21:42:59.044-04:00",
+      "updated_at": "2026-10-16T21:42:59.071-04:00",
+      "bypass_actors": [],
+      "current_user_can_bypass": "never",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/Sjaisw12/marketing-uplift-engine/rulesets/25285405"
+        },
+        "html": {
+          "href": "https://github.com/Sjaisw12/marketing-uplift-engine/rules/25285405"
+        }
+      }
+    },
+    {
+      "id": 25285424,
+      "name": "Stage B Production Journal Protection",
+      "target": "tag",
+      "source_type": "Repository",
+      "source": "Sjaisw12/marketing-uplift-engine",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "refs/tags/stage-b-journal/2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc/829efe6744558783321c0dc3addfc60af6b9ba49f31368c89955dce6cdea39fe/*"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "update"
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec5UqKgUzgGB0zA",
+      "created_at": "2026-10-16T21:44:27.106-04:00",
+      "updated_at": "2026-10-16T21:44:27.129-04:00",
+      "bypass_actors": [],
+      "current_user_can_bypass": "never",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/Sjaisw12/marketing-uplift-engine/rulesets/25285424"
+        },
+        "html": {
+          "href": "https://github.com/Sjaisw12/marketing-uplift-engine/rules/25285424"
+        }
+      }
+    }
+  ]
+}
