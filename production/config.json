@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "stage_b_enabled": false,
+  "real_executor_available": false,
+  "owner": "Sjaisw12",
+  "execution_id": "criteo-v2.1-final-evaluation-v1",
+  "public_key_base64": "rJcbMwtTLCZZs3VdcZ08xjQX3fOx+torHv5UcAcpGuY=",
+  "public_key_sha256": "9c885530f96b2a4cc50afa8a2baaa1f1300a97720552e590dff824bdcc593800",
+  "receipt_ruleset_id": 25285405,
+  "journal_ruleset_id": 25285424,
+  "batch_rows": 65536,
+  "maximum_rows": 2096939,
+  "export_chunk_bytes": 67108864,
+  "bulk_private_transfer_verified": false,
+  "small_synthetic_mac_restore": "owner-reported passed; not bulk-transfer proof"
+}

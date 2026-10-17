@@ -462,3 +462,11 @@ receipt evidence](docs/STAGE_B_SYNTHETIC_INTEGRATION.md) is preserved; never rep
 Real holdout access remains disabled and the production public key remains unset.
 The current lock is `reports/phase9/coordinator/implementation_lock.json`; the
 previous Stage A and safeguards locks remain immutable historical evidence.
+
+## Disabled production adapter preparation
+
+The owner public key is pinned in an additive configuration. Real Stage B entry
+points remain disabled. See [adapter operations](docs/PRODUCTION_ADAPTER.md) for
+strict Parquet projections, model/seal verification, bounded private export and
+unresolved full-size private-transfer requirements. No final holdout scoring or
+evaluation has been run. Historical execution locks remain unchanged.

@@ -121,3 +121,16 @@ no holdout features/outcomes are accessed; no automatic recovery or Phase 10.
 - [ ] Verify owner-controlled off-workspace transfer/restore and journal-tip retention.
 - [ ] Configure/verify future production receipt and journal protections separately.
 - [ ] Obtain separate final Stage B approval; no production receipt or holdout access yet.
+
+### Production adapter preparation (separate review)
+
+- [x] Pin owner public key and verify decoded-byte fingerprint.
+- [x] Prepare disabled adapters and preserved-model/seal verification.
+- [x] Preserve historical locks; add portable preparation lock and synthetic CI.
+- [x] Record owner-reported small synthetic Mac restore.
+- [ ] Verify a full-size private transfer and independent restore.
+- [ ] Review activation release, new lock and exact unsigned authorization.
+- [ ] Separately approve Stage B one-time execution (not authorized here).
+
+See [operations](PRODUCTION_ADAPTER.md). Read-only production ruleset configuration
+is recorded; no production receipt/journal or additional live write test is created.

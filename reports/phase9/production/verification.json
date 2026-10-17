@@ -1,0 +1,63 @@
+{
+  "execution_lock_sha256": "2922e67d6aa7d891f87c8f90abe79aa16b9545c1c2f64d345fd42ede533d37e4",
+  "base_main_commit": "dbcd64a2fc454e8483b3031a76fa4a4d65eaf7c6",
+  "stage_b_enabled": false,
+  "holdout_records_read": 0,
+  "holdout_records_scored": 0,
+  "production_receipts_created": 0,
+  "production_journal_events_created": 0,
+  "new_training_runs": 0,
+  "production_authorizations_signed": 0,
+  "owner_public_key_sha256": "9c885530f96b2a4cc50afa8a2baaa1f1300a97720552e590dff824bdcc593800",
+  "tests": {
+    "make_check": {
+      "passed": 268,
+      "deselected_full_data": 20,
+      "lint": "passed",
+      "format": "passed"
+    },
+    "permitted_full_tests": {
+      "passed": 3,
+      "seconds": 14.6,
+      "warning": "pytest record_property with xunit2; assertions passed"
+    },
+    "synthetic_only_adapter_cases": 20,
+    "development_probe_rows": 2048,
+    "full_size_invented_checkpoint_bytes": 268408192,
+    "full_size_transfer_scope": "local streamed export/restore simulation; not off-workspace transfer"
+  },
+  "stage_a_reverification": {
+    "lock_sha256": "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93",
+    "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+    "models": 9,
+    "stage_b_enabled": false,
+    "development_probe_rows": 2048,
+    "probe_is_correctness_not_out_of_sample_performance": true,
+    "numerical_reference": {
+      "maximum_mean_error": 5.204170427930421e-17,
+      "maximum_covariance_error": 1.7211709488207383e-18,
+      "maximum_stratified_covariance_error": 2.0328790734103208e-19,
+      "coordinates": 375,
+      "family_size": 765
+    },
+    "no_holdout_access": true
+  },
+  "protected_historical_files_checked": 276,
+  "unchanged_parent_coordinator_lock_sha256": "4789505034ccaf4ef1ab3f81b880b4a0d8e36909d3ab6ea013e859c434772b28",
+  "unchanged_model_manifest_file_sha256": "2c5614333e0920b24825c8538eae4604ac57865e2d1b759cd0a2fa787ac58523",
+  "unchanged_dependency_lock_file_sha256": "d6792364b0ecafe640931f6df1edbf7154f96fa79578651e4f0bdc1d584b9916",
+  "rulesets": {
+    "ids": [
+      25285405,
+      25285424
+    ],
+    "verification": "read-only API configuration inspection",
+    "production_write_enforcement_tested": false
+  },
+  "remaining_blockers": [
+    "No verified full-size private off-workspace transfer channel",
+    "No activation release connecting real entry points to durable outcome transition",
+    "No separately reviewed activation lock, owner-signed exact authorization or execution approval",
+    "Future execution permissions/ruleset/ref state require read-only preflight"
+  ]
+}

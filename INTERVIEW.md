@@ -363,3 +363,20 @@ Approval cannot establish which computations finished before a crash. We resume 
 at verified prediction boundaries with intact journal/checkpoints and terminated-
 worker acknowledgement. An uncertain outcome-access phase stops for review; it does
 not permit a second analysis or selection of a better-looking policy.
+
+## Disabled production adapter preparation
+
+A public signing key lets the executor check owner approval without receiving the
+private key. The preparation lock binds the code, nine existing models and fixed
+policies. Feature projections exclude outcomes, predictions and memberships are
+hashed before evaluation, and an independently restored private backup is required.
+Public execution methods still refuse real data. A small successful transfer does
+not establish that full-size private prediction backup is operational.
+
+1. **Why does a signed checkpoint hash not prove durable backup?** A hash proves
+   byte identity; durable storage and independent restore must actually be tested.
+   Owner attestation binds that operational claim to the exact checkpoint.
+2. **Why prepare real adapters while keeping them disabled?** Synthetic and
+   development-only checks can verify schema, ranking and estimator integration
+   without consuming the sealed evaluation. A separate reviewed activation lock
+   and explicit approval are still needed before any real holdout access.
