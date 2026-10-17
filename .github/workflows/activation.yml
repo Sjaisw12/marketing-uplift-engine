@@ -1,0 +1,27 @@
+name: Stage B integration preparation (synthetic only)
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  synthetic-integration:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    env:
+      OPENBLAS_NUM_THREADS: "2"
+      OMP_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+      - run: uv python install ${{ matrix.python }}
+      - run: uv sync --locked --python ${{ matrix.python }}
+      - run: uv run --locked pytest tests/activation -q
+      - run: uv run --locked python -m stage_b_activation verify-lock
+      - run: uv run --locked python -m production_adapter verify-lock
+      - run: uv run --locked python -m execution_safeguards verify-lock
+      # No dispatch, credentials, private data, uploads or production execution.

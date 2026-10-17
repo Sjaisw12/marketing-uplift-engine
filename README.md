@@ -470,3 +470,13 @@ points remain disabled. See [adapter operations](docs/PRODUCTION_ADAPTER.md) for
 strict Parquet projections, model/seal verification, bounded private export and
 unresolved full-size private-transfer requirements. No final holdout scoring or
 evaluation has been run. Historical execution locks remain unchanged.
+
+## Stage B activation integration awaiting review
+
+The additive integration connects the preserved nine models, feature-only Parquet
+scoring, fixed GitHub receipt/journal, sealed predictions and encrypted Mac backup
+proof before any outcome reader. The full-size synthetic transfer/restore passed
+on the owner's Mac. Real execution remains disabled without a separate signed
+exact-lock grant; the unsigned draft intentionally has no dates or reviewed commit.
+See [activation procedure and limitations](docs/STAGE_B_ACTIVATION.md), including
+owner-reviewed API preflight evidence, strict recovery windows and no outcome replay.

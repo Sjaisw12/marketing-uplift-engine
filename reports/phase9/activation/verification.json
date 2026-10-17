@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "base_commit": "4dd2c71988a4f6e6296fe9fa5afb48fd2d771758",
+  "execution_lock_sha256": "bd08dd6f38c672adcd3367c3134c0d3f7ad424dada60dabb47c3f2c0a216d103",
+  "tests": {
+    "command": "OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 make check",
+    "passed": 343,
+    "full_data_deselected": 20,
+    "seconds": 17.13,
+    "lint": "PASS",
+    "format": "PASS: 93 files"
+  },
+  "preserved_raw_file_hashes": {
+    "artifacts/memberships/development.npy": "07a849ac0e57bdd5b2195502850232468d7ebb78a239c7bfdee5cd4ea16b6d28",
+    "artifacts/memberships/holdout.npy": "aff7158a6bb6bf90e5cece0dcc664f6f7a3fd207a5b8e36ea65ce52af4d02e37",
+    "artifacts/memberships/train-104729.npy": "5d8df73c24926ac2d0d33d1e0e64bad5c1607146dc40f2a0593dacc02e7d8cd6",
+    "artifacts/memberships/validation-104729.npy": "c8d348e534a11a0d5ece757aedf9d712a069baee91e4dd35d2511bd70f226c54",
+    "artifacts/memberships/train-130363.npy": "a2a4888b7403440431f16392922d457912376c6c1da19e6766bb6ce3b6af92dd",
+    "artifacts/memberships/validation-130363.npy": "ea9b4e918be0fd2927c9ec77faef99787446fcccc953ee3f62784e549243e07b",
+    "artifacts/memberships/train-155921.npy": "41182a9aaa470773e0d6377044b3f95dd71ceb24e54127175d597088a75541c9",
+    "artifacts/memberships/validation-155921.npy": "93c0edbed9f341fb94107666a820857c7e90f087ee33861f3a415bb8ebee852c",
+    "artifacts/memberships/train-181081.npy": "9b6391d6765afd6ecd855a920a8c4407b3d653564cf4426493ed3c1ac8f52b2d",
+    "artifacts/memberships/validation-181081.npy": "f00d9a1415e69993403eb827abb7859a46f594d7a48b2c3e6d2322a606784be5",
+    "artifacts/memberships/train-206369.npy": "978f19e72dd7807d90a768de07555c3f67a3a80ad92abb482267d201d90e199b",
+    "artifacts/memberships/validation-206369.npy": "1271b6f43b7fa8d45b4e76434a85ab33767aac5d7f4d7a5c153dfed201f4b5af",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/response.txt": "f4118881216373b6ebdcb4ee52ac538bbe21853d9227d8a437d64649fdaf54ef",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/control.txt": "188dee9a3d1f7fbb90838060057b7ffd9b663ffc7515dc7030a801efa4e02fa1",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/s_learner.txt": "6e6abe2b64d4440416fa4c3164164f06a1707a68c9fa59dd6e7c6b47bff8e1f7",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/nuisance-0-0.txt": "5c855c98308899ba74edebf37cfb30a349cadd221c719ef4c87bf860d61bd765",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/nuisance-0-1.txt": "a69101d4a6b29d4882da2c8f5a0af1619fd34a939317c6c27205af8101cc584a",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/nuisance-1-0.txt": "392d31211fad1077500c332f5a7bdc7e425f17f9bc54fbfaf11c6cff7b653dbe",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/nuisance-1-1.txt": "cbe59d2a5b6abc986494420094bc18791498dc63958f5052b441d8e097223cea",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/nuisance-2-0.txt": "b9b95c8b321a608523a5ca9896b82b646c9af09204701f18f8fd511d2f6afcf5",
+    "artifacts/phase9/3533800cb3ff954c9a0be123ddd8ebab4835bc998d6bfe9dee6e3a9f5201fac5/nuisance-2-1.txt": "6092033be93f9504319cabd22ca09fa5796592e97424c0deeebb0837dec5c5b2"
+  },
+  "real_holdout_records_read": false,
+  "real_holdout_scored": false,
+  "production_receipt_or_journal_created": false,
+  "production_authorization_signed": false,
+  "production_transfer_performed": false,
+  "mac_full_size_synthetic_restore": "Owner independently reported PASS; historical evidence only",
+  "verification_scope": "Synthetic tests plus raw file hashes; no historical model inference or real outcome queries",
+  "limitations": [
+    "Fresh GitHub ruleset/private-repository API snapshot is owner-attested and signature-bound, not independently authenticated by the standalone executor.",
+    "Mac backup proof is a signed owner assertion with cryptographic artifact bindings, not remote hardware attestation.",
+    "No automatic post-outcome recovery or replay; ambiguous outcome-stage execution requires review.",
+    "Public recovery requires original grant and preflight to remain current; expired-window recovery needs separately reviewed implementation.",
+    "GitHub protection is not administrator-proof immutable storage."
+  ]
+}
