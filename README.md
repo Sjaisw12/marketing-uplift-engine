@@ -451,3 +451,14 @@ uv run --locked python -m execution_safeguards verify-lock
 
 The metadata verifier does not open private data or model weights. Real scoring and
 outcome interfaces always deny access; the production public key is unconfigured.
+
+
+### Stage B coordinator preparation
+
+The [synthetic-only coordinator](docs/STAGE_B_COORDINATOR.md) now connects signed
+authorization, a fixed-cohort receipt, append-only stage events, sealed predictions,
+private backup/restore and separately signed recovery. The [completed live synthetic
+receipt evidence](docs/STAGE_B_SYNTHETIC_INTEGRATION.md) is preserved; never repeat it.
+Real holdout access remains disabled and the production public key remains unset.
+The current lock is `reports/phase9/coordinator/implementation_lock.json`; the
+previous Stage A and safeguards locks remain immutable historical evidence.

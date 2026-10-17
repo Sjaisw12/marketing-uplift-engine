@@ -343,3 +343,23 @@ ambiguous recovery rather than choose another model or start over.
 It proves the signer approved those bytes, not where they are stored or whether
 they survive workspace deletion. The owner must verify an independent private copy
 and a restore/hash check. Lost checkpoints cause a stop, not an independent rerun.
+
+
+## Stage B coordinator and durable journal preparation
+
+The coordinator checks approval and identities itself before advancing, rather than
+accepting caller-supplied claims that checks passed. Each journal event occupies a
+fixed create-only slot and binds the previous event. Predictions and memberships
+are sealed and backed up before outcomes. This release runs only tiny synthetic
+fixtures; real access and the production public key remain disabled/unset.
+
+**Challenging question 1: Can a failed Git push safely be retried?**
+Not automatically. A response can be lost after a successful write, and an identical
+push can report a successful no-op. Reconcile the exact remote object read-only;
+never interpret that as a new claim or allocate a new campaign.
+
+**Challenging question 2: Why can recovery be denied even with an owner signature?**
+Approval cannot establish which computations finished before a crash. We resume only
+at verified prediction boundaries with intact journal/checkpoints and terminated-
+worker acknowledgement. An uncertain outcome-access phase stops for review; it does
+not permit a second analysis or selection of a better-looking policy.

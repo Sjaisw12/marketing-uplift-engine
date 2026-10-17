@@ -1,0 +1,60 @@
+{
+  "scope": "synthetic-only coordinator and journal preparation",
+  "implementation_lock_sha256": "4789505034ccaf4ef1ab3f81b880b4a0d8e36909d3ab6ea013e859c434772b28",
+  "base_commit": "67f70bb0de4e6cafbf398e706db741676b2b1cbe",
+  "preserved_documentation_commit": "93ab406",
+  "local_checks": {
+    "make_check": {
+      "passed": 248,
+      "deselected_full_data": 18,
+      "seconds": 17.3,
+      "lint": "passed",
+      "format": "73 files passed"
+    },
+    "safeguards_tests": 83,
+    "new_tests": 36,
+    "stage_a_development_only_full_gate": {
+      "passed": 1,
+      "seconds": 12.24,
+      "models": 9,
+      "historical_entries": 276
+    },
+    "portable_implementation_lock": "passed",
+    "unchanged_stage_a_public_lock": "passed"
+  },
+  "synthetic_executions": {
+    "feature_and_outcome_fixture_rows": 80,
+    "model_type": "nine tiny synthetic JSON predictors; NOT fitted diagnostic models",
+    "evaluation_kernel": "unchanged marketing_uplift.final_metrics",
+    "propensity_scenarios": 5,
+    "evaluators": 3,
+    "multiplier_draws_per_method": 2000,
+    "comparison_family": 765,
+    "uncertainty_methods": [
+      "iid",
+      "stratified"
+    ]
+  },
+  "journal_testing": "LOCAL bare Git and create-exclusive file backends only; NO new live GitHub receipt/journal test",
+  "backup_testing": "synthetic archive copied/restored locally; NOT verified independent Cloud-to-owner transfer",
+  "stage_b_enabled": false,
+  "production_public_key": null,
+  "real_holdout_records_accessed": false,
+  "production_receipt_created": false,
+  "models_retrained": false,
+  "live_backend_writes": false,
+  "rulesets_modified": false,
+  "retained_synthetic_evidence_sha256": "da9ff95963a1612a7694d6f2cba8098b6f3c1e3c0ad9cbaf45f0d7a53df60971",
+  "prior_locks_preserved": {
+    "stage_a": "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93",
+    "model_manifest": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+    "safeguards": "2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a"
+  },
+  "remaining_gates": [
+    "review current PR and implementation lock",
+    "owner public-key pinning and real data/model adapter activation under a LATER reviewed lock",
+    "independent private transfer/restore and latest-journal-tip retention",
+    "future production receipt/journal ruleset and identity verification (not performed)",
+    "separate final Stage B execution approval"
+  ]
+}

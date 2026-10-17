@@ -11,6 +11,7 @@ from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
 
 DOMAIN = b"marketing-uplift/stage-b-authorization/v1\x00"
 BACKUP_DOMAIN = b"marketing-uplift/private-backup/v1\x00"
+RECOVERY_DOMAIN = b"marketing-uplift/recovery/v1\x00"
 
 
 class Denied(RuntimeError):
