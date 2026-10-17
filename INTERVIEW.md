@@ -321,3 +321,25 @@ code/model digests. Stage A review or merge never grants outcome access.
    atomic create-once record must survive runners and interruptions. Without both,
    a fail-closed disabled interface is more honest than pretending one-time access
    is enforced. Even those controls cannot validate causal identification.
+
+
+## Stage B safeguards preparation: approval is separate from execution
+
+The models and policy are already frozen. I added a way to verify an owner's
+Ed25519 signature over the exact execution identity, and a receipt design that
+reserves one evaluation for the sealed cohort. A changed model, owner, or run ID
+cannot create a fresh evaluation opportunity. Prediction hashes must be sealed
+before outcomes, and a crash never clears the receipt. Current real access remains
+disabled: synthetic and local Git tests cannot prove GitHub protections or that a
+backup survives the loss of this Cloud workspace.
+
+**Challenging question 1: Does a create-once Git tag guarantee exactly-once analysis?**
+No. It can prevent accidental duplicate claims if server protections are verified,
+but admins can change those protections. Crashes also make exactly one physical
+read unrealistic. We enforce one locked campaign, preserve its claim, and stop on
+ambiguous recovery rather than choose another model or start over.
+
+**Challenging question 2: Why is a signed backup hash insufficient to prove durability?**
+It proves the signer approved those bytes, not where they are stored or whether
+they survive workspace deletion. The owner must verify an independent private copy
+and a restore/hash check. Lost checkpoints cause a stop, not an independent rerun.

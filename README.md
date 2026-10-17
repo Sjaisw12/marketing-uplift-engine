@@ -431,3 +431,23 @@ Stage A lock and model-manifest identifiers are canonical JSON payload SHA-256,
 not hashes of pretty-printed wrapper bytes. Original training and portable review
 identities are both preserved; artifact/lock roots are recorded in stage_a.json.
 The portability correction reuses every original model byte without refitting.
+
+
+### Stage B safeguard preparation (disabled)
+
+The separately approved preparation adds owner-signed Ed25519 authorization,
+a fixed-cohort Git receipt adapter, private checkpoint hashes, and synthetic
+execution/recovery state tests. Stage A models, policy and lock remain unchanged.
+No holdout data is accessed and no production receipt exists.
+
+See [manual setup and limitations](docs/STAGE_B_SAFEGUARDS.md). Mock/local Git tests
+do not establish GitHub ruleset enforcement or independent backup durability.
+Live write tests and final execution each require separate approval.
+
+```bash
+uv run --locked pytest tests/safeguards -q
+uv run --locked python -m execution_safeguards verify-lock
+```
+
+The metadata verifier does not open private data or model weights. Real scoring and
+outcome interfaces always deny access; the production public key is unconfigured.

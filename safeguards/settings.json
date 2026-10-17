@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "stage_b_enabled": false,
+  "production_public_key": null,
+  "live_github_tested": false,
+  "private_backup_verified": false,
+  "repository": "Sjaisw12/marketing-uplift-engine",
+  "signature_scheme": "Ed25519",
+  "signature_domain": "marketing-uplift/stage-b-authorization/v1\u0000",
+  "receipt_namespace": "refs/tags/stage-b-receipts",
+  "disposable_namespace": "refs/tags/stage-b-synthetic/receipt-integration-v1",
+  "recovery": "same-locked-campaign-owner-approved-no-automatic-takeover",
+  "primary_policy": "unchanged-stage-a-abstention",
+  "comparison_family_size": 765,
+  "replicates": 2000
+}
