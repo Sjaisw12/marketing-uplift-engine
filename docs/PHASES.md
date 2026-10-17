@@ -102,10 +102,22 @@ can enable holdout scoring or outcome evaluation. No Phase 10/dashboard work.
 - [x] Implement synthetic signature, create-only receipt, checkpoint and state protocols.
 - [x] Add portable execution lock, synthetic CI and operational instructions.
 - [ ] User reviews safeguards PR and exact execution identity.
-- [ ] User separately approves disposable GitHub write testing and manual ruleset setup.
-- [ ] Verify live GitHub creation/duplicate/update/deletion behavior and persistence.
+- [x] User separately approves disposable GitHub write testing and manual ruleset setup.
+- [x] Verify live GitHub creation/duplicate/update/deletion behavior and persistence (complete; do not repeat).
 - [ ] Pin owner public key and verify independent private checkpoint backup.
 - [ ] Complete reviewed real coordinator integration; obtain separate Stage B approval.
 
 Preparation tests are not live enforcement evidence. No production receipt is created;
 no holdout features/outcomes are accessed; no automatic recovery or Phase 10.
+
+
+### Stage B coordinator and journal preparation — execution NOT authorized
+- [x] Preserve documentation commit 93ab406 and independently verified live synthetic evidence.
+- [x] Connect trusted bindings, authorization, receipt, journal, seals and signed recovery.
+- [x] Implement synthetic feature/outcome interfaces using unchanged statistical kernels.
+- [x] Add bounded private bundle export/restore and failure/end-to-end tests.
+- [ ] Review coordinator implementation and new portable implementation lock.
+- [ ] Pin owner public key and review later real data/model adapters under a NEW lock.
+- [ ] Verify owner-controlled off-workspace transfer/restore and journal-tip retention.
+- [ ] Configure/verify future production receipt and journal protections separately.
+- [ ] Obtain separate final Stage B approval; no production receipt or holdout access yet.

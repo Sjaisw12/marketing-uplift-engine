@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "mode": "synthetic_only",
+  "stage_b_enabled": false,
+  "production_public_key": null,
+  "real_interfaces_enabled": false,
+  "synthetic_max_rows": 4096,
+  "journal_namespace": "refs/tags/stage-b-journal/<dataset-sha256>/<holdout-sha256>/<six-digit-sequence>",
+  "recovery": "signed-owner-approval-at-verified-prediction-boundary-only",
+  "automatic_takeover": false,
+  "backup": "owner-attested-off-workspace-restore; local-fixture-copies-are-simulation",
+  "completed_synthetic_receipt_test": "do-not-repeat"
+}

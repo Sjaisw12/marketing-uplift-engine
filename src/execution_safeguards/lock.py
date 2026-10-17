@@ -6,7 +6,7 @@ from pathlib import Path
 
 from .protocol import Denied, cohort_ref, digest, file_hash
 
-LOCK = "reports/phase9/safeguards/execution_lock.json"
+LOCK = "reports/phase9/coordinator/implementation_lock.json"
 STAGE_A_LOCK = "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93"
 MODEL_MANIFEST = "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e"
 
@@ -14,6 +14,21 @@ MODEL_MANIFEST = "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c
 def build(root):
     root = Path(root)
     settings = json.loads((root / "safeguards/settings.json").read_text())
+    coordinator = json.loads((root / "safeguards/coordinator.json").read_text())
+    if (
+        coordinator["stage_b_enabled"]
+        or coordinator["production_public_key"] is not None
+        or coordinator["real_interfaces_enabled"]
+        or coordinator["mode"] != "synthetic_only"
+    ):
+        raise Denied("Coordinator must remain synthetic-only and disabled")
+    parent = json.loads((root / "reports/phase9/safeguards/execution_lock.json").read_text())
+    if (
+        digest(parent["payload"]) != parent["execution_lock_sha256"]
+        or parent["execution_lock_sha256"]
+        != "2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a"
+    ):
+        raise Denied("Historical implementation lock changed")
     if (
         settings["stage_b_enabled"]
         or settings["production_public_key"] is not None
@@ -42,6 +57,11 @@ def build(root):
         *root.glob("src/execution_safeguards/*.py"),
         *root.glob("tests/safeguards/*.py"),
         root / "safeguards/settings.json",
+        root / "safeguards/coordinator.json",
+        root / "docs/STAGE_B_COORDINATOR.md",
+        root / "docs/STAGE_B_SYNTHETIC_INTEGRATION.md",
+        root / "reports/phase9/safeguards/live_synthetic/integration_evidence.json",
+        root / "reports/phase9/safeguards/execution_lock.json",
         root / "docs/STAGE_B_SAFEGUARDS.md",
         root / ".github/workflows/safeguards.yml",
         root / "reports/phase9/policy_lock.json",
@@ -50,6 +70,7 @@ def build(root):
     files.update({p.relative_to(root).as_posix(): file_hash(p) for p in paths})
     return {
         "schema": 1,
+        "parent_execution_lock_sha256": parent["execution_lock_sha256"],
         "stage_b_enabled": False,
         "stage_a_lock_sha256": old["lock_sha256"],
         "model_manifest_sha256": models["model_manifest_sha256"],
@@ -59,10 +80,12 @@ def build(root):
         "receipt_ref": cohort_ref(
             config["data"]["sha256"], registry["memberships"]["holdout"]["sha256"]
         ),
-        "parameters_sha256": digest({"settings": settings, "stage_a_policy": old["payload"]}),
+        "parameters_sha256": digest(
+            {"settings": settings, "coordinator": coordinator, "stage_a_policy": old["payload"]}
+        ),
         "files": dict(sorted(files.items())),
         "excluded_from_self_hash": [LOCK, "completion reports and review prose"],
-        "readiness": "synthetic-only; signer, GitHub protections and backup unverified",
+        "readiness": "synthetic coordinator; prior live receipt test complete; production disabled",
     }
 
 
