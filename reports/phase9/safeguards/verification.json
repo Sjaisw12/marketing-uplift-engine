@@ -1,0 +1,46 @@
+{
+  "scope": "safeguards preparation only",
+  "execution_lock_sha256": "2792d14576f1b3a84acad042c2f22f28693e875e52cba795ddb98385fb3e758a",
+  "base_commit": "e5ae9774513c12f168288524255457631286452c",
+  "stage_a_lock_sha256": "fbd0ec32f8d97bbc1ffe03dd4a16a7937390d4ac570becef83b109cbc3d32b93",
+  "model_manifest_sha256": "2e91bdae68cad12604c6aff3a9337b62e40df383f1ce6b2d3d4c1c58e08b8c9e",
+  "checks": {
+    "make check": {
+      "passed": 212,
+      "deselected_full_data": 18,
+      "seconds": 14.1,
+      "lint": "passed",
+      "format": "67 files passed"
+    },
+    "stage_a_development_only_full_gate": {
+      "passed": 1,
+      "seconds": 12.38,
+      "models_verified": 9,
+      "historical_protected_entries": 276
+    },
+    "new_safeguards_tests": 47,
+    "execution_lock_verification": "passed",
+    "stage_a_public_lock": "passed",
+    "git_diff_check": "passed"
+  },
+  "verification_boundary": {
+    "ed25519": "synthetic keys plus RFC8032 reference",
+    "receipt_concurrency": "local bare Git server, two clients; NOT GitHub",
+    "backup": "synthetic local copies and signatures; NOT independent-cloud durability"
+  },
+  "stage_b_enabled": false,
+  "holdout_records_accessed": false,
+  "real_receipt_created": false,
+  "live_github_write_tests_performed": false,
+  "repository_settings_modified": false,
+  "production_public_key_configured": false,
+  "private_backup_verified": false,
+  "live_blockers": [
+    "owner public key and new review lock",
+    "GitHub tag ruleset setup and approved disposable write tests",
+    "execution identity Git write permission verification",
+    "independent private backup/restore verification",
+    "reviewed real coordinator, persistent journal and owner-approved recovery integration",
+    "separate final Stage B approval"
+  ]
+}

@@ -1,0 +1,24 @@
+name: Execution safeguards (synthetic only)
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  synthetic-and-lock:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+      - run: uv python install ${{ matrix.python }}
+      - run: uv sync --locked --python ${{ matrix.python }}
+      - run: uv run --locked pytest tests/safeguards -q
+      - run: uv run --locked python -m execution_safeguards verify-lock
+      - run: uv run --locked uplift final-prepare --verify-public-lock
+      # No workflow_dispatch, environment, production credentials, write permissions,
+      # real holdout command, acquisition, ingestion or split regeneration.

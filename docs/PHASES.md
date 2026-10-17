@@ -83,7 +83,7 @@ sealed holdout, build Streamlit or authorize Phase 9.
 - [x] Pass synthetic estimators, 765-family, stratified covariance and leakage/gate tests.
 - [x] Fit and verify nine development-only models; preserve prior artifacts.
 - [x] Publish exact policy/code/model/data/dependency lock and Stage A review evidence.
-- [ ] User reviews Stage A completion and lock.
+- [x] User reviews Stage A completion and lock.
 
 ### Stage B — NOT authorized and disabled
 - [ ] Integrate and verify protected reviewer approval and durable create-once receipt service.
@@ -94,3 +94,18 @@ sealed holdout, build Streamlit or authorize Phase 9.
 
 Stage A approval/merge cannot authorize Stage B. No local boolean or approval file
 can enable holdout scoring or outcome evaluation. No Phase 10/dashboard work.
+
+
+### Stage B safeguard preparation — separately approved, execution still disabled
+- [x] User approves owner-signed authorization and GitHub-backed receipt preparation.
+- [x] Preserve Stage A lock, nine models, historical artifacts and frozen memberships.
+- [x] Implement synthetic signature, create-only receipt, checkpoint and state protocols.
+- [x] Add portable execution lock, synthetic CI and operational instructions.
+- [ ] User reviews safeguards PR and exact execution identity.
+- [ ] User separately approves disposable GitHub write testing and manual ruleset setup.
+- [ ] Verify live GitHub creation/duplicate/update/deletion behavior and persistence.
+- [ ] Pin owner public key and verify independent private checkpoint backup.
+- [ ] Complete reviewed real coordinator integration; obtain separate Stage B approval.
+
+Preparation tests are not live enforcement evidence. No production receipt is created;
+no holdout features/outcomes are accessed; no automatic recovery or Phase 10.
