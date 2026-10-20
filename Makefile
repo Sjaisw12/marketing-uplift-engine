@@ -2,7 +2,7 @@ UV ?= uv
 # Keep setup usable in workspaces with a read-only home directory.
 export UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 
-.PHONY: setup check status acquire validate ingest split audit ate baselines advanced decisions final-prepare reproduce
+.PHONY: setup check status acquire validate ingest split audit ate baselines advanced decisions final-prepare reproduce portfolio
 setup:
 	$(UV) sync --locked
 
@@ -13,6 +13,10 @@ check:
 
 status:
 	$(UV) run --locked uplift status
+
+# Presentation only: saved aggregates; no dataset/model/Stage B interfaces.
+portfolio:
+	$(UV) run --locked python -m portfolio
 
 validate:
 	$(UV) run --locked uplift validate --full

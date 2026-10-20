@@ -1,0 +1,29 @@
+name: Aggregate portfolio checks
+on:
+  pull_request:
+    paths:
+      - "src/portfolio/**"
+      - "tests/test_portfolio.py"
+      - "reports/portfolio/**"
+      - ".github/workflows/portfolio.yml"
+  push:
+    paths:
+      - "src/portfolio/**"
+      - "tests/test_portfolio.py"
+      - "reports/portfolio/**"
+      - ".github/workflows/portfolio.yml"
+permissions:
+  contents: read
+jobs:
+  aggregate-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+      - run: uv sync --locked --python 3.12
+      - run: uv run --locked pytest tests/test_portfolio.py -q
+      - name: Render aggregate figures without private artifacts or network access
+        run: uv run --locked python -m portfolio --output "$RUNNER_TEMP/portfolio-preview"
+      # No data acquisition, model fitting, execution workflow, secrets or artifact upload.

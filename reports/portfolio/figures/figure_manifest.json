@@ -1,0 +1,21 @@
+{
+  "files": {
+    "architecture.png": "1fe29c9cc6a0b5142cf1313a5c5d4ed46d0108ef380689781bf064731ff8c316",
+    "architecture.svg": "50504601cad03c258b298193859dadfd1fac64c1b83ab72fa346994a63f1491e",
+    "descriptive_rates.png": "b9e035e566df8f9c3125d1e3478ab6541b45c17ab08f2a92ab0a9d70d98386cb",
+    "descriptive_rates.svg": "3bed3b42de6b5de330eea2e9280f48b81eab14a081b1114899b1ae227de428bb",
+    "diagnostic_comparisons.csv": "0ebdc51a5f0798f48ac299257745f46c74ccd6269ebe46ee30826b0e6b708601",
+    "policy_reach.png": "c42dcf0df39e8c340265c13e5cbb7e175ffb60bd098034ffea612a412ce27c3d",
+    "policy_reach.svg": "5436d4a28d792e75f49299a1fbfb22cc686b0e72558bef314b256bae7125f218",
+    "propensity_sensitivity.png": "a62d464bd437371ec9f23d98ce91a640639b0270ae94b54709cae2a81775d05c",
+    "propensity_sensitivity.svg": "be75619bcdafea8e6baa8669e2d9a307fcc9758864c3b574a650edece1ee5c30",
+    "s_vs_t.png": "a07b7bf8031a077dbdf71328a7f6d3f92990cdd2e4308a6ae4f8d06d67bac390",
+    "s_vs_t.svg": "088585dd16bf0038acf0675c64b6e167711fedb1b1304d0db55fb950704dd427",
+    "uncertainty_intervals.png": "f9e8bc93da92d8cf1baa2e0c90880c829e3aca7a12553d4acef34c80cc269ae5",
+    "uncertainty_intervals.svg": "c4782045a61a0a96ff78ade92b456701e60d17791c8046982f15ef2379b7e9ed"
+  },
+  "interval_source": "saved evaluation aggregates; no resampling or outcome access",
+  "matplotlib_version": "3.11.2",
+  "schema": 1,
+  "snapshot_sha256": "358c331d72df76d0ca1e4fddd36c7c35be32b1a0b2dd0ae12949c5967ac46169"
+}
