@@ -2352,3 +2352,10 @@ input:focus-visible {
   outline: 2px solid #446d5a;
   outline-offset: 5px;
 }
+
+/* Readable equations within the existing progressive-disclosure typography. */
+.science-details .reconciliation-equation code {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}

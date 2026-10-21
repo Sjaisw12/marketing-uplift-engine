@@ -536,3 +536,21 @@ separate from permission to publish or evidence of production effectiveness.
    Scanners miss comprehension, some SVG contrast and assistive-technology issues.
    Human testing, a real approved HTTPS URL, live social-crawler checks and explicit
    owner publication approval remain separate gates.
+
+## Final scientific narrative reconciliation
+
+The final public explanation now distinguishes the recorded decision trigger from
+a generic claim about caution: five zero-value configurations and five infeasible
+initial reaches; the other 30 produced 120 candidate ranking records, all stopped
+at the first 10% tranche with unnormalized IPW at assumed e=.90 binding. IPW and
+DR share a denominator but differ by an augmentation term. Neither this disagreement
+nor factual calibration resolves identification. No frozen result was changed.
+
+**Two difficult follow-ups**
+
+1. **Is the propensity sweep observed effect heterogeneity?** No. With fixed records
+   and policy, A/e−B/(1−e) mechanically decreases as assumed e increases. These
+   are reweighting stress scenarios, not a calibrated probability distribution.
+2. **Would normalization or dropping e=.90 justify targeting?** No such replacement
+   analysis or new selection was performed. Different scaling does not establish
+   identification; the frozen recommendation cannot be reselected from final results.

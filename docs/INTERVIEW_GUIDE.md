@@ -147,3 +147,18 @@ diagnostic comparisons while preserving a predeclared abstention policy.”
 Do not claim a deployed dashboard, realized ROI, percentage revenue lift,
 causal superiority or optimal targeting. The [case study](CASE_STUDY.md) and
 [figure guide](../reports/portfolio/README.md) supply the numerical evidence.
+
+## Explain the reviewer reconciliation
+
+The 40 original development configurations all abstained, but the reason matters:
+five zero-value gates, five infeasible initial reaches, and 120 first-tranche
+candidate stops in the other 30 configurations, all bound by unnormalized IPW
+at assumed e=.90. That stress-test design was frozen; it is not proof that
+advertising is ineffective or zero spend universally optimal.
+
+IPW and DR differ by a nuisance augmentation, not by cohort size. At assumed
+e=.85 their all-targeting difference is −2.922122088 per 1,000 eligible. Factual
+calibration cannot prove counterfactual correctness. IPW's constant-propensity
+sweep mechanically changes its weights; DR stability is not causal validation.
+Response has the larger shared-DR points at 30–50% reach, but all nine relevant
+simultaneous pairwise intervals include zero. Do not turn that into a new winner.

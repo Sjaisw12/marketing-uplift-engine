@@ -107,3 +107,12 @@ owner-reviewed HTTPS root and rebuilt social metadata are available.
 Original `VERIFICATION.md` remains the historical initial-build report. The current
 review package includes 35 new browser captures, the 1200×630 social preview,
 numerical/disclosure evidence and a source diff. It is prepared locally only.
+
+## Current scientific narrative reconciliation
+
+The follow-up explanation-only pass identifies the original e=.90 IPW binding
+condition, the IPW/DR augmentation identity and the nine qualified higher-reach
+contrasts. See [scientific reconciliation](../docs/SCIENTIFIC_RECONCILIATION.md).
+The earlier FINAL_REVIEW.md is a historical quality-gate report; current scientific
+narrative and public launch remain **BLOCKED pending owner review** and the
+separate human/host/publication gates. Frozen aggregates and arithmetic are unchanged.

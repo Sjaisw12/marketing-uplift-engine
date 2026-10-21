@@ -1,5 +1,16 @@
 # Phase 10 release readiness
 
+> **Current-status clarification:** this document preserves the historical Phase 10
+> preparation review. The owner subsequently approved public aggregate disclosure
+> and PR #15, which was merged at `7a038ffe4e0902b37aa287c125fd6ae87941cbf5`.
+> Phase 11 implemented a local Streamlit dashboard; a local React Decision Lab
+> also exists. This is not a public deployment. The current React release is
+> **BLOCKED pending owner review** of the scientific narrative reconciliation,
+> followed by the separate human, exact-host and publication gates. Historical
+> unchecked gates below are not the current Phase 10 approval state. See
+> [scientific reconciliation](SCIENTIFIC_RECONCILIATION.md).
+
+
 Status: **conditionally approved for publication preparation** following independent
 scientific, numerical, visual and disclosure review. This is not authorization for
 public aggregate disclosure or any push, PR, merge or publication.

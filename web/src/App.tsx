@@ -693,6 +693,15 @@ function Compare({ data }: { data: Snapshot }) {
         Causal interpretation additionally requires unverified assumptions.
       </Note>
       <Note>
+        <strong>Research insight · saved shared DR, assumed e=0.85.</strong>{" "}
+        Treated-response has numerically larger estimates than S and T at 30%,
+        40% and 50% reach. All nine relevant simultaneous pairwise intervals
+        among response, S and T include zero in the primary IID working model.
+        This establishes neither statistical superiority nor equivalence, and
+        selects no new preferred targeting strategy. These are saved
+        diagnostics, within the unchanged 765-comparison family.
+      </Note>
+      <Note>
         <strong>Takeaway:</strong> compare like-for-like reach and paired
         uncertainty. A higher diagnostic estimate alone does not authorize a new
         targeting policy.
@@ -993,13 +1002,18 @@ function Decision({ data }: { data: Snapshot }) {
             <p>
               The prespecified decision framework abstained in{" "}
               <strong>all 40 development scenario/split combinations</strong>.
-              The framework required an extra spending tranche to retain
-              positive conservative net value across its declared assumptions,
-              within budget and support limits. It stopped at the first failed
-              tranche. Assumption sensitivity, inadequate hypothetical value or
-              infeasible budgets prevented targeting in development; a positive
-              diagnostic point estimate alone was insufficient. That rule was
-              frozen before the one-time final evaluation.
+              Five configurations failed the explicit zero-value gate; five had
+              no feasible initial reach. In the remaining 30 configurations, all
+              120 candidate ranking records stopped at the first 10% tranche.
+            </p>
+            <p>
+              The binding condition in all 120 was the unnormalized IPW scenario
+              at assumed e=0.90. In everyday terms: the rule required each extra
+              block of spending to pass every declared stress test, and this
+              test blocked the first block for every candidate. Its
+              first-tranche point estimates were already negative; insufficient
+              event support was not the binding reason. This rule was frozen
+              before the one-time final evaluation.
             </p>
             <p>
               Some secondary holdout estimates were positive. They were
@@ -1011,9 +1025,12 @@ function Decision({ data }: { data: Snapshot }) {
               justify spending.”
             </p>
             <p>
-              This does not establish that advertising is ineffective or that no
-              targeting is globally optimal. It demonstrates evidence quality
-              and decision discipline, not a production-ready targeting service.
+              This is the outcome of a prespecified stress-test rule, not a
+              universal business prescription. It does not establish that
+              advertising is ineffective or abstention is universally optimal.
+              Removing the binding scenario was not tested as a new selection
+              rule. This is an offline study, not a production-ready targeting
+              service.
             </p>
           </div>
         </div>
@@ -1033,8 +1050,10 @@ function Decision({ data }: { data: Snapshot }) {
                 {fmt(Math.min(...ipw))} → {fmt(Math.max(...ipw))}
               </strong>
               <p>
-                Range of five saved point estimates per 1,000 eligible. IPW
-                changes substantially across the assumed propensities.
+                Range of five saved point estimates per 1,000 eligible. With a
+                fixed policy and observed data, this unnormalized IPW formula
+                mechanically decreases as the assumed e increases. This is not
+                observed treatment-effect variation.
               </p>
             </div>
             <div>
@@ -1155,6 +1174,24 @@ function Science({ data }: { data: Snapshot }) {
               treatment effects. No model is shipped with this website.
             </p>
           </details>
+          <Note>
+            <strong>Why two evaluators disagree.</strong> Both use the same
+            complete {data.population.holdout_rows.toLocaleString("en-US")}
+            -record final holdout denominator. At assumed e=0.85, the saved
+            all-targeting gains are IPW{" "}
+            {fmt(
+              estimate(data, "all", 100, { ...DEFAULT, method: "ipw" }).value,
+              9,
+            )}
+            {" and shared DR "}
+            {fmt(estimate(data, "all", 100, DEFAULT).value, 9)}
+            {" visits per 1,000 eligible. DR minus IPW is −2.922122088: the "}
+            nuisance-prediction augmentation term. IPW and DR are not required
+            to be equal. Disagreement alone does not prove a bug or causal
+            identification. Factual calibration cannot establish counterfactual
+            outcome-model correctness. Exact equations and limits are expandable
+            below.
+          </Note>
           <details>
             <summary>IPW, shared DR & identification</summary>
             <p>
@@ -1173,6 +1210,55 @@ function Science({ data }: { data: Snapshot }) {
               not treatment-on-the-treated exposure effects. Five constant
               propensity scenarios are assumptions, not verified individual
               probabilities or a statistical distribution.
+            </p>
+          </details>
+          <details>
+            <summary>Exact reconciliation & the unnormalized IPW sweep</summary>
+            <p>
+              For all targeting, let mean denote the average over all N eligible
+              records, T assignment, Y visits, and m₀/m₁ the frozen shared
+              nuisance predictions. Both gains are relative to no targeting:
+            </p>
+            <p className="reconciliation-equation">
+              <code>G_IPW = mean[TY/e − (1−T)Y/(1−e)]</code>
+            </p>
+            <p className="reconciliation-equation">
+              <code>G_DR = mean[m₁−m₀ + T(Y−m₁)/e − (1−T)(Y−m₀)/(1−e)]</code>
+            </p>
+            <p className="reconciliation-equation">
+              <code>G_DR − G_IPW = mean[(e−T)(m₁/e + m₀/(1−e))]</code>
+            </p>
+            <p>
+              This last expression is an algebraic identity, not a new estimate.
+              Overall assignment balance does not force it to zero: assignment
+              can be associated with predicted risk. The six shared nuisance
+              models were fitted only on development arms outside deterministic
+              nuisance folds; each arm’s three predictions were averaged for
+              every policy. This is not policy-specific evaluator selection. The
+              saved evidence does not isolate nuisance misspecification from
+              release selection, hidden experiment assignment or sampling
+              variation.
+            </p>
+            <p>
+              For a fixed policy π, A=mean[πTY] and B=mean[π(1−T)Y] are
+              nonnegative. Holding records and policy fixed:
+            </p>
+            <p className="reconciliation-equation">
+              <code>G_IPW(e) = A/e − B/(1−e)</code>
+            </p>
+            <p className="reconciliation-equation">
+              <code>dG_IPW/de = −A/e² − B/(1−e)² ≤ 0</code>
+            </p>
+            <p>
+              The sweep is a declared reweighting stress test, not an
+              empirically calibrated probability distribution or observed effect
+              variation. A normalized/Hájek all-targeting contrast divides each
+              weighted outcome total by its weighted arm count; constant e then
+              cancels within each arm. Partial-policy normalization needs an
+              explicit denominator and estimand. Different scaling does not
+              repair causal identification. No normalized replacement estimate
+              was generated, and none may be retrospectively substituted for the
+              frozen analysis.
             </p>
           </details>
           <details>

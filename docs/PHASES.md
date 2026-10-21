@@ -133,7 +133,8 @@ The roadmap's dashboard/demo/recording remain unimplemented, not claimed as comp
 - [x] Pin the minimal Python 3.12 deployment environment; leave research locks unchanged.
 - [x] Document launch, provider deployment checklist, licensing and live-link approval steps.
 - [x] Complete local tests, minimal-environment headless smoke and responsive UI review.
-- [ ] Owner reviews the finished dashboard and approves publication preparation.
+- [x] Owner reviewed dashboard screenshots and requested subsequent local presentation work.
+- [ ] Owner separately approves the current React publication operation after its release gates.
 - [ ] Owner explicitly authorizes any push, PR, merge or public deployment.
 
 Phase 10's dashboard exclusion describes its historical scope. Phase 11 adds a
@@ -146,5 +147,23 @@ is authorized by this phase.
 - [x] Start from the completed Phase 11 branch; preserve frozen analysis and arithmetic.
 - [x] Redesign all five pages with cohesive branding and business explanations.
 - [x] Add responsive cards, chart styling and focused UI regression tests.
-- [ ] Owner reviews redesigned screenshots and the locally runnable review bundle.
+- [x] Owner reviewed all five redesigned page screenshots; private review bundle supplied.
 - [ ] Owner separately approves public push, PR, merge or deployment.
+
+## Current React scientific narrative reconciliation (local review only)
+
+Phase 10 PR #15 is merged; Phase 11 Streamlit and subsequent React apps are
+implemented locally. Earlier phase-specific exclusions and sealed preparation
+protocols are historical statements, not claims that the dashboard never existed.
+Private review transfers are not public website publication approval.
+
+- [x] Owner authorizes this focused explanation/documentation correction pass.
+- [x] Trace all 40 original configurations and 120 first-tranche candidate records.
+- [x] Explain the e=.90 IPW binding rule and exact IPW/DR augmentation identity.
+- [x] Preserve frozen data/results, financial calculations, models and historical locks.
+- [ ] Owner reviews the corrected narrative and associated test/screenshot evidence.
+- [ ] Complete independent newcomer/manual accessibility and exact-host launch checks.
+- [ ] Owner explicitly authorizes any public source push, PR, merge or deployment.
+
+**Current release state: BLOCKED pending review and launch gates.** No new
+experiment, holdout access, estimator, policy selection or deployment is authorized.

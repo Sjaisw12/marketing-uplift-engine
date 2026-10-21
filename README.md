@@ -129,6 +129,10 @@ At assumed e=0.85, shared-DR secondary diagnostics are:
 | 40% | 3.138 | 7.160 | 7.010 | 6.846 |
 | 50% | 3.805 | 7.241 | 7.104 | 6.924 |
 
+Treated-response is numerically larger than S and T at 30%, 40% and 50% reach.
+All nine saved simultaneous pairwise intervals among those three rankings at those
+reaches include zero under shared DR, assumed e=.85 and the primary IID working model.
+This establishes neither superiority nor equivalence, and chooses no new policy.
 These point estimates are assumption-dependent diagnostics, not a leaderboard for
 choosing the final policy. The all-targeting DR anchor is **7.419** visits per
 1,000 eligible, with nominal pointwise 95% interval **[6.789, 8.048]** and
@@ -140,7 +144,17 @@ fixed-reach targeting. No-targeting has exactly zero incremental gain relative t
 The all-targeting IPW estimate changes from **22.926** at assumed e=0.80 to
 **−11.456** at e=0.90. Shared DR ranges **7.382–7.486**, with final-S DR reported
 as a separate nuisance sensitivity. Relative stability of one evaluator does not
-verify its models or identification assumptions.
+verify its models or identification assumptions. With a fixed policy and records,
+unnormalized IPW is `A/e − B/(1−e)` for nonnegative A and B: increasing assumed e
+mechanically decreases it. This is reweighting sensitivity, not observed effect
+variation or a calibrated probability distribution.
+
+At assumed e=.85, both all-targeting evaluators average over the same complete
+2,096,939-record holdout: IPW **10.341310853**, shared DR **7.419188765**, and DR minus
+IPW **−2.922122088** visits per 1,000 eligible. The difference is exactly the
+nuisance-prediction augmentation, not a required equality or independent evidence
+of a bug. Factual calibration cannot establish counterfactual correctness or causal
+identification. See [scientific reconciliation](docs/SCIENTIFIC_RECONCILIATION.md).
 
 ![Paired S-versus-T diagnostics](reports/portfolio/figures/s_vs_t.png)
 
@@ -158,10 +172,16 @@ propensity and nuisance scenario are in the [aggregate figure guide](reports/por
 
 ## Why retain no targeting?
 
-The development decision engine abstained in **all 40 scenario/split combinations**.
-Depending on the scenario, reasons included assumption sensitivity, negative
-estimated net benefit, zero visit value and insufficient budget for the first
-predeclared reach. Phase 9 locked that recommendation before holdout outcomes.
+All **40 development scenario/split configurations** abstained. Five failed the
+explicit zero-value gate; five had no feasible initial reach. In the remaining
+30 configurations, **all 120 candidate ranking records stopped at the first 10%
+tranche**, with **unnormalized IPW at assumed e=0.90** binding every first-tranche
+lower net-value bound. Insufficient event support was not the binding reason.
+The negative first-tranche IPW point estimates already blocked those candidates.
+This reflects the prespecified stress-test rule, not proof of advertising
+ineffectiveness, universal abstention optimality or a prescription for another business.
+No scenario-removal selection exercise was performed.
+Phase 9 locked that recommendation before holdout outcomes.
 
 Positive final diagnostics answer a narrower question under stated assumptions.
 They neither establish optimality across policies/costs nor justify undoing that

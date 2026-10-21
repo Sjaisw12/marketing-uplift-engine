@@ -66,8 +66,13 @@ No actual costs, revenue or realized ROI are available in Criteo.
 The rule can leave the budget unspent. It requires support and a sufficiently
 positive conservative marginal net value across the predeclared evaluation
 assumptions; it stops at the first failed tranche. All 40 development scenario/split
-combinations recommended abstention. Reasons included sensitivity to assumptions,
-negative estimated net benefit, zero visit value and a budget below the first reach.
+combinations recommended abstention. Five failed the explicit zero-value gate,
+five had no feasible initial reach, and the remaining 30 configurations generated
+120 candidate ranking records that all stopped at the first 10% tranche. In every
+candidate record, unnormalized IPW at assumed e=.90 was the binding scenario.
+Event support was adequate. This was the frozen stress-test objective's outcome,
+not a universal prescription or proof of ineffectiveness. No new policy was
+selected by removing the binding assumption.
 
 That recommendation became the locked primary policy. Random, response, S and T
 policies remained secondary diagnostic comparisons. Final evaluation could describe
@@ -90,6 +95,13 @@ random 3.805, response 7.241, S 7.104 and T 6.924. These are released-benchmark
 scenario functionals under the stated evaluation model, not verified deployment gains.
 
 The all-targeting DR anchor was 7.419 [6.376, 8.462] using simultaneous bounds.
+At assumed e=.85, its exact saved point estimate is 7.419188765 versus IPW
+10.341310853 per 1,000 eligible. Both use the complete 2,096,939-record denominator.
+The −2.922122088 difference is the nuisance augmentation, not a required equality;
+see the [equations and original blocking evidence](SCIENTIFIC_RECONCILIATION.md).
+At 30–50% reach, response has the larger shared-DR point estimates, but all nine
+relevant simultaneous pairwise intervals among response/S/T include zero.
+Neither superiority nor equivalence follows.
 All-targeting has a larger assignment budget than the fixed-reach policies.
 No targeting has exactly zero incremental gain relative to itself; it does not
 imply zero website visits without advertising.
@@ -152,6 +164,9 @@ would need known experimental assignment/sampling mechanisms, real economics,
 dependence information and fresh prospective evaluation.
 
 This finalization includes static portfolio materials and reproducible figures.
-The roadmap's Streamlit dashboard, deployment and recorded walkthrough are **not
-implemented or claimed** in the approved scope. The [model card](MODEL_CARD.md)
+Phase 10 PR #15 was merged into main at `7a038ffe4e0902b37aa287c125fd6ae87941cbf5`.
+Phase 11 subsequently implemented a local Streamlit dashboard, followed by the
+local React Decision Lab. Public website deployment and a recorded walkthrough
+are not claimed. The current React release remains blocked pending owner review
+of the scientific narrative reconciliation and the separate launch gates. The [model card](MODEL_CARD.md)
 and [review checklist](PORTFOLIO_REVIEW.md) document appropriate reuse and publication gates.
