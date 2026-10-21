@@ -1,0 +1,31 @@
+{
+  "base_commit": "ac97b467bd3723c6f3ee76f3dff7c3418f30eb4f",
+  "branch": "codex/phase-10-portfolio-finalization",
+  "checks": {
+    "dependency_lock_unchanged": true,
+    "figure_table_hashes_verified": 13,
+    "focused_portfolio_tests": 20,
+    "format": "passed",
+    "historical_protected_entries_unchanged": 276,
+    "lint": "passed",
+    "make_check": {
+      "deselected": 20,
+      "passed": 398,
+      "seconds": 134.89
+    },
+    "numeric_fields_per_row": 6,
+    "phase9_json_artifacts_unchanged": 22,
+    "presentation_render": "passed",
+    "private_campaign_files_unchanged": 51,
+    "python_files_checked": 105,
+    "recursive_execution_locks_verified": true,
+    "saved_aggregate_rows_reconciled": 1530,
+    "stage_a_public_lock_verified_without_datasets": true
+  },
+  "production_execution": "none in Phase 10",
+  "publication_status": "local-review-only",
+  "remote_ci": "not run; no remote publication authorized",
+  "result_manifest_sha256": "447eaa876994dbf77f141d956e80881b96892778943bb72bbcef5a7a554c0ac2",
+  "schema": 1,
+  "snapshot_sha256": "358c331d72df76d0ca1e4fddd36c7c35be32b1a0b2dd0ae12949c5967ac46169"
+}

@@ -1,3 +1,8 @@
+> **Current portfolio narrative:** [Interview guide](docs/INTERVIEW_GUIDE.md) contains
+> the final 30-second pitch, two-minute walkthrough and technical questions.
+> The phase notes below are historical explanations of their original approval state;
+> preparation-only statements do not describe the now-completed evaluation.
+
 # Interview notes
 
 ## Phase 1 — reproducible scaffold
@@ -418,3 +423,27 @@ another evaluation. Tests kill a synthetic worker and resume in a different proc
    Missing files, ambiguous writes and interruptions after continuation/outcome access
    stop for review. Local file locks do not replace owner termination checks across
    machines or administrator-proof storage.
+
+
+## Phase 10 — explaining a completed study without rewriting its evidence
+
+I turned the completed analysis into a portfolio narrative and figures using only
+saved aggregates. Each number and interval reconciles with the immutable final
+result manifest. A strict field allowlist excludes row-level records, predictions
+and approvals. The renderer has no training or execution imports, and the final
+holdout is never reopened. The primary recommendation stays no targeting; positive
+secondary estimates cannot be used to select a new winner after the test.
+
+**Challenging question 1: Why can a useful portfolio end with no targeting?**
+The business decision is whether the evidence justifies a policy under the declared
+assumptions and hypothetical economics. The development rule abstained and that
+recommendation was frozen. An honest pipeline can demonstrate strong engineering
+and statistical judgment without claiming a verified financial win. Zero relative
+gain for no targeting is an identity, not evidence that advertising is ineffective.
+
+**Challenging question 2: What exactly can another person reproduce?**
+They can validate the aggregate schema and checksum and regenerate the presentation
+without any private assets. They can inspect frozen methodological code/provenance.
+They cannot replay the consumed one-time holdout evaluation or infer causal validity
+from matching image hashes. The figures preserve nominal pointwise and simultaneous
+intervals and explicit propensity assumptions rather than recomputing a nicer result.

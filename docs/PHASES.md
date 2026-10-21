@@ -76,96 +76,50 @@ is included in Phase 7. Later phases require separate scope and approval.
 Phase 8 does not select/lock a final deployment policy, retrain models, evaluate the
 sealed holdout, build Streamlit or authorize Phase 9.
 
-## Phase 9 — final policy lock and separately gated holdout evaluation
-### Stage A — authorized preparation only
-- [x] User approves Stage A scope; Stage B remains unapproved.
-- [x] Freeze primary abstention, diagnostics, nine refit recipes and evaluation protocol.
-- [x] Pass synthetic estimators, 765-family, stratified covariance and leakage/gate tests.
-- [x] Fit and verify nine development-only models; preserve prior artifacts.
-- [x] Publish exact policy/code/model/data/dependency lock and Stage A review evidence.
-- [x] User reviews Stage A completion and lock.
+## Phase 9 — policy lock and one-time final evaluation (completed)
 
-### Stage B — NOT authorized and disabled
-- [ ] Integrate and verify protected reviewer approval and durable create-once receipt service.
-- [ ] User separately approves exact final code lock AND model-manifest digests.
-- [ ] Record durable execution receipt before any holdout outcome access.
-- [ ] Execute the one-time locked analysis without policy re-selection.
-- [ ] Review final results before merge or Phase 10.
+Historical preparation protocols and locks remain immutable. Their preparation-only
+statements describe the approval state at creation; the checklist below records the
+subsequent separately approved execution. No previous lock is resealed.
 
-Stage A approval/merge cannot authorize Stage B. No local boolean or approval file
-can enable holdout scoring or outcome evaluation. No Phase 10/dashboard work.
+### Stage A — preparation and policy lock
+- [x] Owner approves separately scoped Stage A and its completion.
+- [x] Freeze primary abstention, diagnostic policies, nine refit recipes and methodology.
+- [x] Verify synthetic estimators, 765-family, stratified sensitivity and leakage boundaries.
+- [x] Fit nine development-only final models; preserve all historical models/results.
+- [x] Record reviewed policy, model, code, data and dependency identities.
 
+### Stage B — safeguards and explicit execution gates
+- [x] Review and merge safeguards, coordinator, adapters, activation and continuity (PRs #11–14).
+- [x] Pin owner public key; private signing/encryption keys remain owner-controlled.
+- [x] Verify synthetic live receipt protection; retain evidence without repeating the test.
+- [x] Verify full-size encrypted synthetic transfer and independent Mac restore.
+- [x] Verify production receipt/journal protections and reviewed child execution lock.
+- [x] Obtain separate signed start approval; claim one fixed production receipt.
+- [x] Score only frozen holdout features; preserve nine models and frozen policies.
+- [x] Publish encrypted prediction backup and stop at the durable publication pause.
+- [x] Owner independently restores and verifies the actual prediction checkpoint.
+- [x] Obtain fresh signed backup proof, continuation approval and matching preflight.
+- [x] Verify continuation, seal and durable outcome-access transition before outcome access.
+- [x] Complete one locked evaluation and 765-contrast family; close worker without replay.
+- [x] Owner reviews completion and approves Phase 10 portfolio finalization.
 
-### Stage B safeguard preparation — separately approved, execution still disabled
-- [x] User approves owner-signed authorization and GitHub-backed receipt preparation.
-- [x] Preserve Stage A lock, nine models, historical artifacts and frozen memberships.
-- [x] Implement synthetic signature, create-only receipt, checkpoint and state protocols.
-- [x] Add portable execution lock, synthetic CI and operational instructions.
-- [ ] User reviews safeguards PR and exact execution identity.
-- [x] User separately approves disposable GitHub write testing and manual ruleset setup.
-- [x] Verify live GitHub creation/duplicate/update/deletion behavior and persistence (complete; do not repeat).
-- [ ] Pin owner public key and verify independent private checkpoint backup.
-- [ ] Complete reviewed real coordinator integration; obtain separate Stage B approval.
+Stage B is completed and closed, not available for another execution. See the
+Phase 10 aggregate provenance and completion report for final result identities.
+Signed approvals, private checkpoints, row-level predictions and operational
+receipts are not portfolio publication assets.
 
-Preparation tests are not live enforcement evidence. No production receipt is created;
-no holdout features/outcomes are accessed; no automatic recovery or Phase 10.
+## Phase 10 — portfolio finalization (release preparation)
+- [x] Owner approves coordinated documentation/figure/test scope without experiment reruns.
+- [x] Create isolated local branch and preserve Phase 1–9 evidence and private state.
+- [x] Reconcile aggregate-only snapshot with the completed evaluation and review disclosure.
+- [x] Produce README, architecture/workflow diagram, case study and model card.
+- [x] Produce descriptive, reach, uncertainty, sensitivity and paired-comparison figures.
+- [x] Provide aggregate-only reproduction code and validation tests.
+- [x] Provide interview pitch, walkthrough, technical discussion and challenging questions.
+- [x] Complete final local checks and record actual verification evidence.
+- [x] Owner independently reviews materials and conditionally approves release preparation.
+- [ ] Owner explicitly approves any public push, PR or publication.
 
-
-### Stage B coordinator and journal preparation — execution NOT authorized
-- [x] Preserve documentation commit 93ab406 and independently verified live synthetic evidence.
-- [x] Connect trusted bindings, authorization, receipt, journal, seals and signed recovery.
-- [x] Implement synthetic feature/outcome interfaces using unchanged statistical kernels.
-- [x] Add bounded private bundle export/restore and failure/end-to-end tests.
-- [ ] Review coordinator implementation and new portable implementation lock.
-- [ ] Pin owner public key and review later real data/model adapters under a NEW lock.
-- [ ] Verify owner-controlled off-workspace transfer/restore and journal-tip retention.
-- [ ] Configure/verify future production receipt and journal protections separately.
-- [ ] Obtain separate final Stage B approval; no production receipt or holdout access yet.
-
-### Production adapter preparation (separate review)
-
-- [x] Pin owner public key and verify decoded-byte fingerprint.
-- [x] Prepare disabled adapters and preserved-model/seal verification.
-- [x] Preserve historical locks; add portable preparation lock and synthetic CI.
-- [x] Record owner-reported small synthetic Mac restore.
-- [x] Verify a full-size encrypted synthetic private transfer and independent Mac restore.
-- [ ] Review activation release, new lock and exact unsigned authorization.
-- [ ] Separately approve Stage B one-time execution (not authorized here).
-
-See [operations](PRODUCTION_ADAPTER.md). Read-only production ruleset configuration
-is recorded; no production receipt/journal or additional live write test is created.
-
-
-### Stage B activation integration — preparation only, separate review
-
-- [x] Owner confirms all 13 synthetic download checksums, decryption and Mac restore.
-- [x] Integrate signed approval, fixed receipt, journal, nine models and strict adapters.
-- [x] Require exact encrypted checkpoint/Mac-restore attestation before outcome access.
-- [x] Verify durable outcome-access transition before constructing the outcome reader.
-- [x] Add synthetic failure, concurrency, interruption and recovery verification.
-- [x] Preserve historical locks; prepare additive lock and non-signable approval draft.
-- [ ] Owner reviews activation integration PR, lock and preflight trust assumptions.
-- [ ] Choose exact reviewed commit, fresh preflight and UTC window <=24h; review payload.
-- [ ] Owner separately explicitly approves/signs ONE Stage B execution on the Mac.
-- [ ] Transfer/restore the ACTUAL prediction checkpoint and obtain its signed proof.
-- [ ] Perform one-time outcome evaluation only after all gates; review before later work.
-
-The synthetic transport result is not a production checkpoint or execution approval.
-See [activation protocol](STAGE_B_ACTIVATION.md). No Stage B execution or Phase 10.
-
-### Stage B continuity fix — separately approved preparation
-
-- [x] Owner approved PR #13 and the activation identity; preserve that historical lock.
-- [x] Stop before receipt claim when in-memory continuation cannot be assured.
-- [x] Owner approves additive continuity implementation and synthetic testing only.
-- [x] Persist exact publication pause; reconstruct in a genuinely new process.
-- [x] Verify expired original authorization historically; require fresh signed continuation.
-- [x] Require fresh preflight, independent restore proof and original receipt verification.
-- [x] Prohibit rescoring, second claims and post-outcome replay; test process death/failures.
-- [ ] Owner reviews continuity PR, child lock and pause/resume procedure.
-- [ ] Owner separately approves/signs a NEW child-lock start grant and fresh preflight.
-- [ ] Publish and independently restore actual prediction backup after separate approval.
-- [ ] Owner approves/signs continuation and backup proof before any outcome access.
-
-The earlier signed activation grant was validated only and never used to claim a
-receipt. It must not be reused against the changed child code. No Phase 10 work.
+No dashboard, deployment, new model, outcome access or Stage B execution is included.
+The roadmap's dashboard/demo/recording remain unimplemented, not claimed as complete.
