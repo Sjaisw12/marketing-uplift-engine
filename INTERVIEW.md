@@ -489,3 +489,27 @@ Existing numerical and leakage tests still run; focused presentation tests verif
 exact saved chart endpoints, budget outputs, navigation, escaping and contrast.
 Browser checks cover all five pages at four viewport widths. No experiment, model
 or outcome access is available through the application.
+
+## The Decision Lab — explaining the work without a research dashboard
+
+I built a separate React/TypeScript static experience around the question of
+whether an ad creates a visit, rather than around ML terminology. An explicitly
+hypothetical interaction teaches the distinction; the reader then explores the
+verified public study, saved comparisons, hypothetical arithmetic and frozen
+conservative decision. Models and private records never enter the frontend.
+A checksum and strict aggregate schema fail closed, and cross-language tests
+verify the budget arithmetic against the existing Python implementation.
+
+**How can you make a causal project approachable without overstating its findings?**
+Separate observations, model-based estimates, assumptions and decisions. Teach
+with clearly hypothetical examples; label measured bars as descriptive, use saved
+uncertainty beside estimates, and retain the no-targeting rule even when an
+exploratory number looks positive. Technical detail stays accessible through
+progressive disclosure rather than disappearing from the story.
+
+**What prevents an interactive budget lab from becoming post-hoc policy selection?**
+It performs fixed arithmetic on approved aggregate rows, with only saved reaches
+and propensity scenarios. It never optimizes, retrains, reads outcome records,
+trims a budget or changes the primary recommendation. Decimal parity fixtures,
+interaction tests, immutable snapshot verification and explicit limitations make
+that boundary testable. A hypothetical positive net value is not validated ROI.
