@@ -13,7 +13,7 @@ for directory in (ROOT, ROOT / "src"):
 import pandas as pd  # noqa: E402
 import streamlit as st  # noqa: E402
 
-from app import charts, design  # noqa: E402
+from app import charts, design, insights  # noqa: E402
 from app.dashboard_data import (  # noqa: E402
     LABELS,
     MODELS,
@@ -125,6 +125,11 @@ def show_table(rows):
     )
 
 
+def open_policy_performance():
+    """Navigation only; native callback runs before the radio is constructed."""
+    st.session_state["page"] = "Policy comparisons"
+
+
 def overview(data):
     st.html(
         '<section class="mu-hero"><div class="mu-brand">'
@@ -209,6 +214,42 @@ def overview(data):
             "Experiment identifiers and original assignment probabilities are "
             "unavailable. Assignment differs from actual ad exposure."
         )
+    st.subheader("How this helps a marketing decision-maker")
+    with st.container(key="decision_help"):
+        design.cards(
+            [
+                (
+                    "Compare targeting rules",
+                    "Inspect random, response and uplift rankings at equal saved "
+                    "reach. Separate likely visits from assumption-dependent "
+                    "incremental gains.",
+                ),
+                (
+                    "Put uncertainty beside the estimate",
+                    "Use saved paired intervals and propensity sensitivity to judge"
+                    " how much a conclusion depends on unverified assumptions.",
+                ),
+                (
+                    "See the budget trade-offs",
+                    "Explore assignment costs, visit values and unspent budget as "
+                    "hypothetical arithmetic. No validated ROI or automatic "
+                    "spending decision is implied.",
+                ),
+                (
+                    "Keep the conservative decision",
+                    "Positive diagnostics do not override the prespecified "
+                    "no-targeting rule. Spending zero remains a valid option when "
+                    "evidence is insufficient.",
+                ),
+            ]
+        )
+    st.button(
+        "Explore policy performance →",
+        key="overview_policy_action",
+        type="primary",
+        on_click=open_policy_performance,
+        help="Open the saved secondary policy diagnostics; the primary policy stays unchanged.",
+    )
     st.subheader("Why this matters to marketers")
     design.cards(
         [
@@ -274,6 +315,8 @@ def policies(data, options):
         "Whiskers reflect the selected conditional uncertainty. A larger point "
         "estimate does not establish causal superiority or authorize a new policy.",
     )
+    with st.container(key="policy_insights"):
+        design.cards(insights.policy_insights(data, focus_rows, focus, options))
     show_table(focus_rows)
     anchor = estimate(data, "all", 100, **options)
     with st.expander("No-targeting and all-targeting reference policies"):
@@ -314,6 +357,9 @@ def sensitivity(data, options):
     )
     st.altair_chart(charts.intervals(rows, sensitivity=True), use_container_width=True)
     st.caption("Both evaluators are displayed at every saved assumption; no interpolation is used.")
+    design.panel(
+        "What changes when the assumption changes?", insights.sensitivity_summary(rows), "violet"
+    )
     spreads = {
         method: max(r["Gain / 1,000"] for r in rows if r["Evaluator"] == method)
         - min(r["Gain / 1,000"] for r in rows if r["Evaluator"] == method)
@@ -359,6 +405,13 @@ def budget(data, options):
         "a new causal estimate. The frozen recommendation remains no targeting."
     )
     evidence_note(options)
+    design.panel(
+        "Try a hypothetical alternative · keep the primary decision fixed",
+        "No targeting is the starting baseline. In Policy to illustrate below, choose Random, "
+        "Treated response, S-learner or T-learner; then choose a saved reach and set your "
+        "audience, budget, cost and visit-value assumptions. Compare the illustrative outputs "
+        "with zero spend. Nothing selects users or changes the recommendation.",
+    )
     with st.container(border=True, key="budget_inputs"):
         st.subheader("Build an illustrative scenario")
         model = st.selectbox(
@@ -409,19 +462,28 @@ def budget(data, options):
         st.error(str(exc))
         return
     st.subheader("Illustrative arithmetic, not a spending recommendation")
-    metrics = st.columns(3)
-    metrics[0].metric("Advertising assignments", f"{result.assignments:,}")
-    metrics[1].metric("Estimated incremental visits", f"{result.incremental_visits:,.3f}")
-    metrics[2].metric("Hypothetical spend", f"{result.spend:,.2f} units")
-    metrics = st.columns(3)
-    metrics[0].metric(
-        "Hypothetical incremental value", f"{result.net_value + result.spend:,.2f} units"
-    )
-    metrics[1].metric("Hypothetical net benefit", f"{result.net_value:,.2f} units")
-    metrics[2].metric("Unspent budget", f"{result.unspent_budget:,.2f} units")
-    st.altair_chart(
-        charts.budget_allocation(result.spend, result.unspent_budget), use_container_width=True
-    )
+    if model != "none":
+        design.panel(
+            f"Exploratory scenario · {LABELS[model]} at {reach}% reach",
+            "The tiles below scale the selected saved aggregate rate to your illustrative "
+            "audience. Positive or negative net values are hypothetical arithmetic, not "
+            "validated ROI, a new causal estimate or deployment advice.",
+            "violet",
+        )
+    with st.container(key="budget_outputs"):
+        metrics = st.columns(3)
+        metrics[0].metric("Advertising assignments", f"{result.assignments:,}")
+        metrics[1].metric("Estimated incremental visits", f"{result.incremental_visits:,.3f}")
+        metrics[2].metric("Hypothetical spend", f"{result.spend:,.2f} units")
+        metrics = st.columns(3)
+        metrics[0].metric(
+            "Hypothetical incremental value", f"{result.net_value + result.spend:,.2f} units"
+        )
+        metrics[1].metric("Hypothetical net benefit", f"{result.net_value:,.2f} units")
+        metrics[2].metric("Unspent budget", f"{result.unspent_budget:,.2f} units")
+        st.altair_chart(
+            charts.budget_allocation(result.spend, result.unspent_budget), use_container_width=True
+        )
     design.panel(
         "Business takeaway · the budget is a ceiling, not a spending target",
         "No targeting spends zero and leaves the entire hypothetical budget available. "

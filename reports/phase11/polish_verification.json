@@ -1,0 +1,32 @@
+{
+  "aggregate_sha256": "358c331d72df76d0ca1e4fddd36c7c35be32b1a0b2dd0ae12949c5967ac46169",
+  "base_commit": "29d94120840ddff5416c1145223a3b097cc12990",
+  "branch": "codex/phase-11-final-polish",
+  "checks": {
+    "browser_page_viewport_checks": 20,
+    "budget_exploration": "PASS",
+    "focused_tests": 78,
+    "format": "PASS",
+    "full_data_deselected": 20,
+    "full_suite_seconds": 148.79,
+    "full_tests": 476,
+    "http_health": 200,
+    "lint": "PASS",
+    "minimal_python": "3.12.14",
+    "original_dashboard_tests": 65,
+    "overview_navigation": "PASS",
+    "python_files_formatted": 114,
+    "viewport_widths": [
+      390,
+      768,
+      1024,
+      1440
+    ]
+  },
+  "frozen_public_artifacts": "unchanged",
+  "private_data_access": false,
+  "public_deployment": false,
+  "remote_writes": false,
+  "schema": 1,
+  "status": "local-review-only"
+}

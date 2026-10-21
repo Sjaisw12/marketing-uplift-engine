@@ -263,6 +263,21 @@ padding:.9rem 1rem;
 @media(prefers-reduced-motion:reduce) {* {scroll-behavior:auto!important;
 transition:none!important;
 }}
+
+.st-key-decision_help .mu-grid,.st-key-policy_insights .mu-grid {
+grid-template-columns:repeat(2,minmax(0,1fr));}
+[data-testid="stWidgetLabel"] p {font-size:.92rem;line-height:1.5;}
+[data-baseweb="select"] input,[data-baseweb="select"] [role="combobox"],
+[data-baseweb="input"] input {font-size:16px;}
+[data-testid="stBaseButton-primary"] {min-height:44px;}
+.st-key-budget_outputs [data-testid="stMetric"] {border-top:3px solid #2563EB;}
+@media(max-width:700px) {
+.st-key-decision_help .mu-grid,.st-key-policy_insights .mu-grid {grid-template-columns:1fr;}
+[data-testid="stVegaLiteChart"] {padding:.2rem;}
+[data-testid="stWidgetLabel"] p {font-size:.95rem;}
+}
+[data-testid="stMain"] h1,[data-testid="stMain"] h2,
+[data-testid="stMain"] h3 {scroll-margin-top:4rem;}
 </style>
 """
 

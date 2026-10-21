@@ -192,3 +192,15 @@ from previous project copies. Close another local app using port 8501 first, or
 add `--server.port=8502`. Screenshots, file hashes, diffs, test evidence and the
 redesign audit are provided separately in the review ZIP. A private review transfer
 can be requested; no upload or public release is implied by packaging.
+
+### Final focused polish
+
+The premium layout and default no-targeting policy are unchanged. The overview
+now explains how the evidence supports marketing decisions and provides a working
+**Explore policy performance** action. Same-reach insight cards use the currently
+selected saved intervals and paired T-minus-S contrast. Sensitivity text reports
+ranges of the five displayed saved point estimates, never additional confidence
+intervals or inferred propensity probabilities. The budget page explains how to
+explore alternatives and labels the active exploratory outputs without changing
+the primary recommendation. Charts use larger labels and clearer legends.
+See `reports/phase11/polish.md` for the final local verification evidence.

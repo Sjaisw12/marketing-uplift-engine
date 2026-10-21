@@ -91,3 +91,58 @@ def test_redesigned_navigation_insights_and_budget_outputs():
         for m in at.metric
     )
     assert "no targeting" in at.sidebar.success[0].value
+
+
+def test_overview_action_navigates_without_changing_primary_policy():
+    at = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=20).run()
+    at.button(key="overview_policy_action").click().run()
+    assert not at.exception
+    assert at.radio(key="page").value == "Policy comparisons"
+    assert "no targeting" in at.sidebar.success[0].value
+
+
+def test_selected_policy_insights_use_exact_saved_paired_values():
+    from app.insights import policy_insights
+
+    data = dd.load_data()
+    options = dict(method="ipw", propensity=0.9, uncertainty="stratified", interval="pointwise")
+    rows = [row for row in dd.policy_rows(data, **options) if row["Reach (%)"] == 30]
+    text = " ".join(t for _, t in policy_insights(data, rows, 30, options))
+    saved = dd.paired(data, "t_learner", "s_learner", 30, **options)
+    assert f"{saved.value:.3f}" in text
+    assert f"[{saved.low:.3f}, {saved.high:.3f}]" in text
+    assert "pointwise" in text and "not causal superiority" in text
+    subset = policy_insights(data, rows[:1], 30, options)
+    assert subset[1][0] == "Like-for-like diagnostic reach"
+
+
+def test_sensitivity_insight_is_conditional_and_handles_reversed_stability():
+    from app.insights import sensitivity_summary
+
+    rows = dd.sensitivity_rows(dd.load_data(), "all", 100)
+    text = sensitivity_summary(rows)
+    for method in ("IPW", "Shared DR"):
+        values = [r["Gain / 1,000"] for r in rows if r["Evaluator"] == method]
+        assert f"{min(values):.3f} to {max(values):.3f}" in text
+    assert "not confidence intervals" in text
+    assert "does not verify" in text
+    fixture = [
+        {"Evaluator": method, "Gain / 1,000": value}
+        for method, values in [("IPW", (0, 1)), ("Shared DR", (-1, 2))]
+        for value in values
+    ]
+    assert "does not vary less" in sensitivity_summary(fixture)
+
+
+def test_polished_budget_default_and_exploration_guidance():
+    at = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=20).run()
+    at.radio(key="page").set_value("Budget illustration").run()
+    assert not at.exception
+    assert at.selectbox(key="budget_policy").value == "none"
+    assert any(m.label == "Hypothetical spend" and m.value == "0.00 units" for m in at.metric)
+    at.selectbox(key="budget_policy").set_value("t_learner").run()
+    assert not at.exception
+    assert "no targeting" in at.sidebar.success[0].value
+    spec = charts.intervals(dd.policy_rows(dd.load_data())).to_dict()
+    assert spec["config"]["axis"]["labelFontSize"] >= 14
+    assert spec["config"]["legend"]["labelFontSize"] >= 14
