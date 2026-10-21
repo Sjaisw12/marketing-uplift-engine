@@ -119,7 +119,24 @@ receipts are not portfolio publication assets.
 - [x] Provide interview pitch, walkthrough, technical discussion and challenging questions.
 - [x] Complete final local checks and record actual verification evidence.
 - [x] Owner independently reviews materials and conditionally approves release preparation.
-- [ ] Owner explicitly approves any public push, PR or publication.
+- [x] Owner approves Phase 10 aggregate disclosure and PR #15; merged main is 7a038ffe.
 
 No dashboard, deployment, new model, outcome access or Stage B execution is included.
 The roadmap's dashboard/demo/recording remain unimplemented, not claimed as complete.
+
+## Phase 11 — interactive aggregate dashboard and deployment readiness
+- [x] Owner approves one coordinated implementation phase using public Phase 10 aggregates only.
+- [x] Create isolated branch from merged main 7a038ffe; preserve existing ignored artifacts.
+- [x] Implement overview, equal-reach policies, saved sensitivity and model explanations.
+- [x] Implement hypothetical budget arithmetic with no automatic policy/reach selection.
+- [x] Preserve no targeting, exact snapshot provenance and saved uncertainty semantics.
+- [x] Pin the minimal Python 3.12 deployment environment; leave research locks unchanged.
+- [x] Document launch, provider deployment checklist, licensing and live-link approval steps.
+- [x] Complete local tests, minimal-environment headless smoke and responsive UI review.
+- [ ] Owner reviews the finished dashboard and approves publication preparation.
+- [ ] Owner explicitly authorizes any push, PR, merge or public deployment.
+
+Phase 10's dashboard exclusion describes its historical scope. Phase 11 adds a
+local aggregate presentation app, not a model-serving or live targeting system.
+No new holdout analysis, experiment, private artifact access or public deployment
+is authorized by this phase.

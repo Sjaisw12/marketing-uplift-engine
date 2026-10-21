@@ -447,3 +447,23 @@ without any private assets. They can inspect frozen methodological code/provenan
 They cannot replay the consumed one-time holdout evaluation or infer causal validity
 from matching image hashes. The figures preserve nominal pointwise and simultaneous
 intervals and explicit propensity assumptions rather than recomputing a nicer result.
+
+## Phase 11 — making frozen evidence interactive
+
+I built a Streamlit interface over the already approved aggregate results, not a
+new modeling pipeline. Every app rerun verifies the exact snapshot hash. Users can
+compare saved reaches, evaluators and assumptions; no interpolation, model loading
+or outcome access exists. A hypothetical budget page shows arithmetic under fixed
+benchmark rates and prices, while no targeting stays the frozen primary decision.
+The minimal deployment works without the research stack, credentials or private data.
+
+**Challenging question 1: Does a positive simulated net benefit justify targeting?**
+No. It combines assumption-dependent benchmark rates with hypothetical prices and
+an unvalidated transport assumption. Scaled benchmark bounds are not confidence
+intervals for a new population. The illustration cannot replace the locked primary
+policy or establish ROI, causal superiority or deployment suitability.
+
+**Challenging question 2: Does filtering to two models reduce the multiplicity correction?**
+No. The app displays saved intervals from the same predeclared 765-contrast family.
+Pointwise intervals remain distinct; selecting a display cannot shrink the original
+family or turn conditional working-model coverage into exact randomization inference.

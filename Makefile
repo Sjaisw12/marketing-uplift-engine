@@ -2,7 +2,7 @@ UV ?= uv
 # Keep setup usable in workspaces with a read-only home directory.
 export UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 
-.PHONY: setup check status acquire validate ingest split audit ate baselines advanced decisions final-prepare reproduce portfolio
+.PHONY: setup check status acquire validate ingest split audit ate baselines advanced decisions final-prepare reproduce portfolio dashboard dashboard-smoke
 setup:
 	$(UV) sync --locked
 
@@ -17,6 +17,13 @@ status:
 # Presentation only: saved aggregates; no dataset/model/Stage B interfaces.
 portfolio:
 	$(UV) run --locked python -m portfolio
+
+# Public aggregates only; never calls analytical or one-time execution commands.
+dashboard:
+	$(UV) run --locked streamlit run app/streamlit_app.py --server.address=127.0.0.1
+
+dashboard-smoke:
+	$(UV) run --locked python tests/smoke_dashboard.py
 
 validate:
 	$(UV) run --locked uplift validate --full

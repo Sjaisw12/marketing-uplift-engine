@@ -1,0 +1,31 @@
+name: Aggregate dashboard readiness
+on:
+  pull_request:
+    paths:
+      - "app/**"
+      - ".streamlit/config.toml"
+      - "tests/test_dashboard.py"
+      - "tests/smoke_dashboard.py"
+      - ".github/workflows/dashboard.yml"
+  push:
+    paths:
+      - "app/**"
+      - ".streamlit/config.toml"
+      - "tests/test_dashboard.py"
+      - "tests/smoke_dashboard.py"
+      - ".github/workflows/dashboard.yml"
+permissions:
+  contents: read
+jobs:
+  minimal-python-312:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+      - run: uv venv --python 3.12 .venv-dashboard
+      - run: uv pip sync --python .venv-dashboard/bin/python app/requirements.txt
+      - run: uv pip check --python .venv-dashboard/bin/python
+      - run: .venv-dashboard/bin/python tests/smoke_dashboard.py
+      # No data acquisition, model packages, secrets, artifacts or public deployment.

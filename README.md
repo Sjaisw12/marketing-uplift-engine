@@ -22,6 +22,34 @@ targeting is an identity—not proof that advertising is ineffective or abstenti
 
 [Local completion and verification evidence](reports/portfolio/completion.md)
 
+## Interactive dashboard
+
+Phase 11 adds an aggregate-only Streamlit dashboard: business overview, fixed-reach
+comparisons, saved IPW/DR sensitivity, hypothetical budget arithmetic and paired
+model explanations. The frozen primary decision stays **no targeting**. Controls
+never train, score, reopen outcomes, interpolate propensity scenarios or select a new policy.
+
+For a minimal Python 3.12 environment, from the repository root:
+
+```sh
+uv venv --python 3.12 .venv-dashboard
+uv pip sync --python .venv-dashboard/bin/python app/requirements.txt
+.venv-dashboard/bin/python -m streamlit run app/streamlit_app.py --server.address=127.0.0.1
+```
+
+Open `http://localhost:8501`. In an existing research development environment,
+`make dashboard` launches the same app. The minimal deployment installs only the
+37 pinned Streamlit runtime dependencies; it needs no models, data download,
+credentials or historical analytical environment.
+
+The budget page scales saved benchmark rates using hypothetical population,
+assignment cost and visit value. It is **not validated ROI, deployment guidance or
+a new causal estimate**. Scaled saved intervals do not cover transport uncertainty.
+
+[Local launch and Community Cloud checklist](docs/DASHBOARD.md).
+This branch prepares the application locally; no public deployment or live-demo
+link is claimed. Publication and deployment require separate owner approval.
+
 ![End-to-end architecture](reports/portfolio/figures/architecture.png)
 
 ## What was built
@@ -171,8 +199,9 @@ A future study would need experiment-specific assignment probabilities, sampling
 information, dependence identifiers and real economics. A new policy would require
 fresh prospective evidence, not another look at this holdout.
 
-No Streamlit dashboard, deployed app or recorded demo is claimed in this finalization
-scope. See the [case study](docs/CASE_STUDY.md) for engineering tradeoffs and remaining limits.
+The Phase 10 case study describes its original static portfolio scope. Phase 11
+adds the dashboard described above; no live deployment or recorded demo is claimed.
+See the [case study](docs/CASE_STUDY.md) for scientific findings and limitations.
 
 **Attribution:** Criteo AI Lab; Diemert, Betlei, Renaudin and Amini (2018),
 *A Large Scale Benchmark for Uplift Modeling*, AdKDD & TargetAd.
