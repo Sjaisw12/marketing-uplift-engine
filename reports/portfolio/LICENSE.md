@@ -21,4 +21,4 @@ requirements: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 The repository's MIT software license does not relicense the dataset or these
 dataset-derived assets. No raw data, row-level derivatives or private fitted
-models are included in this directory. Publication awaits owner approval.
+models are included in this directory.

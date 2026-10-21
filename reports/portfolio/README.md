@@ -1,8 +1,8 @@
 # Final evaluation: aggregate results and figure guide
 
-**Local review only; publication awaits owner approval.** This directory contains
-only selected, allowlisted fields from the completed one-time evaluation. It does
-not contain row-level outcomes, predictions, fitted models or private checkpoint data.
+This directory presents allowlisted aggregate fields from the completed one-time
+evaluation. It contains no row-level outcomes, predictions, fitted models or private
+checkpoint data.
 The [disclosure review](../../docs/PORTFOLIO_REVIEW.md) describes the exact provenance checks.
 The [completion report](completion.md) records actual tests and remaining owner gates.
 

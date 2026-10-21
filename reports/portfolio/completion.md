@@ -1,9 +1,12 @@
-# Phase 10 completion — local review only
+# Phase 10 completion
 
 The owner approved coordinated portfolio finalization after Stage B completed.
 Work is on local branch `codex/phase-10-portfolio-finalization`, based on reviewed
 commit `ac97b467bd3723c6f3ee76f3dff7c3418f30eb4f`. Nothing was pushed, opened as a
-public PR, merged, uploaded or published. Owner approval of disclosure is pending.
+public PR, merged, uploaded or published. Independent scientific, numerical, visual
+and disclosure review passed; the owner conditionally approved release preparation.
+The separate explicit public-disclosure gate remains in
+[release readiness](../../docs/RELEASE_READINESS.md).
 
 ## Deliverables
 
@@ -87,7 +90,7 @@ Presentation snapshot:
 
 No historical locks, frozen results or private campaign state were modified. No
 production operator, outcome reader, feature scorer, training run, backup or remote
-write was used. All new presentation files are local candidates for owner review.
+write was used. The presentation files are the independently reviewed Phase 10 materials.
 
 ## Completion and remaining gates
 
@@ -95,7 +98,8 @@ write was used. All new presentation files are local candidates for owner review
 - [x] Scope, disclosure, attribution and numerical provenance reviewed technically.
 - [x] Local tests, lint, formatting, figure generation and preservation checks pass.
 - [x] Primary recommendation preserved; no post-holdout winner selection.
-- [ ] Owner approves the finished materials and exact aggregate disclosure.
+- [x] Owner independently reviews the finished materials and conditionally approves release preparation.
+- [ ] Owner explicitly approves public aggregate disclosure.
 - [ ] Owner separately authorizes any public push, PR, merge or publication.
 
 The authoritative roadmap also proposes a Streamlit dashboard, deployment and a

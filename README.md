@@ -12,8 +12,8 @@ targeting diagnostics do not establish an optimal strategy or authorize replacin
 the recommendation after seeing the final holdout. Zero gain relative to no
 targeting is an identity—not proof that advertising is ineffective or abstention optimal.
 
-> Phase 9's one-time evaluation is completed and closed. These Phase 10 materials
-> are prepared locally for owner review; publication is not yet approved.
+> Phase 9's one-time evaluation is completed and closed. These materials present
+> frozen aggregate results without rerunning the evaluation or reselecting a policy.
 > This is an offline portfolio study, not a deployed advertising system.
 
 [Case study](docs/CASE_STUDY.md) · [Interview guide](docs/INTERVIEW_GUIDE.md) ·

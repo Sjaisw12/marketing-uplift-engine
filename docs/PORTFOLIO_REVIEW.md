@@ -1,9 +1,11 @@
 # Phase 10: local disclosure and reproducibility review
 
-**Status: local candidate materials only.** No push, public PR, merge, external
-upload or publication is authorized. The owner must review the exact file set
-before any public release. This document records a technical disclosure review,
-not a guarantee of anonymity or a substitute for the dataset license.
+**Status: independently reviewed; conditionally approved for release preparation.**
+The owner confirmed scientific, numerical, visual and disclosure review of the
+Phase 10 packet. This does not authorize public aggregate disclosure, a push,
+public PR, merge or publication; those require separate explicit owner approval.
+This document records a technical disclosure review, not a guarantee of anonymity
+or a substitute for the dataset license. See [release readiness](RELEASE_READINESS.md).
 
 ## Scope and immutable evidence
 
@@ -97,8 +99,14 @@ require a separately designed study, not replaying the consumed campaign.
 - [x] Dataset attribution and CC BY-NC-SA 4.0 treatment included.
 - [x] No-targeting primary policy and all predeclared comparison coverage preserved.
 - [x] Assumed e, units, multiplicity and working-model limitations accompany figures.
-- [ ] Owner reviews the exact local aggregate snapshot, figures and narratives.
+- [x] Owner independently reviews the aggregate snapshot, figures and narratives.
+- [x] Owner conditionally approves release preparation and publication-neutral wording.
 - [ ] Owner explicitly approves public disclosure and the exact publication operation.
+
+The immutable snapshot and original verification JSON retain their historical
+`local-review-only` metadata. Those fields are preserved provenance, not a current
+release decision or an execution flag. No numerical or figure asset was changed
+to update presentation wording.
 
 No publication action is performed by this phase. Private local artifacts do not
 gain cross-task durability from this documentation; no backup operation was performed.

@@ -44,7 +44,7 @@ back into models, data, the coordinator or policy selection.
 | Local MLflow | Configurations, fit membership, versions and artifact provenance | Private; not redistributed |
 | `src/stage_b_continuation/` and parents | Owner signature, fixed receipt, append-only journal, checkpoint/resume rules | Completed campaign cannot be replayed |
 | `src/portfolio/` | Strict aggregate validation and deterministic plotting | Standard library + Matplotlib; no experiment imports |
-| `reports/portfolio/` | Candidate aggregate snapshot and presentation assets | Local review only; no row IDs, predictions or approvals |
+| `reports/portfolio/` | Frozen aggregate snapshot and presentation assets | No row IDs, predictions or approval payloads |
 
 ## Engineering tradeoffs
 

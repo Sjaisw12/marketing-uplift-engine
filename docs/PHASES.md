@@ -109,7 +109,7 @@ Phase 10 aggregate provenance and completion report for final result identities.
 Signed approvals, private checkpoints, row-level predictions and operational
 receipts are not portfolio publication assets.
 
-## Phase 10 — portfolio finalization (local owner review)
+## Phase 10 — portfolio finalization (release preparation)
 - [x] Owner approves coordinated documentation/figure/test scope without experiment reruns.
 - [x] Create isolated local branch and preserve Phase 1–9 evidence and private state.
 - [x] Reconcile aggregate-only snapshot with the completed evaluation and review disclosure.
@@ -118,7 +118,7 @@ receipts are not portfolio publication assets.
 - [x] Provide aggregate-only reproduction code and validation tests.
 - [x] Provide interview pitch, walkthrough, technical discussion and challenging questions.
 - [x] Complete final local checks and record actual verification evidence.
-- [ ] Owner reviews finished portfolio materials and approves completion.
+- [x] Owner independently reviews materials and conditionally approves release preparation.
 - [ ] Owner explicitly approves any public push, PR or publication.
 
 No dashboard, deployment, new model, outcome access or Stage B execution is included.
