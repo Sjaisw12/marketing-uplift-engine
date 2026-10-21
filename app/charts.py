@@ -4,14 +4,14 @@ import altair as alt
 import pandas as pd
 
 POLICIES = ["Random", "Treated response", "S-learner", "T-learner"]
-PALETTE = ["#64748B", "#B45309", "#0F766E", "#7C3AED"]
+PALETTE = ["#64748B", "#2563EB", "#0D9488", "#7C3AED"]
 
 
 def intervals(rows, *, sensitivity=False, paired=False):
     frame = pd.DataFrame(rows)
     x = "Assumed propensity" if sensitivity else "Reach (%)"
     color = "Evaluator" if sensitivity else "Policy"
-    colors = (["Shared DR", "IPW"], ["#0F766E", "#B45309"]) if sensitivity else (POLICIES, PALETTE)
+    colors = (["Shared DR", "IPW"], ["#0D9488", "#2563EB"]) if sensitivity else (POLICIES, PALETTE)
     base = alt.Chart(frame).encode(
         x=alt.X(f"{x}:O", title=x, sort=None, axis=alt.Axis(labelAngle=0)),
         y=alt.Y(
@@ -45,7 +45,7 @@ def intervals(rows, *, sensitivity=False, paired=False):
     rules = base.mark_rule(strokeWidth=2, color="#7C3AED" if paired else alt.Undefined).encode(
         y=alt.Y("Lower:Q", title=title, scale=alt.Scale(zero=True)), y2="Upper:Q"
     )
-    points = base.mark_point(filled=True, size=85, color="#7C3AED" if paired else alt.Undefined)
+    points = base.mark_point(filled=True, size=105, color="#7C3AED" if paired else alt.Undefined)
     layers = [rules, points]
     if not sensitivity and not paired:
         layers.insert(0, base.mark_line(strokeWidth=2, opacity=0.65))
@@ -56,9 +56,22 @@ def intervals(rows, *, sensitivity=False, paired=False):
     )
     return (
         alt.layer(zero, *layers)
-        .properties(height=350)
-        .configure_legend(orient="bottom", columns=2, labelLimit=220)
-        .configure_axis(labelFontSize=12, titleFontSize=12)
+        .properties(height=380)
+        .configure_view(stroke=None)
+        .configure(background="#FFFFFF")
+        .configure_legend(
+            orient="bottom", columns=2, labelLimit=220, labelFontSize=12, symbolSize=100
+        )
+        .configure_axis(
+            labelFontSize=12,
+            titleFontSize=12,
+            labelColor="#52627A",
+            titleColor="#344865",
+            gridColor="#EDF1F7",
+            domain=False,
+            tickColor="#DFE6F0",
+            titlePadding=16,
+        )
     )
 
 
@@ -71,7 +84,7 @@ def visit_rates(control, treated):
     )
     return (
         alt.Chart(data)
-        .mark_bar(cornerRadiusTopLeft=4, cornerRadiusTopRight=4)
+        .mark_bar(cornerRadiusTopLeft=8, cornerRadiusTopRight=8, size=62)
         .encode(
             x=alt.X(
                 "Assignment:N",
@@ -82,10 +95,54 @@ def visit_rates(control, treated):
             y=alt.Y("Observed visit rate (%):Q", scale=alt.Scale(zero=True)),
             color=alt.Color(
                 "Assignment:N",
-                scale=alt.Scale(domain=["Control", "Treatment"], range=["#64748B", "#0F766E"]),
+                scale=alt.Scale(domain=["Control", "Treatment"], range=["#64748B", "#2563EB"]),
                 legend=None,
             ),
             tooltip=["Assignment", alt.Tooltip("Observed visit rate (%):Q", format=".4f")],
         )
         .properties(height=260)
+        .configure_view(stroke=None)
+        .configure(background="#FFFFFF")
+        .configure_axis(
+            labelFontSize=12,
+            titleFontSize=12,
+            gridColor="#EDF1F7",
+            domain=False,
+            labelColor="#52627A",
+            titleColor="#344865",
+        )
+    )
+
+
+def budget_allocation(spend, unspent):
+    """Exact illustrative spend/cap arithmetic only; no new saved statistical values."""
+    frame = pd.DataFrame(
+        {
+            "Allocation": ["Hypothetical spend", "Unspent budget"],
+            "Currency units": [float(spend), float(unspent)],
+            "Budget": ["Budget cap", "Budget cap"],
+        }
+    )
+    return (
+        alt.Chart(frame)
+        .mark_bar(cornerRadius=5, size=38)
+        .encode(
+            x=alt.X(
+                "Currency units:Q", title="Hypothetical currency units", scale=alt.Scale(zero=True)
+            ),
+            y=alt.Y("Budget:N", title=None),
+            color=alt.Color(
+                "Allocation:N",
+                scale=alt.Scale(
+                    domain=["Hypothetical spend", "Unspent budget"], range=["#2563EB", "#CBD5E1"]
+                ),
+                legend=alt.Legend(orient="bottom", title=None),
+            ),
+            tooltip=["Allocation:N", alt.Tooltip("Currency units:Q", format=",.2f")],
+        )
+        .properties(height=95)
+        .configure_view(stroke=None)
+        .configure_axis(
+            gridColor="#EDF1F7", labelColor="#52627A", titleColor="#344865", domain=False
+        )
     )

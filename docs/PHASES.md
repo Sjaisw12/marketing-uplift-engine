@@ -140,3 +140,11 @@ Phase 10's dashboard exclusion describes its historical scope. Phase 11 adds a
 local aggregate presentation app, not a model-serving or live targeting system.
 No new holdout analysis, experiment, private artifact access or public deployment
 is authorized by this phase.
+
+### Phase 11 — Decision Intelligence UI redesign (separate local review)
+
+- [x] Start from the completed Phase 11 branch; preserve frozen analysis and arithmetic.
+- [x] Redesign all five pages with cohesive branding and business explanations.
+- [x] Add responsive cards, chart styling and focused UI regression tests.
+- [ ] Owner reviews redesigned screenshots and the locally runnable review bundle.
+- [ ] Owner separately approves public push, PR, merge or deployment.

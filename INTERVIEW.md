@@ -467,3 +467,25 @@ policy or establish ROI, causal superiority or deployment suitability.
 No. The app displays saved intervals from the same predeclared 765-contrast family.
 Pointwise intervals remain distinct; selecting a display cannot shrink the original
 family or turn conditional working-model coverage into exact randomization inference.
+
+## Phase 11 UI redesign — evidence as a decision product
+
+The dashboard now starts with the business decision, then lets a reader inspect
+policy diagnostics, sensitivity and hypothetical economics. The important product
+choice was to separate exploratory controls from authority: choosing a model or a
+positive-looking budget illustration never changes the frozen no-targeting policy.
+The UI uses the exact same validated public snapshot, financial arithmetic and
+saved intervals; only presentation and descriptive display summaries changed.
+
+**Why show positive-looking diagnostics if the recommendation is no targeting?**
+Transparency requires showing the measured evidence, with its limitations. The
+conservative rule was frozen using development evidence. Selecting a different
+policy after inspecting the holdout would invalidate that separation. Unknown
+assignment probabilities and privacy sampling also prevent unconditional causal claims.
+
+**How did you verify that a visual redesign did not change the science?**
+The aggregate snapshot, loader and illustration module remain byte-identical.
+Existing numerical and leakage tests still run; focused presentation tests verify
+exact saved chart endpoints, budget outputs, navigation, escaping and contrast.
+Browser checks cover all five pages at four viewport widths. No experiment, model
+or outcome access is available through the application.

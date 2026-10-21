@@ -1,0 +1,31 @@
+{
+  "aggregate_sha256": "358c331d72df76d0ca1e4fddd36c7c35be32b1a0b2dd0ae12949c5967ac46169",
+  "base_commit": "259df36e6e7c40f52c2541002cae8e149dff92e0",
+  "branch": "codex/phase-11-premium-ui",
+  "checks": {
+    "browser_page_viewport_checks": 20,
+    "focused_tests": 74,
+    "format": "PASS",
+    "full_data_deselected": 20,
+    "full_suite_seconds": 144.63,
+    "full_tests": 472,
+    "http_health": 200,
+    "lint": "PASS",
+    "minimal_runtime_pages": 5,
+    "original_dashboard_tests": 65,
+    "python": "3.12.14",
+    "python_files_formatted": 113,
+    "snapshot_loader_financial_module_dependency_pins": "unchanged",
+    "viewport_widths": [
+      390,
+      768,
+      1024,
+      1440
+    ]
+  },
+  "private_data_access": false,
+  "public_deployment": false,
+  "remote_writes": false,
+  "schema": 1,
+  "status": "local-review-only"
+}

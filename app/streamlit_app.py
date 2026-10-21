@@ -13,7 +13,7 @@ for directory in (ROOT, ROOT / "src"):
 import pandas as pd  # noqa: E402
 import streamlit as st  # noqa: E402
 
-from app import charts  # noqa: E402
+from app import charts, design  # noqa: E402
 from app.dashboard_data import (  # noqa: E402
     LABELS,
     MODELS,
@@ -38,7 +38,7 @@ PAGES = (
 )
 
 st.set_page_config(
-    page_title="Marketing Uplift | Evidence before spend",
+    page_title="Marketing Uplift | Decision Intelligence",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="auto",
@@ -126,67 +126,122 @@ def show_table(rows):
 
 
 def overview(data):
-    st.title("Evidence before spend")
-    st.write(
-        "A marketing team wants incremental visits—not just people likely to visit anyway. "
-        "Explore the completed Criteo benchmark study without changing its frozen decision."
+    st.html(
+        '<section class="mu-hero"><div class="mu-brand">'
+        "Marketing Uplift | Decision Intelligence</div>"
+        '<span class="mu-tag">OFFLINE RESEARCH DEMO · FROZEN EVIDENCE</span>'
+        "<h1>Smarter Marketing Starts With Evidence</h1>"
+        "<p>Explore how machine learning, causal inference and uncertainty can inform advertising "
+        "decisions—and why spending nothing can be the appropriate conservative "
+        "recommendation.</p></section>"
     )
-    cols = st.columns(3)
-    for col, (label, n) in zip(
-        cols,
-        [
-            ("Official dataset", data["population"]["source_rows"]),
-            ("Development records", data["population"]["development_rows"]),
-            ("Final holdout", data["population"]["holdout_rows"]),
-        ],
-        strict=True,
-    ):
-        col.metric(label, f"{n:,}")
-    with st.container(border=True):
-        st.subheader("Frozen primary recommendation: no targeting")
-        st.write(
-            "Zero advertising assignments. Zero hypothetical spending. No change to this "
-            "recommendation based on secondary holdout diagnostics."
-        )
-        st.caption(
-            "Zero gain relative to no targeting is an identity. It does not prove advertising "
-            "ineffective or abstention optimal; visits without advertising need not be zero."
-        )
-    st.subheader("Observed visits by assignment arm")
+    with st.container(key="overview_kpis"):
+        cols = st.columns(4)
+        for col, (label, value, help_text) in zip(
+            cols,
+            [
+                (
+                    "Total records",
+                    f"{data['population']['source_rows'] / 1e6:.2f}M",
+                    "13,979,592 corrected Criteo v2.1 records.",
+                ),
+                (
+                    "Development records",
+                    f"{data['population']['development_rows'] / 1e6:.2f}M",
+                    "11,882,653 records used to develop the frozen framework.",
+                ),
+                (
+                    "Final holdout records",
+                    f"{data['population']['holdout_rows'] / 1e6:.2f}M",
+                    "2,096,939 records; one-time evaluation is complete and closed.",
+                ),
+                (
+                    "Frozen primary policy",
+                    "No targeting",
+                    "Zero assignments and hypothetical spend; "
+                    "diagnostics cannot replace this policy.",
+                ),
+            ],
+            strict=True,
+        ):
+            col.metric(label, value, help=help_text)
+    design.panel(
+        "Final decision: Retain no targeting",
+        "The prespecified conservative framework abstained across all 40 "
+        "development scenario/split combinations. "
+        "Positive secondary holdout diagnostics do not override that frozen recommendation. "
+        "This does not prove advertising ineffective or abstention universally optimal.",
+        "teal",
+    )
+    st.subheader("What the study observed")
+    st.caption("Observed visits by assignment arm · descriptive, not a verified causal effect")
     control, treated, difference = observed_rates(data)
-    cols = st.columns(3)
-    cols[0].metric("Control visit rate", f"{100 * control:.4f}%")
-    cols[1].metric("Treatment visit rate", f"{100 * treated:.4f}%")
-    cols[2].metric(
-        "Descriptive difference",
-        f"{difference:.4f} pp",
-        help="Percentage points, not a relative percent change or verified causal effect.",
+    left, right = st.columns([1.5, 1])
+    with left:
+        st.altair_chart(charts.visit_rates(control, treated), use_container_width=True)
+    with right:
+        cols = st.columns(2)
+        cols[0].metric("Control visit rate", f"{100 * control:.4f}%")
+        cols[1].metric("Treatment visit rate", f"{100 * treated:.4f}%")
+        st.metric(
+            "Descriptive difference",
+            f"{difference:.4f} pp",
+            help="Percentage points; not relative percent change or verified causal lift.",
+        )
+    design.panel(
+        "Business takeaway · response is not incrementality",
+        "The assigned treatment group visited more often in the released sample. "
+        "That descriptive gap "
+        "does not tell us which people visited because of advertising. Unknown "
+        "assignment probabilities "
+        "and privacy subsampling limit causal interpretation.",
     )
-    st.altair_chart(charts.visit_rates(control, treated), use_container_width=True)
-    s = data["support"]
+    with st.expander("Exact observed counts and experiment context"):
+        support = data["support"]
+        st.write(
+            f"Control: {support['control_visits']:,} visits / "
+            f"{support['control_visits'] + support['control_nonvisits']:,} records. "
+            f"Treatment: {support['treatment_visits']:,} / "
+            f"{support['treatment_visits'] + support['treatment_nonvisits']:,}."
+        )
+        st.write(
+            "Criteo pools experiments and uses non-uniform privacy subsampling. "
+            "Experiment identifiers and original assignment probabilities are "
+            "unavailable. Assignment differs from actual ad exposure."
+        )
+    st.subheader("Why this matters to marketers")
+    design.cards(
+        [
+            (
+                "Predict",
+                "Distinguish likely visitors from users with higher predicted "
+                "assignment contrasts. Only pre-treatment f0–f11 were predictors.",
+            ),
+            (
+                "Evaluate",
+                "Compare fixed rankings at equal reach, preserve paired "
+                "uncertainty, and test sensitivity to unverified assumptions.",
+            ),
+            (
+                "Decide",
+                "Keep a conservative, accountable spending rule. A positive-looking"
+                " diagnostic is not a license to select a new winner.",
+            ),
+        ]
+    )
     st.caption(
-        f"Control: {s['control_visits']:,} visits / "
-        f"{s['control_nonvisits'] + s['control_visits']:,} records. Treatment: "
-        f"{s['treatment_visits']:,} / {s['treatment_nonvisits'] + s['treatment_visits']:,}."
-    )
-    st.info(
-        "Descriptive assignment rates are not exposure effects or verified advertiser-wide lift. "
-        "Criteo pools experiments and uses non-uniform privacy subsampling; original assignment "
-        "probabilities and experiment identifiers are unavailable."
-    )
-    st.subheader("From prediction to an accountable decision")
-    st.write(
-        "The study compares random targeting, treated-response prediction and S/T uplift "
-        "rankings at equal reach. All user predictors were f0–f11. The final evaluation is "
-        "completed and closed; this dashboard reads saved aggregates only."
+        "Explore Policy performance for saved comparisons, Sensitivity & robustness"
+        " for assumptions, or Budget impact studio for hypothetical arithmetic. Use"
+        " the navigation to continue."
     )
 
 
 def policies(data, options):
-    st.title("Policy comparisons")
-    st.write(
-        "Compare four frozen rankings at the same reach. These are secondary diagnostics, "
-        "not a policy-selection or deployment recommendation."
+    design.heading(
+        "02 / Policy performance",
+        "Do smarter targeting rules appear to outperform random targeting?",
+        "Compare frozen diagnostic rankings at equal reach. Explore saved "
+        "evidence—not an approved alternative policy or a causal winner.",
     )
     evidence_note(options)
     selected = st.multiselect(
@@ -203,7 +258,23 @@ def policies(data, options):
         "Zero is the no-targeting reference identity; no full-prefix AUUC/Qini is inferred."
     )
     st.subheader(f"Same-reach comparison · {focus}%")
-    show_table([r for r in rows if r["Reach (%)"] == focus])
+    focus_rows = [r for r in rows if r["Reach (%)"] == focus]
+    columns = st.columns(len(focus_rows))
+    for col, row in zip(columns, focus_rows, strict=True):
+        col.metric(
+            row["Policy"],
+            f"{row['Gain / 1,000']:.3f}",
+            help=f"Saved {options['interval']} interval: "
+            f"[{row['Lower']:.3f}, {row['Upper']:.3f}] visits per 1,000 eligible records.",
+        )
+    design.panel(
+        "Business takeaway · compare evidence, not just point estimates",
+        f"At {focus}% reach, these are saved gains per 1,000 eligible records "
+        "relative to no targeting. "
+        "Whiskers reflect the selected conditional uncertainty. A larger point "
+        "estimate does not establish causal superiority or authorize a new policy.",
+    )
+    show_table(focus_rows)
     anchor = estimate(data, "all", 100, **options)
     with st.expander("No-targeting and all-targeting reference policies"):
         st.write(
@@ -218,10 +289,11 @@ def policies(data, options):
 
 
 def sensitivity(data, options):
-    st.title("Sensitivity explorer")
-    st.write(
-        "Assignment probabilities are unknown. Explore the five predeclared assumptions; "
-        "no unsupported propensity or interval is interpolated."
+    design.heading(
+        "03 / Sensitivity & robustness",
+        "How much should we trust a result when assumptions are uncertain?",
+        "Five predeclared propensity scenarios. Two evaluators. One honest view of "
+        "what remains unknown.",
     )
     evidence_note(options, all_scenarios=True)
     model = st.selectbox(
@@ -242,7 +314,33 @@ def sensitivity(data, options):
     )
     st.altair_chart(charts.intervals(rows, sensitivity=True), use_container_width=True)
     st.caption("Both evaluators are displayed at every saved assumption; no interpolation is used.")
-    show_table(rows)
+    spreads = {
+        method: max(r["Gain / 1,000"] for r in rows if r["Evaluator"] == method)
+        - min(r["Gain / 1,000"] for r in rows if r["Evaluator"] == method)
+        for method in ("IPW", "Shared DR")
+    }
+    design.cards(
+        [
+            (
+                "IPW · assumption sensitivity",
+                f"Displayed point estimates span {spreads['IPW']:.3f} visits per 1,000 "
+                "across the five assumed propensities.",
+            ),
+            (
+                "Shared DR · displayed stability",
+                f"Displayed point estimates span {spreads['Shared DR']:.3f} visits per 1,000. "
+                "This is a summary of saved points, not a new uncertainty estimate.",
+            ),
+            (
+                "Stable is not identified",
+                "Comparative stability does not verify propensity or nuisance "
+                "correctness, cure selection bias, or establish causal "
+                "identification.",
+            ),
+        ]
+    )
+    with st.expander("Exact saved estimates and interval endpoints"):
+        show_table(rows)
     st.warning(
         "These propensity values are assumptions, not a calibrated uncertainty distribution. "
         "Stable DR does not prove correct nuisances, identification or transportability."
@@ -250,52 +348,59 @@ def sensitivity(data, options):
 
 
 def budget(data, options):
-    st.title("Hypothetical budget illustration")
+    design.heading(
+        "04 / Budget impact studio",
+        "What could different advertising assumptions mean for a hypothetical budget?",
+        "An illustration workspace, not an optimizer. Change business assumptions "
+        "while the primary recommendation stays fixed.",
+    )
     st.warning(
         "Assumption-dependent illustration only—not validated ROI, deployment guidance or "
         "a new causal estimate. The frozen recommendation remains no targeting."
     )
     evidence_note(options)
-    model = st.selectbox(
-        "Policy to illustrate", ("none", *MODELS), format_func=LABELS.get, key="budget_policy"
-    )
-    reach = st.select_slider(
-        "Nominal reach (%)", REACHES, value=20, disabled=model == "none", key="budget_reach"
-    )
-    cols = st.columns(2)
-    n = cols[0].number_input(
-        "Eligible population (illustrative)",
-        min_value=1,
-        max_value=1_000_000_000,
-        value=100_000,
-        step=1000,
-        key="population",
-    )
-    cap = cols[1].number_input(
-        "Budget cap (hypothetical currency units)",
-        min_value=0.0,
-        max_value=1_000_000_000_000.0,
-        value=500.0,
-        key="budget_cap",
-    )
-    cols = st.columns(2)
-    cost = cols[0].number_input(
-        "Cost per assignment (hypothetical)",
-        min_value=0.0,
-        max_value=1_000_000.0,
-        value=0.01,
-        step=0.01,
-        format="%.4f",
-        key="cost",
-    )
-    value = cols[1].number_input(
-        "Value per incremental visit (hypothetical)",
-        min_value=0.0,
-        max_value=1_000_000.0,
-        value=1.0,
-        step=0.1,
-        key="visit_value",
-    )
+    with st.container(border=True, key="budget_inputs"):
+        st.subheader("Build an illustrative scenario")
+        model = st.selectbox(
+            "Policy to illustrate", ("none", *MODELS), format_func=LABELS.get, key="budget_policy"
+        )
+        reach = st.select_slider(
+            "Nominal reach (%)", REACHES, value=20, disabled=model == "none", key="budget_reach"
+        )
+        cols = st.columns(2)
+        n = cols[0].number_input(
+            "Eligible population (illustrative)",
+            min_value=1,
+            max_value=1_000_000_000,
+            value=100_000,
+            step=1000,
+            key="population",
+        )
+        cap = cols[1].number_input(
+            "Budget cap (hypothetical currency units)",
+            min_value=0.0,
+            max_value=1_000_000_000_000.0,
+            value=500.0,
+            key="budget_cap",
+        )
+        cols = st.columns(2)
+        cost = cols[0].number_input(
+            "Cost per assignment (hypothetical)",
+            min_value=0.0,
+            max_value=1_000_000.0,
+            value=0.01,
+            step=0.01,
+            format="%.4f",
+            key="cost",
+        )
+        value = cols[1].number_input(
+            "Value per incremental visit (hypothetical)",
+            min_value=0.0,
+            max_value=1_000_000.0,
+            value=1.0,
+            step=0.1,
+            key="visit_value",
+        )
     try:
         result = illustrate(
             data, model, 0 if model == "none" else reach, n, cost, value, cap, **options
@@ -308,9 +413,23 @@ def budget(data, options):
     metrics[0].metric("Advertising assignments", f"{result.assignments:,}")
     metrics[1].metric("Estimated incremental visits", f"{result.incremental_visits:,.3f}")
     metrics[2].metric("Hypothetical spend", f"{result.spend:,.2f} units")
-    metrics = st.columns(2)
-    metrics[0].metric("Hypothetical net benefit", f"{result.net_value:,.2f} units")
-    metrics[1].metric("Unspent budget", f"{result.unspent_budget:,.2f} units")
+    metrics = st.columns(3)
+    metrics[0].metric(
+        "Hypothetical incremental value", f"{result.net_value + result.spend:,.2f} units"
+    )
+    metrics[1].metric("Hypothetical net benefit", f"{result.net_value:,.2f} units")
+    metrics[2].metric("Unspent budget", f"{result.unspent_budget:,.2f} units")
+    st.altair_chart(
+        charts.budget_allocation(result.spend, result.unspent_budget), use_container_width=True
+    )
+    design.panel(
+        "Business takeaway · the budget is a ceiling, not a spending target",
+        "No targeting spends zero and leaves the entire hypothetical budget available. "
+        "Exploratory values use unverified prices and transport assumptions. Even a"
+        " positive hypothetical net benefit does not replace the frozen primary "
+        "recommendation.",
+        "teal",
+    )
     if result.scaled_benchmark_bounds is None:
         st.info(
             "No targeting: zero assignments, spend and relative gain by identity. "
@@ -338,7 +457,41 @@ def budget(data, options):
 
 
 def models(data, options):
-    st.title("Models, comparisons & limitations")
+    design.heading(
+        "05 / How the engine works",
+        "From likely response to a defensible decision",
+        "Prediction, evaluation and decision-making answer different questions. "
+        "Understand the safeguards behind the saved evidence.",
+    )
+    design.cards(
+        [
+            ("Public benchmark", "Corrected Criteo v2.1; pre-treatment predictors only."),
+            ("Frozen development", "Five fixed splits; model recipes and policies locked."),
+            ("Predict & compare", "Response and S/T rankings; equal saved reach."),
+            ("Evaluate once", "IPW / shared DR; conditional paired uncertainty."),
+            ("Retain the rule", "No targeting; no holdout-driven reselection."),
+        ],
+        flow=True,
+    )
+    design.cards(
+        [
+            (
+                "Treated response",
+                "Predict who will visit among assigned users. Likely response need "
+                "not imply incrementality.",
+            ),
+            (
+                "S-learner",
+                "One outcome model, evaluated under intervention 1 and 0. Their "
+                "difference supplies the ranking.",
+            ),
+            (
+                "T-learner",
+                "Separate treatment/control outcome models. Their predicted "
+                "probability difference supplies the ranking.",
+            ),
+        ]
+    )
     st.write(
         "Response predicts who visits. S/T rankings contrast predicted visit probabilities "
         "under assignment versus control; no individual causal response is observed."
@@ -367,7 +520,7 @@ def models(data, options):
         "At reference e=0.85, all ten simultaneous IPW/shared-DR S-versus-T comparisons "
         "include zero. This is not an equivalence test or a reason to change the primary policy."
     )
-    with st.expander("How the models differ", expanded=True):
+    with st.expander("Technical detail · model definitions and feature discipline"):
         st.markdown(
             "- **Treated response:** visit prediction within the assigned arm.\n"
             "- **S-learner:** one model evaluated at a separate intervention input of 1 and 0.\n"
@@ -376,7 +529,7 @@ def models(data, options):
             "User predictors were exactly f0–f11. Exposure, outcomes and IDs were excluded. "
             "No model is loaded by this app."
         )
-    with st.expander("Why these intervals are conditional", expanded=True):
+    with st.expander("Technical detail · conditional uncertainty and the 765-comparison family"):
         st.write(
             "2,000 paired Gaussian-multiplier draws generated the saved intervals. The "
             "simultaneous family contains 765 predeclared contrasts, including nuisance "
@@ -389,6 +542,13 @@ def models(data, options):
             "training uncertainty and outcome-stratification limitations remain. Fixed-stratum "
             "sensitivity conditions on observed treatment × visit composition."
         )
+    design.panel(
+        "IPW versus shared doubly robust evaluation",
+        "IPW reweights observed assignments under an assumed propensity. Shared DR "
+        "combines reweighting with frozen outcome-model predictions. Its "
+        "double-robustness property still requires identification assumptions; it "
+        "does not remove hidden experiment assignment or selection bias.",
+    )
     st.subheader("Identification and responsible interpretation")
     st.write(
         "Causal interpretation additionally needs consistency, positivity, exchangeability, "
@@ -400,6 +560,7 @@ def models(data, options):
 
 
 def main():
+    design.apply()
     try:
         data = load_data()
     except (OSError, ValueError, TypeError, KeyError):
@@ -409,12 +570,23 @@ def main():
         )
         st.stop()
     with st.sidebar:
-        st.markdown("### Marketing Uplift\nEvidence before spend")
-        page = st.radio("Explore the evidence", PAGES, key="page")
+        st.html('<div class="mu-wordmark">Marketing Uplift<span>Decision Intelligence</span></div>')
+        page = st.radio(
+            "Explore the evidence",
+            PAGES,
+            key="page",
+            format_func={
+                "Overview": "Executive overview",
+                "Policy comparisons": "Policy performance",
+                "Sensitivity explorer": "Sensitivity & robustness",
+                "Budget illustration": "Budget impact studio",
+                "Models & limitations": "How the engine works",
+            }.get,
+        )
         st.success("Frozen primary policy: no targeting")
         st.caption("Exploratory controls never change the locked recommendation.")
-    st.caption("CRITEO V2.1  /  FROZEN AGGREGATE EVIDENCE")
-    st.caption("Primary decision: no targeting. Exploratory controls are diagnostic only.")
+    if page != "Overview":
+        st.caption("FROZEN EVIDENCE / Primary decision: no targeting · Secondary diagnostics only")
     if page == "Overview":
         overview(data)
     else:
@@ -437,6 +609,10 @@ def main():
         )
         st.link_button("Read the case study", REPOSITORY + "/blob/main/docs/CASE_STUDY.md")
     st.divider()
+    st.caption(
+        "Offline portfolio demonstration · no live advertising, user targeting or "
+        "execution controls."
+    )
     st.caption(
         "Data: Criteo AI Lab · Diemert et al. (2018), A Large Scale Benchmark for Uplift Modeling. "
         "Criteo-derived aggregates: CC BY-NC-SA 4.0 · software: MIT. No endorsement implied."

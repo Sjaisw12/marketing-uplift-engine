@@ -209,3 +209,10 @@ See the [case study](docs/CASE_STUDY.md) for scientific findings and limitations
 [Pinned source](https://huggingface.co/datasets/criteo/criteo-uplift/tree/82811785048bb633de2d55c02bab4e57066e6423).
 Software retains the repository MIT license; dataset-derived portfolio assets retain
 [CC BY-NC-SA 4.0 attribution and restrictions](reports/portfolio/LICENSE.md).
+
+The local Phase 11 UI redesign presents **Marketing Uplift | Decision Intelligence**:
+a navy-and-cobalt executive overview, policy diagnostics, sensitivity analysis,
+hypothetical budget studio and visual methodology. See the [dashboard guide](docs/DASHBOARD.md)
+for Python 3.12 launch and review-bundle instructions. This presentation update
+preserves the approved aggregate snapshot and frozen no-targeting recommendation;
+public deployment remains a separate owner decision.

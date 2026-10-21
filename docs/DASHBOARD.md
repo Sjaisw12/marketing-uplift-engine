@@ -154,3 +154,41 @@ Criteo-derived aggregates and benchmark visualizations retain **CC BY-NC-SA 4.0*
 app/software code retains the repository **MIT** license. No Criteo endorsement,
 real advertiser-wide causal impact, realized financial benefit or deployment
 recommendation is implied. The one-time final evaluation remains closed.
+
+## Decision Intelligence redesign (local review)
+
+The UI-redesign branch starts from the complete Phase 11 dashboard, not main.
+The product is **Marketing Uplift | Decision Intelligence**, with five display names:
+Executive overview, Policy performance, Sensitivity & robustness, Budget impact
+studio, and How the engine works. Original internal navigation values and widget
+keys remain stable for compatibility. The entrypoint and dependency pins are unchanged.
+
+The presentation system in `app/design.py` uses a navy navigation rail, light
+canvas, white cards, cobalt response, teal S-learner, violet T-learner and slate
+random-policy identities. Styling uses local scoped CSS and native keyboard-operable
+Streamlit controls, with no external fonts, asset service or frontend framework.
+Cards and diagrams become grids at narrower widths. There is no public deployment.
+
+The overview explains the frozen no-targeting decision before deeper analysis.
+Same-reach cards display exact saved estimates; the sensitivity panels summarize
+only the displayed saved point-estimate ranges. These ranges are descriptive
+summaries, not additional uncertainty intervals or statistical tests. The simulator
+adds a hypothetical incremental-value tile and spend/unspent graphic using the
+unchanged Decimal illustration outputs. No new statistical quantity is estimated.
+
+For a standalone review ZIP, open a new directory and verify its checksum before
+extracting. The `preview/` directory contains only the app, unchanged public
+snapshot/loader, licensing and deployment documentation. From that directory:
+
+```bash
+uv venv --python 3.12 .venv-dashboard
+uv pip sync --python .venv-dashboard/bin/python app/requirements.txt
+.venv-dashboard/bin/python -m streamlit run app/streamlit_app.py --server.address=127.0.0.1
+```
+
+Open `http://localhost:8501`. No dataset download, model loading, GitHub credentials,
+checkpoint restore or execution approval is needed. Keep the directory separate
+from previous project copies. Close another local app using port 8501 first, or
+add `--server.port=8502`. Screenshots, file hashes, diffs, test evidence and the
+redesign audit are provided separately in the review ZIP. A private review transfer
+can be requested; no upload or public release is implied by packaging.
