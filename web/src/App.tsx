@@ -17,6 +17,7 @@ import {
   type Snapshot,
 } from "./data";
 import { PolicyChart, SensitivityChart, fmt, fmtDecimal } from "./Charts";
+import { SITE } from "./site";
 const REPO = "https://github.com/Sjaisw12/marketing-uplift-engine";
 const NAV = [
   ["story", "The question"],
@@ -236,6 +237,11 @@ export function TeachingDemo() {
         <span className="mono">A THOUGHT EXPERIMENT</span>
         <span className="live-dot">Not a real person</span>
       </div>
+      <p className="teaching-guide">
+        <strong>Try this:</strong> switch advertising OFF, then ON. Start with
+        “Visits anyway”; then choose “Could be persuaded” and compare again. Ask
+        whether the visit changes—not just whether a visit occurs.
+      </p>
       <div
         className="customer-tabs"
         role="group"
@@ -440,7 +446,7 @@ function Study({ data }: { data: Snapshot }) {
         <div className="rate-story">
           <div>
             <span className="kicker">WHAT WAS OBSERVED</span>
-            <h3>More visits in the assigned-ad group.</h3>
+            <h3>The ad-assigned group had a higher observed visit rate.</h3>
             <p>
               That is a description of the released sample. It is not, by
               itself, proof that advertising caused the difference.
@@ -456,6 +462,7 @@ function Study({ data }: { data: Snapshot }) {
           </div>
           <div
             className="rates"
+            role="group"
             aria-label="Observed assignment-arm visit rates"
           >
             {[
@@ -497,11 +504,26 @@ function Study({ data }: { data: Snapshot }) {
           </div>
         </div>
         <Note>
+          <strong>
+            Historical assignments are not this project’s spending decision.
+          </strong>{" "}
+          These records describe Criteo’s past experiment assignments. The
+          rankings below evaluate hypothetical targeting policies using saved
+          aggregate results. This portfolio site deploys no ads; its frozen
+          primary rule would make zero assignments. The historical treatment
+          group does not contradict that later recommendation.
+        </Note>
+        <Note>
           Assignment is not actual ad exposure. Criteo pools experiments and
           uses non-uniform privacy subsampling. Original experiment-specific
           assignment probabilities and experiment identifiers are unavailable.
         </Note>
       </div>
+      <Note>
+        <strong>Takeaway:</strong> a higher observed rate describes the released
+        sample. A marketing decision needs credible evidence of additional
+        visits, not just more observed visits in a larger group.
+      </Note>
     </section>
   );
 }
@@ -578,6 +600,22 @@ function Compare({ data }: { data: Snapshot }) {
             targeting. Higher dots do not establish a best causal policy.
           </p>
         </div>
+        <div className="unit-example" aria-live="polite">
+          <strong>Read this selected estimate in everyday terms</strong>
+          <p>
+            For an illustrative 1,000 eligible records at {reach}% reach, the
+            fixed rule would make {reach * 10} assignments. The saved{" "}
+            {LABELS[selected]} estimate is {fmt(e.value)} additional visits
+            {e.value < 0 ? " (a negative gain)" : ""} relative to no targeting,
+            per all 1,000 eligible records—not per {reach * 10} ads.
+          </p>
+          <p className="micro">
+            This is not a conversion percentage, guaranteed benefit, observed
+            individual effect or validated forecast for a new audience. It is a
+            saved, assumption-dependent benchmark estimate. Whiskers are
+            conditional uncertainty, not a guarantee.
+          </p>
+        </div>
         <ScenarioLabel options={options} />
         <details>
           <summary>What does “per 1,000 eligible” mean?</summary>
@@ -591,7 +629,12 @@ function Compare({ data }: { data: Snapshot }) {
         <Assumptions id="compare" value={options} onChange={setOptions} />
         <details>
           <summary>Exact saved values & reference policies</summary>
-          <div className="table-scroll">
+          <div
+            className="table-scroll"
+            role="region"
+            aria-label="Exact saved policy estimates"
+            tabIndex={0}
+          >
             <table>
               <caption>
                 {reach}% reach · {options.interval} intervals · visits per 1,000
@@ -648,6 +691,11 @@ function Compare({ data }: { data: Snapshot }) {
         models and fixed policies. Simultaneous coverage retains the original
         765-comparison family, even when only a few results are displayed.
         Causal interpretation additionally requires unverified assumptions.
+      </Note>
+      <Note>
+        <strong>Takeaway:</strong> compare like-for-like reach and paired
+        uncertainty. A higher diagnostic estimate alone does not authorize a new
+        targeting policy.
       </Note>
     </section>
   );
@@ -842,6 +890,7 @@ function DecisionLab({ data }: { data: Snapshot }) {
                 </dl>
                 <div
                   className="allocation"
+                  role="img"
                   aria-label={`Illustrative spend ${result.spend.toFixed(2)} units; remaining ${result.unspent.toFixed(2)} units`}
                 >
                   <span
@@ -892,6 +941,11 @@ function DecisionLab({ data }: { data: Snapshot }) {
           hypothetical, not observed Criteo prices or revenues.
         </p>
       </details>
+      <Note>
+        <strong>Takeaway:</strong> exploring cost/value trade-offs is useful,
+        but assumed prices and saved benchmark estimates do not validate
+        spending for a new business.
+      </Note>
     </section>
   );
 }
@@ -939,8 +993,13 @@ function Decision({ data }: { data: Snapshot }) {
             <p>
               The prespecified decision framework abstained in{" "}
               <strong>all 40 development scenario/split combinations</strong>.
-              That conservative rule was frozen before the one-time final
-              evaluation.
+              The framework required an extra spending tranche to retain
+              positive conservative net value across its declared assumptions,
+              within budget and support limits. It stopped at the first failed
+              tranche. Assumption sensitivity, inadequate hypothetical value or
+              infeasible budgets prevented targeting in development; a positive
+              diagnostic point estimate alone was insufficient. That rule was
+              frozen before the one-time final evaluation.
             </p>
             <p>
               Some secondary holdout estimates were positive. They were
@@ -999,9 +1058,11 @@ function Decision({ data }: { data: Snapshot }) {
         <div className="decision-bottom">
           <b>What a marketing team can take away</b>
           <p>
-            A disciplined way to distinguish likely response from incremental
-            impact, compare policies fairly, expose assumption sensitivity and
-            avoid making a spending decision from a point estimate alone.
+            This is a demonstrated methodology, not a validated targeting model
+            for an outside company. A disciplined way to distinguish likely
+            response from incremental impact, compare policies fairly, expose
+            assumption sensitivity and avoid making a spending decision from a
+            point estimate alone.
           </p>
         </div>
       </div>
@@ -1139,6 +1200,18 @@ function Science({ data }: { data: Snapshot }) {
             </p>
           </details>
           <details>
+            <summary>Technical stack & engineering scope</summary>
+            <p>
+              The frozen research used Python, DuckDB/Parquet, LightGBM, MLflow
+              and deterministic split/provenance artifacts. This separate
+              frontend uses React, TypeScript, Vite, local SVG charts and
+              decimal.js. A pinned public snapshot, schema validation,
+              cross-language arithmetic tests, responsive browser checks and a
+              static-only bundle make the presentation reproducible. No model,
+              backend, credential or research execution interface is included.
+            </p>
+          </details>
+          <details>
             <summary>What this project did not establish</summary>
             <p>
               No validated advertiser ROI, revenue or cost savings. No globally
@@ -1153,6 +1226,11 @@ function Science({ data }: { data: Snapshot }) {
           </details>
         </div>
       </div>
+      <Note>
+        <strong>Takeaway:</strong> provenance, leakage safeguards and
+        conditional uncertainty make the work inspectable; they do not remove
+        the causal identification limitations.
+      </Note>
     </section>
   );
 }
@@ -1189,11 +1267,7 @@ export function Experience({ data }: { data: Snapshot }) {
         Skip to the study experience
       </a>
       <header className="site-header">
-        <a
-          className="wordmark"
-          href="#story"
-          aria-label="Marketing Uplift, The Decision Lab home"
-        >
+        <a className="wordmark" href="#story">
           <span className="brand-glyph" aria-hidden="true">
             <i />
             <i />
@@ -1271,6 +1345,33 @@ export function Experience({ data }: { data: Snapshot }) {
             No live targeting. No new experiments. No production deployment
             guidance.
           </p>
+          <div className="author-credit">
+            <span className="mono">PROJECT BY</span>
+            <a href={SITE.authorGithubUrl} target="_blank" rel="noreferrer">
+              {SITE.authorName} <Arrow />
+            </a>
+            <a href={`${REPO}/tree/main/docs`}>
+              Technical documentation <Arrow />
+            </a>
+            {SITE.professionalProfileUrl && (
+              <a
+                href={SITE.professionalProfileUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Professional profile <Arrow />
+              </a>
+            )}
+            <a href={REPO}>
+              Public GitHub repository <Arrow />
+            </a>
+            <a href={`${REPO}/blob/main/docs/CASE_STUDY.md`}>
+              Technical case study <Arrow />
+            </a>
+            <a href={`${REPO}/blob/main/docs/MODEL_CARD.md`}>
+              Model card <Arrow />
+            </a>
+          </div>
         </div>
         <div>
           <strong>Attribution & licensing</strong>

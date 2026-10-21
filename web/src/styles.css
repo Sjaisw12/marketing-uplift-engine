@@ -2255,3 +2255,100 @@ a > .icon-arrow {
     font-size: 0.68rem;
   }
 }
+
+/* Final quality gate: same editorial system, clearer guidance and focus semantics. */
+.teaching-guide {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  border-left: 2px solid var(--rust);
+  padding-left: 12px;
+  margin: 0 0 17px;
+  color: #3f5346;
+}
+.unit-example {
+  border-left: 2px solid #7b9588;
+  padding: 5px 0 5px 16px;
+  margin: 22px 0;
+}
+.unit-example > strong {
+  font-size: 0.8rem;
+}
+.unit-example p {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  margin: 10px 0 0;
+}
+.chart-unit {
+  font-size: 0.77rem;
+  color: var(--muted);
+  margin: 4px 0 10px;
+}
+.author-credit {
+  display: flex;
+  gap: 12px 20px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  align-items: center;
+}
+.author-credit > .mono {
+  width: 100%;
+  font-size: 0.65rem;
+}
+.author-credit a {
+  font-size: 0.77rem;
+}
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 3px solid #446d5a;
+  outline-offset: 4px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--paper);
+}
+.model-tabs button:focus-visible,
+.customer-tabs button:focus-visible {
+  outline: 2px dashed #446d5a;
+  outline-offset: 3px;
+}
+.chart-wrap svg:focus-visible {
+  outline: 2px solid #446d5a;
+  outline-offset: 5px;
+  border-radius: 5px;
+}
+@media (max-width: 600px) {
+  .micro {
+    font-size: 0.79rem;
+  }
+  .mono,
+  .chapter {
+    font-size: 0.65rem;
+  }
+  .teaching-demo > .micro {
+    font-size: 0.73rem;
+  }
+  .teaching-guide {
+    font-size: 0.8rem;
+  }
+  .unit-example p {
+    font-size: 0.79rem;
+  }
+  .chart-key {
+    font-size: 0.75rem;
+  }
+  .scenario-label {
+    font-size: 0.75rem;
+  }
+  .author-credit {
+    gap: 15px;
+  }
+  .assumptions summary > span {
+    font-size: 0.65rem;
+  }
+}
+
+.table-scroll:focus-visible {
+  outline: 2px solid #446d5a;
+  outline-offset: 5px;
+}

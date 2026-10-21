@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#f7f4ee"/><path d="M54 54H1146M54 577H1146" stroke="#cbd0c3"/>
+<rect x="56" y="82" width="36" height="36" fill="#183831"/><path d="M63 89h9v23h-9zm14 10h9v13h-9z" fill="#edb58a"/>
+<text x="108" y="107" fill="#183831" font-family="Arial,sans-serif" font-size="20" font-weight="600">MARKETING UPLIFT</text>
+<text x="56" y="212" fill="#183831" font-family="Georgia,serif" font-size="85" letter-spacing="-4">The Decision Lab</text>
+<text x="60" y="305" fill="#183831" font-family="Georgia,serif" font-size="51">Who should <tspan fill="#ae492d" font-style="italic">actually</tspan> see</text>
+<text x="60" y="366" fill="#183831" font-family="Georgia,serif" font-size="51">your next ad?</text>
+<rect x="60" y="427" width="581" height="52" rx="3" fill="#e4ebe0" stroke="#bacbb4"/>
+<text x="78" y="460" fill="#183831" font-family="Arial,sans-serif" font-size="21">Frozen recommendation: no targeting</text>
+<text x="60" y="536" fill="#59665d" font-family="Arial,sans-serif" font-size="19">Offline research. Frozen evidence. An interactive study.</text>
+<rect x="888" y="82" width="256" height="451" fill="#183831"/>
+<g fill="#f7f4ee" font-family="Arial,sans-serif" font-size="23" letter-spacing="2"><text x="920" y="165">OBSERVE</text><text x="920" y="288">ESTIMATE</text><text x="920" y="413">DECIDE</text></g>
+<path d="M922 193h182M922 318h182" stroke="#6c8871"/>
+<path d="M1080 445l24 24m-24 0h24v-24" stroke="#edb58a" fill="none" stroke-width="3"/>
+</svg>

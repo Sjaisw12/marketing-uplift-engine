@@ -33,5 +33,7 @@ it("uses local design assets, reduced motion, focus styles and no external fonts
   expect(readdirSync("public").sort()).toEqual([
     "aggregate_results.json",
     "favicon.svg",
+    "social-preview.png",
+    "social-preview.svg",
   ]);
 });

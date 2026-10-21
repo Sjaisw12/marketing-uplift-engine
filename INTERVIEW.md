@@ -513,3 +513,26 @@ and propensity scenarios. It never optimizes, retrains, reads outcome records,
 trims a budget or changes the primary recommendation. Decimal parity fixtures,
 interaction tests, immutable snapshot verification and explicit limitations make
 that boundary testable. A hypothetical positive net value is not validated ROI.
+
+## Decision Lab final scientific and launch-quality gate
+
+I kept the existing React editorial experience and made the scientific units and
+business interpretation harder to misread. A saved gain is per 1,000 eligible
+records, while reach determines how many assignments the policy makes. I separated
+historical assignment from the frozen zero-targeting policy, preserved all results
+and made creator attribution, keyboard navigation and chart descriptions clearer.
+Independent Python public-aggregate references check the UI values and Decimal
+illustrations; static-browser and accessibility scans supplement human review.
+No experiment, model or final holdout access was repeated. Local verification is
+separate from permission to publish or evidence of production effectiveness.
+
+**Two difficult follow-ups**
+
+1. **Does matching the Python implementation validate the causal estimates?**
+   No. It validates selection, units and presentation arithmetic against the
+   approved snapshot. It cannot repair unknown assignment probabilities, privacy
+   subsampling, dependence or conditional-uncertainty limitations.
+2. **Why not publish immediately after passing automated accessibility checks?**
+   Scanners miss comprehension, some SVG contrast and assistive-technology issues.
+   Human testing, a real approved HTTPS URL, live social-crawler checks and explicit
+   owner publication approval remain separate gates.

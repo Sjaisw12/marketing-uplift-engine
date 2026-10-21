@@ -39,3 +39,24 @@ with credentials omitted. External research links open only on visitor action.
 For optional host hardening, review CSP/Referrer-Policy/nosniff headers with that
 host before enabling them; no untested policy is claimed enforced. Do not route
 this static site to any private research/execution service.
+
+## Final quality-gate additions
+
+See `FINAL_REVIEW.md` for the current gate evidence and remaining checks. The
+historical verification report is retained unchanged. The exact author identity
+is in `site.config.json`; LinkedIn remains omitted by owner instruction.
+
+`productionUrl: null` is the explicit review-only state. It omits canonical,
+`og:url` and absolute social-image URLs; it does not emit a fake public URL.
+After the owner chooses an exact host, review an HTTPS URL ending in `/`, including
+the repository subpath for Pages. Review the configuration-bound metadata tests,
+run `npm run build` and `npm run release:check`. The latter intentionally exits 2
+until configured and rebuilt; a passing check never grants publication permission.
+Synthetic tests cover Pages-style subpaths, but no host has been registered/tested.
+
+The deployment artifact now includes `social-preview.png` (1200×630) and its SVG
+source in addition to index, bundled assets, favicon and approved aggregate JSON.
+The public and distribution allowlists reject unexpected additions. Serve the PNG
+at its configured absolute HTTPS URL; verify it with LinkedIn Post Inspector only
+after authorized deployment. No social crawler can inspect an unpublished localhost
+site. No LinkedIn profile link is required for sharing metadata.

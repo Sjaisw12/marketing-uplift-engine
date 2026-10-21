@@ -94,3 +94,16 @@ fixture is needed by the deployed website.
 
 Screenshots, the source diff, file inventory and validation logs are in the private
 review package alongside `site/`. This work neither pushes nor deploys anything.
+
+## Final scientific and launch-quality review
+
+`FINAL_REVIEW.md` contains the current finishing-pass results (2,111 frontend tests,
+expanded Python references, browser/a11y checks and honest remaining gates).
+`NEWCOMER_TEST.md` is the independent-human acceptance script. Creator attribution
+and safe sharing settings are in `site.config.json`. Production URL is deliberately
+unset; `npm run release:check` must block publication readiness until an exact
+owner-reviewed HTTPS root and rebuilt social metadata are available.
+
+Original `VERIFICATION.md` remains the historical initial-build report. The current
+review package includes 35 new browser captures, the 1200×630 social preview,
+numerical/disclosure evidence and a source diff. It is prepared locally only.

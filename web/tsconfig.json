@@ -12,7 +12,8 @@
     "noEmit": true,
     "types": ["vite/client", "vitest/globals", "node"],
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "allowImportingTsExtensions": true
   },
   "include": ["src", "tests", "vite.config.ts"]
 }

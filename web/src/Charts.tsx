@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useId } from "react";
 import {
   COLORS,
   LABELS,
@@ -37,6 +37,7 @@ export function PolicyChart({
   options: Options;
   selected: Model;
 }) {
+  const descriptionId = useId();
   const small = useCompact(),
     w = small ? 360 : 900,
     left = small ? 110 : 170,
@@ -56,9 +57,23 @@ export function PolicyChart({
       <svg
         viewBox={`0 0 ${w} 322`}
         role="img"
+        tabIndex={0}
+        aria-describedby={descriptionId}
         aria-label={`Saved ${options.interval} intervals at ${reach}% reach. All values are visits per 1,000 eligible records.`}
       >
         <title>Four fixed strategies at {reach}% reach</title>
+        <desc id={descriptionId}>
+          Assumed e={options.propensity}; {options.method};{" "}
+          {options.uncertainty} working model.
+          {rows
+            .map(
+              (r) =>
+                `${LABELS[r.model]}: ${fmt(r.value)}, saved ${options.interval} interval [${fmt(r.low)}, ${fmt(r.high)}].`,
+            )
+            .join(" ")}
+          Units are additional visits per 1,000 eligible records. Conditional
+          evidence only, not a best causal policy.
+        </desc>
         {Array.from({ length: 5 }, (_, i) => min + ((max - min) * i) / 4).map(
           (v, i) => (
             <g key={i}>
@@ -73,11 +88,7 @@ export function PolicyChart({
         {rows.map((r, i) => {
           const y = 52 + i * 62;
           return (
-            <g
-              key={r.model}
-              tabIndex={0}
-              aria-label={`${LABELS[r.model]}: ${fmt(r.value)}, saved ${options.interval} interval ${fmt(r.low)} to ${fmt(r.high)}`}
-            >
+            <g key={r.model}>
               <title>
                 {LABELS[r.model]}: {fmt(r.value)} [{fmt(r.low)}, {fmt(r.high)}]
               </title>
@@ -134,6 +145,7 @@ export function SensitivityChart({
   data: Snapshot;
   options: Options;
 }) {
+  const descriptionId = useId();
   const small = useCompact(),
     w = small ? 360 : 900,
     left = 48,
@@ -151,12 +163,27 @@ export function SensitivityChart({
     y = (v: number) => 240 - ((v - lo) / (hi - lo)) * 210;
   return (
     <div className="chart-wrap">
+      <p className="chart-unit">
+        Estimated additional visits per 1,000 eligible records
+      </p>
       <svg
         viewBox={`0 0 ${w} 305`}
         role="img"
+        tabIndex={0}
+        aria-describedby={descriptionId}
         aria-label="Saved all-targeting IPW and shared DR estimates at exactly five assumed propensities. Points and saved intervals only; no interpolation."
       >
         <title>Propensity sensitivity: saved all-targeting reference</title>
+        <desc id={descriptionId}>
+          {rows
+            .map(
+              (r) =>
+                `${r.method}, assumed e=${SCENARIOS[r.i]}: ${fmt(r.value)}, saved ${options.interval} interval [${fmt(r.low)}, ${fmt(r.high)}].`,
+            )
+            .join(" ")}
+          Fixed all-targeting anchor, different budget to partial targeting. No
+          interpolation; propensity scenarios are assumptions.
+        </desc>
         {Array.from({ length: 5 }, (_, i) => lo + ((hi - lo) * i) / 4).map(
           (v, i) => (
             <g key={i}>
@@ -183,11 +210,7 @@ export function SensitivityChart({
           const px = x(r.i) + (r.method === "dr" ? -6 : 6),
             color = r.method === "dr" ? "#26776b" : "#ae492d";
           return (
-            <g
-              key={`${r.method}-${r.i}`}
-              tabIndex={0}
-              aria-label={`${r.method === "dr" ? "Shared DR" : "IPW"}, assumed e=${SCENARIOS[r.i]}: ${fmt(r.value)}, interval ${fmt(r.low)} to ${fmt(r.high)}`}
-            >
+            <g key={`${r.method}-${r.i}`}>
               <title>
                 {r.method === "dr" ? "Shared DR" : "IPW"} · e={SCENARIOS[r.i]}:{" "}
                 {fmt(r.value)} [{fmt(r.low)}, {fmt(r.high)}]
