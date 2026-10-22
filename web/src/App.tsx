@@ -7,7 +7,6 @@ import {
   MODELS,
   REACHES,
   SCENARIOS,
-  SNAPSHOT_SHA256,
   estimate,
   loadSnapshot,
   observed,
@@ -448,8 +447,10 @@ function Study({ data }: { data: Snapshot }) {
             <span className="kicker">WHAT WAS OBSERVED</span>
             <h3>The ad-assigned group had a higher observed visit rate.</h3>
             <p>
-              That is a description of the released sample. It is not, by
-              itself, proof that advertising caused the difference.
+              In a clean randomized trial, an arm-rate difference can estimate
+              an assignment effect. Here, pooled experiments, unknown
+              assignment probabilities and privacy subsampling mean this
+              observed gap is not a verified causal effect.
             </p>
             <div className="rate-gap">
               <strong>
@@ -975,11 +976,11 @@ function Decision({ data }: { data: Snapshot }) {
           <div>
             <span className="pill">FROZEN PRIMARY RECOMMENDATION</span>
             <h2>
-              Sometimes the most
+              The frozen rule
               <br />
-              defensible spend
+              said <em>no spend.</em>
               <br />
-              is <em>no spend.</em>
+              Here's why.
             </h2>
           </div>
           <div className="decision-zero">
@@ -993,10 +994,11 @@ function Decision({ data }: { data: Snapshot }) {
         </div>
         <div className="decision-columns">
           <h3>
-            Positive diagnostics.
-            <br />A conservative decision.
+            One stress test
             <br />
-            Both can be true.
+            vetoed every feasible
+            <br />
+            first tranche.
           </h3>
           <div>
             <p>
@@ -1016,21 +1018,23 @@ function Decision({ data }: { data: Snapshot }) {
               before the one-time final evaluation.
             </p>
             <p>
-              Some secondary holdout estimates were positive. They were
-              diagnostic comparisons—not permission to choose a new model, reach
-              or spending rule after seeing the final results.
+              Some secondary holdout estimates were positive, but they were
+              diagnostic comparisons. They did not permit a new model, reach or
+              spending rule to be selected after the final evaluation.
             </p>
             <p className="decision-quote">
-              “An estimate that looks profitable is not enough by itself to
-              justify spending.”
+              “A stress test can govern a decision. It cannot prove that the
+              decision is universally best.”
             </p>
             <p>
-              This is the outcome of a prespecified stress-test rule, not a
-              universal business prescription. It does not establish that
-              advertising is ineffective or abstention is universally optimal.
-              Removing the binding scenario was not tested as a new selection
-              rule. This is an offline study, not a production-ready targeting
-              service.
+              This is a result of the pre-committed stress-test rule, not a
+              general recommendation against advertising. The e=0.90 scenario
+              dominated every feasible first-tranche decision; part of that
+              sensitivity follows mechanically from the unnormalized IPW
+              formula. Advertising ineffectiveness and universally optimal
+              abstention are not established. Removing that scenario has not
+              been tested as a different selection rule. This is an offline
+              study, not a production targeting service.
             </p>
           </div>
         </div>
@@ -1147,19 +1151,11 @@ function Science({ data }: { data: Snapshot }) {
               used to remove repeated vectors.
             </p>
             <p>
-              Final models were refit only on development records under
-              predetermined recipes. Owner-signed approvals, a fixed receipt,
-              durable journal, sealed predictions and independently restored
-              encrypted backup preceded one-time outcome evaluation. That
-              evaluation is complete and closed. This static site can only read
-              the approved public aggregate snapshot.
-            </p>
-            <p className="micro">
-              Snapshot SHA-256 <code>{SNAPSHOT_SHA256}</code>
-            </p>
-            <p className="micro">
-              Final result manifest{" "}
-              <code>{data.provenance.result_manifest_sha256}</code>
+              Final models were fit using development records and fixed
+              recipes. The final holdout was evaluated once, after the
+              research rules were locked. This website displays only the
+              approved public aggregates; technical verification records
+              remain in the GitHub documentation.
             </p>
           </details>
           <details>
