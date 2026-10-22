@@ -122,16 +122,20 @@ it("supports the teaching toggle by keyboard without a recommendation side effec
   await user.keyboard(" ");
   expect(screen.getByText("A visit without advertising.")).toBeTruthy();
 });
-it("omits unapproved canonical, image and professional-profile URLs locally", () => {
+it("publishes the reviewed production URL and absolute social sharing metadata", () => {
   expect(SITE.professionalProfileUrl).toBeNull();
-  expect(SITE.productionUrl).toBeNull();
+  expect(SITE.productionUrl).toBe("https://marketing-uplift-engine.vercel.app/");
   const meta = shareTags(SITE);
-  expect(meta.canonical).toBeNull();
+  expect(meta.canonical).toBe(SITE.productionUrl);
   expect(
-    meta.tags.some(
-      (t) => t.attrs.property === "og:image" || t.attrs.property === "og:url",
-    ),
-  ).toBe(false);
+    meta.tags.find((t) => t.attrs.property === "og:url")?.attrs.content,
+  ).toBe(SITE.productionUrl);
+  expect(
+    meta.tags.find((t) => t.attrs.property === "og:image")?.attrs.content,
+  ).toBe("https://marketing-uplift-engine.vercel.app/social-preview.png");
+  expect(
+    meta.tags.find((t) => t.attrs.name === "twitter:card")?.attrs.content,
+  ).toBe("summary_large_image");
   expect(
     meta.tags.find((t) => t.attrs.property === "og:title")?.attrs.content,
   ).toBe(META.title);

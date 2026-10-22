@@ -26,12 +26,12 @@ def test_arm_balance_plan_avoids_unnecessary_outcomes_and_causal_conclusions():
     assert "No such conclusion is reported here" in doc
 
 
-def test_readme_identity_preview_and_unlaunched_status_are_clear():
+def test_readme_identity_preview_and_live_link_are_clear():
     doc = (ROOT / "README.md").read_text()
     assert "OpenAI Codex assisted" in doc
     assert "Sanyam Jaiswal" in doc
     assert "PR #16" in doc
-    assert "**Live URL:** not configured" in doc
+    assert "**Live URL:** [https://marketing-uplift-engine.vercel.app/]" in doc
     assert "Local Streamlit development dashboard" in doc
     assert (ROOT / "docs/images/decision-lab-overview.png").is_file()
     assert "React, TypeScript and Vite" in doc

@@ -1,5 +1,7 @@
 # Marketing Uplift | The Decision Lab
 
+**Production website:** [https://marketing-uplift-engine.vercel.app/](https://marketing-uplift-engine.vercel.app/) — deployed from GitHub `main` on Vercel. Social metadata is finalized by the release configuration; validate with `npm run release:check` after building.
+
 A separate, static, editorial web experience for a newcomer to marketing uplift.
 React + TypeScript + Vite; no backend, model server, account, analytics, secrets or
 research execution. The existing Streamlit application is untouched.
@@ -67,7 +69,7 @@ verification independently checks the same hash and rejects unexpected public as
 
 `public/aggregate_results.json` is byte-identical to the approved Phase 10 snapshot.
 Its historical `local-review-only` metadata is preserved; public aggregate disclosure
-was separately approved in Phase 10. This site's publication still needs approval.
+was separately approved in Phase 10. The separate React presentation is now deployed.
 Never edit, regenerate or silently replace it. The UI has no upload, URL input,
 private-path selector or experiment fallback. Validation failure stops the experience.
 
@@ -92,17 +94,17 @@ fixture is needed by the deployed website.
 - `VERIFICATION.md`: actual test, production-build and browser evidence.
 - `NOTICE.md` and `LICENSE`: Criteo-derived CC BY-NC-SA 4.0 versus MIT software.
 
-Screenshots, the source diff, file inventory and validation logs are in the private
-review package alongside `site/`. This work neither pushes nor deploys anything.
+Screenshots, the source diff, file inventory and validation logs for the original
+review are retained in the earlier private review package. The public Vercel
+deployment is a separately approved release from the merged GitHub source.
 
 ## Final scientific and launch-quality review
 
 `FINAL_REVIEW.md` contains the current finishing-pass results (2,111 frontend tests,
 expanded Python references, browser/a11y checks and honest remaining gates).
 `NEWCOMER_TEST.md` is the independent-human acceptance script. Creator attribution
-and safe sharing settings are in `site.config.json`. Production URL is deliberately
-unset; `npm run release:check` must block publication readiness until an exact
-owner-reviewed HTTPS root and rebuilt social metadata are available.
+and safe sharing settings are in `site.config.json`. Production URL is set to the approved Vercel HTTPS root; `npm run release:check`
+verifies the canonical and absolute social-image metadata in the built HTML.
 
 Original `VERIFICATION.md` remains the historical initial-build report. The current
 review package includes 35 new browser captures, the 1200×630 social preview,
@@ -114,8 +116,9 @@ The follow-up explanation-only pass identifies the original e=.90 IPW binding
 condition, the IPW/DR augmentation identity and the nine qualified higher-reach
 contrasts. See [scientific reconciliation](../docs/SCIENTIFIC_RECONCILIATION.md).
 The earlier FINAL_REVIEW.md is a historical quality-gate report; current scientific
-narrative and public launch remain **BLOCKED pending owner review** and the
-separate human/host/publication gates. Frozen aggregates and arithmetic are unchanged.
+narrative was merged in PR #16 and the site deployed. Manual newcomer,
+Safari/VoiceOver and live social-crawler checks remain outstanding. Frozen
+aggregates and arithmetic are unchanged.
 
 ## Latest PR #16 pre-launch review
 
@@ -125,4 +128,4 @@ Vercel instructions and two **unexecuted development-only feasibility proposals*
 See [current pre-launch review](../docs/PRELAUNCH_REVIEW.md),
 [development exploration feasibility](../docs/DEVELOPMENT_EXPLORATION_FEASIBILITY.md)
 and [arm-balance feasibility](../docs/ARM_BALANCE_FEASIBILITY.md). These do not
-authorize new analysis or hosting. No URL is configured until owner approval.
+authorize new analysis. The approved production URL is configured separately.
