@@ -18,7 +18,7 @@ it("explains the exact recorded abstention without changing the primary policy",
     "first 10% tranche",
     "assumed e=0.90",
     "insufficient event support was not",
-    "not a universal business prescription",
+    "not a general recommendation against advertising",
     "abstention is universally optimal",
   ])
     expect(text).toContain(phrase);
