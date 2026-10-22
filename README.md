@@ -22,11 +22,12 @@ targeting is an identity—not proof that advertising is ineffective or abstenti
 
 [Local completion and verification evidence](reports/portfolio/completion.md)
 
-## Decision Lab — React website source
+## Decision Lab — live React website
 
 ![Decision Lab local website preview](docs/images/decision-lab-overview.png)
 
-A local preview of the existing editorial website; no live deployment is claimed.
+**[Open the live Decision Lab](https://marketing-uplift-engine.vercel.app/)** — a static React website deployed on Vercel.
+The screenshot above is a prelaunch local capture of the same editorial design.
 Criteo-derived presentation assets retain [CC BY-NC-SA 4.0 attribution](web/NOTICE.md);
 application software remains MIT.
 Explore six chapters: the business question, real study, saved comparisons,
@@ -49,9 +50,9 @@ npm run dev
 [Scientific methodology and reconciliation](docs/SCIENTIFIC_RECONCILIATION.md) ·
 [Frontend README](web/README.md) · [Vercel launch checklist](web/DEPLOYMENT.md)
 
-**Live URL:** not configured. Add the verified owner-approved Vercel URL here only
-after authorized deployment; no invented URL or automatic deployment is configured.
-<!-- Verified live Vercel URL goes here only after owner approval and live checks. -->
+**Live URL:** [https://marketing-uplift-engine.vercel.app/](https://marketing-uplift-engine.vercel.app/) — publicly accessible without a Vercel account.
+The production website serves only the approved aggregate snapshot; social preview
+metadata and remaining mobile/newcomer checks are tracked separately.
 
 The React `web/` tree is the intended public-site source. The `app/` Streamlit
 implementation below is a separate local development dashboard, not the deployed
@@ -83,8 +84,8 @@ assignment cost and visit value. It is **not validated ROI, deployment guidance 
 a new causal estimate**. Scaled saved intervals do not cover transport uncertainty.
 
 [Local launch and Community Cloud checklist](docs/DASHBOARD.md).
-Source is under review in PR #16; no public hosting or live-demo link is claimed.
-Hosting deployment requires separate owner approval.
+The React website was merged via PR #16 and deployed to Vercel; the Streamlit
+development dashboard remains local and is not the public website.
 
 ![End-to-end architecture](reports/portfolio/figures/architecture.png)
 

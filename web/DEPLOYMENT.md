@@ -1,21 +1,24 @@
-# Static deployment proposal — approval required
+# Static deployment — Vercel production
 
-Source is published for review in PR #16. No hosting registration, infrastructure,
-merge of that PR or public deployment is performed by this preparation. The site
-is a static artifact, with no backend or secrets.
+**Current status:** PR #16 is merged. The initial React website is deployed at
+[https://marketing-uplift-engine.vercel.app/](https://marketing-uplift-engine.vercel.app/) from merge commit
+`221daa4e8fdfc30b88619d8bb97bd255356db615`.
+Chrome Incognito access was confirmed. The follow-up release configuration adds
+canonical/Open Graph metadata and must pass CI and live crawler verification.
+This is a static artifact; it has no backend, model server or secrets.
 
-## Intended later target: Vercel (not configured)
+## Production target: Vercel
 
 The current target is a static Vercel project with **Root Directory `web`**, Vite,
 Node.js **24.x**, `npm ci`, build command `npm run build`, output directory `dist`.
 No Python runtime, serverless function, model server, environment secret or research
 command is required. Verify Node 24 is offered by the intended account before
 launch; if unavailable, stop for a reviewed compatibility change, not a silent
-runtime substitution. No Vercel project, account integration or domain was created.
+runtime substitution. The Vercel project `marketing-uplift-engine` and production domain exist.
 
-PR #16 publishes source for review; it does not grant hosting approval. Do not import
-or connect the Git repository yet: those actions can trigger automatic deployment.
-GitHub Pages/Cloudflare are alternatives only, not configured deployment paths.
+PR #16 was merged, and the repository is connected to Vercel for production
+deployments from `main`. Subsequent merges may trigger automatic deployments.
+GitHub Pages/Cloudflare remain unconfigured alternatives.
 
 Vite uses `base: './'`; resource URLs are relative. Navigation uses fragment anchors
 (`#study`, `#science`, etc.), so no SPA history rewrite is required. A secure HTTPS
@@ -24,7 +27,7 @@ snapshot with lossless bytes: text transformations or line-ending changes fail c
 Enable normal HTTP gzip/Brotli compression and caching without changing decoded bytes.
 Keep data and build assets versioned together; avoid stale-cache mixing.
 
-## Prepublication operator checklist
+## Post-deployment verification checklist (historical approval steps retained)
 
 - [ ] Owner reviews desktop/mobile screenshots and the complete-stranger checklist.
 - [ ] Owner approves the exact source commit, production build and public disclosure.
@@ -51,13 +54,11 @@ See `FINAL_REVIEW.md` for the current gate evidence and remaining checks. The
 historical verification report is retained unchanged. The exact author identity
 is in `site.config.json`; LinkedIn remains omitted by owner instruction.
 
-`productionUrl: null` is the explicit review-only state. It omits canonical,
-`og:url` and absolute social-image URLs; it does not emit a fake public URL.
-After the owner chooses an exact host, review an HTTPS URL ending in `/`, including
-the repository subpath for Pages. Review the configuration-bound metadata tests,
-run `npm run build` and `npm run release:check`. The latter intentionally exits 2
-until configured and rebuilt; a passing check never grants publication permission.
-Synthetic tests cover Pages-style subpaths, but no host has been registered/tested.
+The initial deployment deliberately used `productionUrl: null`. The follow-up
+release sets `productionUrl` to `https://marketing-uplift-engine.vercel.app/`, then verifies
+the built canonical, `og:url` and absolute `og:image` with `npm run build`
+and `npm run release:check`. A passing check verifies mechanical metadata only;
+the live social crawler, browsers and accessibility still need manual checks.
 
 The deployment artifact now includes `social-preview.png` (1200×630) and its SVG
 source in addition to index, bundled assets, favicon and approved aggregate JSON.
@@ -66,7 +67,7 @@ at its configured absolute HTTPS URL; verify it with LinkedIn Post Inspector onl
 after authorized deployment. No social crawler can inspect an unpublished localhost
 site. No LinkedIn profile link is required for sharing metadata.
 
-## Exact future Vercel operator sequence
+## Original Vercel operator sequence (historical preparation record)
 
 1. Owner reviews and approves the source commit and remaining human/accessibility
    checks, then separately approves PR merge and the hosting operation. No merge
@@ -91,7 +92,6 @@ site. No LinkedIn profile link is required for sharing metadata.
    crawler errors before promotion. Update the root README's Live URL location
    only with the verified production URL; never call a local preview a deployment.
 
-No deployment token, cloud resource, paid plan or account permission was requested.
-The static app needs no paid backend; confirm current provider plan/terms and Criteo
-noncommercial/share-alike restrictions with the owner before publication. This is
-a configuration checklist, not verification of a live Vercel account or service.
+The static app needs no website runtime token, Python backend, secret or paid
+model-serving dependency. Criteo-derived content retains CC BY-NC-SA 4.0 attribution
+and noncommercial/share-alike obligations; changes to hosting do not relicense it.

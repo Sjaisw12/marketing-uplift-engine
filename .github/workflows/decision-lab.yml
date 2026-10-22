@@ -42,3 +42,5 @@ jobs:
         run: npm test
       - name: Build and audit static site
         run: npm run build
+      - name: Verify production URL and social metadata
+        run: npm run release:check
