@@ -55,3 +55,23 @@ are not redistributed. The presentation is reproducible from its small reviewed
 aggregate snapshot; reproducing a final outcome read is neither needed nor authorized.
 The [asset license](../reports/portfolio/LICENSE.md) retains Criteo attribution and
 CC BY-NC-SA 4.0 restrictions, distinct from MIT-licensed software.
+
+## Scientific reconciliation and current release state
+
+The original development abstention was specifically bound by unnormalized IPW
+at assumed e=.90 in all 120 candidate ranking records across the 30 applicable
+configurations; five other configurations failed zero value and five had no
+feasible initial reach. It was not a failure of the event-support threshold.
+This is a prespecified stress-test outcome, not universal business guidance.
+
+IPW and shared DR use the same complete final denominator. Their saved all-targeting
+gains at assumed e=.85 are 10.341310853 and 7.419188765 per 1,000 eligible; the
+−2.922122088 augmentation difference need not vanish. Calibration of factual outcomes
+does not establish counterfactual correctness or identification. The unnormalized
+IPW sweep is mechanically decreasing in assumed e for fixed policies/records.
+No normalized/Hájek replacement was generated or substituted.
+
+Phase 10 PR #15 is merged; local Streamlit and React presentation apps exist.
+Public website deployment remains unapproved. See
+[scientific reconciliation](SCIENTIFIC_RECONCILIATION.md) for exact equations,
+paired higher-reach qualifications and the current narrative review gate.

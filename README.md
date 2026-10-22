@@ -1,11 +1,11 @@
 # Marketing Uplift & Causal Decision Engine
 
-**An offline advertising decision study that can recommend spending nothing.**
-
-An advertiser wants incremental website visits, not just a list of people likely
-to visit anyway. This project connects data validation, response and uplift models,
-policy evaluation, uncertainty and a budget-constrained abstention rule on the
-corrected **13.98 million-record Criteo Uplift v2.1 benchmark**.
+Marketing teams need to identify visits advertising might add—not just people
+likely to visit anyway. This offline study compares random targeting, treated-response,
+S-learner and T-learner policies on the corrected **13.98 million-record Criteo
+benchmark**, using frozen development splits and one completed holdout evaluation.
+Its precommitted stress-test rule retained no targeting; the React Decision Lab
+explains that evidence and its limits using approved aggregates only.
 
 **Final recommendation: retain the frozen no-targeting policy.** Positive secondary
 targeting diagnostics do not establish an optimal strategy or authorize replacing
@@ -21,6 +21,70 @@ targeting is an identity—not proof that advertising is ineffective or abstenti
 [Aggregate results and figure guide](reports/portfolio/README.md)
 
 [Local completion and verification evidence](reports/portfolio/completion.md)
+
+## Decision Lab — React website source
+
+![Decision Lab local website preview](docs/images/decision-lab-overview.png)
+
+A local preview of the existing editorial website; no live deployment is claimed.
+Criteo-derived presentation assets retain [CC BY-NC-SA 4.0 attribution](web/NOTICE.md);
+application software remains MIT.
+Explore six chapters: the business question, real study, saved comparisons,
+hypothetical budget lab, original decision and expandable methodology.
+The rule abstained in all 40 configurations: five zero-value gates, five infeasible
+initial reaches, and 120 first-tranche candidate stops in the other 30, all bound
+by assumed e=.90 unnormalized IPW. Some sensitivity is mechanical; this is not
+proof that advertising is ineffective or abstention universally optimal.
+
+**Technology:** Python, LightGBM and MLflow for the frozen research;
+React, TypeScript and Vite for the aggregate-only website.
+
+```sh
+cd web
+npm ci                 # Node.js 24
+npm run dev
+```
+
+[PR #16](https://github.com/Sjaisw12/marketing-uplift-engine/pull/16) ·
+[Scientific methodology and reconciliation](docs/SCIENTIFIC_RECONCILIATION.md) ·
+[Frontend README](web/README.md) · [Vercel launch checklist](web/DEPLOYMENT.md)
+
+**Live URL:** not configured. Add the verified owner-approved Vercel URL here only
+after authorized deployment; no invented URL or automatic deployment is configured.
+<!-- Verified live Vercel URL goes here only after owner approval and live checks. -->
+
+The React `web/` tree is the intended public-site source. The `app/` Streamlit
+implementation below is a separate local development dashboard, not the deployed
+website or a production model service. Source publication in PR #16 does not
+constitute hosting approval.
+
+## Local Streamlit development dashboard
+
+Phase 11 adds an aggregate-only Streamlit dashboard: business overview, fixed-reach
+comparisons, saved IPW/DR sensitivity, hypothetical budget arithmetic and paired
+model explanations. The frozen primary decision stays **no targeting**. Controls
+never train, score, reopen outcomes, interpolate propensity scenarios or select a new policy.
+
+For a minimal Python 3.12 environment, from the repository root:
+
+```sh
+uv venv --python 3.12 .venv-dashboard
+uv pip sync --python .venv-dashboard/bin/python app/requirements.txt
+.venv-dashboard/bin/python -m streamlit run app/streamlit_app.py --server.address=127.0.0.1
+```
+
+Open `http://localhost:8501`. In an existing research development environment,
+`make dashboard` launches the same app. The minimal deployment installs only the
+37 pinned Streamlit runtime dependencies; it needs no models, data download,
+credentials or historical analytical environment.
+
+The budget page scales saved benchmark rates using hypothetical population,
+assignment cost and visit value. It is **not validated ROI, deployment guidance or
+a new causal estimate**. Scaled saved intervals do not cover transport uncertainty.
+
+[Local launch and Community Cloud checklist](docs/DASHBOARD.md).
+Source is under review in PR #16; no public hosting or live-demo link is claimed.
+Hosting deployment requires separate owner approval.
 
 ![End-to-end architecture](reports/portfolio/figures/architecture.png)
 
@@ -101,6 +165,10 @@ At assumed e=0.85, shared-DR secondary diagnostics are:
 | 40% | 3.138 | 7.160 | 7.010 | 6.846 |
 | 50% | 3.805 | 7.241 | 7.104 | 6.924 |
 
+Treated-response is numerically larger than S and T at 30%, 40% and 50% reach.
+All nine saved simultaneous pairwise intervals among those three rankings at those
+reaches include zero under shared DR, assumed e=.85 and the primary IID working model.
+This establishes neither superiority nor equivalence, and chooses no new policy.
 These point estimates are assumption-dependent diagnostics, not a leaderboard for
 choosing the final policy. The all-targeting DR anchor is **7.419** visits per
 1,000 eligible, with nominal pointwise 95% interval **[6.789, 8.048]** and
@@ -112,7 +180,17 @@ fixed-reach targeting. No-targeting has exactly zero incremental gain relative t
 The all-targeting IPW estimate changes from **22.926** at assumed e=0.80 to
 **−11.456** at e=0.90. Shared DR ranges **7.382–7.486**, with final-S DR reported
 as a separate nuisance sensitivity. Relative stability of one evaluator does not
-verify its models or identification assumptions.
+verify its models or identification assumptions. With a fixed policy and records,
+unnormalized IPW is `A/e − B/(1−e)` for nonnegative A and B: increasing assumed e
+mechanically decreases it. This is reweighting sensitivity, not observed effect
+variation or a calibrated probability distribution.
+
+At assumed e=.85, both all-targeting evaluators average over the same complete
+2,096,939-record holdout: IPW **10.341310853**, shared DR **7.419188765**, and DR minus
+IPW **−2.922122088** visits per 1,000 eligible. The difference is exactly the
+nuisance-prediction augmentation, not a required equality or independent evidence
+of a bug. Factual calibration cannot establish counterfactual correctness or causal
+identification. See [scientific reconciliation](docs/SCIENTIFIC_RECONCILIATION.md).
 
 ![Paired S-versus-T diagnostics](reports/portfolio/figures/s_vs_t.png)
 
@@ -130,10 +208,16 @@ propensity and nuisance scenario are in the [aggregate figure guide](reports/por
 
 ## Why retain no targeting?
 
-The development decision engine abstained in **all 40 scenario/split combinations**.
-Depending on the scenario, reasons included assumption sensitivity, negative
-estimated net benefit, zero visit value and insufficient budget for the first
-predeclared reach. Phase 9 locked that recommendation before holdout outcomes.
+All **40 development scenario/split configurations** abstained. Five failed the
+explicit zero-value gate; five had no feasible initial reach. In the remaining
+30 configurations, **all 120 candidate ranking records stopped at the first 10%
+tranche**, with **unnormalized IPW at assumed e=0.90** binding every first-tranche
+lower net-value bound. Insufficient event support was not the binding reason.
+The negative first-tranche IPW point estimates already blocked those candidates.
+This reflects the prespecified stress-test rule, not proof of advertising
+ineffectiveness, universal abstention optimality or a prescription for another business.
+No scenario-removal selection exercise was performed.
+Phase 9 locked that recommendation before holdout outcomes.
 
 Positive final diagnostics answer a narrower question under stated assumptions.
 They neither establish optimality across policies/costs nor justify undoing that
@@ -171,8 +255,9 @@ A future study would need experiment-specific assignment probabilities, sampling
 information, dependence identifiers and real economics. A new policy would require
 fresh prospective evidence, not another look at this holdout.
 
-No Streamlit dashboard, deployed app or recorded demo is claimed in this finalization
-scope. See the [case study](docs/CASE_STUDY.md) for engineering tradeoffs and remaining limits.
+The Phase 10 case study describes its original static portfolio scope. Phase 11
+adds the dashboard described above; no live deployment or recorded demo is claimed.
+See the [case study](docs/CASE_STUDY.md) for scientific findings and limitations.
 
 **Attribution:** Criteo AI Lab; Diemert, Betlei, Renaudin and Amini (2018),
 *A Large Scale Benchmark for Uplift Modeling*, AdKDD & TargetAd.
@@ -180,3 +265,28 @@ scope. See the [case study](docs/CASE_STUDY.md) for engineering tradeoffs and re
 [Pinned source](https://huggingface.co/datasets/criteo/criteo-uplift/tree/82811785048bb633de2d55c02bab4e57066e6423).
 Software retains the repository MIT license; dataset-derived portfolio assets retain
 [CC BY-NC-SA 4.0 attribution and restrictions](reports/portfolio/LICENSE.md).
+
+The local Phase 11 UI redesign presents **Marketing Uplift | Decision Intelligence**:
+a navy-and-cobalt executive overview, policy diagnostics, sensitivity analysis,
+hypothetical budget studio and visual methodology. See the [dashboard guide](docs/DASHBOARD.md)
+for Python 3.12 launch and review-bundle instructions. This presentation update
+preserves the approved aggregate snapshot and frozen no-targeting recommendation;
+public deployment remains a separate owner decision.
+
+## Post-hoc development proposals — not executed
+
+[Development exploration feasibility](docs/DEVELOPMENT_EXPLORATION_FEASIBILITY.md)
+and [arm-balance diagnostic feasibility](docs/ARM_BALANCE_FEASIBILITY.md) describe
+possible development-only follow-ups. They report no alternative recommendation
+or new diagnostic finding, require separate approval and cannot replace the
+original frozen result or reopen the completed holdout.
+
+## Authorship and AI assistance
+
+Created and directed by **Sanyam Jaiswal**. OpenAI Codex assisted with code,
+tests, documentation and presentation implementation. The owner reviewed the
+scientific scope, signed execution approvals, independently restored backups and
+reviewed the results; this acknowledgement does not imply a human-authored
+implementation from scratch or independent validation by an AI tool. Methodological
+limitations and verification evidence are documented rather than inferred from
+the use of an assistant.

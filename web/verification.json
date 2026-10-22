@@ -1,0 +1,60 @@
+{
+  "assets": [
+    {
+      "bytes": 718262,
+      "path": "aggregate_results.json",
+      "sha256": "358c331d72df76d0ca1e4fddd36c7c35be32b1a0b2dd0ae12949c5967ac46169"
+    },
+    {
+      "bytes": 30061,
+      "path": "assets/index-CU44_Jgb.css",
+      "sha256": "b440b323e1baf82f0b12869a31ef307796a00cb74e92995e4222d61554c7f7bc"
+    },
+    {
+      "bytes": 299245,
+      "path": "assets/index-D4Nw0vw3.js",
+      "sha256": "d9da2323424322990313cf57dbc813ccd2ff7aff855a49ec6ebeff95b14bee1f"
+    },
+    {
+      "bytes": 225,
+      "path": "favicon.svg",
+      "sha256": "da0622246b0fe4a598a75caaed5e6d7e9edc0b76174256a7bd81b395f56a8e29"
+    },
+    {
+      "bytes": 742,
+      "path": "index.html",
+      "sha256": "04d49378b99d7acb3911d997f7a2ec81a34dc75bd31111b19471123110284d37"
+    }
+  ],
+  "base_commit": "32b2a1b708aa8fe48d66c7611a40194cb32083bd",
+  "branch": "codex/decision-lab-web",
+  "checks": {
+    "browser_section_viewport_checks": 24,
+    "clean_locked_build": "byte-identical",
+    "existing_dashboard_tests": 78,
+    "format": "PASS",
+    "frontend_tests": 253,
+    "production_audit_reported_vulnerabilities": 0,
+    "production_build": "PASS",
+    "python_budget_fixtures": 200,
+    "runtime_exceptions": 0,
+    "same_origin_resources_only": true,
+    "screenshots": 38,
+    "typescript": "PASS",
+    "viewport_widths": [
+      390,
+      768,
+      1024,
+      1440
+    ]
+  },
+  "experiments_rerun": false,
+  "node": "24.19.0",
+  "npm": "11.9.0",
+  "private_data_access": false,
+  "public_deployment": false,
+  "remote_writes": false,
+  "schema": 1,
+  "snapshot_sha256": "358c331d72df76d0ca1e4fddd36c7c35be32b1a0b2dd0ae12949c5967ac46169",
+  "status": "local-review-only"
+}

@@ -447,3 +447,131 @@ without any private assets. They can inspect frozen methodological code/provenan
 They cannot replay the consumed one-time holdout evaluation or infer causal validity
 from matching image hashes. The figures preserve nominal pointwise and simultaneous
 intervals and explicit propensity assumptions rather than recomputing a nicer result.
+
+## Phase 11 — making frozen evidence interactive
+
+I built a Streamlit interface over the already approved aggregate results, not a
+new modeling pipeline. Every app rerun verifies the exact snapshot hash. Users can
+compare saved reaches, evaluators and assumptions; no interpolation, model loading
+or outcome access exists. A hypothetical budget page shows arithmetic under fixed
+benchmark rates and prices, while no targeting stays the frozen primary decision.
+The minimal deployment works without the research stack, credentials or private data.
+
+**Challenging question 1: Does a positive simulated net benefit justify targeting?**
+No. It combines assumption-dependent benchmark rates with hypothetical prices and
+an unvalidated transport assumption. Scaled benchmark bounds are not confidence
+intervals for a new population. The illustration cannot replace the locked primary
+policy or establish ROI, causal superiority or deployment suitability.
+
+**Challenging question 2: Does filtering to two models reduce the multiplicity correction?**
+No. The app displays saved intervals from the same predeclared 765-contrast family.
+Pointwise intervals remain distinct; selecting a display cannot shrink the original
+family or turn conditional working-model coverage into exact randomization inference.
+
+## Phase 11 UI redesign — evidence as a decision product
+
+The dashboard now starts with the business decision, then lets a reader inspect
+policy diagnostics, sensitivity and hypothetical economics. The important product
+choice was to separate exploratory controls from authority: choosing a model or a
+positive-looking budget illustration never changes the frozen no-targeting policy.
+The UI uses the exact same validated public snapshot, financial arithmetic and
+saved intervals; only presentation and descriptive display summaries changed.
+
+**Why show positive-looking diagnostics if the recommendation is no targeting?**
+Transparency requires showing the measured evidence, with its limitations. The
+conservative rule was frozen using development evidence. Selecting a different
+policy after inspecting the holdout would invalidate that separation. Unknown
+assignment probabilities and privacy sampling also prevent unconditional causal claims.
+
+**How did you verify that a visual redesign did not change the science?**
+The aggregate snapshot, loader and illustration module remain byte-identical.
+Existing numerical and leakage tests still run; focused presentation tests verify
+exact saved chart endpoints, budget outputs, navigation, escaping and contrast.
+Browser checks cover all five pages at four viewport widths. No experiment, model
+or outcome access is available through the application.
+
+## The Decision Lab — explaining the work without a research dashboard
+
+I built a separate React/TypeScript static experience around the question of
+whether an ad creates a visit, rather than around ML terminology. An explicitly
+hypothetical interaction teaches the distinction; the reader then explores the
+verified public study, saved comparisons, hypothetical arithmetic and frozen
+conservative decision. Models and private records never enter the frontend.
+A checksum and strict aggregate schema fail closed, and cross-language tests
+verify the budget arithmetic against the existing Python implementation.
+
+**How can you make a causal project approachable without overstating its findings?**
+Separate observations, model-based estimates, assumptions and decisions. Teach
+with clearly hypothetical examples; label measured bars as descriptive, use saved
+uncertainty beside estimates, and retain the no-targeting rule even when an
+exploratory number looks positive. Technical detail stays accessible through
+progressive disclosure rather than disappearing from the story.
+
+**What prevents an interactive budget lab from becoming post-hoc policy selection?**
+It performs fixed arithmetic on approved aggregate rows, with only saved reaches
+and propensity scenarios. It never optimizes, retrains, reads outcome records,
+trims a budget or changes the primary recommendation. Decimal parity fixtures,
+interaction tests, immutable snapshot verification and explicit limitations make
+that boundary testable. A hypothetical positive net value is not validated ROI.
+
+## Decision Lab final scientific and launch-quality gate
+
+I kept the existing React editorial experience and made the scientific units and
+business interpretation harder to misread. A saved gain is per 1,000 eligible
+records, while reach determines how many assignments the policy makes. I separated
+historical assignment from the frozen zero-targeting policy, preserved all results
+and made creator attribution, keyboard navigation and chart descriptions clearer.
+Independent Python public-aggregate references check the UI values and Decimal
+illustrations; static-browser and accessibility scans supplement human review.
+No experiment, model or final holdout access was repeated. Local verification is
+separate from permission to publish or evidence of production effectiveness.
+
+**Two difficult follow-ups**
+
+1. **Does matching the Python implementation validate the causal estimates?**
+   No. It validates selection, units and presentation arithmetic against the
+   approved snapshot. It cannot repair unknown assignment probabilities, privacy
+   subsampling, dependence or conditional-uncertainty limitations.
+2. **Why not publish immediately after passing automated accessibility checks?**
+   Scanners miss comprehension, some SVG contrast and assistive-technology issues.
+   Human testing, a real approved HTTPS URL, live social-crawler checks and explicit
+   owner publication approval remain separate gates.
+
+## Final scientific narrative reconciliation
+
+The final public explanation now distinguishes the recorded decision trigger from
+a generic claim about caution: five zero-value configurations and five infeasible
+initial reaches; the other 30 produced 120 candidate ranking records, all stopped
+at the first 10% tranche with unnormalized IPW at assumed e=.90 binding. IPW and
+DR share a denominator but differ by an augmentation term. Neither this disagreement
+nor factual calibration resolves identification. No frozen result was changed.
+
+**Two difficult follow-ups**
+
+1. **Is the propensity sweep observed effect heterogeneity?** No. With fixed records
+   and policy, A/e−B/(1−e) mechanically decreases as assumed e increases. These
+   are reweighting stress scenarios, not a calibrated probability distribution.
+2. **Would normalization or dropping e=.90 justify targeting?** No such replacement
+   analysis or new selection was performed. Different scaling does not establish
+   identification; the frozen recommendation cannot be reselected from final results.
+
+## Pre-launch reviewer follow-up
+
+I preserved the remotely added React CI and simplified copy, clarified the binding
+stress scenario for newcomers, and separated the public React site from the local
+Streamlit dashboard. A read-only inventory verified 65 development artifacts and
+five validation memberships; proposed alternative and arm-balance analyses remain
+unexecuted. The README credits Sanyam Jaiswal and transparently describes Codex
+implementation assistance. No training, scoring or final-outcome access was repeated.
+
+**Two difficult follow-ups**
+
+1. **Can removing e=.90 reuse the original uncertainty bounds unchanged?** They
+   can remain conservative subset bounds, but a recalibrated 240-coordinate family
+   needs a newly declared maximum calculation using saved paired Gaussian draws.
+   That is post-hoc development exploration, not confirmation or a new final policy.
+2. **Would arm prediction means prove why IPW and DR differ causally?** No. Their
+   association/mismatch decomposition is an exact algebraic diagnostic. It cannot
+   identify hidden experiments, establish counterfactual correctness or determine
+   causal bias direction. Treatment and saved development predictions suffice;
+   no final-holdout data or new scoring is needed.

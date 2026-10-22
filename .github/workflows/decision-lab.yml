@@ -1,0 +1,44 @@
+name: Decision Lab frontend checks
+
+on:
+  pull_request:
+    paths:
+      - "web/**"
+      - ".github/workflows/decision-lab.yml"
+  push:
+    branches:
+      - "codex/decision-lab-scientific-reconciliation"
+    paths:
+      - "web/**"
+      - ".github/workflows/decision-lab.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install exact dependencies
+        run: npm ci
+      - name: Verify approved aggregate data
+        run: npm run verify:data
+      - name: Check TypeScript
+        run: npm run check
+      - name: Check formatting
+        run: npm run format:check
+      - name: Run frontend tests
+        run: npm test
+      - name: Build and audit static site
+        run: npm run build

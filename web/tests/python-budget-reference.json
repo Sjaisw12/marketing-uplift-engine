@@ -1,0 +1,4802 @@
+[
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "76.296165313343100",
+      "spend": "100.00",
+      "net": "-23.703834686656900",
+      "unspent": "400.00",
+      "bounds": ["49.69290831483369500", "102.899422311852500"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "151.3102243287409300",
+      "spend": "200.00",
+      "net": "-48.6897756712590700",
+      "unspent": "300.00",
+      "bounds": ["113.4562621304404900", "189.1641865270413700"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "225.020035879123900",
+      "spend": "300.00",
+      "net": "-74.979964120876100",
+      "unspent": "200.00",
+      "bounds": ["178.666579330464200", "271.3734924277835200"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "310.1256525724349600",
+      "spend": "400.00",
+      "net": "-89.8743474275650400",
+      "unspent": "100.00",
+      "bounds": ["256.565715587967600", "363.685589556902300"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "377.2970767976822500",
+      "spend": "500.00",
+      "net": "-122.7029232023177500",
+      "unspent": "0.00",
+      "bounds": ["317.3596119963003400", "437.234541599064100"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "507.184263358442100",
+      "spend": "100.00",
+      "net": "407.184263358442100",
+      "unspent": "400.00",
+      "bounds": ["436.938354480727800", "577.430172236156400"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "665.8078422924200",
+      "spend": "200.00",
+      "net": "465.8078422924200",
+      "unspent": "300.00",
+      "bounds": ["586.049127181434200", "745.566557403405800"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "701.182361494634100",
+      "spend": "300.00",
+      "net": "401.182361494634100",
+      "unspent": "200.00",
+      "bounds": ["618.710516090958900", "783.654206898309200"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "713.748512472096200",
+      "spend": "400.00",
+      "net": "313.748512472096200",
+      "unspent": "100.00",
+      "bounds": ["630.131810385588200", "797.365214558604200"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "721.735697790735400",
+      "spend": "500.00",
+      "net": "221.735697790735400",
+      "unspent": "0.00",
+      "bounds": ["637.489703577075600", "805.981692004395200"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "599.511269718869500",
+      "spend": "100.00",
+      "net": "499.511269718869500",
+      "unspent": "400.00",
+      "bounds": ["540.174355246406800", "658.848184191332200"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "673.465981167926400",
+      "spend": "200.00",
+      "net": "473.465981167926400",
+      "unspent": "300.00",
+      "bounds": ["599.632922474445500", "747.299039861407300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "699.099532009775500",
+      "spend": "300.00",
+      "net": "399.099532009775500",
+      "unspent": "200.00",
+      "bounds": ["620.158389693986400", "778.040674325564700"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "705.309092123972500",
+      "spend": "400.00",
+      "net": "305.309092123972500",
+      "unspent": "100.00",
+      "bounds": ["624.131264476289900", "786.4869197716549500"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "714.006450281870300",
+      "spend": "500.00",
+      "net": "214.006450281870300",
+      "unspent": "0.00",
+      "bounds": ["631.829440102621700", "796.183460461118800"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "586.756487032297200",
+      "spend": "100.00",
+      "net": "486.756487032297200",
+      "unspent": "400.00",
+      "bounds": ["526.249034055972700", "647.263940008621600"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "669.337495567781300",
+      "spend": "200.00",
+      "net": "469.337495567781300",
+      "unspent": "300.00",
+      "bounds": ["598.238082597746400", "740.436908537816200"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "684.181575056868500",
+      "spend": "300.00",
+      "net": "384.181575056868500",
+      "unspent": "200.00",
+      "bounds": ["609.848807270819200", "758.514342842917800"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "692.92434658331400",
+      "spend": "400.00",
+      "net": "292.92434658331400",
+      "unspent": "100.00",
+      "bounds": ["617.372207908216200", "768.476485258411700"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "699.420341741770400",
+      "spend": "500.00",
+      "net": "199.420341741770400",
+      "unspent": "0.00",
+      "bounds": ["623.091603243757800", "775.74908023978300"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "76.7917834118801300",
+      "spend": "100.00",
+      "net": "-23.2082165881198700",
+      "unspent": "400.00",
+      "bounds": ["47.72142303434230300", "105.8621437894179600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "151.7966279083584800",
+      "spend": "200.00",
+      "net": "-48.2033720916415200",
+      "unspent": "300.00",
+      "bounds": ["110.4044184615709900", "193.1888373551459600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "225.6222631117681400",
+      "spend": "300.00",
+      "net": "-74.3777368882318600",
+      "unspent": "200.00",
+      "bounds": ["174.937641305871700", "276.306884917664600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "311.6704456972269700",
+      "spend": "400.00",
+      "net": "-88.3295543027730300",
+      "unspent": "100.00",
+      "bounds": ["253.1009420663432600", "370.2399493281106400"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "378.6819245520543400",
+      "spend": "500.00",
+      "net": "-121.3180754479456600",
+      "unspent": "0.00",
+      "bounds": ["313.1320319150885400", "444.231817189020200"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "505.796932400068700",
+      "spend": "100.00",
+      "net": "405.796932400068700",
+      "unspent": "400.00",
+      "bounds": ["428.911214585780500", "582.682650214356700"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "666.634853008597400",
+      "spend": "200.00",
+      "net": "466.634853008597400",
+      "unspent": "300.00",
+      "bounds": ["579.396541397962500", "753.873164619232400"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "702.295345030158300",
+      "spend": "300.00",
+      "net": "402.295345030158300",
+      "unspent": "200.00",
+      "bounds": ["612.088945305916800", "792.501744754399800"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "714.752389944644800",
+      "spend": "400.00",
+      "net": "314.752389944644800",
+      "unspent": "100.00",
+      "bounds": ["623.289129386204500", "806.215650503084900"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "722.798214993265700",
+      "spend": "500.00",
+      "net": "222.798214993265700",
+      "unspent": "0.00",
+      "bounds": ["630.645535023809100", "814.950894962722400"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "599.807075194325600",
+      "spend": "100.00",
+      "net": "499.807075194325600",
+      "unspent": "400.00",
+      "bounds": ["535.182995968743400", "664.431154419907900"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "671.574533809399800",
+      "spend": "200.00",
+      "net": "471.574533809399800",
+      "unspent": "300.00",
+      "bounds": ["590.921819412690800", "752.227248206108900"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "697.739385540361200",
+      "spend": "300.00",
+      "net": "397.739385540361200",
+      "unspent": "200.00",
+      "bounds": ["611.4428249626346500", "784.035946118087600"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "703.507626054499300",
+      "spend": "400.00",
+      "net": "303.507626054499300",
+      "unspent": "100.00",
+      "bounds": ["614.737935433051600", "792.2773166759470500"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "712.5086478442371500",
+      "spend": "500.00",
+      "net": "212.5086478442371500",
+      "unspent": "0.00",
+      "bounds": ["622.639696176399900", "802.377599512074400"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "584.433598473056600",
+      "spend": "100.00",
+      "net": "484.433598473056600",
+      "unspent": "400.00",
+      "bounds": ["518.4838610778041500", "650.383335868308900"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "666.675593567637800",
+      "spend": "200.00",
+      "net": "466.675593567637800",
+      "unspent": "300.00",
+      "bounds": ["589.042975964712300", "744.308211170563400"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "680.758548440420600",
+      "spend": "300.00",
+      "net": "380.758548440420600",
+      "unspent": "200.00",
+      "bounds": ["599.555579331106500", "761.961517549734600"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "689.488336313727400",
+      "spend": "400.00",
+      "net": "289.488336313727400",
+      "unspent": "100.00",
+      "bounds": ["606.945774359570900", "772.030898267883800"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "696.5373291201303600",
+      "spend": "500.00",
+      "net": "196.5373291201303600",
+      "unspent": "0.00",
+      "bounds": ["613.138240788684300", "779.936417451576500"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "77.4392588483485900",
+      "spend": "100.00",
+      "net": "-22.5607411516514100",
+      "unspent": "400.00",
+      "bounds": ["44.8085171812762100", "110.0700005154209700"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "152.441070040008300",
+      "spend": "200.00",
+      "net": "-47.558929959991700",
+      "unspent": "300.00",
+      "bounds": ["105.9504385848988800", "198.9317014951177400"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "226.396285050051900",
+      "spend": "300.00",
+      "net": "-73.603714949948100",
+      "unspent": "200.00",
+      "bounds": ["169.4704018668115300", "283.3221682332922600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "313.7515843167794700",
+      "spend": "400.00",
+      "net": "-86.2484156832205300",
+      "unspent": "100.00",
+      "bounds": ["247.9649386797286400", "379.538229953830300"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "380.4868481654863500",
+      "spend": "500.00",
+      "net": "-119.5131518345136500",
+      "unspent": "0.00",
+      "bounds": ["306.8528785313161800", "454.120817799656500"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "503.970514573075800",
+      "spend": "100.00",
+      "net": "403.970514573075800",
+      "unspent": "400.00",
+      "bounds": ["417.539100728663700", "590.401928417487800"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "667.685678475348400",
+      "spend": "200.00",
+      "net": "467.685678475348400",
+      "unspent": "300.00",
+      "bounds": ["569.677352883375100", "765.694004067321700"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "703.659926937085200",
+      "spend": "300.00",
+      "net": "403.659926937085200",
+      "unspent": "200.00",
+      "bounds": ["602.316198052951300", "805.00365582121900"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "715.952008019546400",
+      "spend": "400.00",
+      "net": "315.952008019546400",
+      "unspent": "100.00",
+      "bounds": ["613.191249912174700", "818.71276612691800"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "724.071950264536600",
+      "spend": "500.00",
+      "net": "224.071950264536600",
+      "unspent": "0.00",
+      "bounds": ["620.5354164714429500", "827.608484057630300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "600.169162253511100",
+      "spend": "100.00",
+      "net": "500.169162253511100",
+      "unspent": "400.00",
+      "bounds": ["527.861414296641200", "672.476910210380800"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "668.991012101376100",
+      "spend": "200.00",
+      "net": "468.991012101376100",
+      "unspent": "300.00",
+      "bounds": ["578.491357830241300", "759.490666372510900"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "695.822083026593100",
+      "spend": "300.00",
+      "net": "395.822083026593100",
+      "unspent": "200.00",
+      "bounds": ["598.921627213114300", "792.72253884007200"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "700.997349725323900",
+      "spend": "400.00",
+      "net": "300.997349725323900",
+      "unspent": "100.00",
+      "bounds": ["601.290233681135300", "800.704465769512400"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "710.405496818851400",
+      "spend": "500.00",
+      "net": "210.405496818851400",
+      "unspent": "0.00",
+      "bounds": ["609.456591621770400", "811.354402015932400"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "581.2052184719310500",
+      "spend": "100.00",
+      "net": "481.2052184719310500",
+      "unspent": "400.00",
+      "bounds": ["507.360027399490700", "655.050409544371500"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "662.8884984742998500",
+      "spend": "200.00",
+      "net": "462.8884984742998500",
+      "unspent": "300.00",
+      "bounds": ["575.813755489511800", "749.96324145908800"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "675.905871064532900",
+      "spend": "300.00",
+      "net": "375.905871064532900",
+      "unspent": "200.00",
+      "bounds": ["584.7841031883997500", "767.027638940666100"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "684.603981860663200",
+      "spend": "400.00",
+      "net": "284.603981860663200",
+      "unspent": "100.00",
+      "bounds": ["591.970908791256900", "777.237054930069300"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "692.356500330402400",
+      "spend": "500.00",
+      "net": "192.356500330402400",
+      "unspent": "0.00",
+      "bounds": ["598.753603571160400", "785.959397089644300"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "78.3310790341276700",
+      "spend": "100.00",
+      "net": "-21.6689209658723300",
+      "unspent": "400.00",
+      "bounds": ["40.4125602606808400", "116.2495978075745100"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "153.3387951551450100",
+      "spend": "200.00",
+      "net": "-46.6612048448549900",
+      "unspent": "300.00",
+      "bounds": ["99.2847233495599200", "207.392866960730100"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "227.4481559956127400",
+      "spend": "300.00",
+      "net": "-72.5518440043872600",
+      "unspent": "200.00",
+      "bounds": ["161.2631362526896700", "293.6331757385358500"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "316.6886730984810800",
+      "spend": "400.00",
+      "net": "-83.3113269015189200",
+      "unspent": "100.00",
+      "bounds": ["240.1969924572785700", "393.1803537396835400"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "382.9681658452045700",
+      "spend": "500.00",
+      "net": "-117.0318341547954300",
+      "unspent": "0.00",
+      "bounds": ["297.3450377212446300", "468.5912939691645500"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "501.439155344206900",
+      "spend": "100.00",
+      "net": "401.439155344206900",
+      "unspent": "400.00",
+      "bounds": ["400.870561530983600", "602.007749157430300"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "669.0999412503721500",
+      "spend": "200.00",
+      "net": "469.0999412503721500",
+      "unspent": "300.00",
+      "bounds": ["555.122792294760100", "783.077090205984200"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "705.439346984132300",
+      "spend": "300.00",
+      "net": "405.439346984132300",
+      "unspent": "200.00",
+      "bounds": ["587.582086762169500", "823.29660720609500"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "717.479096395317900",
+      "spend": "400.00",
+      "net": "317.479096395317900",
+      "unspent": "100.00",
+      "bounds": ["597.968606173804500", "836.989586616831400"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "725.698338319953500",
+      "spend": "500.00",
+      "net": "225.698338319953500",
+      "unspent": "0.00",
+      "bounds": ["605.284307586556100", "846.11236905335100"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "600.640624214350700",
+      "spend": "100.00",
+      "net": "500.640624214350700",
+      "unspent": "400.00",
+      "bounds": ["516.860503896571500", "684.420744532129900"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "665.306506600667700",
+      "spend": "200.00",
+      "net": "465.306506600667700",
+      "unspent": "300.00",
+      "bounds": ["560.176260456838100", "770.436752744497300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "693.0240047274681500",
+      "spend": "300.00",
+      "net": "393.0240047274681500",
+      "unspent": "200.00",
+      "bounds": ["580.386955595628400", "805.661053859307900"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "697.364118627810600",
+      "spend": "400.00",
+      "net": "297.364118627810600",
+      "unspent": "100.00",
+      "bounds": ["581.433665285432800", "813.294571970188300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "707.344699252794800",
+      "spend": "500.00",
+      "net": "207.344699252794800",
+      "unspent": "0.00",
+      "bounds": ["589.962924629384900", "824.726473876204800"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "576.541546532925600",
+      "spend": "100.00",
+      "net": "476.541546532925600",
+      "unspent": "400.00",
+      "bounds": ["490.923008475769300", "662.160084590081900"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "657.325563367147300",
+      "spend": "200.00",
+      "net": "457.325563367147300",
+      "unspent": "300.00",
+      "bounds": ["556.211805353055900", "758.439321381238600"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "668.795441353378600",
+      "spend": "300.00",
+      "net": "368.795441353378600",
+      "unspent": "200.00",
+      "bounds": ["562.937596086749300", "774.65328662000800"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "677.433443192236300",
+      "spend": "400.00",
+      "net": "277.433443192236300",
+      "unspent": "100.00",
+      "bounds": ["569.811310602098100", "785.055575782374500"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "686.133809187710200",
+      "spend": "500.00",
+      "net": "186.133809187710200",
+      "unspent": "0.00",
+      "bounds": ["577.375894313080600", "794.891724062339700"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "79.6520280963324200",
+      "spend": "100.00",
+      "net": "-20.3479719036675800",
+      "unspent": "400.00",
+      "bounds": ["33.4512885637854900", "125.8527676288793600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "154.6802336027557300",
+      "spend": "200.00",
+      "net": "-45.3197663972442700",
+      "unspent": "300.00",
+      "bounds": ["88.7895499969723700", "220.570917208539100"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "228.989571013078200",
+      "spend": "300.00",
+      "net": "-71.010428986921800",
+      "unspent": "200.00",
+      "bounds": ["148.3138603399701800", "309.665281686186200"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "321.121227297866500",
+      "spend": "400.00",
+      "net": "-78.878772702133500",
+      "unspent": "100.00",
+      "bounds": ["227.878117074810800", "414.364337520922200"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "386.6379205762435300",
+      "spend": "500.00",
+      "net": "-113.3620794237564700",
+      "unspent": "0.00",
+      "bounds": ["282.2560449918914300", "491.019796160595600"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "497.6714793152920500",
+      "spend": "100.00",
+      "net": "397.6714793152920500",
+      "unspent": "400.00",
+      "bounds": ["375.0054347553384700", "620.3375238752455400"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "671.156145656374600",
+      "spend": "200.00",
+      "net": "471.156145656374600",
+      "unspent": "300.00",
+      "bounds": ["532.1976459465024500", "810.114645366246800"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "707.958379049581200",
+      "spend": "300.00",
+      "net": "407.958379049581200",
+      "unspent": "200.00",
+      "bounds": ["564.267702995283800", "851.649055103878500"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "719.595130394390600",
+      "spend": "400.00",
+      "net": "319.595130394390600",
+      "unspent": "100.00",
+      "bounds": ["573.883276310787400", "865.306984477993700"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "727.958206385578900",
+      "spend": "500.00",
+      "net": "227.958206385578900",
+      "unspent": "0.00",
+      "bounds": ["581.143298698061100", "874.773114073096600"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "601.307185994966700",
+      "spend": "100.00",
+      "net": "501.307185994966700",
+      "unspent": "400.00",
+      "bounds": ["499.485242327039500", "703.12912966289400"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "659.702318536669300",
+      "spend": "200.00",
+      "net": "459.702318536669300",
+      "unspent": "300.00",
+      "bounds": ["531.6484679911166500", "787.756169082221900"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "688.696428676873400",
+      "spend": "300.00",
+      "net": "388.696428676873400",
+      "unspent": "200.00",
+      "bounds": ["551.424930780152100", "825.967926573594700"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "691.778096293696300",
+      "spend": "400.00",
+      "net": "291.778096293696300",
+      "unspent": "100.00",
+      "bounds": ["550.460927096071400", "833.095265491321300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "702.620143795830900",
+      "spend": "500.00",
+      "net": "202.620143795830900",
+      "unspent": "0.00",
+      "bounds": ["559.526015178052300", "845.714272413609800"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "569.3811074461093500",
+      "spend": "100.00",
+      "net": "469.3811074461093500",
+      "unspent": "400.00",
+      "bounds": ["465.2653598552646500", "673.4968550369540500"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "648.682095941699800",
+      "spend": "200.00",
+      "net": "448.682095941699800",
+      "unspent": "300.00",
+      "bounds": ["525.559916205048200", "771.804275678351500"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "657.766932699766800",
+      "spend": "300.00",
+      "net": "357.766932699766800",
+      "unspent": "200.00",
+      "bounds": ["528.821744858506900", "786.712120541026700"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "666.296711567144800",
+      "spend": "400.00",
+      "net": "266.296711567144800",
+      "unspent": "100.00",
+      "bounds": ["535.193444901065200", "797.3999782332243500"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "dr",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "676.376351722856700",
+      "spend": "500.00",
+      "net": "176.376351722856700",
+      "unspent": "0.00",
+      "bounds": ["543.880096341022500", "808.872607104690800"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "239.6350108419940600",
+      "spend": "100.00",
+      "net": "139.6350108419940600",
+      "unspent": "400.00",
+      "bounds": ["206.8554462606029700", "272.414575423385200"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "463.234743595307600",
+      "spend": "200.00",
+      "net": "263.234743595307600",
+      "unspent": "300.00",
+      "bounds": ["416.41468264525900", "510.0548045453562600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "691.841775082632600",
+      "spend": "300.00",
+      "net": "391.841775082632600",
+      "unspent": "200.00",
+      "bounds": ["634.479123958570100", "749.204426206695100"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "928.675083061548400",
+      "spend": "400.00",
+      "net": "528.675083061548400",
+      "unspent": "100.00",
+      "bounds": ["862.533091048914700", "994.817075074182200"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "1154.540022385009800",
+      "spend": "500.00",
+      "net": "654.540022385009800",
+      "unspent": "0.00",
+      "bounds": ["1080.621568681419300", "1228.458476088600500"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "1780.929249730201700",
+      "spend": "100.00",
+      "net": "1680.929249730201700",
+      "unspent": "400.00",
+      "bounds": ["1688.509160414067600", "1873.349339046335500"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "2125.896366084086600",
+      "spend": "200.00",
+      "net": "1925.896366084086600",
+      "unspent": "300.00",
+      "bounds": ["2025.539892501834400", "2226.25283966633900"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "2211.437719456788600",
+      "spend": "300.00",
+      "net": "1911.437719456788600",
+      "unspent": "200.00",
+      "bounds": ["2108.880957494731600", "2313.99448141884600"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "2243.567886333364600",
+      "spend": "400.00",
+      "net": "1843.567886333364600",
+      "unspent": "100.00",
+      "bounds": ["2140.084554061126800", "2347.05121860560200"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "2262.70292078119500",
+      "spend": "500.00",
+      "net": "1762.70292078119500",
+      "unspent": "0.00",
+      "bounds": ["2158.71036915989300", "2366.695472402497200"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "1583.200560435949300",
+      "spend": "100.00",
+      "net": "1483.200560435949300",
+      "unspent": "400.00",
+      "bounds": ["1507.669873775622800", "1658.731247096275400"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "1984.14212335218100",
+      "spend": "200.00",
+      "net": "1784.14212335218100",
+      "unspent": "300.00",
+      "bounds": ["1891.043095169902300", "2077.241151534459700"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "2120.710235252431300",
+      "spend": "300.00",
+      "net": "1820.710235252431300",
+      "unspent": "200.00",
+      "bounds": ["2022.32325921733400", "2219.09721128752900"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "2168.100741127900500",
+      "spend": "400.00",
+      "net": "1768.100741127900500",
+      "unspent": "100.00",
+      "bounds": ["2067.57927758758800", "2268.622204668213300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "2194.746723676749400",
+      "spend": "500.00",
+      "net": "1694.746723676749400",
+      "unspent": "0.00",
+      "bounds": ["2093.320450598619300", "2296.17299675487900"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "1597.089853352911800",
+      "spend": "100.00",
+      "net": "1497.089853352911800",
+      "unspent": "400.00",
+      "bounds": ["1519.302584585485100", "1674.877122120338400"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "1875.05454378978200",
+      "spend": "200.00",
+      "net": "1675.05454378978200",
+      "unspent": "300.00",
+      "bounds": ["1785.674111679845300", "1964.434975899718700"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "1952.429231370107500",
+      "spend": "300.00",
+      "net": "1652.429231370107500",
+      "unspent": "200.00",
+      "bounds": ["1859.89634298181600", "2044.962119758398700"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "1985.870833629400400",
+      "spend": "400.00",
+      "net": "1585.870833629400400",
+      "unspent": "100.00",
+      "bounds": ["1892.231564382099400", "2079.510102876701800"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.8,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "2006.257692760734200",
+      "spend": "500.00",
+      "net": "1506.257692760734200",
+      "unspent": "0.00",
+      "bounds": ["1911.93061013772900", "2100.584775383739700"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "184.189318923329100",
+      "spend": "100.00",
+      "net": "84.189318923329100",
+      "unspent": "400.00",
+      "bounds": ["148.42907530718100", "219.949562539477200"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "349.9803503523217300",
+      "spend": "200.00",
+      "net": "149.9803503523217300",
+      "unspent": "300.00",
+      "bounds": ["298.851042662660600", "401.109658041982800"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "521.783030477847800",
+      "spend": "300.00",
+      "net": "221.783030477847800",
+      "unspent": "200.00",
+      "bounds": ["459.131026508830900", "584.435034446864800"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "702.553637092983200",
+      "spend": "400.00",
+      "net": "302.553637092983200",
+      "unspent": "100.00",
+      "bounds": ["630.319209601062300", "774.788064584904200"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "872.027629124522200",
+      "spend": "500.00",
+      "net": "372.027629124522200",
+      "unspent": "0.00",
+      "bounds": ["791.288456912194100", "952.766801336850100"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "1338.888303172911900",
+      "spend": "100.00",
+      "net": "1238.888303172911900",
+      "unspent": "400.00",
+      "bounds": ["1237.898203987591800", "1439.878402358231700"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "1604.57344762658500",
+      "spend": "200.00",
+      "net": "1404.57344762658500",
+      "unspent": "300.00",
+      "bounds": ["1494.921840384647600", "1714.22505486852200"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "1666.919529575526200",
+      "spend": "300.00",
+      "net": "1366.919529575526200",
+      "unspent": "200.00",
+      "bounds": ["1554.853517385084400", "1778.985541765967700"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "1689.11638630118900",
+      "spend": "400.00",
+      "net": "1289.11638630118900",
+      "unspent": "100.00",
+      "bounds": ["1576.03005848917100", "1802.202714113206700"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "1702.75820449716900",
+      "spend": "500.00",
+      "net": "1202.75820449716900",
+      "unspent": "0.00",
+      "bounds": ["1589.1122325117500", "1816.404176482588500"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "1289.556449720861600",
+      "spend": "100.00",
+      "net": "1189.556449720861600",
+      "unspent": "400.00",
+      "bounds": ["1207.482750364879800", "1371.630149076843500"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "1536.149654907521600",
+      "spend": "200.00",
+      "net": "1336.149654907521600",
+      "unspent": "300.00",
+      "bounds": ["1434.57656999420500", "1637.722739820838300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "1619.94113749505900",
+      "spend": "300.00",
+      "net": "1319.94113749505900",
+      "unspent": "200.00",
+      "bounds": ["1512.509952333983800", "1727.372322656133700"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "1645.16859184658400",
+      "spend": "400.00",
+      "net": "1245.16859184658400",
+      "unspent": "100.00",
+      "bounds": ["1535.365668875898800", "1754.971514817269800"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "1662.295184424346300",
+      "spend": "500.00",
+      "net": "1162.295184424346300",
+      "unspent": "0.00",
+      "bounds": ["1551.492243037266800", "1773.098125811426200"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "1285.311961492813300",
+      "spend": "100.00",
+      "net": "1185.311961492813300",
+      "unspent": "400.00",
+      "bounds": ["1200.693221503450700", "1369.930701482175700"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "1462.366576468607700",
+      "spend": "200.00",
+      "net": "1262.366576468607700",
+      "unspent": "300.00",
+      "bounds": ["1364.899079613524600", "1559.83407332369100"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "1509.856949619384100",
+      "spend": "300.00",
+      "net": "1209.856949619384100",
+      "unspent": "200.00",
+      "bounds": ["1408.895362426603300", "1610.81853681216500"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "1532.582302933753100",
+      "spend": "400.00",
+      "net": "1132.582302933753100",
+      "unspent": "100.00",
+      "bounds": ["1430.399887057660800", "1634.764718809845600"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.825,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "1546.240636648130500",
+      "spend": "500.00",
+      "net": "1046.240636648130500",
+      "unspent": "0.00",
+      "bounds": ["1443.298779527280500", "1649.182493768980300"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "116.4161890540561700",
+      "spend": "100.00",
+      "net": "16.4161890540561700",
+      "unspent": "400.00",
+      "bounds": ["76.3379667079123300", "156.4944114002000400"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "211.288370109674900",
+      "spend": "200.00",
+      "net": "11.288370109674900",
+      "unspent": "300.00",
+      "bounds": ["153.9317681265403700", "268.6449720928094600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "313.4914983314285800",
+      "spend": "300.00",
+      "net": "13.4914983314285800",
+      "unspent": "200.00",
+      "bounds": ["243.199854616225600", "383.7831420466315500"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "425.681171927458200",
+      "spend": "400.00",
+      "net": "25.681171927458200",
+      "unspent": "100.00",
+      "bounds": ["344.6469818822583500", "506.71536197265800"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "526.051563357678200",
+      "spend": "500.00",
+      "net": "26.051563357678200",
+      "unspent": "0.00",
+      "bounds": ["435.465686912120100", "616.637439803236200"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "797.296608504671200",
+      "spend": "100.00",
+      "net": "697.296608504671200",
+      "unspent": "400.00",
+      "bounds": ["683.951920340634300", "910.641296668708300"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "966.09540728409500",
+      "spend": "200.00",
+      "net": "766.09540728409500",
+      "unspent": "300.00",
+      "bounds": ["843.044318562796300", "1089.146496005393600"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "999.944933739973200",
+      "spend": "300.00",
+      "net": "699.944933739973200",
+      "unspent": "200.00",
+      "bounds": ["874.174523667334200", "1125.715343812612100"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "1009.89407632258500",
+      "spend": "400.00",
+      "net": "609.89407632258500",
+      "unspent": "100.00",
+      "bounds": ["882.970760692353100", "1136.817391952816800"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "1016.776189988752500",
+      "spend": "500.00",
+      "net": "516.776189988752500",
+      "unspent": "0.00",
+      "bounds": ["889.221654270170200", "1144.330725707334800"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "933.704589703110700",
+      "spend": "100.00",
+      "net": "833.704589703110700",
+      "unspent": "400.00",
+      "bounds": ["842.072992367665100", "1025.336187038556400"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "989.023318574098600",
+      "spend": "200.00",
+      "net": "789.023318574098600",
+      "unspent": "300.00",
+      "bounds": ["875.19205631419400", "1102.854580834002900"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "1007.406790676931900",
+      "spend": "300.00",
+      "net": "707.406790676931900",
+      "unspent": "200.00",
+      "bounds": ["886.918804212188800", "1127.89477714167500"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "1005.069116197934800",
+      "spend": "400.00",
+      "net": "605.069116197934800",
+      "unspent": "100.00",
+      "bounds": ["881.87879517158300", "1128.259437224286500"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "1010.417715405880300",
+      "spend": "500.00",
+      "net": "510.417715405880300",
+      "unspent": "0.00",
+      "bounds": ["886.093563330555300", "1134.741867481205100"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "906.662371330073400",
+      "spend": "100.00",
+      "net": "806.662371330073400",
+      "unspent": "400.00",
+      "bounds": ["812.090707868482500", "1001.234034791664300"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "958.82056430545700",
+      "spend": "200.00",
+      "net": "758.82056430545700",
+      "unspent": "300.00",
+      "bounds": ["849.640326610294500", "1068.000802000619700"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "969.274644575532200",
+      "spend": "300.00",
+      "net": "669.274644575532200",
+      "unspent": "200.00",
+      "bounds": ["856.121936874944100", "1082.427352276120300"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "978.774953658176500",
+      "spend": "400.00",
+      "net": "578.774953658176500",
+      "unspent": "100.00",
+      "bounds": ["864.239983488520200", "1093.309923827832900"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.85,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "984.123552866121900",
+      "spend": "500.00",
+      "net": "484.123552866121900",
+      "unspent": "0.00",
+      "bounds": ["868.728227385869400", "1099.518878346374400"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "28.28612835866256600",
+      "spend": "100.00",
+      "net": "-71.71387164133743400",
+      "unspent": "400.00",
+      "bounds": ["-18.22265154929186600", "74.7949082666170100"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "30.6296804192068600",
+      "spend": "200.00",
+      "net": "-169.3703195807931400",
+      "unspent": "300.00",
+      "bounds": ["-35.9840703850628700", "97.243431223476600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "42.12943587908703500",
+      "spend": "300.00",
+      "net": "-257.87056412091296500",
+      "unspent": "200.00",
+      "bounds": ["-39.51454812105077400", "123.7734198792248300"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "65.0744455881370100",
+      "spend": "400.00",
+      "net": "-334.9255544118629900",
+      "unspent": "100.00",
+      "bounds": ["-29.03634879864696600", "159.1852399749209800"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "75.3751744123898900",
+      "spend": "500.00",
+      "net": "-424.6248255876101100",
+      "unspent": "0.00",
+      "bounds": ["-29.83771870866167600", "180.5880675334414300"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "91.507532782648500",
+      "spend": "100.00",
+      "net": "-8.492467217351500",
+      "unspent": "400.00",
+      "bounds": ["-40.1707362690217900", "223.1858018343187800"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "134.3454844009699400",
+      "spend": "200.00",
+      "net": "-65.6545155990300600",
+      "unspent": "300.00",
+      "bounds": ["-8.5895275662122800", "277.2804963681521500"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "130.9664093369293100",
+      "spend": "300.00",
+      "net": "-169.0335906630706900",
+      "unspent": "200.00",
+      "bounds": ["-15.13633203032750700", "277.069150704186100"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "124.8622737373720600",
+      "spend": "400.00",
+      "net": "-275.1377262626279400",
+      "unspent": "100.00",
+      "bounds": ["-22.58734000269713200", "272.311887477441300"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "122.900230151800100",
+      "spend": "500.00",
+      "net": "-377.099769848199900",
+      "unspent": "0.00",
+      "bounds": ["-25.2856035542192100", "271.086063857819400"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "474.651044076286800",
+      "spend": "100.00",
+      "net": "374.651044076286800",
+      "unspent": "400.00",
+      "bounds": ["368.6962686988602300", "580.605819453713300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "278.1196782548268400",
+      "spend": "200.00",
+      "net": "78.1196782548268400",
+      "unspent": "300.00",
+      "bounds": ["146.0513417299281500", "410.188014779725600"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "210.3746733418833300",
+      "spend": "300.00",
+      "net": "-89.6253266581166700",
+      "unspent": "200.00",
+      "bounds": ["70.49022646671500", "350.259120217051600"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "171.6243125268367900",
+      "spend": "400.00",
+      "net": "-228.3756874731632100",
+      "unspent": "100.00",
+      "bounds": ["28.55953660427625300", "314.689088449397300"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "161.487087334714900",
+      "spend": "500.00",
+      "net": "-338.512912665285100",
+      "unspent": "0.00",
+      "bounds": ["17.09368837418906400", "305.8804862952407600"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "417.2067679875965500",
+      "spend": "100.00",
+      "net": "317.2067679875965500",
+      "unspent": "400.00",
+      "bounds": ["307.749136872466600", "526.664399102726400"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "305.0977775564420700",
+      "spend": "200.00",
+      "net": "105.0977775564420700",
+      "unspent": "300.00",
+      "bounds": ["178.4761014125025600", "431.719453700381600"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "266.783426427078200",
+      "spend": "300.00",
+      "net": "-33.216573572921800",
+      "unspent": "200.00",
+      "bounds": ["135.4950276539832500", "398.0718252001732300"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "258.935252084790300",
+      "spend": "400.00",
+      "net": "-141.064747915209700",
+      "unspent": "100.00",
+      "bounds": ["126.0289520054481200", "391.8415521641325200"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.875,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "253.3761285923363400",
+      "spend": "500.00",
+      "net": "-246.6238714076636600",
+      "unspent": "0.00",
+      "bounds": ["119.4623079821453700", "387.289949202527300"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "-96.1719280659412600",
+      "spend": "100.00",
+      "net": "-196.1719280659412600",
+      "unspent": "400.00",
+      "bounds": ["-152.7726393238690900", "-39.5712168080134300"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "-224.8780510809115500",
+      "spend": "200.00",
+      "net": "-424.8780510809115500",
+      "unspent": "300.00",
+      "bounds": ["-306.0002190045796800", "-143.7558831572434400"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "-341.715021541187300",
+      "spend": "300.00",
+      "net": "-641.715021541187300",
+      "unspent": "200.00",
+      "bounds": ["-441.146279532516900", "-242.283763549857800"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "-444.881271648287900",
+      "spend": "400.00",
+      "net": "-844.881271648287900",
+      "unspent": "100.00",
+      "bounds": ["-559.4815727916711400", "-330.280970504904600"]
+    }
+  },
+  {
+    "input": {
+      "model": "random",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "-562.036165837707300",
+      "spend": "500.00",
+      "net": "-1062.036165837707300",
+      "unspent": "0.00",
+      "bounds": ["-690.1618492088064500", "-433.91048246660800"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "-907.089386534901900",
+      "spend": "100.00",
+      "net": "-1007.089386534901900",
+      "unspent": "400.00",
+      "bounds": ["-1067.46549777093500", "-746.713275298868700"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "-1042.10099684455400",
+      "spend": "200.00",
+      "net": "-1242.10099684455400",
+      "unspent": "300.00",
+      "bounds": ["-1216.160762046596300", "-868.04123164251200"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "-1098.267522326591300",
+      "spend": "300.00",
+      "net": "-1398.267522326591300",
+      "unspent": "200.00",
+      "bounds": ["-1276.192303491003200", "-920.342741162179600"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "-1127.198581678659500",
+      "spend": "400.00",
+      "net": "-1527.198581678659500",
+      "unspent": "100.00",
+      "bounds": ["-1306.770663261303300", "-947.626500096015600"]
+    }
+  },
+  {
+    "input": {
+      "model": "response",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "-1141.717098642884100",
+      "spend": "500.00",
+      "net": "-1641.717098642884100",
+      "unspent": "0.00",
+      "bounds": ["-1322.18837532738200", "-961.245821958386400"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "-169.0824366162087400",
+      "spend": "100.00",
+      "net": "-269.0824366162087400",
+      "unspent": "400.00",
+      "bounds": ["-297.6210790974486400", "-40.54379413496887500"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "-725.131038888377800",
+      "spend": "200.00",
+      "net": "-925.131038888377800",
+      "unspent": "300.00",
+      "bounds": ["-885.800523151890600", "-564.461554624865100"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "-915.832289086351500",
+      "spend": "300.00",
+      "net": "-1215.832289086351500",
+      "unspent": "200.00",
+      "bounds": ["-1086.10289046573500", "-745.561687706968100"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "-1006.705488333232700",
+      "spend": "400.00",
+      "net": "-1406.705488333232700",
+      "unspent": "100.00",
+      "bounds": ["-1180.89006371144600", "-832.520912955019200"]
+    }
+  },
+  {
+    "input": {
+      "model": "s_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "-1038.921759553118200",
+      "spend": "500.00",
+      "net": "-1538.921759553118200",
+      "unspent": "0.00",
+      "bounds": ["-1214.735517717657500", "-863.108001388579100"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 10,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 10000,
+      "gain": "-270.394131636638200",
+      "spend": "100.00",
+      "net": "-370.394131636638200",
+      "unspent": "400.00",
+      "bounds": ["-403.288889644339500", "-137.4993736289369400"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 20,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 20000,
+      "gain": "-616.772034538598700",
+      "spend": "200.00",
+      "net": "-816.772034538598700",
+      "unspent": "300.00",
+      "bounds": ["-770.765394779559500", "-462.778674297637900"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 30,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 30000,
+      "gain": "-724.707140582853300",
+      "spend": "300.00",
+      "net": "-1024.707140582853300",
+      "unspent": "200.00",
+      "bounds": ["-884.435772173894600", "-564.978508991811900"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 40,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 40000,
+      "gain": "-757.241335531882500",
+      "spend": "400.00",
+      "net": "-1157.241335531882500",
+      "unspent": "100.00",
+      "bounds": ["-918.952183180928600", "-595.530487882836400"]
+    }
+  },
+  {
+    "input": {
+      "model": "t_learner",
+      "reach": 50,
+      "population": 100000,
+      "cost": "0.01",
+      "value": "1",
+      "budget": "500",
+      "options": {
+        "method": "ipw",
+        "propensity": 0.9,
+        "uncertainty": "iid",
+        "interval": "simultaneous"
+      }
+    },
+    "expected": {
+      "assignments": 50000,
+      "gain": "-778.330276231741800",
+      "spend": "500.00",
+      "net": "-1278.330276231741800",
+      "unspent": "0.00",
+      "bounds": ["-941.276013638872800", "-615.384538824610900"]
+    }
+  }
+]

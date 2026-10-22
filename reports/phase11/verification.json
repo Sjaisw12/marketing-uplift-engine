@@ -1,0 +1,33 @@
+{
+  "aggregate_sha256": "358c331d72df76d0ca1e4fddd36c7c35be32b1a0b2dd0ae12949c5967ac46169",
+  "base_commit": "7a038ffe4e0902b37aa287c125fd6ae87941cbf5",
+  "branch": "codex/phase-11-aggregate-dashboard",
+  "checks": {
+    "desktop_viewport": [
+      1440,
+      1000
+    ],
+    "focused_dashboard_passed": 65,
+    "format": "passed",
+    "full_data_deselected": 20,
+    "full_suite_passed": 463,
+    "full_suite_seconds": 127.5,
+    "historical_execution_locks": "verified unchanged",
+    "lint": "passed",
+    "local_http_health": 200,
+    "minimal_runtime_all_pages": "passed",
+    "minimal_runtime_packages": 37,
+    "minimal_runtime_python": "3.12.14",
+    "mobile_document_width": 390,
+    "mobile_viewport": [
+      390,
+      844
+    ],
+    "python_files_checked": 111,
+    "tracked_historical_files_preserved": 153
+  },
+  "public_deployment": "not performed",
+  "remote_ci": "not run",
+  "schema": 1,
+  "status": "local-review-only; no push or deployment"
+}

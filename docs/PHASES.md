@@ -119,7 +119,51 @@ receipts are not portfolio publication assets.
 - [x] Provide interview pitch, walkthrough, technical discussion and challenging questions.
 - [x] Complete final local checks and record actual verification evidence.
 - [x] Owner independently reviews materials and conditionally approves release preparation.
-- [ ] Owner explicitly approves any public push, PR or publication.
+- [x] Owner approves Phase 10 aggregate disclosure and PR #15; merged main is 7a038ffe.
 
 No dashboard, deployment, new model, outcome access or Stage B execution is included.
 The roadmap's dashboard/demo/recording remain unimplemented, not claimed as complete.
+
+## Phase 11 — interactive aggregate dashboard and deployment readiness
+- [x] Owner approves one coordinated implementation phase using public Phase 10 aggregates only.
+- [x] Create isolated branch from merged main 7a038ffe; preserve existing ignored artifacts.
+- [x] Implement overview, equal-reach policies, saved sensitivity and model explanations.
+- [x] Implement hypothetical budget arithmetic with no automatic policy/reach selection.
+- [x] Preserve no targeting, exact snapshot provenance and saved uncertainty semantics.
+- [x] Pin the minimal Python 3.12 deployment environment; leave research locks unchanged.
+- [x] Document launch, provider deployment checklist, licensing and live-link approval steps.
+- [x] Complete local tests, minimal-environment headless smoke and responsive UI review.
+- [x] Owner reviewed dashboard screenshots and requested subsequent local presentation work.
+- [ ] Owner separately approves the current React publication operation after its release gates.
+- [ ] Owner explicitly authorizes any push, PR, merge or public deployment.
+
+Phase 10's dashboard exclusion describes its historical scope. Phase 11 adds a
+local aggregate presentation app, not a model-serving or live targeting system.
+No new holdout analysis, experiment, private artifact access or public deployment
+is authorized by this phase.
+
+### Phase 11 — Decision Intelligence UI redesign (separate local review)
+
+- [x] Start from the completed Phase 11 branch; preserve frozen analysis and arithmetic.
+- [x] Redesign all five pages with cohesive branding and business explanations.
+- [x] Add responsive cards, chart styling and focused UI regression tests.
+- [x] Owner reviewed all five redesigned page screenshots; private review bundle supplied.
+- [ ] Owner separately approves public push, PR, merge or deployment.
+
+## Current React scientific narrative reconciliation (local review only)
+
+Phase 10 PR #15 is merged; Phase 11 Streamlit and subsequent React apps are
+implemented locally. Earlier phase-specific exclusions and sealed preparation
+protocols are historical statements, not claims that the dashboard never existed.
+Private review transfers are not public website publication approval.
+
+- [x] Owner authorizes this focused explanation/documentation correction pass.
+- [x] Trace all 40 original configurations and 120 first-tranche candidate records.
+- [x] Explain the e=.90 IPW binding rule and exact IPW/DR augmentation identity.
+- [x] Preserve frozen data/results, financial calculations, models and historical locks.
+- [ ] Owner reviews the corrected narrative and associated test/screenshot evidence.
+- [ ] Complete independent newcomer/manual accessibility and exact-host launch checks.
+- [ ] Owner explicitly authorizes any public source push, PR, merge or deployment.
+
+**Current release state: BLOCKED pending review and launch gates.** No new
+experiment, holdout access, estimator, policy selection or deployment is authorized.
