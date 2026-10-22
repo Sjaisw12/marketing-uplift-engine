@@ -189,7 +189,6 @@ def test_portfolio_document_links_resolve():
             for name in (
                 "ARCHITECTURE.md",
                 "CASE_STUDY.md",
-                "INTERVIEW_GUIDE.md",
                 "MODEL_CARD.md",
                 "PORTFOLIO_REVIEW.md",
             )

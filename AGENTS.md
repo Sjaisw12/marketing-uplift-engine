@@ -33,8 +33,8 @@ MLflow, Streamlit, pytest, GitHub Actions.
   relevant), files changed, and how to verify it.
 - Keep the repo reproducible: pinned dependencies, one-command rerun, no raw
   data committed (link to the official download instead).
-- Maintain INTERVIEW.md: after each phase, append an interview-ready explanation
-  plus the 2 toughest follow-up questions an interviewer could ask about it.
+- Keep personal interview-preparation notes outside this public repository. Do not
+  commit or recreate INTERVIEW.md or docs/INTERVIEW_GUIDE.md.
 
 ## Approved execution protocol
 - Use phase checklists only: no time estimates, hour budgets, or day-part scheduling.

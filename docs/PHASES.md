@@ -46,7 +46,8 @@ No calendar or effort schedule applies.
 - [x] Publish development stability comparison; keep holdout sealed.
 - [x] Report evidence; receive approval.
 
-Every completion updates INTERVIEW.md with an explanation and two tough questions.
+Historical phase completions included personal interview-preparation notes.
+These are now retained privately by the author, outside this public repository.
 T-learner, DR evaluation, final policy selection, dashboard and headline holdout
 analysis require later scope and approval.
 
