@@ -248,3 +248,7 @@ __marimo__/
 *.npy
 *.npz
 /.venv-dashboard/
+
+# Author-only interview preparation; keep outside the public repository
+/INTERVIEW.md
+/docs/INTERVIEW_GUIDE.md

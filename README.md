@@ -16,7 +16,7 @@ targeting is an identity—not proof that advertising is ineffective or abstenti
 > frozen aggregate results without rerunning the evaluation or reselecting a policy.
 > This is an offline portfolio study, not a deployed advertising system.
 
-[Case study](docs/CASE_STUDY.md) · [Interview guide](docs/INTERVIEW_GUIDE.md) ·
+[Case study](docs/CASE_STUDY.md) ·
 [Model card](docs/MODEL_CARD.md) · [Architecture](docs/ARCHITECTURE.md) ·
 [Aggregate results and figure guide](reports/portfolio/README.md)
 

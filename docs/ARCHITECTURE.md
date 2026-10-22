@@ -27,7 +27,7 @@ flowchart TD
     R --> S[One locked evaluation: completed and closed]
     S --> T[Immutable aggregate estimates + uncertainty intervals]
     T --> U[Disclosure-reviewed local presentation snapshot]
-    U --> V[Figures + case study + README + interview guide]
+    U --> V[Figures + case study + README]
 ```
 
 The arrows describe the **completed historical workflow**, not commands to execute
