@@ -124,7 +124,9 @@ it("supports the teaching toggle by keyboard without a recommendation side effec
 });
 it("publishes the reviewed production URL and absolute social sharing metadata", () => {
   expect(SITE.professionalProfileUrl).toBeNull();
-  expect(SITE.productionUrl).toBe("https://marketing-uplift-engine.vercel.app/");
+  expect(SITE.productionUrl).toBe(
+    "https://marketing-uplift-engine.vercel.app/",
+  );
   const meta = shareTags(SITE);
   expect(meta.canonical).toBe(SITE.productionUrl);
   expect(
