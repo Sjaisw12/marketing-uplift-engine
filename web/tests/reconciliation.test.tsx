@@ -82,3 +82,38 @@ it("qualifies the saved nine contrasts and mechanical sweep in the newcomer narr
     "not observed treatment-effect variation",
   );
 });
+
+it("keeps the approved headline and explains the stress assumption on the first read", () => {
+  const { container } = render(<Experience data={data} />);
+  const decision = container.querySelector("#decision")! as HTMLElement;
+  expect(
+    within(decision).getByRole("heading", {
+      level: 2,
+      name: /The frozen rule.*said no spend.*Here's why/,
+    }),
+  ).toBeTruthy();
+  const paragraphs = [...decision.querySelectorAll(".decision-columns p")]
+    .map((p) => p.textContent)
+    .join(" ")
+    .replace(/\s+/g, " ");
+  expect(paragraphs).toContain(
+    "90% assignment probability, not a verified rate",
+  );
+  expect(paragraphs).toContain("records stay the same");
+  expect(paragraphs).toContain(
+    "does not make the stress test scientifically invalid",
+  );
+});
+it("keeps exact numerical reconciliation in expandable content and hashes out of the visitor narrative", () => {
+  const { container } = render(<Experience data={data} />);
+  const science = container.querySelector("#science")!;
+  const detail = within(science as HTMLElement)
+    .getByText("Exact reconciliation & the unnormalized IPW sweep")
+    .closest("details")!;
+  expect(detail.open).toBe(false);
+  expect(detail.textContent).toContain("10.341310853");
+  expect(detail.textContent).toContain("7.419188765");
+  expect(container.textContent).not.toContain(
+    "358c331d72df76d0ca1e4fddd36c7c35be32b1a0b2dd0ae12949c5967ac46169",
+  );
+});

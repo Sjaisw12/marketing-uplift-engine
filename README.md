@@ -1,11 +1,11 @@
 # Marketing Uplift & Causal Decision Engine
 
-**An offline advertising decision study that can recommend spending nothing.**
-
-An advertiser wants incremental website visits, not just a list of people likely
-to visit anyway. This project connects data validation, response and uplift models,
-policy evaluation, uncertainty and a budget-constrained abstention rule on the
-corrected **13.98 million-record Criteo Uplift v2.1 benchmark**.
+Marketing teams need to identify visits advertising might add—not just people
+likely to visit anyway. This offline study compares random targeting, treated-response,
+S-learner and T-learner policies on the corrected **13.98 million-record Criteo
+benchmark**, using frozen development splits and one completed holdout evaluation.
+Its precommitted stress-test rule retained no targeting; the React Decision Lab
+explains that evidence and its limits using approved aggregates only.
 
 **Final recommendation: retain the frozen no-targeting policy.** Positive secondary
 targeting diagnostics do not establish an optimal strategy or authorize replacing
@@ -22,7 +22,43 @@ targeting is an identity—not proof that advertising is ineffective or abstenti
 
 [Local completion and verification evidence](reports/portfolio/completion.md)
 
-## Interactive dashboard
+## Decision Lab — React website source
+
+![Decision Lab local website preview](docs/images/decision-lab-overview.png)
+
+A local preview of the existing editorial website; no live deployment is claimed.
+Criteo-derived presentation assets retain [CC BY-NC-SA 4.0 attribution](web/NOTICE.md);
+application software remains MIT.
+Explore six chapters: the business question, real study, saved comparisons,
+hypothetical budget lab, original decision and expandable methodology.
+The rule abstained in all 40 configurations: five zero-value gates, five infeasible
+initial reaches, and 120 first-tranche candidate stops in the other 30, all bound
+by assumed e=.90 unnormalized IPW. Some sensitivity is mechanical; this is not
+proof that advertising is ineffective or abstention universally optimal.
+
+**Technology:** Python, LightGBM and MLflow for the frozen research;
+React, TypeScript and Vite for the aggregate-only website.
+
+```sh
+cd web
+npm ci                 # Node.js 24
+npm run dev
+```
+
+[PR #16](https://github.com/Sjaisw12/marketing-uplift-engine/pull/16) ·
+[Scientific methodology and reconciliation](docs/SCIENTIFIC_RECONCILIATION.md) ·
+[Frontend README](web/README.md) · [Vercel launch checklist](web/DEPLOYMENT.md)
+
+**Live URL:** not configured. Add the verified owner-approved Vercel URL here only
+after authorized deployment; no invented URL or automatic deployment is configured.
+<!-- Verified live Vercel URL goes here only after owner approval and live checks. -->
+
+The React `web/` tree is the intended public-site source. The `app/` Streamlit
+implementation below is a separate local development dashboard, not the deployed
+website or a production model service. Source publication in PR #16 does not
+constitute hosting approval.
+
+## Local Streamlit development dashboard
 
 Phase 11 adds an aggregate-only Streamlit dashboard: business overview, fixed-reach
 comparisons, saved IPW/DR sensitivity, hypothetical budget arithmetic and paired
@@ -47,8 +83,8 @@ assignment cost and visit value. It is **not validated ROI, deployment guidance 
 a new causal estimate**. Scaled saved intervals do not cover transport uncertainty.
 
 [Local launch and Community Cloud checklist](docs/DASHBOARD.md).
-This branch prepares the application locally; no public deployment or live-demo
-link is claimed. Publication and deployment require separate owner approval.
+Source is under review in PR #16; no public hosting or live-demo link is claimed.
+Hosting deployment requires separate owner approval.
 
 ![End-to-end architecture](reports/portfolio/figures/architecture.png)
 
@@ -236,3 +272,21 @@ hypothetical budget studio and visual methodology. See the [dashboard guide](doc
 for Python 3.12 launch and review-bundle instructions. This presentation update
 preserves the approved aggregate snapshot and frozen no-targeting recommendation;
 public deployment remains a separate owner decision.
+
+## Post-hoc development proposals — not executed
+
+[Development exploration feasibility](docs/DEVELOPMENT_EXPLORATION_FEASIBILITY.md)
+and [arm-balance diagnostic feasibility](docs/ARM_BALANCE_FEASIBILITY.md) describe
+possible development-only follow-ups. They report no alternative recommendation
+or new diagnostic finding, require separate approval and cannot replace the
+original frozen result or reopen the completed holdout.
+
+## Authorship and AI assistance
+
+Created and directed by **Sanyam Jaiswal**. OpenAI Codex assisted with code,
+tests, documentation and presentation implementation. The owner reviewed the
+scientific scope, signed execution approvals, independently restored backups and
+reviewed the results; this acknowledgement does not imply a human-authored
+implementation from scratch or independent validation by an AI tool. Methodological
+limitations and verification evidence are documented rather than inferred from
+the use of an assistant.

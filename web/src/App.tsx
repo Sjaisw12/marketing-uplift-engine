@@ -448,9 +448,9 @@ function Study({ data }: { data: Snapshot }) {
             <h3>The ad-assigned group had a higher observed visit rate.</h3>
             <p>
               In a clean randomized trial, an arm-rate difference can estimate
-              an assignment effect. Here, pooled experiments, unknown
-              assignment probabilities and privacy subsampling mean this
-              observed gap is not a verified causal effect.
+              an assignment effect. Here, pooled experiments, unknown assignment
+              probabilities and privacy subsampling mean this observed gap is
+              not a verified causal effect.
             </p>
             <div className="rate-gap">
               <strong>
@@ -971,7 +971,7 @@ function Decision({ data }: { data: Snapshot }) {
   return (
     <section id="decision" className="decision-section">
       <div className="section-inner">
-        <Chapter n="04" label="The decision was frozen before the reveal" />
+        <Chapter n="04" label="How the rule reached its decision" />
         <div className="decision-statement">
           <div>
             <span className="pill">FROZEN PRIMARY RECOMMENDATION</span>
@@ -988,7 +988,7 @@ function Decision({ data }: { data: Snapshot }) {
             <span>
               advertising assignments
               <br />
-              under the retained primary policy
+              under the original decision rule
             </span>
           </div>
         </div>
@@ -1009,13 +1009,12 @@ function Decision({ data }: { data: Snapshot }) {
               120 candidate ranking records stopped at the first 10% tranche.
             </p>
             <p>
-              The binding condition in all 120 was the unnormalized IPW scenario
-              at assumed e=0.90. In everyday terms: the rule required each extra
-              block of spending to pass every declared stress test, and this
-              test blocked the first block for every candidate. Its
-              first-tranche point estimates were already negative; insufficient
-              event support was not the binding reason. This rule was frozen
-              before the one-time final evaluation.
+              The binding condition in all 120 was unnormalized IPW at assumed
+              e=0.90: a stress scenario assuming a 90% assignment probability,
+              not a verified rate. The rule required each extra block of spend
+              to pass every declared test. This test gave negative first-block
+              estimates for every candidate; insufficient event support was not
+              the binding reason.
             </p>
             <p>
               Some secondary holdout estimates were positive, but they were
@@ -1027,14 +1026,14 @@ function Decision({ data }: { data: Snapshot }) {
               decision is universally best.”
             </p>
             <p>
-              This is a result of the pre-committed stress-test rule, not a
-              general recommendation against advertising. The e=0.90 scenario
-              dominated every feasible first-tranche decision; part of that
-              sensitivity follows mechanically from the unnormalized IPW
-              formula. Advertising ineffectiveness and universally optimal
-              abstention are not established. Removing that scenario has not
-              been tested as a different selection rule. This is an offline
-              study, not a production targeting service.
+              With this IPW formula, raising the assumed assignment probability
+              lowers the estimate even though the records stay the same. Part of
+              the sensitivity is therefore mechanical. That does not make the
+              stress test scientifically invalid; it explains what the
+              pre-committed rule required. This is not a general recommendation
+              against advertising: advertising ineffectiveness and universally
+              optimal abstention are not established. Removing that scenario has
+              not been tested as a different selection rule.
             </p>
           </div>
         </div>
@@ -1112,13 +1111,13 @@ function Science({ data }: { data: Snapshot }) {
         <div className="science-index">
           <span className="mono">EVIDENCE, NOT A BLACK BOX</span>
           <p>
-            Corrected dataset.
+            Real advertising data.
             <br />
-            Frozen partitions.
+            Fixed comparisons.
             <br />
-            Locked recipes.
+            Uncertainty included.
             <br />
-            One final evaluation.
+            One final check.
           </p>
           <a
             href={`${REPO}/blob/main/docs/CASE_STUDY.md`}
@@ -1151,11 +1150,11 @@ function Science({ data }: { data: Snapshot }) {
               used to remove repeated vectors.
             </p>
             <p>
-              Final models were fit using development records and fixed
-              recipes. The final holdout was evaluated once, after the
-              research rules were locked. This website displays only the
-              approved public aggregates; technical verification records
-              remain in the GitHub documentation.
+              Final models were fit using development records and fixed recipes.
+              The final holdout was evaluated once, after the research rules
+              were locked. This website displays only the approved public
+              aggregates; technical verification records remain in the GitHub
+              documentation.
             </p>
           </details>
           <details>
@@ -1171,22 +1170,14 @@ function Science({ data }: { data: Snapshot }) {
             </p>
           </details>
           <Note>
-            <strong>Why two evaluators disagree.</strong> Both use the same
-            complete {data.population.holdout_rows.toLocaleString("en-US")}
-            -record final holdout denominator. At assumed e=0.85, the saved
-            all-targeting gains are IPW{" "}
-            {fmt(
-              estimate(data, "all", 100, { ...DEFAULT, method: "ipw" }).value,
-              9,
-            )}
-            {" and shared DR "}
-            {fmt(estimate(data, "all", 100, DEFAULT).value, 9)}
-            {" visits per 1,000 eligible. DR minus IPW is −2.922122088: the "}
-            nuisance-prediction augmentation term. IPW and DR are not required
-            to be equal. Disagreement alone does not prove a bug or causal
-            identification. Factual calibration cannot establish counterfactual
-            outcome-model correctness. Exact equations and limits are expandable
-            below.
+            <strong>Why two evaluators disagree.</strong> IPW and shared DR use
+            the same complete{" "}
+            {data.population.holdout_rows.toLocaleString("en-US")}
+            -record final holdout denominator, but combine observed visits and
+            model predictions differently. Their estimates need not match;
+            disagreement alone proves neither a bug nor causal identification.
+            Factual calibration cannot establish counterfactual outcome-model
+            correctness. The saved values and equations are expandable below.
           </Note>
           <details>
             <summary>IPW, shared DR & identification</summary>
@@ -1210,6 +1201,18 @@ function Science({ data }: { data: Snapshot }) {
           </details>
           <details>
             <summary>Exact reconciliation & the unnormalized IPW sweep</summary>
+            <p>
+              At assumed e=0.85, saved all-targeting gains per 1,000 eligible
+              are IPW{" "}
+              {fmt(
+                estimate(data, "all", 100, { ...DEFAULT, method: "ipw" }).value,
+                9,
+              )}
+              {" and shared DR "}
+              {fmt(estimate(data, "all", 100, DEFAULT).value, 9)}. DR minus IPW
+              is −2.922122088, the nuisance-prediction augmentation term. IPW
+              and DR are not required to be equal.
+            </p>
             <p>
               For all targeting, let mean denote the average over all N eligible
               records, T assignment, Y visits, and m₀/m₁ the frozen shared

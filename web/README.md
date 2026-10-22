@@ -116,3 +116,13 @@ contrasts. See [scientific reconciliation](../docs/SCIENTIFIC_RECONCILIATION.md)
 The earlier FINAL_REVIEW.md is a historical quality-gate report; current scientific
 narrative and public launch remain **BLOCKED pending owner review** and the
 separate human/host/publication gates. Frozen aggregates and arithmetic are unchanged.
+
+## Latest PR #16 pre-launch review
+
+The upstream React CI and simplified decision headline were preserved. The latest
+review adds shorter public explanations, a React-first repository introduction,
+Vercel instructions and two **unexecuted development-only feasibility proposals**.
+See [current pre-launch review](../docs/PRELAUNCH_REVIEW.md),
+[development exploration feasibility](../docs/DEVELOPMENT_EXPLORATION_FEASIBILITY.md)
+and [arm-balance feasibility](../docs/ARM_BALANCE_FEASIBILITY.md). These do not
+authorize new analysis or hosting. No URL is configured until owner approval.

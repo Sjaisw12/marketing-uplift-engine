@@ -554,3 +554,24 @@ nor factual calibration resolves identification. No frozen result was changed.
 2. **Would normalization or dropping e=.90 justify targeting?** No such replacement
    analysis or new selection was performed. Different scaling does not establish
    identification; the frozen recommendation cannot be reselected from final results.
+
+## Pre-launch reviewer follow-up
+
+I preserved the remotely added React CI and simplified copy, clarified the binding
+stress scenario for newcomers, and separated the public React site from the local
+Streamlit dashboard. A read-only inventory verified 65 development artifacts and
+five validation memberships; proposed alternative and arm-balance analyses remain
+unexecuted. The README credits Sanyam Jaiswal and transparently describes Codex
+implementation assistance. No training, scoring or final-outcome access was repeated.
+
+**Two difficult follow-ups**
+
+1. **Can removing e=.90 reuse the original uncertainty bounds unchanged?** They
+   can remain conservative subset bounds, but a recalibrated 240-coordinate family
+   needs a newly declared maximum calculation using saved paired Gaussian draws.
+   That is post-hoc development exploration, not confirmation or a new final policy.
+2. **Would arm prediction means prove why IPW and DR differ causally?** No. Their
+   association/mismatch decomposition is an exact algebraic diagnostic. It cannot
+   identify hidden experiments, establish counterfactual correctness or determine
+   causal bias direction. Treatment and saved development predictions suffice;
+   no final-holdout data or new scoring is needed.
